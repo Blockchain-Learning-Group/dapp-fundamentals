@@ -20,3 +20,36 @@ b'5d53469f20fef4f8eab52b88044ede69c77a6a68a60728609fc4a65ff531e7d0'
 >>> sha3.sha3_256(bytes(2)).hexdigest()
 b'762ba6a3d9312bf3e6dc71e74f34208e889fc44e6ff400724deecfeda7d5b3ce'
 ```
+7. [Remix](https://ethereum.github.io/browser-solidity/)
+```
+pragma solidity ^0.4.15;
+
+/**
+ * @title Dapp Developer First Contract
+ * Create and deploy a first smart contract.
+ */
+contract DappDeveloper {
+    /**
+     * Storage variables
+     */
+    string public name_;
+    string public currentLocation_;
+    
+    /**
+     * @dev Contract constructor
+     * @param _name Your name.
+     */
+    function DappDeveloper(string _name) public {
+      name_ = _name;
+    }
+    
+    
+    /**
+     * @dev Set your current location.
+     * @param _location Current location.
+     */
+    function setLocation(string _location) external {
+      currentLocation_ = _location;
+    }
+}
+```
