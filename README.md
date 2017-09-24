@@ -21,7 +21,7 @@ b'5d53469f20fef4f8eab52b88044ede69c77a6a68a60728609fc4a65ff531e7d0'
 b'762ba6a3d9312bf3e6dc71e74f34208e889fc44e6ff400724deecfeda7d5b3ce'
 ```
 7. [Remix](https://ethereum.github.io/browser-solidity/)
-```
+`
 pragma solidity ^0.4.15;
 
 /**
@@ -43,7 +43,6 @@ contract DappDeveloper {
       name_ = _name;
     }
     
-    
     /**
      * @dev Set your current location.
      * @param _location Current location.
@@ -52,4 +51,4 @@ contract DappDeveloper {
       currentLocation_ = _location;
     }
 }
-```
+`
