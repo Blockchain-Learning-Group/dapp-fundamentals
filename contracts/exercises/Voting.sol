@@ -9,28 +9,39 @@ contract Voting {
    * Constants
    */
   // Duration of the vote
+  // positive integer that is public and constant representing the number of blocks
+  // the vote will be active for
 
   /**
    * Storage variables
    */
   // Start block, when the vote started in order to define the end time
+  // positive integer, block number the vote was deployed at.
+  // To be set in the constructor
 
   // Mapping to define if a user has already voted
+  // map a user addres to a bool specifying if they have voted
 
-  // Map the name of the candidate to the total number of votes they have
+  // Map the id of the candidate to the total number of votes they have
+  // May simply and assume an id is a positive integer
 
-  // List of candidates
+  // List of candidate ids
+  // May simply and assume an id is a positive integer
 
   // Winner of the vote once complete
+  // May simply and assume an id is a positive integer
 
   /**
    * Events
    */
+  // Logs left as guidance to set storage vars
   event LogCandidateAdded(uint8 candidate);
   event LogUserHasAlreadyVoted(address user);
   event LogVoteCast(address voter, uint8 votedFor);
-  event LogVoteComplete(uint8 winner);
   event LogVoteStillActive();
+
+  // Remaining log
+  // Log that the vote has been completed, specifying the winner
 
   /**
    * @dev Contract constructor
