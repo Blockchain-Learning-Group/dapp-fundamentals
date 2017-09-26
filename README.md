@@ -23,9 +23,12 @@ b'762ba6a3d9312bf3e6dc71e74f34208e889fc44e6ff400724deecfeda7d5b3ce'
 7. [Bitcoin 51% Attack Cost](https://gobitcoin.io/tools/cost-51-attack/)
 8. [Remix](https://ethereum.github.io/browser-solidity/)
 
-9. [DappDeveloper.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/DappDeveloper.sol)
+9. [DappDeveloper.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/contracts/DappDeveloper.sol)
 
 10. Exceed Block Gas Limit
+
+_Add the below to DappDeveloper.sol_
+
 ```
 uint256 value;
 
@@ -37,3 +40,4 @@ function reachGasLimit() {
   }
 }
 ```
+11. (Voting Example)[]
