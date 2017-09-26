@@ -40,6 +40,6 @@ function reachGasLimit() {
   }
 }
 ```
-11. (Voting Exercise)[https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/contracts/exercises/Voting.sol]
+11. [Voting Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/contracts/exercises/Voting.sol)
 
-12. (Token Exercise)[https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/contracts/exercises/Token.sol]
+12. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/contracts/exercises/Token.sol)
