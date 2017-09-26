@@ -105,7 +105,7 @@ library SafeMath {
 
 /**
  * @title Basic ERC20 Token Implementation
- * @author
+ * @author <name>
  */
 contract Token is ERC20, LoggingErrors {
 
@@ -115,20 +115,23 @@ contract Token is ERC20, LoggingErrors {
    * Storage
    *
    */
+  // Token metadata
   string public constant symbol = '';
   string public constant name = '';
   uint public constant decimals = 18;
 
-  // Amount of tokens currently in circulation
+  // The total supply of tokens currently in circulation
+  // A large positive integer
 
   // User balances of tokens
+  // A mapping of user EOA address to the quantity of tokens then own
 
   // Allowances that a user has given to another user in order to allow then to spend
   // tokens on their behalf
   // owner => approved spender => amount
   // ie. bob => alice => 100 means that bob has approved alice to spend 100 of his tokens.
 
-  // The owner of the contract
+  // The owner of the contract.  EOA of the user.
 
   /**
    * Events
@@ -162,6 +165,7 @@ contract Token is ERC20, LoggingErrors {
     // sender has a sufficient balance
 
     // Update the allowance
+    // Increase the _spender's allowance by _amount in allowance mapping
 
     return true;
   }
@@ -183,6 +187,8 @@ contract Token is ERC20, LoggingErrors {
     // Can't mint to address(0)
 
     // Update the total supply and balance of the _to user
+    // Increase total supply my value
+    // Increase _to in the balance mapping by the value
 
     // Logs
 
@@ -204,6 +210,8 @@ contract Token is ERC20, LoggingErrors {
     // Confirm sufficient balance to transfer
 
     // Move the funds from the sender to the recipient
+    // Decrease msg.sender's balance by value
+    // Incease _to's balance by value
 
     // Log
 
@@ -227,6 +235,8 @@ contract Token is ERC20, LoggingErrors {
     // Confirm sender has a sufficient allowance
 
     // Move the funds from the _from balance to the _to balance
+    // Decrease from's balance by value
+    // Incease _to's balance by value
 
     // Subtract the funds from the sender's allowance
 
