@@ -52,3 +52,13 @@ contract DappDeveloper {
     }
 }
 ```
+8. Block Gas Limit
+```
+function reachGasLimit() {
+  for (uint256 i = 0; i < 10**18; i++) {
+      value_ = i; 
+      value_ = i + 1;
+      value_ = i + 2;
+  }
+}
+```
