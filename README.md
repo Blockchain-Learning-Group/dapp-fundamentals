@@ -20,7 +20,8 @@ b'5d53469f20fef4f8eab52b88044ede69c77a6a68a60728609fc4a65ff531e7d0'
 >>> sha3.sha3_256(bytes(2)).hexdigest()
 b'762ba6a3d9312bf3e6dc71e74f34208e889fc44e6ff400724deecfeda7d5b3ce'
 ```
-7. [Remix](https://ethereum.github.io/browser-solidity/)
+7. [Bitcoin 51% Attack Cost](https://gobitcoin.io/tools/cost-51-attack/)
+8. [Remix](https://ethereum.github.io/browser-solidity/)
 ```
 pragma solidity ^0.4.15;
 
@@ -52,7 +53,7 @@ contract DappDeveloper {
     }
 }
 ```
-8. Block Gas Limit
+9. Block Gas Limit
 ```
 function reachGasLimit() {
   for (uint256 i = 0; i < 10**18; i++) {
