@@ -22,42 +22,16 @@ b'762ba6a3d9312bf3e6dc71e74f34208e889fc44e6ff400724deecfeda7d5b3ce'
 ```
 7. [Bitcoin 51% Attack Cost](https://gobitcoin.io/tools/cost-51-attack/)
 8. [Remix](https://ethereum.github.io/browser-solidity/)
-```
-pragma solidity ^0.4.15;
 
-/**
- * @title Dapp Developer First Contract
- * Create and deploy a first smart contract.
- */
-contract DappDeveloper {
-    /**
-     * Storage variables
-     */
-    string public name_;
-    string public currentLocation_;
-    
-    /**
-     * @dev Contract constructor
-     * @param _name Your name.
-     */
-    function DappDeveloper(string _name) public {
-      name_ = _name;
-    }
-    
-    /**
-     * @dev Set your current location.
-     * @param _location Current location.
-     */
-    function setLocation(string _location) external {
-      currentLocation_ = _location;
-    }
-}
+9. [DappDeveloper.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/DappDeveloper.sol)
+
+10. Exceed Block Gas Limit
 ```
-9. Block Gas Limit
-```
+uint256 value;
+
 function reachGasLimit() {
   for (uint256 i = 0; i < 10**18; i++) {
-      value_ = i; 
+      value_ = i;
       value_ = i + 1;
       value_ = i + 2;
   }
