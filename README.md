@@ -50,7 +50,7 @@ Ubuntu / mac:
 5. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 6. [PySha3](https://pypi.python.org/pypi/pysha3)
 ```
-$ pip3 install sha3
+$ pip3 install pysha3==1.0.2
 $ python3
 >>> import sha3
 >>> sha3.sha3_256(bytes(1)).hexdigest()
