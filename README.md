@@ -14,22 +14,28 @@ This serves as an outline of useful resources leveraged over the duration of Blo
 2. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 
 3. Truffle
+
 ```npm install -g truffle```
+
 Having problems? Be sure to check out the [FAQ](https://github.com/ethereumjs/testrpc/wiki/FAQ) and if you're still having issues and you're sure its a problem with testrpc
 
 4. testrpc
+
 ```npm install -g ethereumjs-testrpc```
 
 5. [Partiy](https://parity.io/)
+
 Download from here and sync beforehand if possible.
 
 Ubuntu / mac: 
 ```bash <(curl https://get.parity.io -L)```
 
-6. Web3
+6. [Web3](https://github.com/ethereum/wiki/wiki/JavaScript-API)
+
 ```$ npm install web3``` 
 
 7. [PySha3](https://pypi.python.org/pypi/pysha3)
+
 ```pip3 install sha3```
 
 
