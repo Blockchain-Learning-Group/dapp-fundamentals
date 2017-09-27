@@ -31,6 +31,10 @@ Ubuntu / mac:
 
 ```bash <(curl https://get.parity.io -L)```
 
+Sync the node to Kovan
+
+```parity --chain kovan --warp --mode active --tracing off --cache-size 1024```
+
 6. [Web3](https://github.com/ethereum/wiki/wiki/JavaScript-API)
 
 ```npm install web3``` 
