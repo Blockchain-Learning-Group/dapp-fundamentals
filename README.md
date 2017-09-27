@@ -1,6 +1,26 @@
 # Decentralized Application Development Fundamentals
 This serves as an outline of useful resources leveraged over the duration of Blockchain Learning Group's DApp Development Fundamentals course.
 
+## Pre-requisites and Installs
+1. Python 3+
+2. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
+3. Truffle
+```npm install -g truffle```
+4. testrpc
+```npm install -g ethereumjs-testrpc```
+5. [Partiy](https://parity.io/)
+Download from here and sync beforehand if possible.
+
+Ubuntu / mac: 
+```bash <(curl https://get.parity.io -L)```
+
+6. Web3
+```$ npm install web3``` 
+
+7. [PySha3](https://pypi.python.org/pypi/pysha3)
+```pip3 install sha3```
+
+
 ## Useful Resources
 1. [https://ethstats.net/](https://ethstats.net/)
 2. [http://ethgasstation.info/](http://ethgasstation.info/)
