@@ -28,11 +28,12 @@ Having problems? Be sure to check out the [FAQ](https://github.com/ethereumjs/te
 Download from here and sync beforehand if possible.
 
 Ubuntu / mac: 
+
 ```bash <(curl https://get.parity.io -L)```
 
 6. [Web3](https://github.com/ethereum/wiki/wiki/JavaScript-API)
 
-```$ npm install web3``` 
+```npm install web3``` 
 
 7. [PySha3](https://pypi.python.org/pypi/pysha3)
 
