@@ -3,11 +3,23 @@ This serves as an outline of useful resources leveraged over the duration of Blo
 
 ## Pre-requisites and Installs
 1. Python 3+
+2. Node and npm
+- Node.js >= v6.9.1
+- [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04)
+   Ensure build-essential apt package installed as well.
+- [MacOS](http://yoember.com/nodejs/the-best-way-to-install-node-js/)
+   - macOS ensure you have the XCode command line tools installed. 
+- Use the official Node.js packages, do not use the package supplied by your distribution.
+
 2. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
+
 3. Truffle
 ```npm install -g truffle```
+Having problems? Be sure to check out the [FAQ](https://github.com/ethereumjs/testrpc/wiki/FAQ) and if you're still having issues and you're sure its a problem with testrpc
+
 4. testrpc
 ```npm install -g ethereumjs-testrpc```
+
 5. [Partiy](https://parity.io/)
 Download from here and sync beforehand if possible.
 
