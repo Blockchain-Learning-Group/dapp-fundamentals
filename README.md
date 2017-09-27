@@ -13,13 +13,13 @@ This serves as an outline of useful resources leveraged over the duration of Blo
 
 2. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 
-3. Truffle
+3. [Truffle](http://truffleframework.com/)
 
 ```npm install -g truffle```
 
 Having problems? Be sure to check out the [FAQ](https://github.com/ethereumjs/testrpc/wiki/FAQ) and if you're still having issues and you're sure its a problem with testrpc
 
-4. testrpc
+4. [testrpc](https://github.com/ethereumjs/testrpc)
 
 ```npm install -g ethereumjs-testrpc```
 
