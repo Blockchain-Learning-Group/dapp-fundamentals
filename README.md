@@ -45,6 +45,7 @@ Sync the node to Kovan
 
 
 ## Useful Resources
+### Day 1
 1. [https://ethstats.net/](https://ethstats.net/)
 2. [http://ethgasstation.info/](http://ethgasstation.info/)
 3. [https://etherscan.io/](https://etherscan.io/)
@@ -86,3 +87,6 @@ function reachGasLimit() {
 11. [Voting Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/contracts/exercises/Voting.sol)
 
 12. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/contracts/exercises/Token.sol)
+
+### Day 2
+1. 
