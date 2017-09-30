@@ -110,4 +110,9 @@ truffle test
 ```
 git clone https://github.com/Blockchain-Learning-Group/hub-template
 cd hub-template
+
+# In another winder
+testrpc
+
+hub-template $ truffle test
 ```
