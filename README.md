@@ -115,4 +115,9 @@ cd hub-template
 testrpc
 
 hub-template $ truffle test
+
+cd app
+node server
 ```
+
+[https://localhost:8081](https://localhost:8081)
