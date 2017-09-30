@@ -89,4 +89,25 @@ function reachGasLimit() {
 12. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/contracts/exercises/Token.sol)
 
 ### Day 2
-1. 
+1. TestRpc
+```
+npm install -g ethereum-testrpc
+$ testrpc
+```
+
+2.Truffle Usage
+```
+$ npm install -g truffle
+$ mkdir ether && cd ether && truffle init
+$ truffle version
+$ truffle compile
+$ truffle migrate
+$ truffle test
+```
+
+3. DApp Development
+
+```
+$ git clone https://github.com/Blockchain-Learning-Group/hub-template
+$ cd hub-template
+```
