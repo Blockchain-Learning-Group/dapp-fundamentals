@@ -132,7 +132,7 @@ contract Token is ERC20, LoggingErrors {
   // ie. bob => alice => 100 means that bob has approved alice to spend 100 of his tokens.
   mapping(address => mapping (address => uint256)) public allowed_;
 
-  address public blg_; // EOA
+  address public owner_; // EOA
 
   /**
    * Events
@@ -142,8 +142,8 @@ contract Token is ERC20, LoggingErrors {
   /**
    * @dev CONSTRUCTOR - set blg owner account
    */
-  function BLG() {
-    blg_ = msg.sender;
+  function Token() {
+    owner_ = msg.sender;
   }
 
   /**
@@ -182,8 +182,8 @@ contract Token is ERC20, LoggingErrors {
     external
     returns (bool)
   {
-    if (msg.sender != blg_)
-      return error('msg.sender != blgHub or blg, Token.mint()');
+    if (msg.sender != owner_)
+      return error('msg.sender != owner, Token.mint()');
 
     if (_value <= 0)
       return error('Cannot mint a value of <= 0, Token.mint()');

@@ -180,7 +180,7 @@ contract Token is ERC20, LoggingErrors {
     external
     returns (bool)
   {
-    // Only the owner may mint?
+    // Only the owner may mint
 
     // Can't mint a value of 0!
 
