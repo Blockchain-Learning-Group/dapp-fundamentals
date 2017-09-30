@@ -107,17 +107,45 @@ truffle test
 
 3. DApp Development
 
-```
-git clone https://github.com/Blockchain-Learning-Group/hub-template
-cd hub-template
+   - Clone the repo
+   ```
+   git clone https://github.com/Blockchain-Learning-Group/hub-template
+   cd hub-template
+   ```
+   
+   - In another window run your client, testrpc
+   ```
+   testrpc
+   ```
+   
+   - Run the test
+   ```
 
-# In another winder
-testrpc
+   hub-template $ truffle test
+   ```
+   
+   - Run the application server
+   ```
+   cd app
+   node server
+   ```
+   
+   - Load the app
+   [http://localhost:8081](https://localhost:8081)
+   _Pop open the console and note the error, we must deploy our token contract._
 
-hub-template $ truffle test
-
-cd app
-node server
-```
-
-[https://localhost:8081](https://localhost:8081)
+   - Deploy your token
+   ```
+   hub-template $ truffle migrate
+   ```
+   
+   - Copy the token address from the migration output and update the address in home.js
+   - Also copy in the token artifact json from /build/contracts/Token.json
+   - refresh [http://localhost:8081](https://localhost:8081)
+   
+   - Interact with the token
+   - Within the browser console
+   ```
+   token.address
+   token.totalSupply().toNumber()
+   ```
