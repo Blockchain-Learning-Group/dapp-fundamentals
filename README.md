@@ -92,22 +92,22 @@ function reachGasLimit() {
 1. TestRpc
 ```
 npm install -g ethereum-testrpc
-$ testrpc
+testrpc
 ```
 
 2.Truffle Usage
 ```
-$ npm install -g truffle
-$ mkdir ether && cd ether && truffle init
-$ truffle version
-$ truffle compile
-$ truffle migrate
-$ truffle test
+npm install -g truffle
+mkdir ether && cd ether && truffle init
+truffle version
+truffle compile
+truffle migrate
+truffle test
 ```
 
 3. DApp Development
 
 ```
-$ git clone https://github.com/Blockchain-Learning-Group/hub-template
-$ cd hub-template
+git clone https://github.com/Blockchain-Learning-Group/hub-template
+cd hub-template
 ```
