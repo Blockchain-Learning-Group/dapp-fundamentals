@@ -160,8 +160,7 @@ truffle test
    scripts $ node mint --token 0xbb1ca29e60971dfa434fc1e44912a4b1082e7873
    ```
 
-   - Confirm deployed hub reference correct token
-   
+   - Confirm deployed hub references
    ```
    hub.token_() == token.address
    ```
