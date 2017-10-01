@@ -1,4 +1,4 @@
-import sha3
+from sha3 import keccak_256
 import time
 
 
@@ -10,7 +10,7 @@ def mine_block(block_answer):
         print('\nTrying: ', i)
 
         # Generate the hash and see if you have found the answer
-        hashed_value = sha3.sha3_256(bytes(i)).hexdigest()
+        hashed_value = keccak_256(bytes(i)).hexdigest()
 
         print('Hash: ', hashed_value)
 
@@ -34,18 +34,18 @@ class Timer:
 
 if __name__ == '__main__':
     # The answer for the next block is presented to all miners
-    next_block_answer = b'f4f3a029e3f146b98b5c8464ec07c7d6113288823a58c63711af4491b7160f41'
+    next_block_answer = '41cb66d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659'
 
     # Miners race to find the solution
     with Timer() as t:
-        solution = mine_block(next_block_answer)
+       solution = mine_block(next_block_answer)
 
     mining_time = t.interval
     print('Mining the block took %.09f sec.' % mining_time)
 
     # All nodes in the network then validate this solution
     with Timer() as t:
-        is_valid = next_block_answer == sha3.sha3_256(solution).hexdigest()
+        is_valid = next_block_answer == keccak_256(solution).hexdigest()
 
     if is_valid:
         validating_time = t.interval
