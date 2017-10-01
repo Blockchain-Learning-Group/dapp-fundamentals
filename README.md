@@ -57,12 +57,12 @@ Sync the node to Kovan
 ```
 $ pip3 install pysha3==1.0.2
 $ python3
->>> import sha3
->>> sha3.sha3_256(bytes(1)).hexdigest()
-b'5d53469f20fef4f8eab52b88044ede69c77a6a68a60728609fc4a65ff531e7d0'
+>>> from sha3 import keccak_256
+>>> keccak_256(bytes(1)).hexdigest()
+bc36789e7a1e281436464229828f817d6612f7b477d66591ff96a9e064bcc98a
 
->>> sha3.sha3_256(bytes(2)).hexdigest()
-b'762ba6a3d9312bf3e6dc71e74f34208e889fc44e6ff400724deecfeda7d5b3ce'
+>>> keccak_256(bytes(2)).hexdigest()
+54a8c0ab653c15bfb48b47fd011ba2b9617af01cb45cab344acd57c924d56798
 ```
 7. [Bitcoin 51% Attack Cost](https://gobitcoin.io/tools/cost-51-attack/)
 8. [Remix](https://ethereum.github.io/browser-solidity/)
@@ -164,3 +164,4 @@ truffle test
    ```
    hub.token_() == token.address
    ```
+
