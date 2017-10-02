@@ -101,8 +101,9 @@ npm install -g truffle
 mkdir ether && cd ether && truffle init
 truffle version
 truffle compile
-truffle migrate
+testrpc
 truffle test
+truffle migrate
 ```
 
 3. DApp Development
@@ -118,7 +119,17 @@ truffle test
    testrpc
    ```
    
-   - Run the test
+   - Copy over your token
+   - Utilize code written during Day 1 or Copy the [TokenSolution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/305c778dee2164259c091c7e037c9bd5f61466e9/solutions/TokenSolution_EOD1.sol#L106)
+   - And paste it within [contract/token/Token.sol](https://github.com/Blockchain-Learning-Group/hub-template/blob/58d7ab1ab1230fcf72bfa8a3e96acc4ba325a5ef/contracts/token/Token.sol#L14)
+   - Test the token's mint function
+   
+   ```
+   truffle test test/Token/test_mint.js
+   ```
+   
+   
+   - Run the current test suite and confirm failures
    ```
 
    hub-template $ truffle test
