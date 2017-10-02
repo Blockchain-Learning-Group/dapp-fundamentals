@@ -1,7 +1,3 @@
-
-
-
-
 const Token = artifacts.require("./Token.sol")
 let callResponse
 let txResponse
