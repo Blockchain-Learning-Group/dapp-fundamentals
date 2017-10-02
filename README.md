@@ -123,26 +123,24 @@ truffle migrate
    - Utilize code written during Day 1 or Copy the [TokenSolution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/305c778dee2164259c091c7e037c9bd5f61466e9/solutions/TokenSolution_EOD1.sol#L106)
    - And paste it within [contract/token/Token.sol](https://github.com/Blockchain-Learning-Group/hub-template/blob/58d7ab1ab1230fcf72bfa8a3e96acc4ba325a5ef/contracts/token/Token.sol#L14)
    - Test the token's mint function
-   
    ```
    truffle test test/Token/test_mint.js
    ```
-   
    - Add another test case, should not be able to mint 0 tokens
-   - [Token Mint Test Case solutions](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/517605e79d900c5439505775dff5b3ad619428fe/solutions/TokenTests/test_mints.js#L65)
-   - Confirm new tst passing
+   - [Token Mint Test Case Solutions](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/517605e79d900c5439505775dff5b3ad619428fe/solutions/TokenTests/test_mints.js#L65)
+   - Confirm new test passing
    ```
    truffle test test/Token/test_mint.js
    ```
-   
    - Run the current test suite and confirm all passing, just the mint test case at this time.
    ```
-
    hub-template $ truffle test
    ```
    
    - Run the application server
    ```
+   npm install
+   truffle compile
    cd app
    node server
    ```
