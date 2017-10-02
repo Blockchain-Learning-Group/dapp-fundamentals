@@ -128,8 +128,14 @@ truffle migrate
    truffle test test/Token/test_mint.js
    ```
    
+   - Add another test case, should not be able to mint 0 tokens
+   - [Token Mint Test Case solutions](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/517605e79d900c5439505775dff5b3ad619428fe/solutions/TokenTests/test_mints.js#L65)
+   - Confirm new tst passing
+   ```
+   truffle test test/Token/test_mint.js
+   ```
    
-   - Run the current test suite and confirm failures
+   - Run the current test suite and confirm all passing, just the mint test case at this time.
    ```
 
    hub-template $ truffle test
