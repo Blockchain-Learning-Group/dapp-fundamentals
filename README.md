@@ -218,7 +218,7 @@ truffle migrate
    - Update the deployment script to include the hub. [migrations/2_deploy_contracts.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/3794646c23648d104a8029d01dddf4ed1ca31180/solutions/HubApp/2_deploy_contracts.js#L11) adding the below lines.
    ```
    const Hub = artifacts.require('./Hub.sol')
-   ...
+   
   // Deploy Token contract
   deployer.deploy(Token, { from: owner, gas: 4e6 })
   .then(() => {
