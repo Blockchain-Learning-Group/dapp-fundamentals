@@ -444,3 +444,262 @@ truffle migrate
      })
    ```
    
+   - Update the token mint method to now allow the hub to also mint. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/TokenSolution_EOD2.sol#L95)
+   ```
+   if (msg.sender != owner_ && msg.sender != hub_)
+      return error('msg.sender != owner, Token.mint()');
+   ```
+
+   - Confirm mint still passing
+   ```
+   hub-template $ truffle test test/Token/test_mint.js
+   ```
+   
+   - Create the addResource test file, [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/HubTests/test_addResource.js)
+   - Create the new file test/Hub/test_addResource.js and copy the below
+   ```
+   const Hub = artifacts.require("./Hub.sol")
+   const Token = artifacts.require("./Token.sol")
+   let callResponse
+   let txResponse
+
+   contract('Hub.addResource()', accounts => {
+     const owner = accounts[0]
+     const user1 = accounts[1]
+     const name= 'Adam Lemmon'
+     const position = 'Engineer'
+     const location = 'London, UK'
+
+     it("should add a new resource and allocte tokens to the sender.", async () => {
+       const token = await Token.new()
+       const hub = await Hub.new(token.address)
+       let resource = 'https://github.com'
+
+       // Set the hub address in order to mint tokens
+       await token.setHub(hub.address, { from: owner })
+       // Add the user that will be adding the resource
+       await hub.addUser(user1, name, position, location, { from: owner })
+
+       callResponse = await hub.addResource.call(resource, { from: user1 })
+       txResponse = await hub.addResource(resource, { from: user1 })
+
+       // Assert after tx so we can see the emitted logs in the case of failure.
+       assert(callResponse, 'Call response was not true.')
+
+       // Correct event
+       const eventLog = txResponse.logs[0]  // Note 0 is the user being added
+       assert.equal(eventLog.event, 'LogResourceAdded', 'LogResourceAdded event was not emitted.')
+       assert.equal(eventLog.args.resourceUrl, resource, 'Incorrect url was emitted.')
+       assert.equal(eventLog.args.user, user1, 'Incorrect user was emitted.')
+
+       // Check user's token balance increased as well as the total supply
+       const balance = await token.balanceOf.call(user1)
+       assert.equal(balance.toNumber(), 1000, 'User did not receive correct amount of Token tokens')
+
+       const totalSupply = await token.totalSupply.call(user1)
+       assert.equal(totalSupply.toNumber(), 1000, 'Total supply of Token tokens is incorrect')
+     })
+   })
+   ```
+   
+   - Confirm the failure
+   ```
+   hub-template $ truffle test test/Hub/test_addResource.js
+   ```
+   
+   - Now write the method! If you get stuck... [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/Hub.sol#L81)
+   - And don't forget the event!
+   ```
+   event LogResourceAdded(address user, string resourceUrl, uint blockNumber);
+   ```
+   
+   - Confirm the test passes once method is complete
+    ```
+   hub-template $ truffle test test/Hub/test_addResource.js
+   ```
+   
+   - Add a user from the ui.  Wire up the add user from at the bottom of the index.html
+   - Create the listener for the button click to add a user, [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1047)
+   ```
+  $('#addUser').click(e => {
+    e.preventDefault()
+
+    // Grab values from the form
+    const address = $('#address').val()
+    const name = $('#name').val()
+    const position = $('#position').val()
+    const location = $('#location').val()
+
+    // Send the transaction
+    addUser(address, name, position, location)
+    // NOTE Add user form END
+  })
+   ```
+   
+   - Write the method to actually add the user by sending a transaction. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1066)
+   ```
+   /**
+    * Add a new user to the hub.
+    */
+   async function addUser(address, name, position, location) {
+     const tx = await hub.addUser(address, name, position, location,
+       {
+         from: defaultAccount,
+         gas: 4e6
+       }
+     )
+     console.log('Tx Hash: ' + tx)
+   }
+   ```
+   
+   - Deploy latest contracts
+   ```
+   hub-template $ truffle migrate --reset
+   ```
+   
+   - Update the token address and json in [app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L12)
+   - Update the hub address and json in [app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L664)
+   
+   - Add an event listener for the addUser Event. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1135)
+   ```
+   // Listen starting from now, 'latest'.
+    hub.LogUserAdded({ fromBlock: 'latest', toBlock: 'latest'})
+    .watch(async (error, result) => {
+      if (error) {
+        console.error(error)
+
+      } else {
+        console.log(result)
+        // Get all of the associated data for this user
+        const userData = await hub.userData_(result.args.user)
+        userData[3] = 0 // Reputation / holdings default to 0 tokens
+        // Append to the table
+        appendNewUser(userData)
+      }
+    })
+   ```
+   
+   - Update the ui when a user is added, add an appendUser method to append the user to the table. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1080)
+   ```
+   /**
+    * Append a new user to the contributors tables.
+    * @param  {Array} userData Array of user info
+    */
+   function appendNewUser(userData) {
+     $('#participantsTable').append(
+       '<tr><td>'
+       + userData[0] + '</td><td>' // name
+       + userData[1] + '</td><td>' // position
+       + userData[2] + '</td><td>' // location
+       + userData[3]               // reputation
+       + ' ' + symbol
+       + '</td><</tr>'
+     )
+   }
+   ```
+   
+   - Update the newsfeed when any event is caught
+   - Create a listener for all token and hub events. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1151)
+   ```
+    // Listen for all Events for both token and hub
+    token.allEvents({ fromBlock: 'latest', toBlock: 'latest'})
+    .watch((error, result) => {
+      updateNewsFeed(result)
+    })
+
+    hub.allEvents({ fromBlock: 'latest', toBlock: 'latest'})
+    .watch((error, result) => {
+      updateNewsFeed(result)
+    })
+   ```
+   
+   - Write a method to update the ui when an event is caught. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1222)
+   ```
+   /**
+    * Prepend a new item to the newsfeed table
+    * @param  {Object} data The event log object.
+    */
+   async function updateNewsFeed(data) {
+     let _event = data['event']
+
+     // Parse out the log prefix
+     if (_event.includes('Log'))
+       _event = data['event'].replace('Log', '')
+
+     let img
+     let args
+
+     let userData
+
+     // Define event specific attributes(img, arguments) and prepend
+     if (_event === 'UserAdded') {
+       img = '<img class="d-flex mr-3 rounded-circle" src="img/userAdded.png" height="55" width="55">'
+       userData = await hub.userData_(data.args.user)
+       args = 'Name: ' + userData[0] + '</br>Position: ' + userData[1] + '</br>Location: ' + userData[2]
+
+     } else if (_event === 'ResourceAdded') {
+       img = '<img class="d-flex mr-3 rounded-circle" src="img/resourceAdded.png" height="55" width="55">'
+       userData = await hub.userData_(data.args.user)
+       args = data.args.resourceUrl + '</br> Added by: ' + userData[0]
+
+     } else if (_event === 'TokensMinted') {
+       img = '<img class="d-flex mr-3 rounded-circle" src="img/tokensMinted.png" height="55" width="55">'
+       userData = await hub.userData_(data.args.to)
+       args = '1 BLG token minted!' + '</br> To: ' + userData[0]
+
+     } else if (_event === 'ErrorString') {
+       _event = _event.replace('String', '')
+       img = '<img class="d-flex mr-3 rounded-circle" src="img/error.png" height="55" width="55">'
+       args = '' + data.args.errorString
+
+     } else {
+       _event = _event.replace('String', '')
+       img = ''
+       args = '' + JSON.stringify(data.args)
+     }
+
+     // Finally prepend the div to the table
+     $('#newsFeed').prepend(
+       '<a href="#" class="list-group-item list-group-item-action">'
+         +'<div class="media">'
+           + img
+           +'<div class="media-body">'
+             +'<strong>'+ data['event'].replace('Log', '') +'</strong></br>'
+             + args
+             +'<div class="text-muted smaller">Transaction: '+ data['transactionHash'].slice(0, 20) +'...</div>'
+             +'<div class="text-muted smaller">Mined at block: '+ data['blockNumber'] +'</div>'
+           +'</div>'
+         +'</div>'
+       +'</a>'
+     )
+   }
+   ```
+   
+   - Finally write a method to get all users when the page is rendered.
+   - A getAllUsers method exists in [Hub.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/Hub.sol#L169)
+   
+   - Write a method in app/client/js/home.js to load these users. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1203)
+   ```
+   /**
+    * Load all users within the hub.
+    */
+   async function loadUsers() {
+     // retrieve all user addresses, utilized as ids
+     const users = await hub.getAllUsers()
+     let userData
+     let balance
+
+     for (let i = 0; i < users.length; i++) {
+       // Get each user's data and append
+       userData = await hub.userData_(users[i])
+       // Retrieve the user's balance from the token
+       userData[3] = (await token.balanceOf(users[i])).toNumber()
+       appendNewUser(userData)
+     }
+   }
+   ```
+   
+   - Invoking this method when the page renders. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1111)
+   
+   ### Day 3
+   - 
