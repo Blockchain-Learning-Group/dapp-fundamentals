@@ -149,13 +149,13 @@ truffle migrate
    [http://localhost:8081](https://localhost:8081)
    _Pop open the console and note the error, we must deploy our token contract._
 
-   - Deploy your token
+   - Deploy your token, in another terminal window. Note this should be your 3rd window. 1. testrpc, 2. App server and now 3. Truffle
    ```
-   hub-template $ truffle migrate
+   truffle migrate
    ```
    
-   - Copy the token address from the migration output and update the address in home.js
-   - Also copy in the token artifact json from /build/contracts/Token.json
+   - Copy the token address from the migration output and update the address in [app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/0e3c950d388fb822a6a4312de85c9b2d547bd582/solutions/HubApp/home.js#L12)
+   - Also copy in the token artifact json from build/contracts/Token.json and paste into [app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/0e3c950d388fb822a6a4312de85c9b2d547bd582/solutions/HubApp/home.js#L14) as tokenJson
    - refresh [http://localhost:8081](https://localhost:8081)
    
    - Interact with the token
@@ -170,12 +170,90 @@ truffle migrate
    app $ node server --token 0xbb1ca29e60971dfa434fc1e44912a4b1082e7873
    ```
    
+   - Method to retrieve the total supply server side.  Add the following to your [initHub Method](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/3794646c23648d104a8029d01dddf4ed1ca31180/solutions/HubApp/ether.js#L36).
+   ```
+    // Get the total supply of the token
+    totalSupply = (await token.totalSupply()).toNumber()
+    console.log('Total Supply: ' + totalSupply)
+   ```
+   
+   - Update to ui with the total supply on load adding the below to [app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/3794646c23648d104a8029d01dddf4ed1ca31180/solutions/HubApp/home.js#L1103)
+   ```
+    // Set the total supply and symbol
+    window.totalSupply = (await token.totalSupply()).toNumber()
+    window.symbol = (await token.symbol()).valueOf()
+    $('#totalSupply').text('Total Supply: ' + totalSupply + ' ' + symbol)
+   ```
+   
+   - Create a listener for when tokens are minted, adding the below to [app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/3794646c23648d104a8029d01dddf4ed1ca31180/solutions/HubApp/home.js#L1118)
+   ```
+    // Listen for tokens being minted
+    // Listen starting from now, 'latest'.
+    token.LogTokensMinted({ fromBlock: 'latest', toBlock: 'latest'})
+    .watch((error, result) => {
+      if (error) {
+        console.error(error)
+
+      } else {
+        console.log(result)
+        // Update the total supply
+        totalSupply += result.args.value.toNumber()
+        $('#totalSupply').text('Total Supply: ' + totalSupply + ' ' + symbol)
+      }
+    })
+   ```
+   
+   - Create a script to mint some tokens
+   - Make a new scripts directory
+   ```
+   mkdir scripts && cd scripts
+   ```
+   - Create a new file, mint.js, for our minting script, and copy the following [mint.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/HubApp/mint.js)
+   
    - Mint some tokens.
    ```
    scripts $ node mint --token 0xbb1ca29e60971dfa434fc1e44912a4b1082e7873
    ```
+   - Review the existing [contracts/Hub.sol](https://github.com/Blockchain-Learning-Group/hub-template/blob/master/contracts/Hub.sol)
+   - Update the deployment script to include the hub. [migrations/2_deploy_contracts.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/3794646c23648d104a8029d01dddf4ed1ca31180/solutions/HubApp/2_deploy_contracts.js#L11) adding the below lines.
+   ```
+   const Hub = artifacts.require('./Hub.sol')
+   ...
+  // Deploy Token contract
+  deployer.deploy(Token, { from: owner, gas: 4e6 })
+  .then(() => {
+    // Deploy the hub with refernce to the token
+    return deployer.deploy(Hub, Token.address, { from: owner, gas: 4e6 })
+   })
+   ```
+  - Deploy the hub and token
+  ```
+  hub-template $ truffle migrate
+  ```
+  - First update the address of the token
+  - Copy the output of the migration to [app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/3794646c23648d104a8029d01dddf4ed1ca31180/solutions/HubApp/home.js#L12)
+  - Restart the server with the new address
+  ```
+  ctrl+c
+  node server --token 0xe23390561b9e7e75a2e0b2a3c4513e7bbc23cc5b
+  ```
+  
+  - Create a client side reference of the Hub as well adding the below lines to [app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/3794646c23648d104a8029d01dddf4ed1ca31180/solutions/HubApp/home.js#L664)
+  - Copy the hub address from the migration output
+  - Copy the contents of build/contracts/Hub.json
+  ```
+   const hubAddress = '0x5d61309756460093947261d105e71c2f4b90220e'
+   // Copy the contents of ../build/contracts/Hub.json
+   const hubJson = <contents of Hub.json>
+  ```
+ 
+   - And create a reference to the object in [app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/3794646c23648d104a8029d01dddf4ed1ca31180/solutions/HubApp/home.js#L1108) as well.
+   ```
+   // Create a reference to the Hub
+   window.hub = await web3.eth.contract(hubJson.abi).at(hubAddress)
+   ```
 
-   - Confirm deployed hub references
+   - Confirm deployed hub token matches the token address, within browser console.
    ```
    hub.token_() == token.address
    ```
