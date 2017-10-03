@@ -514,7 +514,7 @@ truffle migrate
    ```
    
    - Confirm the test passes once method is complete
-    ```
+   ```
    hub-template $ truffle test test/Hub/test_addResource.js
    ```
    
