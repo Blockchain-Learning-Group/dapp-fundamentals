@@ -259,4 +259,188 @@ truffle migrate
    ```
    hub.token_() == token.address
    ```
+   
+   - Write the addUsers method within the hub. [addUser Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/8b28e021af300407747e6134df32045f33fc46e2/solutions/Hub.sol#L130)
+   - Also remember to add the correct event!
+   ```
+   /**
+   * Events
+   */
+   event LogUserAdded(address user);
+   
+   /**
+   * @dev Add a new user that may write to the hub.
+   * @param _userEOA User owner EOD, used as their id.
+   * @param _userName Screen or real name of user.
+   * @param _position Professional position.
+   * @param _location Geographic location.
+   * @return Success of the transaction.
+   */
+  function addUser(
+    address _userEOA,
+    string _userName,
+    string _position,
+    string _location
+  )
+    external
+    returns (bool)
+  {
+    // Only the owner may add users
+    if (msg.sender != owner_)
+      return error('msg.sender != owner, Hub.addUser()');
 
+    // User does not exist currently, check the state enum
+    if (userData_[_userEOA].state_ != State_.doesNotExist)
+      return error('User already exists, Hub.addUser()');
+
+    // Add this user's identifier to the array
+    users_.push(_userEOA);
+
+    // Add the user's data which may be retrieved by utilizing their id from
+    // within the users array
+    userData_[_userEOA] = User_({
+      userName_: _userName,
+      position_: _position,
+      location_: _location,
+      state_: State_.active
+    });
+
+    LogUserAdded(_userEOA);
+
+    return true;
+  }
+   ```
+
+   - Create a few tests in order to add users, [test_addUsers.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/HubTests/test_addUser.js)
+   - Create a new folder for our hub tests, test/Hub and create a file within it to test our addUser method, test/Hub/test_addUser.js.  Solution copied below
+   ```
+   const Hub = artifacts.require("./Hub.sol")
+   const Token = artifacts.require("./Token.sol")
+   let callResponse
+   let txResponse
+
+   contract('Hub.addUser()', accounts => {
+     const owner = accounts[0]
+     const user1 = accounts[1]
+     const name= 'Adam Lemmon'
+     const position = 'Engineer'
+     const location = 'London, UK'
+
+     it("should add a new user to the hub.", async () => {
+       const blgToken = await Token.new()
+       const hub = await Hub.new(blgToken.address)
+
+       callResponse = await hub.addUser.call(user1, name, position, location, { from: owner })
+       txResponse = await hub.addUser(user1, name, position, location, { from: owner })
+
+       // Assert after tx so we can see the emitted logs in the case of failure.
+       assert(callResponse, 'Call response was not true.')
+
+       // Confirm correct event logged
+       const eventLog = txResponse.logs[0]
+       assert.equal(eventLog.event, 'LogUserAdded', 'LogUserAdded event was not emitted.')
+       assert.equal(eventLog.args.user, user1, 'Incorrect user was emitted.')
+
+       // Confirm storage updated correctly
+       const user = await hub.users_(0)
+       const userData = await hub.userData_(user)
+
+       assert.equal(user, user1, 'User address not stored in contract')
+       assert.equal(userData[0], name, 'Name not stored in contract')
+       assert.equal(userData[1], position, 'Position not stored in contract')
+       assert.equal(userData[2], location, 'Location not stored in contract')
+       assert.equal(userData[3].valueOf(), 1, 'State of user is not active in contract')
+     })
+   })
+   ```
+   - Run the test file and ensure it is passing
+   ```
+   hub-template $ truffle test test/Hub/test_addUser.js
+   ```
+   
+   - Update the token mint permissioning to allow the hub to mint tokens.
+   - Add a method and storage var for the token to hold a reference to the hub.
+   - Add the storage variable, [Token Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/8b28e021af300407747e6134df32045f33fc46e2/solutions/TokenSolution_EOD2.sol#L45)
+   ```
+   address public hub_; // Hub contract address in order to mint tokens.
+   ```
+   - Add the method to set this value, [Tokensolution.setHub](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/8b28e021af300407747e6134df32045f33fc46e2/solutions/TokenSolution_EOD2.sol#L119)
+   ```
+   /**
+   * @dev Set the address of the hub contract.  This will be used to allow the hub
+   * to mint tokens.
+   * @param _hub The hub contract address.
+   * @return Success of the transaction.
+   */
+  function setHub (
+    address _hub
+  ) external
+    returns (bool)
+  {
+    if (msg.sender != owner_)
+      return error('msg.sender != owner, Token.setHub()');
+
+    if (_hub == address(0))
+      return error('Invalid hub address, hub == address(0), Token.setHub()');
+
+    hub_ = _hub;
+
+    return true;
+  }
+   ```
+   - Create the test file for this method at [test/Token/test_setHub.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/TokenTests/test_setHub.js)
+   ```
+   const Hub = artifacts.require("./Hub.sol")
+   const Token = artifacts.require("./Token.sol")
+   let callResponse
+   let txResponse
+
+   contract('Hub.setHub()', accounts => {
+     const owner = accounts[0]
+
+     it("should set the address of the hub in the token contract.", async () => {
+       const token = await Token.new()
+       const hub = await Hub.new(token.address)
+
+       callResponse = await token.setHub.call(hub.address, { from: owner })
+       txResponse = await token.setHub(hub.address, { from: owner })
+
+       // Assert after tx so we can see the emitted logs in the case of failure.
+       assert(callResponse, 'Call response was not true.')
+
+       // Check the hub address is correct
+       const tokenHub = await token.hub_()
+       assert.equal(tokenHub, hub.address, 'Hub not set correctly in token contract.')
+     })
+   })
+   ```
+   
+   - Confirm it is passing
+   ```
+   hub-template $ truffle test test/Token/test_setHub.js
+   ```
+   - And run the entire test suite for good measure
+   ```
+   hub-template $ truffle test
+   ```
+   
+   - Update the migration file to set the hub address upon deployment now. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/HubApp/2_deploy_contracts.js)
+   ```
+     // Deploy Token contract
+     deployer.deploy(Token, { from: owner, gas: 4e6 })
+     .then(() => {
+       // Deploy the hub with refernce to the token
+       return deployer.deploy(Hub, Token.address, { from: owner, gas: 4e6 })
+
+     /*
+     Section 2: Not required initially until adding the hub address to the token
+      */
+     }).then(() => {
+       // Get reference to the deployed token
+       return Token.deployed()
+
+     }).then(token => {
+       token.setHub(Hub.address, { from: owner, gas: 4e6 })
+     })
+   ```
+   
