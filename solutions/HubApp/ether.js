@@ -44,15 +44,6 @@ async function initHub () {
     totalSupply = (await token.totalSupply()).toNumber()
     console.log('Total Supply: ' + totalSupply)
   }
-
-  // Load data for rapid response to client connections
-  if (token) {
-    /*
-      TODO: Load token data and create listeners
-     */
-  }
-
+ 
   console.log('Server ready!')
 }
-
-module.exports = {}
