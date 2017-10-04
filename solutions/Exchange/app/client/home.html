@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>BLG Exchange</title>
+
+    <link rel="shortcut icon" type="image/png" href="img/blg_favicon.png"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/hub.css" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- web3 -->
+    <script src="vendor/web3.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/hub.min.js"></script>
+    <script src="js/initEther.js"></script> <!-- NOTE link this prior to home so web3 is loaded -->
+    <script src="js/home.js"></script>
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="https://blockchainlearninggroup.com">Blockchain Learning Group</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" id="etherBalance"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" id="blgBalance"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Community Hub</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main landing page -->
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-lg-7 my-auto">
+            <div class="header-content mx-auto">
+              <h1 class="mb-5">BLG Decentralized Exchange</h1>
+              <p>
+                <strong>
+                  Want to build one of your own?
+                </br>
+
+                  Sign-up for our
+                  <a href="https://www.blockchainlearninggroup.com/dapp-development-fundamentals">
+                    DApp development course
+                  </a>
+                  today!
+                </strong>
+
+              </br>
+              </br>
+
+              </p>
+              <a href="#exchange" class="btn btn-outline btn-xl js-scroll-trigger">Place an Order!</a>
+            </div>
+          </div>
+
+          <div class="col-lg-5 my-auto">
+            <div class="device-container">
+              <div>
+                <div class="device">
+                  <div class="screen">
+                    <img src="img/community-hub.png" class="img-fluid" alt="" height="500px">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </header>
+    <!-- END Main landing page -->
+
+    <!-- Exchange Order Creation -->
+    <section class="exchange bg-primary text-center" id="exchange">
+      <div class="container">
+        <div class="row" style="text-align: center;">
+          <div class="col-md-12 mx-auto">
+            <h2 class="section-heading">Place an Order!</h2>
+            <p>Submit an order to the decentralized exchange.</p>
+            <p>Supported pairings include: BLG / ETH.</p>
+            <p>Earn BLG tokens by contributing resources to the community
+              <a href="#contribute">
+                below.
+              </a>
+            </p>
+
+            <!-- Input order form -->
+            <form class="form-inline" id="submitOrderForm">
+                <label class="sr-only" for="inlineFormInputGroup">Offer Token</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width:100%">
+                  <div class="input-group-addon">Offer Token</div>
+                  <select class="form-control" id="offerToken">
+                    <option>BLG</option>
+                    <option>ETH</option>
+                  </select>
+                </div>
+
+                <label class="sr-only" for="inlineFormInputGroup">Offer Amount</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width:100%">
+                  <div class="input-group-addon">Offer Amount</div>
+                  <input type="number" class="form-control" id="offerAmount" placeholder="100">
+                </div>
+
+                <label class="sr-only" for="inlineFormInputGroup">Want Token</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width:100%">
+                  <div class="input-group-addon">Want Token</div>
+                  <select class="form-control" id="wantToken">
+                    <option>ETH</option>
+                    <option>BLG</option>
+                  </select>
+                </div>
+
+                <label class="sr-only" for="inlineFormInputGroup">Want Amount</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width:100%">
+                  <div class="input-group-addon">Want Amount</div>
+                  <input type="number" class="form-control" id="wantAmount" placeholder="1">
+                </div>
+
+                <button class="btn btn-primary" id="submitOrder" style="width:100%; margin-right: auto; margin-left: auto">Submit</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END Exchange Order Creation -->
+
+    <!-- Exchange Order Book -->
+    <section>
+      <div class="container">
+        <h1 style="text-align: center">Order Book</h1>
+
+        </br>
+
+        <h2>Active Orders</h2>
+        <table id="orderBook" class="table table-striped">
+            <tr>
+              <th>Offer Token</th>
+              <th>Offer Amount</th>
+              <th>Want Token</th>
+              <th>Want Amount</th>
+              <th>Maker</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </section>
+    <!-- END Exchange Order Book -->
+
+    <!-- Hub Contribution -->
+    <section class="contribute bg-primary text-center" id="contribute">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <h2 class="section-heading">Contribute to the BLG Community!</h2>
+            <p>Share a useful developer resource and earn BLG tokens.</p>
+            <i>Note you must first be added to the community by BLG.  Get in touch below to find out more.</i>
+
+            <form class="form-inline" id="addResourceForm">
+                <label class="sr-only" for="inlineFormInputGroup">Resource URL</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width:75%">
+                  <div class="input-group-addon">URL</div>
+                  <input type="text" class="form-control" id="resourceUrl" placeholder="https://github.com/Blockchain-Learning-Group">
+                </div>
+
+                <button class="btn btn-primary" id="submitResource" style="width:20%">Submit</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END Hub Contribution -->
+
+    <!-- Contact -->
+    <section class="contact bg-primary" id="contact">
+      <div class="container">
+        <h2>BLG Community Support!</h2>
+        <ul class="list-inline list-social">
+          <li class="list-inline-item social-twitter">
+            <a href="https://twitter.com/BlockchainLG">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li class="list-inline-item social-github">
+            <a href="https://github.com/Blockchain-Learning-Group">
+              <i class="fa fa-github"></i>
+            </a>
+          </li>
+          <li class="list-inline-item social-slack">
+            <a href="https://join.slack.com/t/blockchainlearning/shared_invite/MjIyMzIyODMxMjE3LTE1MDIwNDI5NTYtZWNlZjI2ZmVmNQ">
+              <i class="fa fa-slack"></i>
+            </a>
+          </li>
+        </ul>
+
+        </br>
+
+        <p>adam@blockchainlearninggroup.com</p>
+        <p>murtaza@blockchainlearninggroup.com</p>
+
+      </div>
+    </section>
+    <!-- END Contact -->
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2017 Blockchain Learning Group Inc. All Rights Reserved.</p>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="#">Privacy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">Terms</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">FAQ</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+
+<!-- Modal Windows -->
+<!-- URL is incorrect -->
+<div id="urlIncorrectModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Input Error</h4>
+      </div>
+      <div class="modal-body">
+        <p><strong>A valid URL is requried.</strong> </br> Please enter in the following format: https://url, </br> ie. https://github.com/Blockchain-Learning-Group.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Successful submission -->
+<div id="successModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Transaction Successful!</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          <strong>Thank you!</strong>
+          </br>
+        </p>
+        <p id="txHash"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</html>
