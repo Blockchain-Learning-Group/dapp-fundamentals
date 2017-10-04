@@ -702,4 +702,27 @@ truffle migrate
    - Invoking this method when the page renders. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1111)
    
    ### Day 3
-   - 
+   - Clone the exchange template and install dependencies
+   ```
+   git clone git@github.com:Blockchain-Learning-Group/exchange-template.git
+   cd exchange-template && npm install
+   ```
+   - Start the app
+   ```
+   cd app
+   app $ node server
+   ```
+   [http://localhost:9191/](http://localhost:9191/)
+   
+   - Compile and deploy the hub and token contracts. Ensure testrpc is running
+   ```
+   hub-template $ truffle compile && truffle migrate --reset
+   ```
+   
+   - Update the exchange to interact with the hub, within app/client/js/initEther.js add the hub's address and build json data. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/81d0f1483c8ffa42e9b170e7ac200621ce882ec7/solutions/ExchangeApp/initEther.js#L1793)
+   ```
+   const hubAddress = '0x4519b80e842c4e8a9538997c39550dc724c28427'
+   const hubJSON = <copied form hub-template/build/contracts/Hub.json>
+   ```
+   
+   
