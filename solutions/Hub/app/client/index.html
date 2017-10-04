@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Hub</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="css/hub.css" rel="stylesheet">
+
+    <!-- Bootstrap table -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-table.min.css">
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Vendor -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <script src="vendor/bootstrap/js/bootstrap-table.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap-table-locale-all.min.js"></script>
+
+    <!-- NOTE web3 linked -->
+    <script src="vendor/web3.min.js"></script>
+
+    <!-- Custom -->
+    <script src="js/guiTools.js"></script>
+    <script src="js/home.js"></script>
+  </head>
+
+  <body class="fixed-nav" id="page-top">
+
+    <!-- NAV BARS -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <a class="navbar-brand" href="https://blockchainlearninggroup.com">Blockchain Learning Group -</a>
+      <a class="navbar-brand" href="#" id="totalSupply"></a>
+
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+
+        <!-- SIDE NAV BAR -->
+        <ul class="navbar-nav navbar-sidenav">
+          <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <a class="nav-link" href="#">
+              <i class="fa fa-fw fa-dashboard"></i>
+              <span class="nav-link-text">
+                Dashboard
+              </span>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav sidenav-toggler">
+          <li class="nav-item">
+            <a class="nav-link text-center" id="sidenavToggler">
+              <i class="fa fa-fw fa-angle-left"></i>
+            </a>
+          </li>
+        </ul>
+        <!-- END SIDE NAV BAR -->
+      </div>
+    </nav>
+    <!-- NAV BARS -->
+
+    <div class="content-wrapper py-3">
+      <div class="container-fluid">
+        <!-- Breadcrumbs -->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="https://blockchainlearninggroup.com">BLG</a>
+          </li>
+          <li class="breadcrumb-item active">Developer Commuinty Hub</li>
+        </ol>
+
+        <div class="row">
+
+          <!-- Resources and contributors -->
+          <div class="col-lg-7">
+            <div class="col-lg-12">
+
+              <!-- Top Resources -->
+              <div class="mb-0 mt-4">
+                <i class="fa fa-newspaper-o"></i>
+                Resources
+              </div>
+              <hr class="mt-2">
+              <div class="col-lg-12" id="topResources" style="max-height:300px; overflow-y:scroll"></div>
+              <!-- END Top Resources -->
+
+              <!-- Contributors -->
+              <div class="mb-0 mt-4">
+                <i class="fa fa-table"></i>
+                Top Contributors
+              </div>
+              <hr class="mt-2">
+
+              <div class="card-body">
+                <div class="table-responsive" style="max-height:300px; overflow-y:scroll">
+                  <table id="participantsTable" class="table table-bordered" style="max-height: 200px; overflow-y: scroll" width="100%">
+                    <thead>
+                      <tr>
+                        <th>User Name</th>
+                        <th>Position</th>
+                        <th>Location</th>
+                        <th>Reputation</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+              <div class="card-footer small text-muted" id="userTableTimestamp"></div>
+              <!-- END Contributors -->
+            </div>
+          </div>
+
+          <!-- News Feed -->
+          <div class="col-lg-5" style="max-height:785px; overflow-y:scroll">
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fa fa-bell-o"></i>
+                News Feed
+              </div>
+              <div class="list-group list-group-flush small" id="newsFeed"/>
+            </div>
+          </div>
+          <!-- END News Feed -->
+      </div>
+    </div>
+
+    <!-- User and Resource Forms -->
+    <div class="col-lg-12" style="padding: 10px;">
+      <div class="row">
+        <!-- Add User form -->
+        <div class="col-lg-6" style="padding: 10px;">
+
+          <h2>Add a User</h2>
+          <form class="form-inline">
+            <label class="sr-only" for="inlineFormInputGroup">Name</label>
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width:100%">
+              <div class="input-group-addon">Name</div>
+              <input type="text" class="form-control" id="name" placeholder="Adam Lemmon">
+            </div>
+
+            <label class="sr-only" for="inlineFormInputGroup">Address</label>
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width:100%">
+              <div class="input-group-addon">Address</div>
+              <input type="text" class="form-control" id="address" placeholder="0x1234567890123456789012345678901234567890">
+            </div>
+
+            <label class="sr-only" for="inlineFormInputGroup">Position</label>
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width:100%">
+              <div class="input-group-addon">Position</div>
+              <input type="text" class="form-control" id="position" placeholder="Engineer">
+            </div>
+
+            <label class="sr-only" for="inlineFormInputGroup">Location</label>
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width:100%">
+              <div class="input-group-addon">Location</div>
+              <input type="text" class="form-control" id="location" placeholder="London, UK">
+            </div>
+
+            <button class="btn btn-primary" id="addUser" style="width:100%; margin-right: auto; margin-left: auto">Submit</button>
+          </form>
+        </div>
+
+        <!-- Add Resource Form -->
+        <div class="col-lg-6" style="padding: 10px;">
+          <h2>Add a Resource</h2>
+          <form class="form-inline">
+            <label class="sr-only" for="inlineFormInputGroup">Resource</label>
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width:100%">
+              <div class="input-group-addon">Resource</div>
+              <input type="text" class="form-control" id="resource" placeholder="https://blockchainlearninggroup.com">
+            </div>
+
+            <button class="btn btn-primary" id="addResource" style="width:100%; margin-right: auto; margin-left: auto">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Scroll to Top Button -->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+  </body>
+
+</html>
