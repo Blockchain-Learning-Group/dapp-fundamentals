@@ -11,19 +11,19 @@ This serves as an outline of useful resources leveraged over the duration of Blo
    - macOS ensure you have the XCode command line tools installed. 
 - Use the official Node.js packages, do not use the package supplied by your distribution.
 
-2. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
+4. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 
-3. [Truffle](http://truffleframework.com/)
+5. [Truffle](http://truffleframework.com/)
 
 ```npm install -g truffle```
 
 Having problems? Be sure to check out the [FAQ](https://github.com/ethereumjs/testrpc/wiki/FAQ) and if you're still having issues and you're sure its a problem with testrpc
 
-4. [testrpc](https://github.com/ethereumjs/testrpc)
+6. [testrpc](https://github.com/ethereumjs/testrpc)
 
 ```npm install -g ethereumjs-testrpc```
 
-5. [Partiy](https://parity.io/)
+7. [Partiy](https://parity.io/)
 
 Download from here and sync beforehand if possible.
 
@@ -35,14 +35,15 @@ Sync the node to Kovan
 
 ```parity --chain kovan --warp --mode active --tracing off --cache-size 1024```
 
-6. [Web3](https://github.com/ethereum/wiki/wiki/JavaScript-API)
+8. [Web3](https://github.com/ethereum/wiki/wiki/JavaScript-API)
 
 ```npm install web3``` 
 
-7. [PySha3](https://pypi.python.org/pypi/pysha3)
+9. [PySha3](https://pypi.python.org/pypi/pysha3)
 
 ```pip3 install sha3```
 
+10. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
 
 ## Useful Resources
 ### Day 1
@@ -702,11 +703,19 @@ truffle migrate
    - Invoking this method when the page renders. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1111)
    
    ### Day 3
+   - Solution to Day 2 available here: [solutions/Hub](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/tree/master/solutions/Hub)
+   - Ensure Metamask is installed and unlocked.
+   
    - Clone the exchange template and install dependencies
    ```
    git clone git@github.com:Blockchain-Learning-Group/exchange-template.git
    cd exchange-template && npm install
    ```
+   - Start your ethereum client, in another window
+   ```
+   testrpc
+   ```
+   
    - Start the app
    ```
    cd app
@@ -714,15 +723,74 @@ truffle migrate
    ```
    [http://localhost:9191/](http://localhost:9191/)
    
-   - Compile and deploy the hub and token contracts. Ensure testrpc is running
+   - Compile and deploy the hub and token contracts. Ensure testrpc is running. 
+   - From within the hub repo completed during day 2. Or utilizing the above solution.
    ```
    hub-template $ truffle compile && truffle migrate --reset
    ```
    
-   - Update the exchange to interact with the hub, within app/client/js/initEther.js add the hub's address and build json data. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/81d0f1483c8ffa42e9b170e7ac200621ce882ec7/solutions/ExchangeApp/initEther.js#L1793)
+   - Update the exchange to interact with the hub and the token, within app/client/js/ether.js add the hub and token addresses and build json data. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/ether.js#L1102)
    ```
+   const tokenAddress = '0x4519b80e842c4e8a9538997c39550dc724c28427'
+   const tokenJSON = <copied form hub-template/build/contracts/Token.json>
+   
    const hubAddress = '0x4519b80e842c4e8a9538997c39550dc724c28427'
    const hubJSON = <copied form hub-template/build/contracts/Hub.json>
    ```
    
+   - Create instances of both the hub and token. [Solution]()
+   ```
+   window.blgToken = web3.eth.contract(tokenJSON.abi).at(tokenAddress)
+   window.hub = web3.eth.contract(hubJSON.abi).at(hubAddress)
+   ```
+   
+   - Refresh the browser and ensure object abailable, hub & token in console.
+   - Ensure Metamask is connected to localhost 8545
+   
+   - Add a listener to the submit resource button to submit a transaction. Add this in app/client/js/home.js. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/home.js#L7)
+   ```
+    // Add a resource to the blg hub
+     $('#submitResource').click(e => {
+       e.preventDefault()
+
+       const resourceUrl = $('#resourceUrl').val()
+
+       // Confirm valid input, url and url in correct format
+       if (!resourceUrl) {
+         $('#urlIncorrectModal').modal('show')
+
+       // Valid, submit resource
+       } else if (isUrlValid(resourceUrl)) {
+         window.hub.addResource(
+           resourceUrl,
+           {
+             from: window.defaultAccount,
+             gas: 4e6
+           },
+           (err, res) => {
+             if (err) console.log(err)
+             console.log(res)
+           }
+         )
+
+       } else {
+         $('#urlIncorrectModal').modal('show')
+       }
+     })
+
+   ```
+
+   - Fund the Metamask account
+   - Copy your address from metamask, ie. 0x9Cb47a806AC793CE9739dd138Be3b9DEB16C14E4 below.
+   ```
+   exchange-template $ truffle console
+   truffle(development)> web3.eth.sendTransaction({ from: web3.eth.accounts[0], to: '0x9Cb47a806AC793CE9739dd138Be3b9DEB16C14E4', value: 1e18 })
+   ```
+   - And view the new balance within metamask of 1 ether.
+   
+   - Start up the hub. Note newly deployed token address
+   - Update app/client/js/home.js with new token and hub address and the start the server.
+   ```
+   app $ node server --token 0x1079e3b563820b86bcdc3fed02129bf7e6d9f543
+   ```
    
