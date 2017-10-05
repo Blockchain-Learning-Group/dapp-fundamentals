@@ -3,13 +3,8 @@
  Client side interface.  Primarily listening for events in order to update the
  interface in near real-time.  All data loaded intially server side.
  */
-
-const apiURL = 'http://localhost:8081/'
-const addUserEndpoint = 'addUser/'
-const addResourceEndpoint = 'addResource/'
-
 // TODO Update with current token address and compile json data
-const tokenAddress = '0xc1a6a1f8503aa3b74483fc7064c6e553b1b44018'
+const tokenAddress = '0x65262c9bce86008d5577b018ad72daf1ca907e6a'
 // Copy the contents of ../build/contracts/Token.json
 const tokenJson = {
   "contract_name": "Token",
@@ -661,7 +656,7 @@ const tokenJson = {
   "updated_at": 1506873835180
 }
 
-const hubAddress = '0x5d61309756460093947261d105e71c2f4b90220e'
+const hubAddress = '0xa701a28c10ce1b27fae8cbf7636719fbc1607cc8'
 // Copy the contents of ../build/contracts/Hub.json
 const hubJson = {
   "contract_name": "Hub",
@@ -1044,7 +1039,6 @@ const hubJson = {
 $(document).ready(() => {
   initializeApp()
 
-  // NOTE Add user form
   $('#addUser').click(e => {
     e.preventDefault()
 
@@ -1056,7 +1050,6 @@ $(document).ready(() => {
 
     // Send the transaction
     addUser(address, name, position, location)
-    // NOTE Add user form END
   })
 })
 

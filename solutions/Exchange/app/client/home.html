@@ -38,7 +38,7 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/hub.min.js"></script>
-    <script src="js/initEther.js"></script> <!-- NOTE link this prior to home so web3 is loaded -->
+    <script src="js/ether.js"></script> <!-- NOTE link this prior to home so web3 is loaded -->
     <script src="js/home.js"></script>
   </head>
 
@@ -61,9 +61,6 @@
               <a class="nav-link js-scroll-trigger" id="blgBalance"></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Community Hub</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
             </li>
           </ul>
@@ -77,23 +74,8 @@
         <div class="row h-100">
           <div class="col-lg-7 my-auto">
             <div class="header-content mx-auto">
-              <h1 class="mb-5">BLG Decentralized Exchange</h1>
-              <p>
-                <strong>
-                  Want to build one of your own?
-                </br>
+              <h1 class="mb-5">Your Decentralized Exchange</h1>
 
-                  Sign-up for our
-                  <a href="https://www.blockchainlearninggroup.com/dapp-development-fundamentals">
-                    DApp development course
-                  </a>
-                  today!
-                </strong>
-
-              </br>
-              </br>
-
-              </p>
               <a href="#exchange" class="btn btn-outline btn-xl js-scroll-trigger">Place an Order!</a>
             </div>
           </div>
@@ -122,8 +104,7 @@
           <div class="col-md-12 mx-auto">
             <h2 class="section-heading">Place an Order!</h2>
             <p>Submit an order to the decentralized exchange.</p>
-            <p>Supported pairings include: BLG / ETH.</p>
-            <p>Earn BLG tokens by contributing resources to the community
+            <p>Earn tokens by contributing resources to the community
               <a href="#contribute">
                 below.
               </a>
@@ -135,6 +116,7 @@
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width:100%">
                   <div class="input-group-addon">Offer Token</div>
                   <select class="form-control" id="offerToken">
+                    <!-- TODO Define tokens offered! -->
                     <option>BLG</option>
                     <option>ETH</option>
                   </select>
@@ -150,6 +132,7 @@
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width:100%">
                   <div class="input-group-addon">Want Token</div>
                   <select class="form-control" id="wantToken">
+                    <!-- TODO Define tokens offered! -->
                     <option>ETH</option>
                     <option>BLG</option>
                   </select>

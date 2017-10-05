@@ -15,6 +15,7 @@ contract Exchange is LoggingErrors {
     uint256 wantAmount;
     bool filled;
   }
+
   /**
    * Storage
    */
@@ -49,7 +50,7 @@ contract Exchange is LoggingErrors {
   /**
    * @dev Fallback.  Enable This contract to be sent ether.
    */
-  function () payable { }
+  function() payable { }
 
   /**
    * External
