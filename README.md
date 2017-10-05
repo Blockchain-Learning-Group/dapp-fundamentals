@@ -11,19 +11,19 @@ This serves as an outline of useful resources leveraged over the duration of Blo
    - macOS ensure you have the XCode command line tools installed. 
 - Use the official Node.js packages, do not use the package supplied by your distribution.
 
-2. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
+4. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 
-3. [Truffle](http://truffleframework.com/)
+5. [Truffle](http://truffleframework.com/)
 
 ```npm install -g truffle```
 
 Having problems? Be sure to check out the [FAQ](https://github.com/ethereumjs/testrpc/wiki/FAQ) and if you're still having issues and you're sure its a problem with testrpc
 
-4. [testrpc](https://github.com/ethereumjs/testrpc)
+6. [testrpc](https://github.com/ethereumjs/testrpc)
 
 ```npm install -g ethereumjs-testrpc```
 
-5. [Partiy](https://parity.io/)
+7. [Partiy](https://parity.io/)
 
 Download from here and sync beforehand if possible.
 
@@ -35,14 +35,15 @@ Sync the node to Kovan
 
 ```parity --chain kovan --warp --mode active --tracing off --cache-size 1024```
 
-6. [Web3](https://github.com/ethereum/wiki/wiki/JavaScript-API)
+8. [Web3](https://github.com/ethereum/wiki/wiki/JavaScript-API)
 
 ```npm install web3``` 
 
-7. [PySha3](https://pypi.python.org/pypi/pysha3)
+9. [PySha3](https://pypi.python.org/pypi/pysha3)
 
 ```pip3 install sha3```
 
+10. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
 
 ## Useful Resources
 ### Day 1
@@ -702,11 +703,19 @@ truffle migrate
    - Invoking this method when the page renders. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1111)
    
    ### Day 3
+   - Solution to Day 2 available here: [solutions/Hub](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/tree/master/solutions/Hub)
+   - Ensure Metamask is installed and unlocked.
+   
    - Clone the exchange template and install dependencies
    ```
    git clone git@github.com:Blockchain-Learning-Group/exchange-template.git
    cd exchange-template && npm install
    ```
+   - Start your ethereum client, in another window
+   ```
+   testrpc
+   ```
+   
    - Start the app
    ```
    cd app
@@ -714,15 +723,592 @@ truffle migrate
    ```
    [http://localhost:9191/](http://localhost:9191/)
    
-   - Compile and deploy the hub and token contracts. Ensure testrpc is running
+   - Compile and deploy the hub and token contracts. Ensure testrpc is running. 
+   - From within the hub repo completed during day 2. Or utilizing the above solution.
    ```
    hub-template $ truffle compile && truffle migrate --reset
    ```
    
-   - Update the exchange to interact with the hub, within app/client/js/initEther.js add the hub's address and build json data. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/81d0f1483c8ffa42e9b170e7ac200621ce882ec7/solutions/ExchangeApp/initEther.js#L1793)
+   - Update the exchange to interact with the hub and the token, within app/client/js/ether.js add the hub and token addresses and build json data. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/ether.js#L1102)
    ```
+   const tokenAddress = '0x4519b80e842c4e8a9538997c39550dc724c28427'
+   const tokenJSON = <copied form hub-template/build/contracts/Token.json>
+   
    const hubAddress = '0x4519b80e842c4e8a9538997c39550dc724c28427'
    const hubJSON = <copied form hub-template/build/contracts/Hub.json>
    ```
    
+   - Create instances of both the hub and token. [Solution]()
+   ```
+   window.blgToken = web3.eth.contract(tokenJSON.abi).at(tokenAddress)
+   window.hub = web3.eth.contract(hubJSON.abi).at(hubAddress)
+   ```
    
+   - Refresh the browser and ensure object abailable, hub & token in console.
+   - Ensure Metamask is connected to localhost 8545
+   
+   - Add a listener to the submit resource button to submit a transaction. Add this in app/client/js/home.js. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/home.js#L7)
+   ```
+    // Add a resource to the blg hub
+     $('#submitResource').click(e => {
+       e.preventDefault()
+
+       const resourceUrl = $('#resourceUrl').val()
+
+       // Confirm valid input, url and url in correct format
+       if (!resourceUrl) {
+         $('#urlIncorrectModal').modal('show')
+
+       // Valid, submit resource
+       } else if (isUrlValid(resourceUrl)) {
+         window.hub.addResource(
+           resourceUrl,
+           {
+             from: window.defaultAccount,
+             gas: 4e6
+           },
+           (err, res) => {
+             if (err) console.log(err)
+             console.log(res)
+           }
+         )
+
+       } else {
+         $('#urlIncorrectModal').modal('show')
+       }
+     })
+
+   ```
+
+   - Fund the Metamask account
+   - Copy your address from metamask, ie. 0x9Cb47a806AC793CE9739dd138Be3b9DEB16C14E4 below.
+   ```
+   exchange-template $ truffle console
+   truffle(development)> web3.eth.sendTransaction({ from: web3.eth.accounts[0], to: '0x9Cb47a806AC793CE9739dd138Be3b9DEB16C14E4', value: 1e18 })
+   ```
+   - And view the new balance within metamask of 1 ether.
+   
+   - Start up the hub. Note newly deployed token address
+   - Update app/client/js/home.js with new token and hub address and the start the server.
+   ```
+   app $ node server --token 0x1079e3b563820b86bcdc3fed02129bf7e6d9f543
+   ```
+
+   - Create a listener within the exhange for when tokens are minted and to catch errors, add this to app/client/js/ether.js. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2472)
+   ```
+   /**
+    * Create listeners for the BLG token.
+    */
+   function initBLGTokenListeners() {
+     // Tokens minted. Will be the result of submitting a resource to the hub.
+     window.blgToken.LogTokensMinted({ from: 'latest', to: 'latest' }).watch((err, res) => {
+       if (err) {
+         console.log(err)
+       } else {
+         console.log(res)
+         openTransactionSuccessModal('BLG tokens minted.', res.transactionHash)
+
+         // If tokens minted to user update their balance
+         if (res.args.to == window.defaultAccount) {
+           updateETHBalance(window.defaultAccount)
+           updateTokenBalance(window.defaultAccount)
+         }
+       }
+     })
+
+     // Error event
+     window.blgToken.LogErrorString({ from: 'latest', to: 'latest' }).watch((err, res) => {
+       if (err) {
+         console.log(err)
+       } else {
+         updateETHBalance(window.defaultAccount)
+         alert('Error! \n' + res.args.errorString)
+       }
+     })
+   }
+   ```
+   - And create these listeners once the token object has been created. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2418)
+   ```
+   initBLGTokenListeners()
+   ```
+   
+   - Add a function to now get the updated token balance. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2600)
+   ```
+   /**
+    * Update the default account's token balance.
+    * @param  {String} user The EOA address.
+    */
+   function updateBLGTokenBalance(user) {
+     window.blgToken.balanceOf(user, (err, balance) => {
+       if (err) {
+         console.error(err)
+       } else {
+         $('#blgBalance').text(balance.toNumber() + ' BLG') // convert wei to eth
+       }
+     })
+   }
+   ```
+   
+   - Add a function to now get the updated ether balance. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2614)
+   ```
+   /**
+    * Update the the default account's ether balance.
+    * @param  {String} user The EOA address.
+    */
+   function updateETHBalance(user) {
+     web3.eth.getBalance(user, (err, balance) => {
+       if (err) {
+         console.error(err)
+       } else {
+         $('#etherBalance').text(balance.toNumber() / 10**18 + ' ETH') // convert wei to eth
+       }
+     })
+   }
+   ```
+   
+   - Submit an order!
+   
+   ### Exchange.sol
+   - Confirm the test file is failing.
+   ```
+   exchange-template $ truffle test
+   ```
+   
+   - Create the submit order function. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/contracts/Exchange.sol#L68)
+   ```
+  /**
+   * @dev Submit a new order to the exchange.  If you are offering ether you must
+   * send the amount along with the tx to be executed.  If you are offering a token
+   * you must first approve this exchange to transfer on your behalf.
+   * @param  _offerToken The token being offered.
+   * @param  _offerAmount The amount of tokens being offered.
+   * @param  _wantToken The token that is wanted.
+   * @param  _wantAmount The amount of tokens wanted.
+   * @return The success of this method.
+   */
+  function submitOrder(
+    address _offerToken,
+    uint256 _offerAmount,
+    address _wantToken,
+    uint256 _wantAmount
+  ) external
+    payable
+    returns(bool)
+  {
+    require(_offerAmount > 0);
+    require(_wantAmount > 0);
+
+    // Sufficent offer token balance
+    /* TODO map the ether to a specific user */
+    if (_offerToken == address(0))
+      require(this.balance >= _offerAmount);
+
+    else
+      require(ERC20(_offerToken).balanceOf(msg.sender) >= _offerAmount);
+
+    // Save writes to new storage locations
+    bytes32 orderId;
+    uint orderIndex;
+
+    // check if there is a matching order
+    // Invert to tokens to see if a match exists
+    orderId = keccak256(_wantToken, _wantAmount, _offerToken, _offerAmount);
+
+    // Check for existence of matching order and that it is not filled
+    if (orderBook_[orderId].wantAmount != 0 && !orderBook_[orderId].filled) {
+      return executeOrder(orderId); // match! msg.sender == taker
+
+    // No match, look to add this order to the order book
+    } else {
+      orderId = keccak256(_offerToken, _offerAmount, _wantToken, _wantAmount);
+
+      // Confirm an exact copy of this order does not already exist
+      if (orderBook_[orderId].wantAmount != 0 && !orderBook_[orderId].filled)
+        return error('Identical order is already active, Exchange.submitOrder()');
+
+      // else add the order to the order book
+      // Add id for DApp to retrieve book
+      orderIds_.push(orderId);
+
+      // Push new order object into order book
+      orderBook_[orderId] = Order({
+        maker: msg.sender,
+        offerToken: _offerToken,
+        offerAmount: _offerAmount,
+        wantToken: _wantToken,
+        wantAmount: _wantAmount,
+        filled: false
+      });
+
+      logOrderSubmitted(
+        msg.sender,
+        _offerToken,
+        _offerAmount,
+        _wantToken,
+        _wantAmount
+      );
+
+      return true;
+    }
+  }
+  ```
+  
+  - Confirm the test is passing.
+  ```
+  exchange-template $ truffle test
+  ```
+  
+  - Write a test case for two matching order that are to be executed. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/test/test_submit_executeOrder.js#L58)
+  ```
+  it("executeOrder(), should succeed by trading the tokens. Maker offers ether.", async () => {
+    const exchange = await Exchange.new()
+    // Create token and allocate all tokens to the taker
+    const tokenContract = await TestToken.new(1, 18, "test", "test", { from: taker });
+
+    // Order params
+    const offerToken = 0
+    const offerAmount = 1*10e18 // 1 ether
+    const wantToken = tokenContract.address
+    const wantAmount = 1
+
+    const makerBalanceBefore = web3.eth.getBalance(maker).toNumber()
+    const takerBalanceBefore = web3.eth.getBalance(taker).toNumber()
+
+    // Submit the maker's order
+    await exchange.submitOrder(
+      offerToken,
+      offerAmount,
+      wantToken,
+      wantAmount,
+      {
+        from: maker,
+        gas : 4e6,
+        value: offerAmount
+      }
+    )
+
+    // Approve the exchange to transfer on behalf of the taker
+    await tokenContract.approve(exchange.address, wantAmount, { from: taker })
+
+    // Taker order
+    // NOTE tokens are flipped!
+    const call = await exchange.submitOrder.call(
+      wantToken,
+      wantAmount,
+      offerToken,
+      offerAmount,
+      {
+        from: taker,
+        gas : 4e6
+      }
+    )
+
+    const tx = await exchange.submitOrder(
+      wantToken,
+      wantAmount,
+      offerToken,
+      offerAmount,
+      {
+        from: taker,
+        gas : 4e6
+      }
+    )
+
+    assert(call, 'Call response was not true.')
+
+    const log = tx.logs[0]
+    assert.equal(log.event, 'logOrderExecuted', 'Event not emitted')
+
+    // Ether balances
+    const makerBalanceAfter = web3.eth.getBalance(maker).toNumber()
+    const takerBalanceAfter = web3.eth.getBalance(taker).toNumber()
+    assert.isBelow(makerBalanceAfter, makerBalanceBefore - offerAmount, 'Maker eth balance incorrect')
+    assert.isAbove(takerBalanceAfter, takerBalanceBefore, 'Taker eth balance incorrect')
+
+    // Token balances
+    const makerBalance = await tokenContract.balanceOf.call(maker)
+    const takerBalance = await tokenContract.balanceOf.call(taker)
+    assert.equal(makerBalance.toNumber(), wantAmount, 'Maker token balance incorrect')
+    assert.equal(takerBalance.toNumber(), 0, 'Taker token balance incorrect')
+
+    // Order updated on chain
+    const orderId = await exchange.orderIds_.call(0)
+    const order = await exchange.orderBook_.call(orderId)
+    assert.equal(order[5], true) // filled
+  })
+  ```
+  
+  - Create the executeOrder function for when two orders are matched. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/contracts/Exchange.sol#L143)
+  ```
+  /**
+   * @dev Execute an order that has been matched.
+   * @param _orderId The id of the matched order.
+   * @return The success of this method
+   */
+  function executeOrder(
+    bytes32 _orderId
+  ) private
+    returns(bool)
+  {
+    // Load into mem to save gas on read operations
+    Order memory order = orderBook_[_orderId];
+
+    // Maker is offering ether
+    if (order.offerToken == address(0)) {
+      // Ether to taker
+      msg.sender.transfer(order.offerAmount);
+      // Tokens to maker
+      ERC20(order.wantToken).transferFrom(msg.sender, order.maker, order.wantAmount);
+
+    // Taker is offering ether
+    } else if (order.wantToken == address(0)) {
+      // Ether to maker
+      order.maker.transfer(order.wantAmount);
+      // Tokens to taker
+      ERC20(order.offerToken).transferFrom(order.maker, msg.sender, order.offerAmount);
+    }
+
+    // Update to filled in storage
+    orderBook_[_orderId].filled = true;
+
+    logOrderExecuted(
+      order.maker,
+      msg.sender,
+      order.offerToken,
+      order.offerAmount,
+      order.wantToken,
+      order.wantAmount
+    );
+
+    return true;
+  }
+  ```
+  
+  - Confirm tests passing
+  ```
+  exchange-temlate $ truffle test
+  ```
+  
+  ### Wiring it up
+  - Create a listener on the submit order button to do so within app/client/js/home.js. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/home.js#L36)
+  ```
+   $('#submitOrder').click(e => {
+    e.preventDefault()
+
+    const offerToken = $('#offerToken').val()
+    const offerAmount = $('#offerAmount').val()
+    const wantToken = $('#wantToken').val()
+    const wantAmount = $('#wantAmount').val()
+
+    if (offerAmount <= 0 || wantAmount <= 0) {
+      alert('Invlaid input, amounts must be > 0.')
+      return
+
+    } else if (wantToken === offerToken) {
+      alert('Want and offer token may not be the same!')
+      return
+    }
+
+    // If offer token is eth send the ether to the exchange contract
+    if (offerToken === 'ETH') {
+        submitOrder(offerToken, offerAmount* 10**18, wantToken, wantAmount, offerAmount * 10**18) // convert to ether
+
+    // If the offer token is not eth and therefore some other ERC20 token approve
+    // the exchange to spend on sender's behalf
+    } else if (offerToken === 'BLG') {
+      // Need to check token balance TODO move verification on chain
+      window.blgToken.balanceOf(window.defaultAccount, (error, balance) => {
+        if (balance.toNumber() < offerAmount) {
+          alert('Insufficient token balance!')
+
+        } else {
+          window.blgToken.approve(
+            window.exchange.address,
+            offerAmount,
+            {
+              from: window.defaultAccount,
+              gas: 4e6
+            }, (error, tx) => {
+              if (error) {
+                console.error(error)
+              } else {
+                console.log(tx)
+                submitOrder(offerToken, offerAmount, wantToken, wantAmount * 10**18, 0)
+              }
+            }
+          )
+        }
+      })
+    }
+  })
+  ```
+  
+  - Write the function to actually submit the order, sending the transactions. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/home.js#L96)
+  ```
+/**
+ * Submit the actual order to the order book.
+ * @param  {String} offerToken  The address of the token contract offered.
+ * @param  {Number} offerAmount The amount of tokens offered.
+ * @param  {String} wantToken  The address of the token contract wanted.
+ * @param  {Number} wantAmount The amount of tokens wanted.
+ * @param  {Number} value The ether value to send along with the tx. Used in the case
+ * when offering ether to transfer the value to the exchange to broker the trade.
+ */
+function submitOrder(offerToken, offerAmount, wantToken, wantAmount, value) {
+  window.exchange.submitOrder(
+    window.approvedTokens[offerToken],
+    offerAmount,
+    window.approvedTokens[wantToken],
+    wantAmount,
+    {
+      from: window.defaultAccount,
+      gas : 4e6,
+      value: value
+    }, (error, tx) => {
+      if (error)
+        console.error(error)
+      else
+        console.log(tx)
+    }
+  )
+}
+  ```
+  
+  - Update the approved token address and symbol. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2387)
+  
+  - Now let's deploy our exchange and tell the ui about it.
+  ```
+  exchange-template $ truffle migrate
+  ```
+  
+  - Update app/client/js/ether.js with the exchange's address and build json data. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L8)
+  
+  - Create an instance of the exchange. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2412)
+  ```
+   window.exchange = web3.eth.contract(exchangeJSON.abi).at(exchangeAddress)
+  ```
+  
+  - Submit an order!
+  
+  ### Listeners
+  - Create listeners for the Exchange. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2503)
+  ```
+/**
+ * Create listeners for the exchange contract.
+ */
+function initExchangeListeners() {
+  // Listen for all exchange events
+  window.exchange.allEvents({ from: 'latest', to: 'latest' }).watch((error, res) => {
+    if (error) console.log(error)
+
+    console.log(res)
+
+    if (res.event === 'logOrderSubmitted') {
+      // Update balances - eth may have been transferred to exchange
+      updateETHBalance(window.defaultAccount)
+      const { maker, offerToken, offerAmount, wantToken, wantAmount } = res.args
+      // Append new order to order book table
+      appendOrder(maker, offerToken, offerAmount, wantToken, wantAmount)
+      openTransactionSuccessModal('Order Submitted.', res.transactionHash)
+
+    } else if (res.event === 'logOrderExecuted') {
+      openTransactionSuccessModal('Order Executed.', res.transactionHash)
+
+      // Update balances
+      updateETHBalance(window.defaultAccount)
+      updateTokenBalance(window.defaultAccount)
+
+      // Color the row grey showing it has been filled
+      const id = '#' + res.args.offerToken + res.args.offerAmount + res.args.wantToken + res.args.wantAmount
+      $(id).remove()
+
+    } else if (res.event === 'LogErrorString') {
+      updateETHBalance(window.defaultAccount)
+      alert('Error! \n' + res.args.errorString)
+    }
+  })
+}
+  ```
+  
+  - Create the listeners once the exchange object has been created. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2417)
+  ```
+  initExchangeListeners()
+  ```
+  
+  - Submit an order!
+  
+  - Write a function to load the order book. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2569)
+  ```
+/**
+ * Load the contents of the order book.
+ */
+function loadOrderBook() {
+  window.exchange.getOrderBookIds.call((error, ids) => {
+    // Get order data and load for each returned id
+    for (let i = 0; i < ids.length; i++) {
+      window.exchange.orderBook_.call(ids[i], (err, order) => {
+        // If the order is not filled then append
+        if (!order[5]) {
+          appendOrder(order[0], order[1], order[2], order[3], order[4])
+        }
+      })
+    }
+  })
+}
+  ```
+  
+  - Load the order book once contracts are instantiated. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2424)
+  ```
+  loadOrderBook()
+  ```
+  
+  - And confirm the current orders are all rendered into the table on load.
+  
+  - Finally let's also load the user's ether and token balances on load. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2422)
+ 
+  - Get your parity node synced!
+  
+  ## Day 4
+  ### Deployment
+  - Run your ethereum client.  Now parity and unlock your owner account
+  ```
+  
+  ```
+  
+  - Deploy the hub and token
+  ```
+  hub-template $ truffle migrate
+  ```
+  - Update the hub and token address at hub-template/app/client/js/home.js 
+  - Update the hub and token address at exchange-template/app/client/js/ether.js 
+  
+  - Start the hub
+  ```
+  hub-template/app $ node server --token <tokenAddress>
+  ```
+  
+  - Deploy the exchange
+  ```
+  exchange-template $ truffle migrate
+  ```
+  - Update the exchange address at exchange-template/app/client/js/ether.js 
+  
+  - Start the exchange server
+  ```
+  app $ node server
+  ```
+  - Fund your metamask account, kovan or locally.  Note from Kovan you will require funds from a faucet or provided by the instructor.
+  ```
+  web3.eth.sendTransaction({ from: web3.eth.accounts[0], to: '0x9Cb47a806AC793CE9739dd138Be3b9DEB16C14E4', value: 1e18 })
+  ```
+  
+  - Add your account to the hub
+  
+  
+  ### IPFS
+  - Deploy the exchange to ipfs and share with your friends and colleagues!
+  
+  
+  ### Adding additional token support
+  ```
+  ```
