@@ -1270,22 +1270,40 @@ function loadOrderBook() {
   
   ## Day 4
   ### Deployment
-  - Run your ethereum client.  Now parity and unlock your owner account
+  - Run your ethereum client.
+  ```
+  parity ui --chain kovan --rpccorsdomain "*" --no-warp --mode active --tracing off --cache-size 1024
   ```
   
+  - If troubles connecting to ui update ui and dapps ports
   ```
+  parity ui --chain kovan --rpccorsdomain "*" --no-warp --mode active --tracing off --cache-size 1024 --ui-port 3333 --dapps-port 4444
+  ```
+  
+  - Fund your parity account, BLG trainer will be able to send the required funds to each provider user address.
   
   - Deploy the hub and token
   ```
   hub-template $ truffle migrate
   ```
+  - View the contracts and txs at https://kovan.etherscan.io/address/<address of token / hub>, [Example](https://kovan.etherscan.io/address/0xc6cccf463b30d8f79159435edccb348dcec5023c)
   - Update the hub and token address at hub-template/app/client/js/home.js 
-  - Update the hub and token address at exchange-template/app/client/js/ether.js 
+  - Update the hub and token address at exchange-template/app/client/js/ether.js
+  - Also don't forget to update the mapping of address to token symbol for the ui
+  ```
+  window.tokenAddressToSymbol = {
+    '0x0000000000000000000000000000000000000000': 'ETH',
+    '<newAddress>': 'BLG'
+  }
+  ```
   
   - Start the hub
   ```
   hub-template/app $ node server --token <tokenAddress>
   ```
+  
+  - Add your Metamask address to the hub.
+  - View your transaction on Kovan https://kovan.etherscan.io/tx/<tx id(accessible direct in parity)>, [Example](https://kovan.etherscan.io/tx/0x33137753b9798c1c3a123a53cf1f36476c6d0f415cb126d2bd8166d716313975)
   
   - Deploy the exchange
   ```
@@ -1297,18 +1315,29 @@ function loadOrderBook() {
   ```
   app $ node server
   ```
-  - Fund your metamask account, kovan or locally.  Note from Kovan you will require funds from a faucet or provided by the instructor.
+  - Fund your metamask account.  You may now send ether from your account directly in parity or within the truffle console as below.
   ```
-  web3.eth.sendTransaction({ from: web3.eth.accounts[0], to: '0x9Cb47a806AC793CE9739dd138Be3b9DEB16C14E4', value: 1e18 })
+  $ truffle console
+  > web3.eth.sendTransaction({ from: web3.eth.accounts[0], to: '0x9Cb47a806AC793CE9739dd138Be3b9DEB16C14E4', value: 1e18 })
   ```
-  
-  - Add your account to the hub
-  
   
   ### IPFS
   - Deploy the exchange to ipfs and share with your friends and colleagues!
+  ```
+  cd exchange/deploy
+  deploy $ python3 deploy_to_ipfs.py
   
+**********************************
+* Success, App deployed to IPFS! *
+**********************************
+
+
+**********************************************************************************************
+* Naviagte to: https://ipfs.io/ipfs/QmRppv7LMa5LXEJjGFqg5wVAAMon3kForG7Jy8xxG1EaCj/home.html *
+**********************************************************************************************
+```
+   - Navigate to your truly decentralized app! [Example](https://ipfs.io/ipfs/QmRppv7LMa5LXEJjGFqg5wVAAMon3kForG7Jy8xxG1EaCj/home.html)
   
   ### Adding additional token support
-  ```
-  ```
+  - Add support for other tokens and re deploy.  Coordinate with the your fellow course participants!
+  
