@@ -4,7 +4,7 @@
  interface in near real-time.  All data loaded intially server side.
  */
 // TODO Update with current token address and compile json data
-const tokenAddress = '0x65262c9bce86008d5577b018ad72daf1ca907e6a'
+const tokenAddress = '0xc6cccf463b30d8f79159435edccb348dcec5023c'
 // Copy the contents of ../build/contracts/Token.json
 const tokenJson = {
   "contract_name": "Token",
@@ -656,7 +656,7 @@ const tokenJson = {
   "updated_at": 1506873835180
 }
 
-const hubAddress = '0xa701a28c10ce1b27fae8cbf7636719fbc1607cc8'
+const hubAddress = '0xfa1ecb0f9ddec53cb43de9f84af577e55a1fc8b8'
 // Copy the contents of ../build/contracts/Hub.json
 const hubJson = {
   "contract_name": "Hub",

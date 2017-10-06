@@ -5,7 +5,7 @@
  */
 
 // Exchange, blgToken, hub contract data
-const exchangeAddress = '0x408f2a503904dcba4d538224eb84adc52ab92d91'
+const exchangeAddress = '0xbf9e5e5524f398eecc292c6a10056bb6330bb05e'
 const exchangeJSON = {
   "contract_name": "Exchange",
   "abi": [
@@ -289,7 +289,7 @@ const exchangeJSON = {
   "updated_at": 1507208605271
 }
 
-const tokenAddress = '0x65262c9bce86008d5577b018ad72daf1ca907e6a'
+const tokenAddress = '0xc6cccf463b30d8f79159435edccb348dcec5023c'
 const tokenJSON = {
   "contract_name": "Token",
   "abi": [
@@ -760,7 +760,7 @@ const tokenJSON = {
   "updated_at": 1507118318706
 }
 
-const hubAddress = '0xa701a28c10ce1b27fae8cbf7636719fbc1607cc8'
+const hubAddress = '0xfa1ecb0f9ddec53cb43de9f84af577e55a1fc8b8'
 const hubJSON = {
   "contract_name": "Hub",
   "abi": [
@@ -1077,7 +1077,7 @@ $(window).ready(() => {
 
   window.tokenAddressToSymbol = {
     '0x0000000000000000000000000000000000000000': 'ETH',
-    '0x65262c9bce86008d5577b018ad72daf1ca907e6a': 'BLG'
+    '0xc6cccf463b30d8f79159435edccb348dcec5023c': 'BLG'
   }
 
   // Some race conditiion where metamask is slow to be injected wait then connect.
