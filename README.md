@@ -1338,6 +1338,11 @@ function loadOrderBook() {
 ```
    - Navigate to your truly decentralized app! [Example](https://ipfs.io/ipfs/QmRppv7LMa5LXEJjGFqg5wVAAMon3kForG7Jy8xxG1EaCj/home.html)
   
-  ### Adding additional token support
+  ### Bonus Challenge
+  1. Additional Token Support
   - Add support for other tokens and re deploy.  Coordinate with the your fellow course participants!
+  
+  2. Gas Optimizations
+  - Retrieve all exchange orders by querying events and not using a storage array.
+  - Retrieve all hub users by querying events and not user a storage array as well.
   
