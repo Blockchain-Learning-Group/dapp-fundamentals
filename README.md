@@ -92,7 +92,7 @@ function reachGasLimit() {
 ### Day 2
 1. TestRpc
 ```
-npm install -g ethereum-testrpc
+npm install -g ethereumjs-testrpc
 testrpc
 ```
 
