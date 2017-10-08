@@ -192,7 +192,7 @@ truffle migrate
    ```
    
    - Load the app
-   [http://localhost:8081](https://localhost:8081)
+   [http://localhost:8081](http://localhost:8081)
    _Pop open the console and note the error, we must deploy our token contract._
 
    - Deploy your token, in another terminal window. Note this should be your 3rd window. 1. testrpc, 2. App server and now 3. Truffle
