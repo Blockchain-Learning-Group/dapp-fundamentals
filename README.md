@@ -170,8 +170,7 @@ truffle migrate
 
     // Total Supply
     const supply = await token.totalSupply.call()
-    assert.equal(supply.toNumber(), 0, 'Incorrect total supply balance.')
-  })
+    assert.equal(supply.toNumber(), 0, 'Incorrect total supply balance.') })
    ```
   
    - Confirm new test passing
