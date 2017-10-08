@@ -143,6 +143,7 @@ truffle migrate
    ```
    hub-template $ truffle test test/Token/test_mint.js
    ```
+   
    - Add another test case, should not be able to mint 0 tokens
    - [hub-template/test/Token/test_mint.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/test/Token/test_mint.js#L65)
    ```
@@ -172,7 +173,7 @@ truffle migrate
     assert.equal(supply.toNumber(), 0, 'Incorrect total supply balance.')
   })
   ```
-   
+  
    - Confirm new test passing
    ```
    hub-template $ truffle test test/Token/test_mint.js
