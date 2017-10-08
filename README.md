@@ -37,7 +37,7 @@ Sync the node to Kovan
 
 8. [Web3](https://github.com/ethereum/wiki/wiki/JavaScript-API)
 
-```npm install web3``` 
+```npm install -g web3``` 
 
 9. [PySha3](https://pypi.python.org/pypi/pysha3)
 
