@@ -598,7 +598,7 @@ module.exports = deployer => {
    
    ### UI Add User
    - Add a user from the ui.  Wire up the add user from at the bottom of the index.html
-   - Create the listener for the button click to add a user, [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1047)
+   - Create the listener for the button click to add a user, [Hub/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1042)
    ```
   $('#addUser').click(e => {
     e.preventDefault()
@@ -611,11 +611,10 @@ module.exports = deployer => {
 
     // Send the transaction
     addUser(address, name, position, location)
-    // NOTE Add user form END
   })
    ```
    
-   - Write the method to actually add the user by sending a transaction. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1066)
+   - Write the method to actually add the user by sending a transaction. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1059)
    ```
    /**
     * Add a new user to the hub.
@@ -636,29 +635,29 @@ module.exports = deployer => {
    hub-template $ truffle migrate --reset
    ```
    
-   - Update the token address and json in [app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L12)
-   - Update the hub address and json in [app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L664)
+   - Update the token address and json in [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L7)
+   - Update the hub address and json in [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L659)
    
-   - Add an event listener for the addUser Event. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1135)
+   - Add an event listener for the addUser Event. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1128)
    ```
-   // Listen starting from now, 'latest'.
-    hub.LogUserAdded({ fromBlock: 'latest', toBlock: 'latest'})
-    .watch(async (error, result) => {
-      if (error) {
-        console.error(error)
+ // Listen starting from now, 'latest'.
+ hub.LogUserAdded({ fromBlock: 'latest', toBlock: 'latest'})
+ .watch(async (error, result) => {
+   if (error) {
+     console.error(error)
 
-      } else {
-        console.log(result)
-        // Get all of the associated data for this user
-        const userData = await hub.userData_(result.args.user)
-        userData[3] = 0 // Reputation / holdings default to 0 tokens
-        // Append to the table
-        appendNewUser(userData)
-      }
-    })
+   } else {
+     console.log(result)
+     // Get all of the associated data for this user
+     const userData = await hub.userData_(result.args.user)
+     userData[3] = 0 // Reputation / holdings default to 0 tokens
+     // Append to the table
+     appendNewUser(userData)
+   }
+ })
    ```
    
-   - Update the ui when a user is added, add an appendUser method to append the user to the table. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1080)
+   - And the method to update the ui when a user is added, add an appendUser method to append the user to the table. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1073)
    ```
    /**
     * Append a new user to the contributors tables.
@@ -678,7 +677,7 @@ module.exports = deployer => {
    ```
    
    - Update the newsfeed when any event is caught
-   - Create a listener for all token and hub events. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1151)
+   - Create a listener for all token and hub events. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1144)
    ```
     // Listen for all Events for both token and hub
     token.allEvents({ fromBlock: 'latest', toBlock: 'latest'})
@@ -692,7 +691,7 @@ module.exports = deployer => {
     })
    ```
    
-   - Write a method to update the ui when an event is caught. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1222)
+   - Write a method to update the ui when an event is caught. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1215)
    ```
    /**
     * Prepend a new item to the newsfeed table
@@ -754,31 +753,34 @@ module.exports = deployer => {
    }
    ```
    
-   - Finally write a method to get all users when the page is rendered.
-   - A getAllUsers method exists in [Hub.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/Hub.sol#L169)
+   ### Hub.getAllUsers()
+   - Finally a getAllUsers method exists in [Hub.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/contracts/Hub.sol#L169)
    
-   - Write a method in app/client/js/home.js to load these users. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1203)
+   - Write a method in hub-template/app/client/js/home.js to load these users. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1196)
    ```
-   /**
-    * Load all users within the hub.
-    */
-   async function loadUsers() {
-     // retrieve all user addresses, utilized as ids
-     const users = await hub.getAllUsers()
-     let userData
-     let balance
+/**
+ * Load all users within the hub.
+ */
+async function loadUsers() {
+  // retrieve all user addresses, utilized as ids
+  const users = await hub.getAllUsers()
+  let userData
+  let balance
 
-     for (let i = 0; i < users.length; i++) {
-       // Get each user's data and append
-       userData = await hub.userData_(users[i])
-       // Retrieve the user's balance from the token
-       userData[3] = (await token.balanceOf(users[i])).toNumber()
-       appendNewUser(userData)
-     }
-   }
+  for (let i = 0; i < users.length; i++) {
+    // Get each user's data and append
+    userData = await hub.userData_(users[i])
+    // Retrieve the user's balance from the token
+    userData[3] = (await token.balanceOf(users[i])).toNumber()
+    appendNewUser(userData)
+  }
+}
    ```
    
-   - Invoking this method when the page renders. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/943d769a30acf0e743b581a0c02ac21a44d3e285/solutions/HubApp/home.js#L1111)
+   - Invoking this method when the page renders. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1104)
+   ```
+   loadUsers()
+   ```
    
    ### Day 3
    - Solution to Day 2 available here: [solutions/Hub](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/tree/master/solutions/Hub)
