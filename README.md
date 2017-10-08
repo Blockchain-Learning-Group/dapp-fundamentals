@@ -197,8 +197,6 @@ truffle migrate
 
    - Deploy your token, in another terminal window. Note this should be your 3rd window. 1. testrpc, 2. App server and now 3. Truffle
    ```
-   app $ ctrl+c
-   app $ cd ..
    hub-template $ truffle migrate
    ```
    
