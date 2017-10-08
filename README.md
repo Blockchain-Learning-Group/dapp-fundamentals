@@ -383,7 +383,7 @@ module.exports = deployer => {
    
    - Update the token mint permissioning to allow the hub to mint tokens.
    - Add a method and storage var for the token to hold a reference to the hub.
-   - Add the storage variable, [Token.sol.hub_](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/token/Token.sol#L45)
+   - Add the storage variable, [Token.hub_](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/token/Token.sol#L45)
    ```
    address public hub_; // Hub contract address in order to mint tokens.
    ```
