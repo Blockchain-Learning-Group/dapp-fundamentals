@@ -27,9 +27,16 @@ Having problems? Be sure to check out the [FAQ](https://github.com/ethereumjs/te
 
 Download from here and sync beforehand if possible.
 
-Ubuntu / mac: 
+- Ubuntu / Mac(potentially? Error experienced on OSX 10.11.6): 
 
 ```bash <(curl https://get.parity.io -L)```
+
+- [Mac Homebrew Install](https://github.com/paritytech/homebrew-paritytech/blob/master/README.md)
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap paritytech/paritytech
+brew install parity --stable
+```
 
 Sync the node to Kovan
 
