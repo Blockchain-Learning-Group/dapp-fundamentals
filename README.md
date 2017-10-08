@@ -842,10 +842,10 @@ async function loadUsers() {
    - Compile and deploy the hub and token contracts. Ensure testrpc is running. 
    - From within the hub repo completed during day 2. Or utilizing the above solution.
    ```
-   hub-template $ truffle compile && truffle migrate --reset
+   hub-template $ truffle migrate --reset
    ```
    
-   - Update the exchange to interact with the hub and the token, within app/client/js/ether.js add the hub and token addresses and build json data. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/ether.js#L1102)
+   - Update the exchange to interact with the hub and the token, within exchange-template/app/client/js/ether.js add the hub and token addresses and build json data. [Exchange/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/ether.js#L1102)
    ```
    const tokenAddress = '0x4519b80e842c4e8a9538997c39550dc724c28427'
    const tokenJSON = <copied form hub-template/build/contracts/Token.json>
@@ -854,16 +854,17 @@ async function loadUsers() {
    const hubJSON = <copied form hub-template/build/contracts/Hub.json>
    ```
    
-   - Create instances of both the hub and token. [Solution]()
+   - Create instances of both the hub and token. [exchange-template/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/2b45632be1eae613a2bcb2b62ca7bf95cc927e12/solutions/Exchange/app/client/js/ether.js#L1105)
    ```
-   window.blgToken = web3.eth.contract(tokenJSON.abi).at(tokenAddress)
-   window.hub = web3.eth.contract(hubJSON.abi).at(hubAddress)
+    // Create instance of the exchange, blg token and hub
+    window.token = web3.eth.contract(tokenJSON.abi).at(tokenAddress)
+    window.hub = web3.eth.contract(hubJSON.abi).at(hubAddress)
    ```
    
-   - Refresh the browser and ensure object abailable, hub & token in console.
+   - Refresh the browser and ensure objects are available, hub & token in console.
    - Ensure Metamask is connected to localhost 8545
    
-   - Add a listener to the submit resource button to submit a transaction. Add this in app/client/js/home.js. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/home.js#L7)
+   - Add a listener to the submit resource button to submit a transaction. Add this in app/client/js/home.js. [exchange-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/home.js#L7)
    ```
     // Add a resource to the blg hub
      $('#submitResource').click(e => {
