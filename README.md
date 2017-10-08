@@ -147,31 +147,7 @@ truffle migrate
    - Add another test case, should not be able to mint 0 tokens
    - [hub-template/test/Token/test_mint.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/test/Token/test_mint.js#L65)
    ```
-   it("should return false and LogErrorString when minting a value of 0.", async () => {
-    token = await Token.new({ from: owner })
-
-    let value = 0
-
-    callResponse = await token.mint.call(user1, value, { from: owner })
-    txResponse = await token.mint(user1, value, { from: owner })
-
-    // Assert after tx so we can see the emitted logs in the case of failure.
-    assert(!callResponse, 'Call response was not false.')
-
-    // Event emission
-    const eventLog = txResponse.logs[0]
-    assert.equal(eventLog.event, 'LogErrorString', 'LogErrorString event was not emitted.')
-    const errorString = eventLog.args.errorString;
-    assert.notEqual(errorString.indexOf('Cannot mint a value of <= 0'), -1, "Incorrect error message: " + errorString);
-
-    // Balance
-    const balance = await token.balanceOf.call(user1)
-    assert.equal(balance.toNumber(), 0, 'Incorrect user token balance.')
-
-    // Total Supply
-    const supply = await token.totalSupply.call()
-    assert.equal(supply.toNumber(), 0, 'Incorrect total supply balance.')
-  })
+   hub-template $ truffle test test/Token/test_mint.js
    ```
   
    - Confirm new test passing
