@@ -806,13 +806,18 @@ async function loadUsers() {
     loadUsers()
    ```
    
+   ### TODO
+   - Load all events into news feed 
+   - Load resources into resource table and watch for hub resource added events
+   
+   
    ### Day 3
    - Solution to Day 2 available here: [solutions/Hub](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/tree/master/solutions/Hub)
    - Ensure Metamask is installed and unlocked.
    
-   - Clone the exchange template and install dependencies
+   - Clone the exchange template and install dependencies. Advisable to clone this within the same directory as you hub.
    ```
-   git clone git@github.com:Blockchain-Learning-Group/exchange-template.git
+   git clone https://github.com/Blockchain-Learning-Group/exchange-template.git
    cd exchange-template && npm install
    ```
    - Start your ethereum client, in another window
@@ -822,7 +827,7 @@ async function loadUsers() {
    
    - Start the app
    ```
-   cd app
+   exchange-template $ cd app
    app $ node server
    ```
    [http://localhost:9191/](http://localhost:9191/)
@@ -833,7 +838,7 @@ async function loadUsers() {
    hub-template $ truffle migrate --reset
    ```
    
-   - Update the exchange to interact with the hub and the token, within exchange-template/app/client/js/ether.js add the hub and token addresses and build json data. [Exchange/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/ether.js#L1102)
+   - Update the exchange to interact with the hub and the token, within exchange-template/app/client/js/ether.js add the hub and token addresses and build json data. [Exchange/app/client/js/ether.js#L11](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/ether.js#L1102)
    ```
    const tokenAddress = '0x4519b80e842c4e8a9538997c39550dc724c28427'
    const tokenJSON = <copied form hub-template/build/contracts/Token.json>
@@ -844,6 +849,7 @@ async function loadUsers() {
    
    - Create instances of both the hub and token. [exchange-template/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/2b45632be1eae613a2bcb2b62ca7bf95cc927e12/solutions/Exchange/app/client/js/ether.js#L1105)
    ```
+    // ~Line 823 - within loadWeb3()
     // Create instance of the exchange, blg token and hub
     window.token = web3.eth.contract(tokenJSON.abi).at(tokenAddress)
     window.hub = web3.eth.contract(hubJSON.abi).at(hubAddress)
