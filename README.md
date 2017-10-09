@@ -362,12 +362,12 @@ ether $ truffle migrate
    ### Token.setHub()
    - Update the token mint permissioning to allow the hub to mint tokens.
    - Add a method and storage var for the token to hold a reference to the hub.
-   - Add the storage variable, [Token.hub_](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/token/Token.sol#L45)
+   - Add the storage variable, [hub-template/contracts/Token.sol#L41](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/token/Token.sol#L45)
    ```
    address public hub_; // Hub contract address in order to mint tokens.
    ```
    
-   - Add the method to set this value, [Token.setHub()](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/token/Token.sol#L119)
+   - Add the method to set this value, [hub-template/contracts/Token.sol#L109](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/token/Token.sol#L119)
    ```
   /**
    * @dev Set the address of the hub contract.  This will be used to allow the hub
@@ -422,15 +422,17 @@ ether $ truffle migrate
    ```
    hub-template $ truffle test test/Token/test_setHub.js
    ```
-   - And run the entire test suite for good measure
+   
+   - And run the entire test suite for good measure. 5 passing tests.
    ```
    hub-template $ truffle test
    ```
    
    ### Token.mint()
-   - Update the token mint method to now allow the hub to also mint. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/token/Token.sol#L95)
+   - Update the token mint method to now allow the hub to also mint. [hub-template/contracts/token/Token.sol#L91](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/token/Token.sol#L95)
    ```
-   if (msg.sender != owner_ && msg.sender != hub_)
+   // Line 91
+   if (msg.sender != owner_ && msg.sender != hub_) 
       return error('msg.sender != owner, Token.mint()');
    ```
 
@@ -481,7 +483,7 @@ ether $ truffle migrate
        const balance = await token.balanceOf.call(user1)
        assert.equal(balance.toNumber(), 1000, 'User did not receive correct amount of Token tokens')
 
-       const totalSupply = await token.totalSupply.call(user1)
+       const totalSupply = await token.totalSupply.call()
        assert.equal(totalSupply.toNumber(), 1000, 'Total supply of Token tokens is incorrect')
      })
    })
@@ -492,7 +494,16 @@ ether $ truffle migrate
    hub-template $ truffle test test/Hub/test_addResource.js
    ```
    
-   - Now write the method! If you get stuck... [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/Hub.sol#L81) and copied below for reference, but don't copy and paste it!
+   - Now write the method! [hub-template/contracts/Hub.sol#L81](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/Hub.sol#L81) and copied below for reference, but don't copy and paste it!
+  
+  ... 
+  
+  If you get stuck...
+  
+  ...
+  
+  I mean really stuck...
+  
   ```
   /**
    * @dev Add a new resource to the hub.
@@ -540,7 +551,7 @@ ether $ truffle migrate
     return true;
   }
   ```
-   - And don't forget the event!
+   - And don't forget the event! [hub-template/contracts/Hub.sol#60](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/1fe65c165b0c429fe16d043f227d961b42fded3c/solutions/Hub/contracts/Hub.sol#L60)
    ```
    event LogResourceAdded(address user, string resourceUrl, uint blockNumber);
    ```
@@ -564,9 +575,6 @@ module.exports = deployer => {
     // Deploy the hub with refernce to the token
     return deployer.deploy(Hub, Token.address, { from: owner, gas: 4e6 })
 
-  /*
-  Section 2: Not required initially until adding the hub address to the token
-   */
   }).then(() => {
     // Get reference to the deployed token
     return Token.deployed()
@@ -582,9 +590,9 @@ module.exports = deployer => {
    ```
 
   - First update the address of the token
-  - Copy the output token address of the migration to [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L7)
+  - Copy the output token address of the migration to [hub-template/app/client/js/home.js#L7](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L7)
   
-  - Create a client side reference of the Hub as well adding the below lines to [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L659)
+  - Create a client side reference of the Hub as well adding the below lines to [hub-template/app/client/js/home.js#L480](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L659)
   - Copy the hub address from the migration output
   - Copy the contents of build/contracts/Hub.json
   ```
@@ -593,10 +601,11 @@ module.exports = deployer => {
    const hubJson = <contents of Hub.json>
   ```
  
-   - And create a reference to the object in [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L1101).
+   - And create a reference to the object in [hub-template/app/client/js/home.js#L804](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L1101).
    ```
    // Create a reference to the Hub
    window.hub = await web3.eth.contract(hubJson.abi).at(hubAddress)
+   console.log(hub)
    ```
    - Confirm deployed hub token matches the token address, within browser console.
    ```
@@ -605,8 +614,9 @@ module.exports = deployer => {
    
    ### UI Add User
    - Add a user from the ui.  Wire up the add user from at the bottom of the index.html
-   - Create the listener for the button click to add a user, [Hub/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1042)
+   - Create the listener for the button click to add a user, [hub-template/app/client/js/home.js#792](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1042)
    ```
+   // Line 792
   $('#addUser').click(e => {
     e.preventDefault()
 
@@ -621,8 +631,9 @@ module.exports = deployer => {
   })
    ```
    
-   - Write the method to actually add the user by sending a transaction. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1059)
+   - Write the method to actually add the user by sending a transaction. [hub-template/app/client/js/home.js#L806](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1059)
    ```
+   // Line 806
    /**
     * Add a new user to the hub.
     */
@@ -645,8 +656,9 @@ module.exports = deployer => {
    - Update the token address and json in [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L7)
    - Update the hub address and json in [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L659)
    
-   - Add an event listener for the addUser Event. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1128)
+   - Add an event listener for the addUser Event. [hub-template/app/client/js/home.js#L858](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1128)
    ```
+  // ~Line 858 - within initialieApp()
  // Listen starting from now, 'latest'.
  hub.LogUserAdded({ fromBlock: 'latest', toBlock: 'latest'})
  .watch(async (error, result) => {
@@ -664,8 +676,9 @@ module.exports = deployer => {
  })
    ```
    
-   - And the method to update the ui when a user is added, add an appendUser method to append the user to the table. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1073)
+   - And the method to update the ui when a user is added, add an appendUser method to append the user to the table. [hub-template/app/client/js/home.js#L819](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1073)
    ```
+   // ~Line 819
    /**
     * Append a new user to the contributors tables.
     * @param  {Array} userData Array of user info
@@ -684,8 +697,9 @@ module.exports = deployer => {
    ```
    
    - Update the newsfeed when any event is caught
-   - Create a listener for all token and hub events. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1144)
+   - Create a listener for all token and hub events. [hub-template/app/client/js/home.js#L890](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1144)
    ```
+   // Line 890 - within initializeApp()
     // Listen for all Events for both token and hub
     token.allEvents({ fromBlock: 'latest', toBlock: 'latest'})
     .watch((error, result) => {
@@ -698,8 +712,9 @@ module.exports = deployer => {
     })
    ```
    
-   - Write a method to update the ui when an event is caught. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1215)
+   - Write a method to update the ui when an event is caught. [hub-template/app/client/js/home.js#L917](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1215)
    ```
+   // Line 917 - separate function
    /**
     * Prepend a new item to the newsfeed table
     * @param  {Object} data The event log object.
@@ -761,10 +776,11 @@ module.exports = deployer => {
    ```
    
    ### Hub.getAllUsers()
-   - Finally a getAllUsers method exists in [Hub.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/contracts/Hub.sol#L169)
+   - Finally a getAllUsers method exists in [hub-template/contracts/Hub.sol#L169](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/contracts/Hub.sol#L169)
    
-   - Write a method in hub-template/app/client/js/home.js to load these users. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1196)
+   - Write a method to load these users. [hub-template/app/client/js/home.js#L976](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1196)
    ```
+// Line 976 - separate function
 /**
  * Load all users within the hub.
  */
@@ -784,9 +800,10 @@ async function loadUsers() {
 }
    ```
    
-   - Invoking this method when the page renders. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1104)
+   - Invoking this method when the page renders. [hub-template/app/client/js/home.js#L849](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1104)
    ```
-   loadUsers()
+    // ~Line 849 - within initializeApp()
+    loadUsers()
    ```
    
    ### Day 3
