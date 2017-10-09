@@ -40,7 +40,7 @@ brew install parity --stable
 
 Sync your node to Kovan
 
-```parity --chain kovan --warp --mode active --tracing off --cache-size 1024```
+```parity --chain kovan --no-warp --mode active --tracing off --cache-size 1024```
 
 8. [Web3](https://github.com/ethereum/wiki/wiki/JavaScript-API)
 
@@ -109,7 +109,7 @@ parity ui --chain kovan
 ```
 - Start syncing your node to Kovan tonight!
 ```
-parity ui --chain kovan --rpccorsdomain "*" --no-warp --mode active --tracing off --cache-size 1024 
+parity --chain kovan --no-warp --mode active --tracing off --cache-size 1024 
 ```
 
 3.Truffle Usage
