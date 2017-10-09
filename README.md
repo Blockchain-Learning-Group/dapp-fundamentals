@@ -267,9 +267,10 @@ ether $ truffle migrate
    /**
    * Events
    */
-   event LogUserAdded(address user);
+   event LogUserAdded(address user);  // Line 60
    
-   /**
+   // Line 90
+  /**
    * @dev Add a new user that may write to the hub.
    * @param _userEOA User owner EOD, used as their id.
    * @param _userName Screen or real name of user.
