@@ -313,7 +313,7 @@ ether $ truffle migrate
   }
 ```
 
-   - Create a few tests in order to add users, [hub-template/test/Hub/test_addUsers.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Hub/test/Hub/test_addUser.js)
+   - Create a few tests in order to add users, [hub-template/test/Hub/test_addUser.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Hub/test/Hub/test_addUser.js)
    - Create a new folder for our hub tests, test/Hub and create a file within it to test our addUser method, test/Hub/test_addUser.js.  Solution copied below.
    ```
    const Hub = artifacts.require("./Hub.sol")
@@ -359,50 +359,7 @@ ether $ truffle migrate
    ```
    hub-template $ truffle test test/Hub/test_addUser.js
    ```
-   
-   - Update the deployment script to include the hub. [hub-template/migrations/2_deploy_contracts.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/migrations/2_deploy_contracts.js#L11) and your migration file should be the following:
-  ```
-const Token = artifacts.require('./Token.sol')
-const Hub = artifacts.require('./Hub.sol')
-const owner = web3.eth.accounts[0]
-
-// NOTE do not make method async as truffle will not resolve when utilizing .deployed()
-module.exports = deployer => {
-  // Deploy Token contract
-  deployer.deploy(Token, { from: owner, gas: 4e6 })
-  .then(() => {
-    // Deploy the hub with refernce to the token
-    return deployer.deploy(Hub, Token.address, { from: owner, gas: 4e6 })
-  })
-}
-
-  ```
-  - Deploy the hub and token
-  ```
-  hub-template $ truffle migrate --reset
-  ```
-  - First update the address of the token
-  - Copy the output token address of the migration to [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L7)
-  
-  - Create a client side reference of the Hub as well adding the below lines to [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L659)
-  - Copy the hub address from the migration output
-  - Copy the contents of build/contracts/Hub.json
-  ```
-   const hubAddress = '0x5d61309756460093947261d105e71c2f4b90220e'
-   // Copy the contents of ../build/contracts/Hub.json
-   const hubJson = <contents of Hub.json>
-  ```
- 
-   - And create a reference to the object in [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L1101).
-   ```
-   // Create a reference to the Hub
-   window.hub = await web3.eth.contract(hubJson.abi).at(hubAddress)
-   ```
-
-   - Confirm deployed hub token matches the token address, within browser console.
-   ```
-   hub.token_() == token.address
-   ```
+   ### Token.setHub()
    - Update the token mint permissioning to allow the hub to mint tokens.
    - Add a method and storage var for the token to hold a reference to the hub.
    - Add the storage variable, [Token.hub_](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/token/Token.sol#L45)
@@ -410,7 +367,6 @@ module.exports = deployer => {
    address public hub_; // Hub contract address in order to mint tokens.
    ```
    
-   ### Token.setHub()
    - Add the method to set this value, [Token.setHub()](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/token/Token.sol#L119)
    ```
   /**
@@ -469,37 +425,6 @@ module.exports = deployer => {
    - And run the entire test suite for good measure
    ```
    hub-template $ truffle test
-   ```
-   
-   - Update the migration file to set the hub address upon deployment now. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Hub/migrations/2_deploy_contracts.js) resulting in the following:
-   ```
-const Token = artifacts.require('./Token.sol')
-const Hub = artifacts.require('./Hub.sol')
-const owner = web3.eth.accounts[0]
-
-// NOTE do not make method async as truffle will not resolve when utilizing .deployed()
-module.exports = deployer => {
-  // Deploy Token contract
-  deployer.deploy(Token, { from: owner, gas: 4e6 })
-  .then(() => {
-    // Deploy the hub with refernce to the token
-    return deployer.deploy(Hub, Token.address, { from: owner, gas: 4e6 })
-
-  /*
-  Section 2: Not required initially until adding the hub address to the token
-   */
-  }).then(() => {
-    // Get reference to the deployed token
-    return Token.deployed()
-
-  }).then(token => {
-    token.setHub(Hub.address, { from: owner, gas: 4e6 })
-  })
-}
-   ```
-   - Confirm migration is successful
-   ```
-   hub-template $ truffle migrate --reset
    ```
    
    ### Token.mint()
@@ -623,6 +548,59 @@ module.exports = deployer => {
    - Confirm the test passes once method is complete
    ```
    hub-template $ truffle test test/Hub/test_addResource.js
+   ```
+   
+    - Update the migration file to set the hub address upon deployment now. [hub-template/migrations/2_deploy_contracts.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Hub/migrations/2_deploy_contracts.js) resulting in the following:
+   ```
+const Token = artifacts.require('./Token.sol')
+const Hub = artifacts.require('./Hub.sol')
+const owner = web3.eth.accounts[0]
+
+// NOTE do not make method async as truffle will not resolve when utilizing .deployed()
+module.exports = deployer => {
+  // Deploy Token contract
+  deployer.deploy(Token, { from: owner, gas: 4e6 })
+  .then(() => {
+    // Deploy the hub with refernce to the token
+    return deployer.deploy(Hub, Token.address, { from: owner, gas: 4e6 })
+
+  /*
+  Section 2: Not required initially until adding the hub address to the token
+   */
+  }).then(() => {
+    // Get reference to the deployed token
+    return Token.deployed()
+
+  }).then(token => {
+    token.setHub(Hub.address, { from: owner, gas: 4e6 })
+  })
+}
+   ```
+   - Confirm migration is successful
+   ```
+   hub-template $ truffle migrate --reset
+   ```
+
+  - First update the address of the token
+  - Copy the output token address of the migration to [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L7)
+  
+  - Create a client side reference of the Hub as well adding the below lines to [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L659)
+  - Copy the hub address from the migration output
+  - Copy the contents of build/contracts/Hub.json
+  ```
+   const hubAddress = '0x5d61309756460093947261d105e71c2f4b90220e'
+   // Copy the contents of ../build/contracts/Hub.json
+   const hubJson = <contents of Hub.json>
+  ```
+ 
+   - And create a reference to the object in [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L1101).
+   ```
+   // Create a reference to the Hub
+   window.hub = await web3.eth.contract(hubJson.abi).at(hubAddress)
+   ```
+   - Confirm deployed hub token matches the token address, within browser console.
+   ```
+   hub.token_() == token.address
    ```
    
    ### UI Add User
