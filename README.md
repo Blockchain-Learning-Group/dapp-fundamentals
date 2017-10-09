@@ -114,13 +114,13 @@ parity ui --chain kovan --rpccorsdomain "*" --no-warp --mode active --tracing of
 
 3.Truffle Usage
 ```
-npm install -g truffle
-mkdir ether && cd ether && truffle init
-truffle version
-truffle compile
-testrpc
-truffle test
-truffle migrate
+$ npm install -g truffle
+$ truffle version
+$ mkdir ether && cd ether && truffle init
+ether $ truffle compile
+<in a separate window> $ testrpc
+ether $ truffle test
+ether $ truffle migrate
 ```
 
 4. DApp Development
