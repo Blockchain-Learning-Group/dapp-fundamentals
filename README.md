@@ -38,7 +38,7 @@ brew tap paritytech/paritytech
 brew install parity --stable
 ```
 
-Sync your node to Kovan tonight!
+Sync your node to Kovan
 
 ```parity --chain kovan --warp --mode active --tracing off --cache-size 1024```
 
@@ -107,7 +107,7 @@ testrpc
 ```
 parity ui --chain kovan
 ```
-- Start syncing your node
+- Start syncing your node to Kovan tonight!
 ```
 parity ui --chain kovan --rpccorsdomain "*" --no-warp --mode active --tracing off --cache-size 1024 
 ```
