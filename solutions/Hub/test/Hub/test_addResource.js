@@ -36,7 +36,7 @@ contract('Hub.addResource()', accounts => {
     const balance = await token.balanceOf.call(user1)
     assert.equal(balance.toNumber(), 1000, 'User did not receive correct amount of Token tokens')
 
-    const totalSupply = await token.totalSupply.call(user1)
+    const totalSupply = await token.totalSupply.call()
     assert.equal(totalSupply.toNumber(), 1000, 'Total supply of Token tokens is incorrect')
   })
 })
