@@ -263,7 +263,7 @@ ether $ truffle migrate
    ### Hub.addUser()
    - Write the addUsers method within the hub. [hub-template/contracts/Hub.addUser()](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/Hub.sol#L130)
    - Also remember to add the correct event!
-   ```
+```
  /**
   * Events
   */
@@ -311,7 +311,7 @@ ether $ truffle migrate
 
     return true;
   }
-   ```
+```
 
    - Create a few tests in order to add users, [hub-template/test/Hub/test_addUsers.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Hub/test/Hub/test_addUser.js)
    - Create a new folder for our hub tests, test/Hub and create a file within it to test our addUser method, test/Hub/test_addUser.js.  Solution copied below.
