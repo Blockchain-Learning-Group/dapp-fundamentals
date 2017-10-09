@@ -203,11 +203,8 @@ truffle migrate
    - Copy the token address from the migration output and update the address in [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L7)
    
    - Also copy in the token artifact json from hub-template/build/contracts/Token.json and paste into [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L9) as tokenJson
-   - Restart the server
-   ```
-   app $ node server
-   ```
-   - refresh [http://localhost:8081](https://localhost:8081)
+
+   - refresh [http://localhost:8081](http://localhost:8081)
    
    - Interact with the token
    - Within the browser console
@@ -904,84 +901,94 @@ async function loadUsers() {
    - And view the new balance within metamask of 1 ether.
    
    - Start up the hub. Note newly deployed token address
-   - Update app/client/js/home.js with new token and hub address and the start the server.
+   - Update [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Hub/app/client/js/home.js#L7) with new token and hub address and the start the server.
    ```
-   app $ node server --token 0x1079e3b563820b86bcdc3fed02129bf7e6d9f543
-   ```
-
-   - Create a listener within the exhange for when tokens are minted and to catch errors, add this to app/client/js/ether.js. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2472)
-   ```
-   /**
-    * Create listeners for the BLG token.
-    */
-   function initBLGTokenListeners() {
-     // Tokens minted. Will be the result of submitting a resource to the hub.
-     window.blgToken.LogTokensMinted({ from: 'latest', to: 'latest' }).watch((err, res) => {
-       if (err) {
-         console.log(err)
-       } else {
-         console.log(res)
-         openTransactionSuccessModal('BLG tokens minted.', res.transactionHash)
-
-         // If tokens minted to user update their balance
-         if (res.args.to == window.defaultAccount) {
-           updateETHBalance(window.defaultAccount)
-           updateTokenBalance(window.defaultAccount)
-         }
-       }
-     })
-
-     // Error event
-     window.blgToken.LogErrorString({ from: 'latest', to: 'latest' }).watch((err, res) => {
-       if (err) {
-         console.log(err)
-       } else {
-         updateETHBalance(window.defaultAccount)
-         alert('Error! \n' + res.args.errorString)
-       }
-     })
-   }
-   ```
-   - And create these listeners once the token object has been created. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2418)
-   ```
-   initBLGTokenListeners()
+   hub-template/app $ node server
    ```
    
-   - Add a function to now get the updated token balance. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2600)
+   - Add your Metamask account to the hub.
+
+   - Create a listener within the exhange for when tokens are minted and to catch errors, add this to app/client/js/ether.js. [exchange-template/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1160)
    ```
-   /**
-    * Update the default account's token balance.
-    * @param  {String} user The EOA address.
-    */
-   function updateBLGTokenBalance(user) {
-     window.blgToken.balanceOf(user, (err, balance) => {
-       if (err) {
-         console.error(err)
-       } else {
-         $('#blgBalance').text(balance.toNumber() + ' BLG') // convert wei to eth
-       }
-     })
-   }
+/**
+ * Create listeners for the token.
+ */
+function initTokenListeners() {
+  // Tokens minted. Will be the result of submitting a resource to the hub.
+  token.LogTokensMinted({ from: 'latest', to: 'latest' })
+  .watch((err, res) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(res)
+      openTransactionSuccessModal('Tokens minted.', res.transactionHash)
+
+      // If tokens minted to user update their balance
+      if (res.args.to == defaultAccount) {
+        updateETHBalance(defaultAccount)
+        updateTokenBalance(defaultAccount)
+      }
+    }
+  })
+
+   // Error event
+   token.LogErrorString({ from: 'latest', to: 'latest' }).watch((err, res) => {
+     if (err) {
+       console.log(err)
+     } else {
+       updateETHBalance(defaultAccount)
+       alert('Error! \n' + res.args.errorString)
+     }
+   })
+ }
+   ```
+   - And create these listeners once the token object has been created. [exchange-template/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1111)
+   ```
+   initTokenListeners()
    ```
    
-   - Add a function to now get the updated ether balance. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2614)
+   - Add a function to now get the updated token balance. [exchange-template/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1224)
    ```
-   /**
-    * Update the the default account's ether balance.
-    * @param  {String} user The EOA address.
-    */
-   function updateETHBalance(user) {
-     web3.eth.getBalance(user, (err, balance) => {
-       if (err) {
-         console.error(err)
-       } else {
-         $('#etherBalance').text(balance.toNumber() / 10**18 + ' ETH') // convert wei to eth
-       }
+/**
+ * Update the default account's token balance.
+ * @param  {String} user The EOA address.
+ */
+function updateTokenBalance(user) {
+  // Get the balance of the user
+  token.balanceOf(user, (err, balance) => {
+     // Get the sybmol of the token
+     token.symbol((err, symbol) => {
+       $('#blgBalance').text(balance.toNumber() + ' ' + symbol) // convert wei to eth
      })
-   }
+  })
+}
    ```
    
-   - Submit an order!
+   - Add a function to now get the updated ether balance. [exchange-template/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1210)
+   ```
+/**
+ * Update the the default account's ether balance.
+ * @param  {String} user The EOA address.
+ */
+function updateETHBalance(user) {
+  web3.eth.getBalance(user, (err, balance) => {
+    if (err) {
+      console.error(err)
+    } else {
+      $('#etherBalance').text(balance.toNumber() / 10**18 + ' ETH') // convert wei to eth
+    }
+  })
+}
+   ```
+   
+   - Submit a resource!
+   _Note if events are not caught within the exchange but they are in the hub try disabling and re-enabling Metamask and subsequently unlocking your Metamask account._
+   
+   - Finally let's get the ui to update our balances when the page loads. [exchange-template/app/client/js/ether.js#L1116](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1116)
+   ```
+   updateETHBalance(defaultAccount)
+   updateTokenBalance(defaultAccount)
+   ```
    
    ### Exchange.sol
    - Confirm the test file is failing.
@@ -989,7 +996,7 @@ async function loadUsers() {
    exchange-template $ truffle test
    ```
    
-   - Create the submit order function. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/contracts/Exchange.sol#L68)
+   - Create the submit order function. [exchange-template/contracts/Exchange.submitOrder()](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/contracts/Exchange.sol#L68)
    ```
   /**
    * @dev Submit a new order to the exchange.  If you are offering ether you must
@@ -1073,7 +1080,7 @@ async function loadUsers() {
   exchange-template $ truffle test
   ```
   
-  - Write a test case for two matching order that are to be executed. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/test/test_submit_executeOrder.js#L58)
+  - Write a test case for two matching order that are to be executed. [exchange-template/test/test_submit_executeOrder](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/test/test_submit_executeOrder.js#L58)
   ```
   it("executeOrder(), should succeed by trading the tokens. Maker offers ether.", async () => {
     const exchange = await Exchange.new()
@@ -1153,7 +1160,12 @@ async function loadUsers() {
   })
   ```
   
-  - Create the executeOrder function for when two orders are matched. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/contracts/Exchange.sol#L143)
+  - Cofirm the failure
+  ```
+  exchange-template $ truffle test
+  ```
+  
+  - Create the executeOrder function for when two orders are matched. [exchange-template/contracts/Exchange.executeOrder()](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/contracts/Exchange.sol#L143)
   ```
   /**
    * @dev Execute an order that has been matched.
@@ -1205,7 +1217,7 @@ async function loadUsers() {
   ```
   
   ### Wiring it up
-  - Create a listener on the submit order button to do so within app/client/js/home.js. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/home.js#L36)
+  - Create a listener on the submit order button to do so within app/client/js/home.js. [exchange-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/home.js#L36)
   ```
    $('#submitOrder').click(e => {
     e.preventDefault()
@@ -1232,12 +1244,12 @@ async function loadUsers() {
     // the exchange to spend on sender's behalf
     } else if (offerToken === 'BLG') {
       // Need to check token balance TODO move verification on chain
-      window.blgToken.balanceOf(window.defaultAccount, (error, balance) => {
+      token.balanceOf(window.defaultAccount, (error, balance) => {
         if (balance.toNumber() < offerAmount) {
           alert('Insufficient token balance!')
 
         } else {
-          window.blgToken.approve(
+          token.approve(
             window.exchange.address,
             offerAmount,
             {
@@ -1258,7 +1270,7 @@ async function loadUsers() {
   })
   ```
   
-  - Write the function to actually submit the order, sending the transactions. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/home.js#L96)
+  - Write the function to actually submit the order, sending the transactions. [exchange-template/app/client/js/home.js#submitOrder](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/home.js#L96)
   ```
 /**
  * Submit the actual order to the order book.
@@ -1289,38 +1301,51 @@ function submitOrder(offerToken, offerAmount, wantToken, wantAmount, value) {
 }
   ```
   
-  - Update the approved token address and symbol. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2387)
+  - Update the approved token address and symbol. [exchange-template/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1073)
+  ```
+  // Approved tokens to trade on the exchange, mapping symbol <> address
+  window.approvedTokens = {
+    'ETH': '0x0000000000000000000000000000000000000000',
+    'BLG': tokenAddress
+  }
+
+  window.tokenAddressToSymbol = {
+    '0x0000000000000000000000000000000000000000': 'ETH',
+    '<New Token Address>': 'BLG'
+  }
+  ```
   
   - Now let's deploy our exchange and tell the ui about it.
   ```
   exchange-template $ truffle migrate
   ```
   
-  - Update app/client/js/ether.js with the exchange's address and build json data. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L8)
+  - Update app/client/js/ether.js with the exchange's address and build json data. [exchange-template/app/client/js/ether.js#L8](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L8)
   
-  - Create an instance of the exchange. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2412)
+  - Create an instance of the exchange. [exchange-template/app/client/js/ether.js#L1107](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1107)
   ```
    window.exchange = web3.eth.contract(exchangeJSON.abi).at(exchangeAddress)
   ```
   
   - Submit an order!
   
+  
   ### Listeners
-  - Create listeners for the Exchange. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2503)
+  - Create listeners for the Exchange. [exchange-template/app/client/js/ether.js#L1124](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1124)
   ```
 /**
  * Create listeners for the exchange contract.
  */
 function initExchangeListeners() {
   // Listen for all exchange events
-  window.exchange.allEvents({ from: 'latest', to: 'latest' }).watch((error, res) => {
+  exchange.allEvents({ from: 'latest', to: 'latest' }).watch((error, res) => {
     if (error) console.log(error)
 
     console.log(res)
 
     if (res.event === 'logOrderSubmitted') {
       // Update balances - eth may have been transferred to exchange
-      updateETHBalance(window.defaultAccount)
+      updateETHBalance(defaultAccount)
       const { maker, offerToken, offerAmount, wantToken, wantAmount } = res.args
       // Append new order to order book table
       appendOrder(maker, offerToken, offerAmount, wantToken, wantAmount)
@@ -1330,38 +1355,38 @@ function initExchangeListeners() {
       openTransactionSuccessModal('Order Executed.', res.transactionHash)
 
       // Update balances
-      updateETHBalance(window.defaultAccount)
-      updateTokenBalance(window.defaultAccount)
+      updateETHBalance(defaultAccount)
+      updateTokenBalance(defaultAccount)
 
       // Color the row grey showing it has been filled
       const id = '#' + res.args.offerToken + res.args.offerAmount + res.args.wantToken + res.args.wantAmount
       $(id).remove()
 
     } else if (res.event === 'LogErrorString') {
-      updateETHBalance(window.defaultAccount)
+      updateETHBalance(defaultAccount)
       alert('Error! \n' + res.args.errorString)
     }
   })
 }
   ```
   
-  - Create the listeners once the exchange object has been created. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2417)
+  - Create the listeners once the exchange object has been created. [exchange-template/app/client/js/ether.js#L1112](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1112)
   ```
   initExchangeListeners()
   ```
   
   - Submit an order!
   
-  - Write a function to load the order book. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2569)
+  - Write a function to load the order book. [exchange-template/app/client/js/ether.js#L1192](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1192)
   ```
 /**
  * Load the contents of the order book.
  */
 function loadOrderBook() {
-  window.exchange.getOrderBookIds.call((error, ids) => {
+  exchange.getOrderBookIds.call((error, ids) => {
     // Get order data and load for each returned id
     for (let i = 0; i < ids.length; i++) {
-      window.exchange.orderBook_.call(ids[i], (err, order) => {
+      exchange.orderBook_.call(ids[i], (err, order) => {
         // If the order is not filled then append
         if (!order[5]) {
           appendOrder(order[0], order[1], order[2], order[3], order[4])
@@ -1372,15 +1397,14 @@ function loadOrderBook() {
 }
   ```
   
-  - Load the order book once contracts are instantiated. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2424)
+  - Load the order book once contracts are instantiated. [exchange-template/app/client/js/ether.js#L1115](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1115)
   ```
   loadOrderBook()
   ```
   
   - And confirm the current orders are all rendered into the table on load.
-  
-  - Finally let's also load the user's ether and token balances on load. [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L2422)
  
+ ### Homework
   - Get your parity node synced!
   
   ## Day 4
@@ -1402,9 +1426,9 @@ function loadOrderBook() {
   hub-template $ truffle migrate
   ```
   - View the contracts and txs at https://kovan.etherscan.io/address/<address of token / hub>, [Example](https://kovan.etherscan.io/address/0xc6cccf463b30d8f79159435edccb348dcec5023c)
-  - Update the hub and token address at hub-template/app/client/js/home.js 
-  - Update the hub and token address at exchange-template/app/client/js/ether.js
-  - Also don't forget to update the mapping of address to token symbol for the ui
+  - Update the hub and token address at [hub-template/app/client/js/home.js#L7](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Hub/app/client/js/home.js#L7)
+  - Update the hub and token address at [exchange-template/app/client/js/ether.js#L292](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L292)
+  - Also don't forget to update the mapping of address to token symbol for the ui [exchange-template/app/client/js/ether.js#L1078](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1078)
   ```
   window.tokenAddressToSymbol = {
     '0x0000000000000000000000000000000000000000': 'ETH',
@@ -1414,17 +1438,17 @@ function loadOrderBook() {
   
   - Start the hub
   ```
-  hub-template/app $ node server --token <tokenAddress>
+  hub-template/app $ node server
   ```
   
-  - Add your Metamask address to the hub.
+  - Add your Metamask address to the hub. Ensure Metamask is connected to Kovan.
   - View your transaction on Kovan https://kovan.etherscan.io/tx/<tx id(accessible direct in parity)>, [Example](https://kovan.etherscan.io/tx/0x33137753b9798c1c3a123a53cf1f36476c6d0f415cb126d2bd8166d716313975)
   
   - Deploy the exchange
   ```
   exchange-template $ truffle migrate
   ```
-  - Update the exchange address at exchange-template/app/client/js/ether.js 
+  - Update the exchange address at [exchange-template/app/client/js/ether.js#L8](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L8)
   
   - Start the exchange server
   ```
@@ -1455,9 +1479,16 @@ function loadOrderBook() {
   
   ### Bonus Challenge
   1. Additional Token Support
-  - Add support for other tokens and re deploy.  Coordinate with the your fellow course participants!
+  - Add support for other tokens and re deploy.  
+  - Coordinate with the your fellow course participants to support their created tokens!
+  - Update the exchange contract to support ERC20 / ERC20 pairings.
   
   2. Gas Optimizations
   - Retrieve all exchange orders by querying events and not using a storage array.
   - Retrieve all hub users by querying events and not user a storage array as well.
   
+  3. Add Resources to the Hub
+  - Update the resource table when resources are added
+  
+  4. Load events on load into Hub
+  - Load past events into the newsfeed on load
