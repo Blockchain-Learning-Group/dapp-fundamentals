@@ -124,16 +124,25 @@ ether $ truffle migrate
 ```
 
 4. DApp Development
-
+   - We are going to require 3 terminal windows for today's development session.
+   1. testrpc
+   2. Hub server
+   3. Truffle
+   
+   - Create a folder for the course content.  We will be storing the hub and exchange in this folder
+   ```
+   Development $ mkdir blg
+   Development $ cd blg
+   ```
    - Clone the repo
    ```
-   git clone https://github.com/Blockchain-Learning-Group/hub-template
-   cd hub-template
+   blg $ git clone https://github.com/Blockchain-Learning-Group/hub-template
+   blg $ cd hub-template
    ```
    
    - In another window run your client, testrpc
    ```
-   testrpc
+   $ testrpc
    ```
    
    - Copy over your token
@@ -812,13 +821,25 @@ async function loadUsers() {
    
    
    ### Day 3
-   - Solution to Day 2 available here: [solutions/Hub](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/tree/master/solutions/Hub)
+   - Solution to Day 2 available here: [solution/Hub.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/tree/master/solutions/Hub)
+   
+   or may be cloned here
+   
+   ```
+   blg $ git clone https://github.com/Blockchain-Learning-Group/Hub-eod2.git
+   ```
+   
+   - To start today we are going to need 3 windows open
+   1. testrpc
+   2. exchange server
+   3. exchange truffle
+   
    - Ensure Metamask is installed and unlocked.
    
    - Clone the exchange template and install dependencies. Advisable to clone this within the same directory as you hub.
    ```
-   git clone https://github.com/Blockchain-Learning-Group/exchange-template.git
-   cd exchange-template && npm install
+   blg $ git clone https://github.com/Blockchain-Learning-Group/exchange-template.git
+   blg $ cd exchange-template && npm install
    ```
    - Start your ethereum client, in another window
    ```
@@ -847,9 +868,9 @@ async function loadUsers() {
    const hubJSON = <copied form hub-template/build/contracts/Hub.json>
    ```
    
-   - Create instances of both the hub and token. [exchange-template/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/2b45632be1eae613a2bcb2b62ca7bf95cc927e12/solutions/Exchange/app/client/js/ether.js#L1105)
+   - Create instances of both the hub and token. [exchange-template/app/client/js/ether.js#967](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/2b45632be1eae613a2bcb2b62ca7bf95cc927e12/solutions/Exchange/app/client/js/ether.js#L1105)
    ```
-    // ~Line 823 - within loadWeb3()
+    // ~Line 967 - within loadWeb3()
     // Create instance of the exchange, blg token and hub
     window.token = web3.eth.contract(tokenJSON.abi).at(tokenAddress)
     window.hub = web3.eth.contract(hubJSON.abi).at(hubAddress)
@@ -858,8 +879,9 @@ async function loadUsers() {
    - Refresh the browser and ensure objects are available, hub & token in console.
    - Ensure Metamask is connected to localhost 8545
    
-   - Add a listener to the submit resource button to submit a transaction. Add this in app/client/js/home.js. [exchange-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/home.js#L7)
+   - Add a listener to the submit resource button to submit a transaction. Add this in app/client/js/home.js. [exchange-template/app/client/js/home.js#L7](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/home.js#L7)
    ```
+    // ~Line 7
     // Add a resource to the blg hub
      $('#submitResource').click(e => {
        e.preventDefault()
@@ -872,10 +894,10 @@ async function loadUsers() {
 
        // Valid, submit resource
        } else if (isUrlValid(resourceUrl)) {
-         window.hub.addResource(
+         hub.addResource(
            resourceUrl,
            {
-             from: window.defaultAccount,
+             from: defaultAccount,
              gas: 4e6
            },
            (err, res) => {
@@ -899,7 +921,7 @@ async function loadUsers() {
    ```
    - And view the new balance within metamask of 1 ether.
    
-   - Start up the hub. Note newly deployed token address
+   - Create 1 more terminal window and start up the hub. Note newly deployed token and hub address.
    - Update [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Hub/app/client/js/home.js#L7) with new token and hub address and the start the server.
    ```
    hub-template/app $ node server
@@ -907,8 +929,9 @@ async function loadUsers() {
    
    - Add your Metamask account to the hub.
 
-   - Create a listener within the exhange for when tokens are minted and to catch errors, add this to app/client/js/ether.js. [exchange-template/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1160)
+   - Create a listener within the exhange for when tokens are minted and to catch errors, add this to app/client/js/ether.js. [exchange-template/app/client/js/ether.js#978](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1160)
    ```
+// ~Line 978 - separate function
 /**
  * Create listeners for the token.
  */
@@ -941,13 +964,15 @@ function initTokenListeners() {
    })
  }
    ```
-   - And create these listeners once the token object has been created. [exchange-template/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1111)
+   - And create these listeners once the token object has been created. [exchange-template/app/client/js/ether.js#971](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1111)
    ```
+   // ~ Line 971 - within loadWeb3()
    initTokenListeners()
    ```
    
-   - Add a function to now get the updated token balance. [exchange-template/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1224)
+   - Add a function to now get the updated token balance. [exchange-template/app/client/js/ether.js#1011](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1224)
    ```
+// ~Line 1011 - separate function
 /**
  * Update the default account's token balance.
  * @param  {String} user The EOA address.
@@ -963,8 +988,9 @@ function updateTokenBalance(user) {
 }
    ```
    
-   - Add a function to now get the updated ether balance. [exchange-template/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1210)
+   - Add a function to now get the updated ether balance. [exchange-template/app/client/js/ether.js#1011](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1210)
    ```
+// ~Line 101 - separate function
 /**
  * Update the the default account's ether balance.
  * @param  {String} user The EOA address.
@@ -983,20 +1009,22 @@ function updateETHBalance(user) {
    - Submit a resource!
    _Note if events are not caught within the exchange but they are in the hub try disabling and re-enabling Metamask and subsequently unlocking your Metamask account._
    
-   - Finally let's get the ui to update our balances when the page loads. [exchange-template/app/client/js/ether.js#L1116](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1116)
+   - Finally let's get the ui to update our balances when the page loads. [exchange-template/app/client/js/ether.js#974](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1116)
    ```
+   // ~Line 974 - within loadWeb3()
    updateETHBalance(defaultAccount)
    updateTokenBalance(defaultAccount)
    ```
    
    ### Exchange.sol
-   - Confirm the test file is failing.
+   - Confirm the test file is failing. _Note invalid op code as LoggingErrors not leveraged._
    ```
    exchange-template $ truffle test
    ```
    
-   - Create the submit order function. [exchange-template/contracts/Exchange.submitOrder()](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/contracts/Exchange.sol#L68)
+   - Create the submit order function. [exchange-template/contracts/Exchange.sol#L69](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/contracts/Exchange.sol#L68)
    ```
+   // ~Line 59
   /**
    * @dev Submit a new order to the exchange.  If you are offering ether you must
    * send the amount along with the tx to be executed.  If you are offering a token
@@ -1079,8 +1107,9 @@ function updateETHBalance(user) {
   exchange-template $ truffle test
   ```
   
-  - Write a test case for two matching order that are to be executed. [exchange-template/test/test_submit_executeOrder](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/test/test_submit_executeOrder.js#L58)
+  - Write a test case for two matching order that are to be executed. [exchange-template/test/test_submit_executeOrder.js#L58](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/test/test_submit_executeOrder.js#L58)
   ```
+  // ~Line 58 - beneath previous test case and within outer contract test suite
   it("executeOrder(), should succeed by trading the tokens. Maker offers ether.", async () => {
     const exchange = await Exchange.new()
     // Create token and allocate all tokens to the taker
@@ -1159,13 +1188,14 @@ function updateETHBalance(user) {
   })
   ```
   
-  - Cofirm the failure
+  - Cofirm the failure - _Note invalid op code as LoggingErrors not leveraged._
   ```
   exchange-template $ truffle test
   ```
   
-  - Create the executeOrder function for when two orders are matched. [exchange-template/contracts/Exchange.executeOrder()](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/contracts/Exchange.sol#L143)
+  - Create the executeOrder function for when two orders are matched. [exchange-template/contracts/Exchange.sol#L144](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/contracts/Exchange.sol#L143)
   ```
+  // ~Line 139
   /**
    * @dev Execute an order that has been matched.
    * @param _orderId The id of the matched order.
@@ -1216,8 +1246,9 @@ function updateETHBalance(user) {
   ```
   
   ### Wiring it up
-  - Create a listener on the submit order button to do so within app/client/js/home.js. [exchange-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/home.js#L36)
+  - Create a listener on the submit order button to do so within app/client/js/home.js. [exchange-template/app/client/js/home.js#L36](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/home.js#L36)
   ```
+  // ~Line 37
    $('#submitOrder').click(e => {
     e.preventDefault()
 
@@ -1269,8 +1300,9 @@ function updateETHBalance(user) {
   })
   ```
   
-  - Write the function to actually submit the order, sending the transactions. [exchange-template/app/client/js/home.js#submitOrder](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/home.js#L96)
+  - Write the function to actually submit the order, sending the transactions. [exchange-template/app/client/js/home.js#L97](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/home.js#L96)
   ```
+// ~Line 88
 /**
  * Submit the actual order to the order book.
  * @param  {String} offerToken  The address of the token contract offered.
@@ -1281,13 +1313,13 @@ function updateETHBalance(user) {
  * when offering ether to transfer the value to the exchange to broker the trade.
  */
 function submitOrder(offerToken, offerAmount, wantToken, wantAmount, value) {
-  window.exchange.submitOrder(
-    window.approvedTokens[offerToken],
+  exchange.submitOrder(
+    approvedTokens[offerToken],
     offerAmount,
-    window.approvedTokens[wantToken],
+    approvedTokens[wantToken],
     wantAmount,
     {
-      from: window.defaultAccount,
+      from: defaultAccount,
       gas : 4e6,
       value: value
     }, (error, tx) => {
@@ -1300,8 +1332,9 @@ function submitOrder(offerToken, offerAmount, wantToken, wantAmount, value) {
 }
   ```
   
-  - Update the approved token address and symbol. [exchange-template/app/client/js/ether.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1073)
+  - Update the approved token address and symbol. [exchange-template/app/client/js/ether.js#L935](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1073)
   ```
+  // ~Line 934 - within $(window).ready(() => {
   // Approved tokens to trade on the exchange, mapping symbol <> address
   window.approvedTokens = {
     'ETH': '0x0000000000000000000000000000000000000000',
@@ -1321,8 +1354,9 @@ function submitOrder(offerToken, offerAmount, wantToken, wantAmount, value) {
   
   - Update app/client/js/ether.js with the exchange's address and build json data. [exchange-template/app/client/js/ether.js#L8](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L8)
   
-  - Create an instance of the exchange. [exchange-template/app/client/js/ether.js#L1107](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1107)
+  - Create an instance of the exchange. [exchange-template/app/client/js/ether.js#L1250](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1107)
   ```
+   // ~Line 1250 - within loadWeb3()
    window.exchange = web3.eth.contract(exchangeJSON.abi).at(exchangeAddress)
   ```
   
@@ -1330,8 +1364,9 @@ function submitOrder(offerToken, offerAmount, wantToken, wantAmount, value) {
   
   
   ### Listeners
-  - Create listeners for the Exchange. [exchange-template/app/client/js/ether.js#L1124](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1124)
+  - Create listeners for the Exchange. [exchange-template/app/client/js/ether.js#L1263](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1124)
   ```
+// ~Line 1263 - separate function
 /**
  * Create listeners for the exchange contract.
  */
@@ -1369,15 +1404,17 @@ function initExchangeListeners() {
 }
   ```
   
-  - Create the listeners once the exchange object has been created. [exchange-template/app/client/js/ether.js#L1112](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1112)
+  - Create the listeners once the exchange object has been created. [exchange-template/app/client/js/ether.js#L1254](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1112)
   ```
+  // ~Line 1254 - within loadWeb3()
   initExchangeListeners()
   ```
   
   - Submit an order!
   
-  - Write a function to load the order book. [exchange-template/app/client/js/ether.js#L1192](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1192)
+  - Write a function to load the order book. [exchange-template/app/client/js/ether.js#L1359](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1192)
   ```
+// ~Line 1359 - separate function
 /**
  * Load the contents of the order book.
  */
@@ -1396,8 +1433,9 @@ function loadOrderBook() {
 }
   ```
   
-  - Load the order book once contracts are instantiated. [exchange-template/app/client/js/ether.js#L1115](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1115)
+  - Load the order book once contracts are instantiated. [exchange-template/app/client/js/ether.js#L1260](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1115)
   ```
+  // ~Line 1260 - within loadWeb3()
   loadOrderBook()
   ```
   
@@ -1425,10 +1463,14 @@ function loadOrderBook() {
   hub-template $ truffle migrate
   ```
   - View the contracts and txs at https://kovan.etherscan.io/address/<address of token / hub>, [Example](https://kovan.etherscan.io/address/0xc6cccf463b30d8f79159435edccb348dcec5023c)
+  
   - Update the hub and token address at [hub-template/app/client/js/home.js#L7](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Hub/app/client/js/home.js#L7)
+  
   - Update the hub and token address at [exchange-template/app/client/js/ether.js#L292](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L292)
-  - Also don't forget to update the mapping of address to token symbol for the ui [exchange-template/app/client/js/ether.js#L1078](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1078)
+  
+  - Also don't forget to update the mapping of address to token symbol for the ui [exchange-template/app/client/js/ether.js#L1221](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1078)
   ```
+  // ~Line 1221 - within $(window).ready(() => {
   window.tokenAddressToSymbol = {
     '0x0000000000000000000000000000000000000000': 'ETH',
     '<newAddress>': 'BLG'
@@ -1477,17 +1519,20 @@ function loadOrderBook() {
    - Navigate to your truly decentralized app! [Example](https://ipfs.io/ipfs/QmRppv7LMa5LXEJjGFqg5wVAAMon3kForG7Jy8xxG1EaCj/home.html)
   
   ### Bonus Challenge
-  1. Additional Token Support
+  1. Enable decimal support for your token.
+  - Utilize the decimal attribute of your token to enable decimal support.  ie. at this time submitting 0.999 will fail as is rounded to 0.
+  
+  2. Additional Token Support
   - Add support for other tokens and re deploy.  
   - Coordinate with the your fellow course participants to support their created tokens!
   - Update the exchange contract to support ERC20 / ERC20 pairings.
   
-  2. Gas Optimizations
+  3. Gas Optimizations
   - Retrieve all exchange orders by querying events and not using a storage array.
   - Retrieve all hub users by querying events and not user a storage array as well.
   
-  3. Add Resources to the Hub
+  4. Add Resources to the Hub
   - Update the resource table when resources are added
   
-  4. Load events on load into Hub
+  5. Load events on load into Hub
   - Load past events into the newsfeed on load
