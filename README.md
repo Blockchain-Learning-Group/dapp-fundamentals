@@ -93,9 +93,208 @@ function reachGasLimit() {
   }
 }
 ```
-11. [Voting Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Voting.sol)
+11. [Voting Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Voting.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/VotingSolution.sol)
+- Define the constant duration of the vote
+```
+// Line 14
+uint public constant VOTE_DURATION_BLOCKS = 10;
+```
+- Set the storage variables
+```
+  // When the vote started in order to define end time
+  uint public startBlock_;
 
-12. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol)
+  // Only enable users to vote once
+  mapping(address => bool) public hasVoted_;
+
+  // Map the name of the candidate to the total number of votes they have
+  mapping(uint8 => uint) public candidateTotals_;
+
+  // List of candidates
+  uint8[] public candidates_;
+
+  // Winner of the vote once complete
+  uint8 public winner_;
+```
+- Set the start block of the vote.
+```
+// Within the constructor
+startBlock_ = block.number;
+```
+- Confirm the start block is being set correctly. Compile and deploy.
+
+- Complete the add candidate method.
+```
+  /**
+   * @dev Add a new candidate.
+   * @param _candidate Add the candidate. Note this dynamic array
+   * is iterated over to define winner, must be within block gas limit!
+   */
+  function addCandidate(uint8 _candidate) external {
+    // NOTE no check if candidate already exists..
+    // Vote has concluded
+    if (block.number > startBlock_ + VOTE_DURATION_BLOCKS) {
+      tallyVote();
+
+    // Add the new candidate
+    } else {
+      candidates_.push(_candidate);
+      LogCandidateAdded(_candidate);
+    }
+  }
+```
+
+- Compile and deploy the contract and confirm you may now add a candidate and access it in the candidates array.
+
+- Complete the cast vote method.
+```
+  /**
+   * @dev Cast your vote.
+   * @param _candidate The candidate you with to vote for.
+   */
+  function castVote(uint8 _candidate) external {
+    // Vote has concluded!
+    if (block.number > startBlock_ + VOTE_DURATION_BLOCKS) {
+      tallyVote();
+
+    // User may only vote once
+    } else if (hasVoted_[msg.sender]) {
+      LogUserHasAlreadyVoted(msg.sender);
+
+    // Cast the vote! And set that the user has already voted
+    } else {
+      hasVoted_[msg.sender] = true;
+      candidateTotals_[_candidate] += 1;
+      LogVoteCast(msg.sender, _candidate);
+    }
+  }
+```
+
+- Compile and deploy and confirm votes may be cast.  Add a candidate and vote for them. Confirm their total is updated and events emitted.
+
+- Create the event for once the vote has completed.
+```
+event LogVoteComplete(uint8 winner);
+```
+
+- Complete the tally vote method.
+```
+  /**
+   * @dev Tally the vote and publicize the results.
+   */
+  function tallyVote() public {
+    if (block.number > startBlock_ + VOTE_DURATION_BLOCKS) {
+
+      uint8 candidate;
+      uint8 winner; // Only want to write to storage once
+
+      // Find the winner, candidate with most votes
+      for (uint8 i; i < candidates_.length; i++) {
+        candidate = candidates_[i];
+
+        if (candidateTotals_[candidate] > candidateTotals_[winner]) {
+          winner = candidate;
+        }
+      }
+
+      // Final write to storage
+      winner_ = winner;
+
+      LogVoteComplete(winner);
+
+    // Vote duration has not elapsed
+    } else {
+      LogVoteStillActive();
+    }
+  }
+```
+
+- Try out your vote!
+- Confirm user may only vote once
+- Confirm vote may only be tallied after the number of blocks have elapsed
+- Confirm correct winner logged.
+
+12. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/TokenSolution_EOD1.sol)
+- Copy the exercise over to remix.
+
+- Compile and deploy the contract. Confirm variables and methods available.
+
+- Complete the mint method.
+```
+  /**
+   * @dev Mint tokens and allocate them to the specified user.
+   * @param _to The address of the recipient.
+   * @param _value The amount of tokens to be minted and transferred.
+   * @return Success of the transaction.
+   */
+  function mint (address _to, uint _value)
+    external
+    returns (bool)
+  {
+    if (msg.sender != owner_)
+      return error('msg.sender != owner, Token.mint()');
+
+    if (_value <= 0)
+      return error('Cannot mint a value of <= 0, Token.mint()');
+
+    if (_to == address(0))
+      return error('Cannot mint tokens to address(0), Token.mint()');
+
+    totalSupply_ = totalSupply_.add(_value);
+    balances_[_to] = balances_[_to].add(_value);
+
+    LogTokensMinted(_to, _to, _value, totalSupply_);
+    Transfer(address(0), _to, _value);
+
+    return true;
+  }
+```
+
+- Compile deploy and confirm you can mint to an address. Confirm balance updated in balances_ mapping.
+
+- Complete the transfer from method.
+```
+  /**
+   * @param _from The address transferring from.
+   * @param _to The address transferring to.
+   * @param _amount The amount to transfer.
+   * @return The success of this method.
+   */
+  function transferFrom(address _from, address _to, uint256 _amount)
+    external
+    returns (bool)
+  {
+    if (_amount <= 0)
+      return error('Cannot transfer amount <= 0, Token.transferFrom()');
+
+    if (_amount > balances_[_from])
+      return error('From account has an insufficient balance, Token.transferFrom()');
+
+    if (_amount > allowed_[_from][msg.sender])
+      return error('msg.sender has insufficient allowance, Token.transferFrom()');
+
+    balances_[_from] = balances_[_from].sub(_amount);
+    balances_[_to] = balances_[_to].add(_amount);
+
+    allowed_[_from][msg.sender] = allowed_[_from][msg.sender].sub(_amount);
+
+    Transfer(_from, _to, _amount);
+
+    return true;
+  }
+```
+
+- Complete the balanceOf method to return the user's balance.
+```
+return balances_[_owner];
+```
+
+- Compile and deploy and confirm transfer and transfer from working.  Note error logging if insufficient allowance and other errors.
+   Test: 
+   - minting
+   - Transfers
+   - Approvals
+   - TransferFrom
 
 ### Day 2
 1. TestRpc
