@@ -110,16 +110,17 @@ library SafeMath {
 contract Token is ERC20, LoggingErrors {
 
   using SafeMath for uint256;
-
-  /**
-   * Storage
-   *
-   */
+   /**
+    * Constants
+    */
   // Token metadata
   string public constant symbol = '';
   string public constant name = '';
   uint public constant decimals = 18;
-
+  
+  /**
+   * Storage
+   */
   // The total supply of tokens currently in circulation
   // A large positive integer
 
