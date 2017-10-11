@@ -2,6 +2,7 @@
 This serves as an outline of useful resources leveraged over the duration of Blockchain Learning Group's DApp Development Fundamentals course.
 
 ## Pre-requisites and Installs
+0. 20GB Disk Space and 4GB of memory.
 1. Python 3+
 2. Node and npm
 - Node.js >= v6.9.1
