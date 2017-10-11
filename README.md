@@ -83,7 +83,7 @@ bc36789e7a1e281436464229828f817d6612f7b477d66591ff96a9e064bcc98a
 _Add the below to DappDeveloper.sol_
 
 ```
-uint256 value;
+uint256 value_;
 
 function reachGasLimit() {
   for (uint256 i = 0; i < 10**18; i++) {
