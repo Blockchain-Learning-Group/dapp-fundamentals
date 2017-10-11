@@ -23,13 +23,13 @@ contract Voting {
   // map a user addres to a bool specifying if they have voted
 
   // Map the id of the candidate to the total number of votes they have
-  // May simply and assume an id is a positive integer
+  // May simplify and assume an id is a positive integer
 
   // List of candidate ids
-  // May simply and assume an id is a positive integer
+  // May simplify and assume an id is a positive integer
 
   // Winner of the vote once complete
-  // May simply and assume an id is a positive integer
+  // May simplify and assume an id is a positive integer
 
   /**
    * Events
