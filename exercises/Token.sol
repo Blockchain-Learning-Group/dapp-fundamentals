@@ -110,29 +110,30 @@ library SafeMath {
 contract Token is ERC20, LoggingErrors {
 
   using SafeMath for uint256;
-   /**
-    * Constants
-    */
+  /**
+   * Constants
+   */
   // Token metadata
-  string public constant symbol = '';
-  string public constant name = '';
+  string public constant symbol = 'BLG';
+  string public constant name = 'Blockchain Learning Group Community Token';
   uint public constant decimals = 18;
-  
+
   /**
    * Storage
    */
-  // The total supply of tokens currently in circulation
-  // A large positive integer
+   // Amount of tokens currentl in circulation
+   uint256 public totalSupply_;
 
-  // User balances of tokens
-  // A mapping of user EOA address to the quantity of tokens then own
+   // User balances of tokens
+   mapping (address => uint256) public balances_;
 
-  // Allowances that a user has given to another user in order to allow then to spend
-  // tokens on their behalf
-  // owner => approved spender => amount
-  // ie. bob => alice => 100 means that bob has approved alice to spend 100 of his tokens.
+   // Allowances that a user has given to another user in order to allow then to spend
+   // tokens on their behalf
+   // owner => approved spender => amount
+   // ie. bob => alice => 100 means that bob has approved alice to spend 100 of his tokens.
+   mapping(address => mapping (address => uint256)) public allowed_;
 
-  // The owner of the contract.  EOA of the user.
+   address public owner_; // EOA
 
   /**
    * Events
@@ -140,10 +141,10 @@ contract Token is ERC20, LoggingErrors {
   event LogTokensMinted(address indexed _to, address to, uint256 value, uint256 totalSupply);
 
   /**
-   * @dev CONSTRUCTOR - set blg owner account
+   * @dev CONSTRUCTOR - set owner account
    */
   function Token() {
-    // Set the owner of the contract
+    owner_ = msg.sender;
   }
 
   /**
@@ -161,15 +162,17 @@ contract Token is ERC20, LoggingErrors {
     external
     returns (bool)
   {
-    // Confirm amount is greater than zero
+    if (_amount <= 0)
+      return error('Can not approve an amount <= 0, Token.approve()');
 
-    // sender has a sufficient balance
+    if (_amount > balances_[msg.sender])
+      return error('Amount is greater than senders balance, Token.approve()');
 
-    // Update the allowance
-    // Increase the _spender's allowance by _amount in allowance mapping
+    allowed_[msg.sender][_spender] = allowed_[msg.sender][_spender].add(_amount);
 
     return true;
   }
+
 
   /**
    * @dev Mint tokens and allocate them to the specified user.
@@ -208,13 +211,13 @@ contract Token is ERC20, LoggingErrors {
   ) external
     returns (bool)
   {
-    // Confirm sufficient balance to transfer
+    if (balances_[msg.sender] < _value)
+      return error('Sender balance is insufficient, Token.transfer()');
 
-    // Move the funds from the sender to the recipient
-    // Decrease msg.sender's balance by value
-    // Incease _to's balance by value
+    balances_[msg.sender] = balances_[msg.sender].sub(_value);
+    balances_[_to] = balances_[_to].add(_value);
 
-    // Log
+    Transfer(msg.sender, _to, _value);
 
     return true;
   }
@@ -256,7 +259,7 @@ contract Token is ERC20, LoggingErrors {
     constant
     returns (uint256)
   {
-    // return...
+    return totalSupply_;
   }
 
   /**
@@ -269,6 +272,7 @@ contract Token is ERC20, LoggingErrors {
     constant
     returns (uint256)
   {
-    // return...
+    // return the balance for this address from the balances mapping
+    return 0;
   }
 }

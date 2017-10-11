@@ -111,14 +111,14 @@ library SafeMath {
 contract Token is ERC20, LoggingErrors {
 
   using SafeMath for uint256;
-   
+
   /**
    * Constants
    */
   string public constant symbol = 'BLG';
   string public constant name = 'Blockchain Learning Group Community Token';
   uint public constant decimals = 18;
-  
+
   /**
    * Storage
    *
