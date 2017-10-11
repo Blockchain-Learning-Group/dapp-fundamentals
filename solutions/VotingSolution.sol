@@ -66,7 +66,7 @@ contract Voting {
 
   /**
    * @dev Cast your vote.
-   * @param _candidate The candidate you with to vote for.
+   * @param _candidate The candidate you wish to vote for.
    */
   function castVote(uint8 _candidate) external {
     // Vote has concluded!
