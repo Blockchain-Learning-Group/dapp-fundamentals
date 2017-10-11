@@ -12,6 +12,7 @@ This serves as an outline of useful resources leveraged over the duration of Blo
 - Use the official Node.js packages, do not use the package supplied by your distribution.
 
 4. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
+- Create an account on Kovan and share your address via the BLG slack channel.
 
 5. [Truffle](http://truffleframework.com/)
 
