@@ -73,7 +73,7 @@ bc36789e7a1e281436464229828f817d6612f7b477d66591ff96a9e064bcc98a
 54a8c0ab653c15bfb48b47fd011ba2b9617af01cb45cab344acd57c924d56798
 ```
 7. [Bitcoin 51% Attack Cost](https://gobitcoin.io/tools/cost-51-attack/)
-8. [Remix](https://ethereum.github.io/browser-solidity/)
+8. [Remix](https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js)
 
 9. [DappDeveloper.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/samples/DappDeveloper.sol)
 
