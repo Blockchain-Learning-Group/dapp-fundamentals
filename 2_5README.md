@@ -2,6 +2,7 @@
 This serves as an outline of useful resources leveraged over the duration of Blockchain Learning Group's DApp Development Fundamentals course.
 
 ## Pre-requisites and Installs
+0. 20GB Disk Space and 4GB of memory.
 1. Python 3+
 2. Node and npm
 - Node.js >= v6.9.1
@@ -1027,20 +1028,22 @@ async function loadUsers() {
 
    ```
    blg $ git clone https://github.com/Blockchain-Learning-Group/Hub-eod2.git
+   blg $ cd Hub-eod2 && npm install
    ```
 
    - To start today we are going to need 3 windows open
    1. testrpc
-   2. exchange server
-   3. exchange truffle
-
+   2. hub
+   3. exchange
+   
    - Ensure Metamask is installed and unlocked.
-
-   - Clone the exchange template and install dependencies. Advisable to clone this within the same directory as you hub.
+   
+   - Clone the complete exchange and install dependencies. Advisable to clone this within the same directory as you hub.
    ```
-   blg $ git clone https://github.com/Blockchain-Learning-Group/exchange-template.git
-   blg $ cd exchange-template && npm install
+   blg $ git clone https://github.com/Blockchain-Learning-Group/exchange-complete.git
+   blg $ cd exchange-complete && npm install
    ```
+   
    - Start your ethereum client, in another window
    ```
    testrpc
