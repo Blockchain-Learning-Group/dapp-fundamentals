@@ -8,7 +8,7 @@ This serves as an outline of useful resources leveraged over the duration of Blo
 - [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04)
    Ensure build-essential apt package installed as well.
 - [MacOS](http://yoember.com/nodejs/the-best-way-to-install-node-js/)
-   - macOS ensure you have the XCode command line tools installed. 
+   - macOS ensure you have the XCode command line tools installed.
 - Use the official Node.js packages, do not use the package supplied by your distribution.
 
 4. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
@@ -28,7 +28,7 @@ Having problems? Be sure to check out the [FAQ](https://github.com/ethereumjs/te
 
 Download from here and sync beforehand if possible.
 
-- Ubuntu / Mac(potentially? Error experienced on OSX 10.11.6): 
+- Ubuntu / Mac(potentially? Error experienced on OSX 10.11.6):
 
 ```bash <(curl https://get.parity.io -L)```
 
@@ -45,7 +45,7 @@ Sync your node to Kovan
 
 8. [Web3](https://github.com/ethereum/wiki/wiki/JavaScript-API)
 
-```npm install -g web3``` 
+```npm install -g web3```
 
 9. [PySha3](https://pypi.python.org/pypi/pysha3)
 
@@ -93,9 +93,208 @@ function reachGasLimit() {
   }
 }
 ```
-11. [Voting Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Voting.sol)
+11. [Voting Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Voting.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/VotingSolution.sol)
+- Define the constant duration of the vote
+```
+// Line 14
+uint public constant VOTE_DURATION_BLOCKS = 10;
+```
+- Set the storage variables
+```
+  // When the vote started in order to define end time
+  uint public startBlock_;
 
-12. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol)
+  // Only enable users to vote once
+  mapping(address => bool) public hasVoted_;
+
+  // Map the name of the candidate to the total number of votes they have
+  mapping(uint8 => uint) public candidateTotals_;
+
+  // List of candidates
+  uint8[] public candidates_;
+
+  // Winner of the vote once complete
+  uint8 public winner_;
+```
+- Set the start block of the vote.
+```
+// Within the constructor
+startBlock_ = block.number;
+```
+- Confirm the start block is being set correctly. Compile and deploy.
+
+- Complete the add candidate method.
+```
+  /**
+   * @dev Add a new candidate.
+   * @param _candidate Add the candidate. Note this dynamic array
+   * is iterated over to define winner, must be within block gas limit!
+   */
+  function addCandidate(uint8 _candidate) external {
+    // NOTE no check if candidate already exists..
+    // Vote has concluded
+    if (block.number > startBlock_ + VOTE_DURATION_BLOCKS) {
+      tallyVote();
+
+    // Add the new candidate
+    } else {
+      candidates_.push(_candidate);
+      LogCandidateAdded(_candidate);
+    }
+  }
+```
+
+- Compile and deploy the contract and confirm you may now add a candidate and access it in the candidates array.
+
+- Complete the cast vote method.
+```
+  /**
+   * @dev Cast your vote.
+   * @param _candidate The candidate you with to vote for.
+   */
+  function castVote(uint8 _candidate) external {
+    // Vote has concluded!
+    if (block.number > startBlock_ + VOTE_DURATION_BLOCKS) {
+      tallyVote();
+
+    // User may only vote once
+    } else if (hasVoted_[msg.sender]) {
+      LogUserHasAlreadyVoted(msg.sender);
+
+    // Cast the vote! And set that the user has already voted
+    } else {
+      hasVoted_[msg.sender] = true;
+      candidateTotals_[_candidate] += 1;
+      LogVoteCast(msg.sender, _candidate);
+    }
+  }
+```
+
+- Compile and deploy and confirm votes may be cast.  Add a candidate and vote for them. Confirm their total is updated and events emitted.
+
+- Create the event for once the vote has completed.
+```
+event LogVoteComplete(uint8 winner);
+```
+
+- Complete the tally vote method.
+```
+  /**
+   * @dev Tally the vote and publicize the results.
+   */
+  function tallyVote() public {
+    if (block.number > startBlock_ + VOTE_DURATION_BLOCKS) {
+
+      uint8 candidate;
+      uint8 winner; // Only want to write to storage once
+
+      // Find the winner, candidate with most votes
+      for (uint8 i; i < candidates_.length; i++) {
+        candidate = candidates_[i];
+
+        if (candidateTotals_[candidate] > candidateTotals_[winner]) {
+          winner = candidate;
+        }
+      }
+
+      // Final write to storage
+      winner_ = winner;
+
+      LogVoteComplete(winner);
+
+    // Vote duration has not elapsed
+    } else {
+      LogVoteStillActive();
+    }
+  }
+```
+
+- Try out your vote!
+- Confirm user may only vote once
+- Confirm vote may only be tallied after the number of blocks have elapsed
+- Confirm correct winner logged.
+
+12. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/TokenSolution_EOD1.sol)
+- Copy the exercise over to remix.
+
+- Compile and deploy the contract. Confirm variables and methods available.
+
+- Complete the mint method.
+```
+  /**
+   * @dev Mint tokens and allocate them to the specified user.
+   * @param _to The address of the recipient.
+   * @param _value The amount of tokens to be minted and transferred.
+   * @return Success of the transaction.
+   */
+  function mint (address _to, uint _value)
+    external
+    returns (bool)
+  {
+    if (msg.sender != owner_)
+      return error('msg.sender != owner, Token.mint()');
+
+    if (_value <= 0)
+      return error('Cannot mint a value of <= 0, Token.mint()');
+
+    if (_to == address(0))
+      return error('Cannot mint tokens to address(0), Token.mint()');
+
+    totalSupply_ = totalSupply_.add(_value);
+    balances_[_to] = balances_[_to].add(_value);
+
+    LogTokensMinted(_to, _to, _value, totalSupply_);
+    Transfer(address(0), _to, _value);
+
+    return true;
+  }
+```
+
+- Compile deploy and confirm you can mint to an address. Confirm balance updated in balances_ mapping.
+
+- Complete the transfer from method.
+```
+  /**
+   * @param _from The address transferring from.
+   * @param _to The address transferring to.
+   * @param _amount The amount to transfer.
+   * @return The success of this method.
+   */
+  function transferFrom(address _from, address _to, uint256 _amount)
+    external
+    returns (bool)
+  {
+    if (_amount <= 0)
+      return error('Cannot transfer amount <= 0, Token.transferFrom()');
+
+    if (_amount > balances_[_from])
+      return error('From account has an insufficient balance, Token.transferFrom()');
+
+    if (_amount > allowed_[_from][msg.sender])
+      return error('msg.sender has insufficient allowance, Token.transferFrom()');
+
+    balances_[_from] = balances_[_from].sub(_amount);
+    balances_[_to] = balances_[_to].add(_amount);
+
+    allowed_[_from][msg.sender] = allowed_[_from][msg.sender].sub(_amount);
+
+    Transfer(_from, _to, _amount);
+
+    return true;
+  }
+```
+
+- Complete the balanceOf method to return the user's balance.
+```
+return balances_[_owner];
+```
+
+- Compile and deploy and confirm transfer and transfer from working.  Note error logging if insufficient allowance and other errors.
+   Test:
+   - minting
+   - Transfers
+   - Approvals
+   - TransferFrom
 
 ### Day 2
 1. TestRpc
@@ -110,7 +309,7 @@ parity ui --chain kovan
 ```
 - Start syncing your node to Kovan tonight!
 ```
-parity --chain kovan --no-warp --mode active --tracing off --cache-size 1024 
+parity --chain kovan --no-warp --mode active --tracing off --cache-size 1024
 ```
 
 3.Truffle Usage
@@ -129,7 +328,7 @@ ether $ truffle migrate
    1. testrpc
    2. Hub server
    3. Truffle
-   
+
    - Create a folder for the course content.  We will be storing the hub and exchange in this folder
    ```
    Development $ mkdir blg
@@ -140,12 +339,12 @@ ether $ truffle migrate
    blg $ git clone https://github.com/Blockchain-Learning-Group/hub-template
    blg $ cd hub-template
    ```
-   
+
    - In another window run your client, testrpc
    ```
    $ testrpc
    ```
-   
+
    - Copy over your token
    - Utilize code written during the solidity exercises or Copy the [TokenSolution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/305c778dee2164259c091c7e037c9bd5f61466e9/solutions/TokenSolution_EOD1.sol#L106)
    - And paste it within [hub-template/contracts/token/Token.sol](https://github.com/Blockchain-Learning-Group/hub-template/blob/58d7ab1ab1230fcf72bfa8a3e96acc4ba325a5ef/contracts/token/Token.sol#L14)
@@ -153,7 +352,7 @@ ether $ truffle migrate
    ```
    hub-template $ truffle test test/Token/test_mint.js
    ```
-   
+
    - Add another test case, should not be able to mint 0 tokens
    - [hub-template/test/Token/test_mint.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/test/Token/test_mint.js#L65)
    ```
@@ -180,10 +379,10 @@ ether $ truffle migrate
 
     // Total Supply
     const supply = await token.totalSupply.call()
-    assert.equal(supply.toNumber(), 0, 'Incorrect total supply balance.') 
+    assert.equal(supply.toNumber(), 0, 'Incorrect total supply balance.')
     })
    ```
-  
+
    - Confirm new test passing
    ```
    hub-template $ truffle test test/Token/test_mint.js
@@ -192,7 +391,7 @@ ether $ truffle migrate
    ```
    hub-template $ truffle test
    ```
-   
+
    - Run the application server
    ```
    hub-template $ npm install
@@ -200,7 +399,7 @@ ether $ truffle migrate
    hub-template $ cd app
    app $ node server
    ```
-   
+
    - Load the app
    [http://localhost:8081](http://localhost:8081)
    _Pop open the console and note the error, we must deploy our token contract._
@@ -209,32 +408,32 @@ ether $ truffle migrate
    ```
    hub-template $ truffle migrate
    ```
-   
+
    - Copy the token address from the migration output and update the address in [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L7)
-   
+
    - Also copy in the token artifact json from hub-template/build/contracts/Token.json and paste into [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L9) as tokenJson
 
    - refresh [http://localhost:8081](http://localhost:8081)
-   
+
    - Interact with the token
    - Within the browser console
    ```
    token.address
    token.totalSupply().toNumber()
    ```
-   
+
    - Run the server with the token address
    ```
    app $ node server --token 0xbb1ca29e60971dfa434fc1e44912a4b1082e7873
    ```
-   
+
    - Method to retrieve the total supply server side.  Add the following to [hub-template/app/server/ether.js#43](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/server/ether.js#L43).
    ```
     // Get the total supply of the token
     totalSupply = (await token.totalSupply()).toNumber()
     console.log('Total Supply: ' + totalSupply)
    ```
-   
+
    - Update to ui with the total supply on load adding the below to [app/client/js/home.js#464](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L1095)
    ```
     // Set the total supply and symbol
@@ -242,7 +441,7 @@ ether $ truffle migrate
     window.symbol = (await token.symbol()).valueOf()
     $('#totalSupply').text('Total Supply: ' + totalSupply + ' ' + symbol)
    ```
-   
+
    - Create a listener for when tokens are minted, adding the below to [app/client/js/home.js#474](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L1113)
    ```
     // Listen for tokens being minted
@@ -260,7 +459,7 @@ ether $ truffle migrate
       }
     })
    ```
-   
+
    - A script exists to do exactly this for us.
    - Mint some tokens. In another window, server and testrpc must be running.
    ```
@@ -269,7 +468,7 @@ ether $ truffle migrate
    ```
    ### Hub.sol
    - Review the existing [hub-template/contracts/Hub.sol](https://github.com/Blockchain-Learning-Group/hub-template/blob/master/contracts/Hub.sol)
-   
+
    ### Hub.addUser()
    - Write the addUsers method within the hub. [hub-template/contracts/Hub.addUser()](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/Hub.sol#L130)
    - Also remember to add the correct event!
@@ -278,7 +477,7 @@ ether $ truffle migrate
   * Events
   */
   event LogUserAdded(address user);  // Line 60
-   
+
   // Line 90
   /**
    * @dev Add a new user that may write to the hub.
@@ -376,7 +575,7 @@ ether $ truffle migrate
    ```
    address public hub_; // Hub contract address in order to mint tokens.
    ```
-   
+
    - Add the method to set this value, [hub-template/contracts/Token.sol#L109](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/token/Token.sol#L119)
    ```
   /**
@@ -427,22 +626,22 @@ ether $ truffle migrate
      })
    })
    ```
-   
+
    - Confirm it is passing
    ```
    hub-template $ truffle test test/Token/test_setHub.js
    ```
-   
+
    - And run the entire test suite for good measure. 5 passing tests.
    ```
    hub-template $ truffle test
    ```
-   
+
    ### Token.mint()
    - Update the token mint method to now allow the hub to also mint. [hub-template/contracts/token/Token.sol#L91](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/token/Token.sol#L95)
    ```
    // Line 91
-   if (msg.sender != owner_ && msg.sender != hub_) 
+   if (msg.sender != owner_ && msg.sender != hub_)
       return error('msg.sender != owner, Token.mint()');
    ```
 
@@ -450,7 +649,7 @@ ether $ truffle migrate
    ```
    hub-template $ truffle test test/Token/test_mint.js
    ```
-   
+
    ### Hub.addResource()
    - Create the addResource test file, [hub-template/test/Hub/test_addResource.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Hub/test/Hub/test_addResource.js)
    - Create the new file hub-template/test/Hub/test_addResource.js.
@@ -498,22 +697,22 @@ ether $ truffle migrate
      })
    })
    ```
-   
+
    - Confirm the failure
    ```
    hub-template $ truffle test test/Hub/test_addResource.js
    ```
-   
+
    - Now write the method! [hub-template/contracts/Hub.sol#L81](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/contracts/Hub.sol#L81) and copied below for reference, but don't copy and paste it!
-  
-  ... 
-  
-  If you get stuck...
-  
+
   ...
-  
+
+  If you get stuck...
+
+  ...
+
   I mean really stuck...
-  
+
   ```
   /**
    * @dev Add a new resource to the hub.
@@ -565,12 +764,12 @@ ether $ truffle migrate
    ```
    event LogResourceAdded(address user, string resourceUrl, uint blockNumber);
    ```
-   
+
    - Confirm the test passes once method is complete
    ```
    hub-template $ truffle test test/Hub/test_addResource.js
    ```
-   
+
     - Update the migration file to set the hub address upon deployment now. [hub-template/migrations/2_deploy_contracts.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Hub/migrations/2_deploy_contracts.js) resulting in the following:
    ```
 const Token = artifacts.require('./Token.sol')
@@ -601,7 +800,7 @@ module.exports = deployer => {
 
   - First update the address of the token
   - Copy the output token address of the migration to [hub-template/app/client/js/home.js#L7](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L7)
-  
+
   - Create a client side reference of the Hub as well adding the below lines to [hub-template/app/client/js/home.js#L480](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L659)
   - Copy the hub address from the migration output
   - Copy the contents of build/contracts/Hub.json
@@ -610,7 +809,7 @@ module.exports = deployer => {
    // Copy the contents of ../build/contracts/Hub.json
    const hubJson = <contents of Hub.json>
   ```
- 
+
    - And create a reference to the object in [hub-template/app/client/js/home.js#L804](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/edb8eef80140e0ca41869a094059b803b4ea8510/solutions/Hub/app/client/js/home.js#L1101).
    ```
    // Create a reference to the Hub
@@ -621,7 +820,7 @@ module.exports = deployer => {
    ```
    hub.token_() == token.address
    ```
-   
+
    ### UI Add User
    - Add a user from the ui.  Wire up the add user from at the bottom of the index.html
    - Create the listener for the button click to add a user, [hub-template/app/client/js/home.js#792](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1042)
@@ -640,7 +839,7 @@ module.exports = deployer => {
     addUser(address, name, position, location)
   })
    ```
-   
+
    - Write the method to actually add the user by sending a transaction. [hub-template/app/client/js/home.js#L806](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1059)
    ```
    // Line 806
@@ -657,15 +856,15 @@ module.exports = deployer => {
      console.log('Tx Hash: ' + tx)
    }
    ```
-   
+
    - Deploy latest contracts
    ```
    hub-template $ truffle migrate --reset
    ```
-   
+
    - Update the token address and json in [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L7)
    - Update the hub address and json in [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L659)
-   
+
    - Add an event listener for the addUser Event. [hub-template/app/client/js/home.js#L858](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1128)
    ```
   // ~Line 858 - within initialieApp()
@@ -685,7 +884,7 @@ module.exports = deployer => {
    }
  })
    ```
-   
+
    - And the method to update the ui when a user is added, add an appendUser method to append the user to the table. [hub-template/app/client/js/home.js#L819](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1073)
    ```
    // ~Line 819
@@ -705,7 +904,7 @@ module.exports = deployer => {
      )
    }
    ```
-   
+
    - Update the newsfeed when any event is caught
    - Create a listener for all token and hub events. [hub-template/app/client/js/home.js#L890](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1144)
    ```
@@ -721,7 +920,7 @@ module.exports = deployer => {
       updateNewsFeed(result)
     })
    ```
-   
+
    - Write a method to update the ui when an event is caught. [hub-template/app/client/js/home.js#L917](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1215)
    ```
    // Line 917 - separate function
@@ -784,10 +983,10 @@ module.exports = deployer => {
      )
    }
    ```
-   
+
    ### Hub.getAllUsers()
    - Finally a getAllUsers method exists in [hub-template/contracts/Hub.sol#L169](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/contracts/Hub.sol#L169)
-   
+
    - Write a method to load these users. [hub-template/app/client/js/home.js#L976](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1196)
    ```
 // Line 976 - separate function
@@ -809,34 +1008,34 @@ async function loadUsers() {
   }
 }
    ```
-   
+
    - Invoking this method when the page renders. [hub-template/app/client/js/home.js#L849](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/d85c94b7d0088e2a7ccb3bc4b4582e361684453b/solutions/Hub/app/client/js/home.js#L1104)
    ```
     // ~Line 849 - within initializeApp()
     loadUsers()
    ```
-   
+
    ### TODO
-   - Load all events into news feed 
+   - Load all events into news feed
    - Load resources into resource table and watch for hub resource added events
-   
-   
+
+
    ### Day 3
    - Solution to Day 2 available here: [solution/Hub.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/tree/master/solutions/Hub)
-   
+
    or may be cloned here
-   
+
    ```
    blg $ git clone https://github.com/Blockchain-Learning-Group/Hub-eod2.git
    ```
-   
+
    - To start today we are going to need 3 windows open
    1. testrpc
    2. exchange server
    3. exchange truffle
-   
+
    - Ensure Metamask is installed and unlocked.
-   
+
    - Clone the exchange template and install dependencies. Advisable to clone this within the same directory as you hub.
    ```
    blg $ git clone https://github.com/Blockchain-Learning-Group/exchange-template.git
@@ -846,29 +1045,29 @@ async function loadUsers() {
    ```
    testrpc
    ```
-   
+
    - Start the app
    ```
    exchange-template $ cd app
    app $ node server
    ```
    [http://localhost:9191/](http://localhost:9191/)
-   
-   - Compile and deploy the hub and token contracts. Ensure testrpc is running. 
+
+   - Compile and deploy the hub and token contracts. Ensure testrpc is running.
    - From within the hub repo completed during day 2. Or utilizing the above solution.
    ```
    hub-template $ truffle migrate --reset
    ```
-   
+
    - Update the exchange to interact with the hub and the token, within exchange-template/app/client/js/ether.js add the hub and token addresses and build json data. [Exchange/app/client/js/ether.js#L11](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/ether.js#L1102)
    ```
    const tokenAddress = '0x4519b80e842c4e8a9538997c39550dc724c28427'
    const tokenJSON = <copied form hub-template/build/contracts/Token.json>
-   
+
    const hubAddress = '0x4519b80e842c4e8a9538997c39550dc724c28427'
    const hubJSON = <copied form hub-template/build/contracts/Hub.json>
    ```
-   
+
    - Create instances of both the hub and token. [exchange-template/app/client/js/ether.js#967](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/2b45632be1eae613a2bcb2b62ca7bf95cc927e12/solutions/Exchange/app/client/js/ether.js#L1105)
    ```
     // ~Line 967 - within loadWeb3()
@@ -876,10 +1075,10 @@ async function loadUsers() {
     window.token = web3.eth.contract(tokenJSON.abi).at(tokenAddress)
     window.hub = web3.eth.contract(hubJSON.abi).at(hubAddress)
    ```
-   
+
    - Refresh the browser and ensure objects are available, hub & token in console.
    - Ensure Metamask is connected to localhost 8545
-   
+
    - Add a listener to the submit resource button to submit a transaction. Add this in app/client/js/home.js. [exchange-template/app/client/js/home.js#L7](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/772955ae9754b73602d90db6c77aa2d650e00236/solutions/Exchange/app/client/js/home.js#L7)
    ```
     // ~Line 7
@@ -921,13 +1120,13 @@ async function loadUsers() {
    truffle(development)> web3.eth.sendTransaction({ from: web3.eth.accounts[0], to: '0x9Cb47a806AC793CE9739dd138Be3b9DEB16C14E4', value: 1e18 })
    ```
    - And view the new balance within metamask of 1 ether.
-   
+
    - Create 1 more terminal window and start up the hub. Note newly deployed token and hub address.
    - Update [hub-template/app/client/js/home.js](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Hub/app/client/js/home.js#L7) with new token and hub address and the start the server.
    ```
    hub-template/app $ node server
    ```
-   
+
    - Add your Metamask account to the hub.
 
    - Create a listener within the exhange for when tokens are minted and to catch errors, add this to app/client/js/ether.js. [exchange-template/app/client/js/ether.js#978](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1160)
@@ -970,7 +1169,7 @@ function initTokenListeners() {
    // ~ Line 971 - within loadWeb3()
    initTokenListeners()
    ```
-   
+
    - Add a function to now get the updated token balance. [exchange-template/app/client/js/ether.js#1011](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1224)
    ```
 // ~Line 1011 - separate function
@@ -988,7 +1187,7 @@ function updateTokenBalance(user) {
   })
 }
    ```
-   
+
    - Add a function to now get the updated ether balance. [exchange-template/app/client/js/ether.js#1011](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1210)
    ```
 // ~Line 101 - separate function
@@ -1006,23 +1205,23 @@ function updateETHBalance(user) {
   })
 }
    ```
-   
+
    - Submit a resource!
    _Note if events are not caught within the exchange but they are in the hub try disabling and re-enabling Metamask and subsequently unlocking your Metamask account._
-   
+
    - Finally let's get the ui to update our balances when the page loads. [exchange-template/app/client/js/ether.js#974](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1116)
    ```
    // ~Line 974 - within loadWeb3()
    updateETHBalance(defaultAccount)
    updateTokenBalance(defaultAccount)
    ```
-   
+
    ### Exchange.sol
    - Confirm the test file is failing. _Note invalid op code as LoggingErrors not leveraged._
    ```
    exchange-template $ truffle test
    ```
-   
+
    - Create the submit order function. [exchange-template/contracts/Exchange.sol#L69](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/contracts/Exchange.sol#L68)
    ```
    // ~Line 59
@@ -1102,12 +1301,12 @@ function updateETHBalance(user) {
     }
   }
   ```
-  
+
   - Confirm the test is passing.
   ```
   exchange-template $ truffle test
   ```
-  
+
   - Write a test case for two matching order that are to be executed. [exchange-template/test/test_submit_executeOrder.js#L58](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/test/test_submit_executeOrder.js#L58)
   ```
   // ~Line 58 - beneath previous test case and within outer contract test suite
@@ -1188,12 +1387,12 @@ function updateETHBalance(user) {
     assert.equal(order[5], true) // filled
   })
   ```
-  
+
   - Cofirm the failure - _Note invalid op code as LoggingErrors not leveraged._
   ```
   exchange-template $ truffle test
   ```
-  
+
   - Create the executeOrder function for when two orders are matched. [exchange-template/contracts/Exchange.sol#L144](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/contracts/Exchange.sol#L143)
   ```
   // ~Line 139
@@ -1240,12 +1439,12 @@ function updateETHBalance(user) {
     return true;
   }
   ```
-  
+
   - Confirm tests passing
   ```
   exchange-temlate $ truffle test
   ```
-  
+
   ### Wiring it up
   - Create a listener on the submit order button to do so within app/client/js/home.js. [exchange-template/app/client/js/home.js#L36](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/home.js#L36)
   ```
@@ -1300,7 +1499,7 @@ function updateETHBalance(user) {
     }
   })
   ```
-  
+
   - Write the function to actually submit the order, sending the transactions. [exchange-template/app/client/js/home.js#L97](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/home.js#L96)
   ```
 // ~Line 88
@@ -1332,7 +1531,7 @@ function submitOrder(offerToken, offerAmount, wantToken, wantAmount, value) {
   )
 }
   ```
-  
+
   - Update the approved token address and symbol. [exchange-template/app/client/js/ether.js#L935](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1073)
   ```
   // ~Line 934 - within $(window).ready(() => {
@@ -1347,23 +1546,23 @@ function submitOrder(offerToken, offerAmount, wantToken, wantAmount, value) {
     '<New Token Address>': 'BLG'
   }
   ```
-  
+
   - Now let's deploy our exchange and tell the ui about it.
   ```
   exchange-template $ truffle migrate
   ```
-  
+
   - Update app/client/js/ether.js with the exchange's address and build json data. [exchange-template/app/client/js/ether.js#L8](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/ba7bf4dc53795371594410ee6eca69d4edcbae87/solutions/Exchange/app/client/js/ether.js#L8)
-  
+
   - Create an instance of the exchange. [exchange-template/app/client/js/ether.js#L1250](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1107)
   ```
    // ~Line 1250 - within loadWeb3()
    window.exchange = web3.eth.contract(exchangeJSON.abi).at(exchangeAddress)
   ```
-  
+
   - Submit an order!
-  
-  
+
+
   ### Listeners
   - Create listeners for the Exchange. [exchange-template/app/client/js/ether.js#L1263](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1124)
   ```
@@ -1404,15 +1603,15 @@ function initExchangeListeners() {
   })
 }
   ```
-  
+
   - Create the listeners once the exchange object has been created. [exchange-template/app/client/js/ether.js#L1254](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1112)
   ```
   // ~Line 1254 - within loadWeb3()
   initExchangeListeners()
   ```
-  
+
   - Submit an order!
-  
+
   - Write a function to load the order book. [exchange-template/app/client/js/ether.js#L1359](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1192)
   ```
 // ~Line 1359 - separate function
@@ -1433,42 +1632,42 @@ function loadOrderBook() {
   })
 }
   ```
-  
+
   - Load the order book once contracts are instantiated. [exchange-template/app/client/js/ether.js#L1260](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1115)
   ```
   // ~Line 1260 - within loadWeb3()
   loadOrderBook()
   ```
-  
+
   - And confirm the current orders are all rendered into the table on load.
- 
+
  ### Homework
   - Get your parity node synced!
-  
+
   ## Day 4
   ### Deployment
   - Run your ethereum client.
   ```
   parity ui --chain kovan --rpccorsdomain "*" --no-warp --mode active --tracing off --cache-size 1024
   ```
-  
+
   - If troubles connecting to ui update ui and dapps ports
   ```
   parity ui --chain kovan --rpccorsdomain "*" --no-warp --mode active --tracing off --cache-size 1024 --ui-port 3333 --dapps-port 4444
   ```
-  
+
   - Fund your parity account, BLG trainer will be able to send the required funds to each provider user address.
-  
+
   - Deploy the hub and token
   ```
   hub-template $ truffle migrate
   ```
   - View the contracts and txs at https://kovan.etherscan.io/address/<address of token / hub>, [Example](https://kovan.etherscan.io/address/0xc6cccf463b30d8f79159435edccb348dcec5023c)
-  
+
   - Update the hub and token address at [hub-template/app/client/js/home.js#L7](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Hub/app/client/js/home.js#L7)
-  
+
   - Update the hub and token address at [exchange-template/app/client/js/ether.js#L292](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L292)
-  
+
   - Also don't forget to update the mapping of address to token symbol for the ui [exchange-template/app/client/js/ether.js#L1221](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L1078)
   ```
   // ~Line 1221 - within $(window).ready(() => {
@@ -1477,21 +1676,21 @@ function loadOrderBook() {
     '<newAddress>': 'BLG'
   }
   ```
-  
+
   - Start the hub
   ```
   hub-template/app $ node server
   ```
-  
+
   - Add your Metamask address to the hub. Ensure Metamask is connected to Kovan.
   - View your transaction on Kovan https://kovan.etherscan.io/tx/<tx id(accessible direct in parity)>, [Example](https://kovan.etherscan.io/tx/0x33137753b9798c1c3a123a53cf1f36476c6d0f415cb126d2bd8166d716313975)
-  
+
   - Deploy the exchange
   ```
   exchange-template $ truffle migrate
   ```
   - Update the exchange address at [exchange-template/app/client/js/ether.js#L8](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L8)
-  
+
   - Start the exchange server
   ```
   app $ node server
@@ -1501,13 +1700,13 @@ function loadOrderBook() {
   $ truffle console
   > web3.eth.sendTransaction({ from: web3.eth.accounts[0], to: '0x9Cb47a806AC793CE9739dd138Be3b9DEB16C14E4', value: 1e18 })
   ```
-  
+
   ### IPFS
   - Deploy the exchange to ipfs and share with your friends and colleagues!
   ```
   cd exchange/deploy
   deploy $ python3 deploy_to_ipfs.py
-  
+
 **********************************
 * Success, App deployed to IPFS! *
 **********************************
@@ -1518,22 +1717,22 @@ function loadOrderBook() {
 **********************************************************************************************
 ```
    - Navigate to your truly decentralized app! [Example](https://ipfs.io/ipfs/QmRppv7LMa5LXEJjGFqg5wVAAMon3kForG7Jy8xxG1EaCj/home.html)
-  
+
   ### Bonus Challenge
   1. Enable decimal support for your token.
   - Utilize the decimal attribute of your token to enable decimal support.  ie. at this time submitting 0.999 will fail as is rounded to 0.
-  
+
   2. Additional Token Support
   - Add support for other tokens and re deploy.  
   - Coordinate with the your fellow course participants to support their created tokens!
   - Update the exchange contract to support ERC20 / ERC20 pairings.
-  
+
   3. Gas Optimizations
   - Retrieve all exchange orders by querying events and not using a storage array.
   - Retrieve all hub users by querying events and not user a storage array as well.
-  
+
   4. Add Resources to the Hub
   - Update the resource table when resources are added
-  
+
   5. Load events on load into Hub
   - Load past events into the newsfeed on load
