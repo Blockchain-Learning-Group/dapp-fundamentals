@@ -1,4 +1,5 @@
 from sha3 import keccak_256
+import sys
 import time
 
 
@@ -6,7 +7,7 @@ def mine_block(block_answer):
     print('Next block answer:', block_answer)
 
     # Randomly guess numbers
-    for i in range(100000):
+    for i in range(1000000):
         print('\nTrying: ', i)
 
         # Generate the hash and see if you have found the answer
@@ -15,7 +16,7 @@ def mine_block(block_answer):
         print('Hash: ', hashed_value)
 
         # Answer found return the solution
-        if hashed_value == block_answer:
+        if hashed_value < block_answer:
             print('\n\nBlock found!! The solution is:', i)
             return bytes(i)
 
@@ -34,7 +35,7 @@ class Timer:
 
 if __name__ == '__main__':
     # The answer for the next block is presented to all miners
-    next_block_answer = '41cb66d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659'
+    next_block_answer = sys.argv[1]
 
     # Miners race to find the solution
     with Timer() as t:
@@ -45,7 +46,7 @@ if __name__ == '__main__':
 
     # All nodes in the network then validate this solution
     with Timer() as t:
-        is_valid = next_block_answer == keccak_256(solution).hexdigest()
+        is_valid = next_block_answer > keccak_256(solution).hexdigest()
 
     if is_valid:
         validating_time = t.interval
