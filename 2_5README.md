@@ -80,12 +80,12 @@ python3 proof_of_work_mining.py 0066d6a68c353ec7c7726ffa7389725b6215e463baf2baf1
 python3 proof_of_work_mining.py 0006d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
 python3 proof_of_work_mining.py 0000d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
 ```
-7. [Bitcoin 51% Attack Cost](https://gobitcoin.io/tools/cost-51-attack/)
-8. [Remix](https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js)
+8. [Bitcoin 51% Attack Cost](https://gobitcoin.io/tools/cost-51-attack/)
+9. [Remix](https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js)
 
-9. [DappDeveloper.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/samples/DappDeveloper.sol)
+10. [DappDeveloper.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/samples/DappDeveloper.sol)
 
-10. Exceed Block Gas Limit
+11. Exceed Block Gas Limit
 
 _Add the below to DappDeveloper.sol_
 
@@ -100,7 +100,7 @@ function reachGasLimit() {
   }
 }
 ```
-11. [Voting Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Voting.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/VotingSolution.sol)
+12. [Voting Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Voting.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/VotingSolution.sol)
 - Define the constant duration of the vote
 ```
 // Line 14
@@ -221,7 +221,7 @@ event LogVoteComplete(uint8 winner);
 - Confirm vote may only be tallied after the number of blocks have elapsed
 - Confirm correct winner logged.
 
-12. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/TokenSolution_EOD1.sol)
+13. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/TokenSolution_EOD1.sol)
 - Copy the exercise over to remix.
 
 - Compile and deploy the contract. Confirm variables and methods available.
