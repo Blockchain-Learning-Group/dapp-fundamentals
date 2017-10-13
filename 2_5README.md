@@ -54,8 +54,7 @@ Sync your node to Kovan
 
 10. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
 
-## Useful Resources
-### Day 1
+## Day 1
 1. [https://ethstats.net/](https://ethstats.net/)
 2. [http://ethgasstation.info/](http://ethgasstation.info/)
 3. [https://etherscan.io/](https://etherscan.io/)
@@ -74,6 +73,7 @@ bc36789e7a1e281436464229828f817d6612f7b477d66591ff96a9e064bcc98a
 >>> keccak_256(bytes(2)).hexdigest()
 54a8c0ab653c15bfb48b47fd011ba2b9617af01cb45cab344acd57c924d56798
 ```
+7. [Mining Script](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/scripts/proof_of_work_mining.py)
 7. [Bitcoin 51% Attack Cost](https://gobitcoin.io/tools/cost-51-attack/)
 8. [Remix](https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js)
 
