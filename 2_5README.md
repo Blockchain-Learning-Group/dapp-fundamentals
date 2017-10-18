@@ -232,11 +232,10 @@ function tallyVote() public {
 ```
 
 Usage:
-1. Try out your vote!
-2. Confirm user may only vote once.
-3. Confirm vote may only be tallied after the number of blocks have elapsed.
-4. Confirm correct winner logged.
-
+   1. Try out your vote!
+   2. Confirm user may only vote once.
+   3. Confirm vote may only be tallied after the number of blocks have elapsed.
+   4. Confirm correct winner logged.
 
 12. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/TokenSolution_EOD1.sol)
 - Copy the exercise over to remix.
