@@ -1,9 +1,5 @@
-const argv = require('yargs')
-.option('token', { description: 'Token contract address.', demandOption: true, type: 'string' })
-.argv
 const contract = require('truffle-contract')
 const Web3 = require('web3')
-
 const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'))
 const tokenArtifacts = require('../build/contracts/Token.json')
 const Token = contract(tokenArtifacts)
@@ -14,7 +10,7 @@ const owner = web3.eth.accounts[0]
 mint()
 
 async function mint() {
-  const token = await Token.at(argv.token)
+  const token = await Token.deployed()
   let tx
   let user
 
