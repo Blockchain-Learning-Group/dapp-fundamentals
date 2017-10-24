@@ -34,6 +34,14 @@ blg $ git clone https://github.com/Blockchain-Learning-Group/exchange-complete.g
 blg $ cd exchange-complete && npm install
 ```
 
+- Deploy the exchange contract
+```
+exchange-complete $ truffle migrate
+```
+
+- Update the exchange address at [exchange-complete/app/client/js/ether.js#L7](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L7).
+
+
 - Deploy the hub and token.
 ```
 hub-template $ truffle migrate
@@ -60,13 +68,6 @@ hub-template/app $ node server
 
 - Add your Metamask address to the hub. Ensure Metamask is connected to Kovan.
 - View your transaction on Kovan [https://kovan.etherscan.io/tx/<tx id(accessible direct in parity)>](https://kovan.etherscan.io/tx/0x33137753b9798c1c3a123a53cf1f36476c6d0f415cb126d2bd8166d716313975)
-
-- Deploy the exchange contract
-```
-exchange-complete $ truffle migrate
-```
-
-- Update the exchange address at [exchange-complete/app/client/js/ether.js#L7](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L7).
 
 ### IPFS
 - Deploy the exchange to ipfs.
