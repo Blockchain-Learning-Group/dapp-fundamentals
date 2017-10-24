@@ -39,6 +39,13 @@ blg $ cd exchange-complete && npm install
 exchange-complete $ truffle migrate
 ```
 
+*NOTE known parity truffle race condition*
+- Solution: simply run the migration again.  Fix to be introduced in upcoming parity version.
+```
+Error encountered, bailing. Network state unknown. Review successful transactions manually.
+Error: The contract code couldn't be stored, please check your gas amount.
+```
+
 - Update the exchange address at [exchange-complete/app/client/js/ether.js#L7](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Exchange/app/client/js/ether.js#L7).
 
 - View the exchange contract at [https://kovan.etherscan.io/address/< Exchange Address >](https://kovan.etherscan.io/address/0xc6cccf463b30d8f79159435edccb348dcec5023c)
