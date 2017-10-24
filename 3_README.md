@@ -37,7 +37,7 @@ blg $ cd exchange-complete && npm install
 hub-template $ truffle migrate
 ```
 
-- View the contracts and txs at [https://kovan.etherscan.io/address/<hub or token address>](https://kovan.etherscan.io/address/0xc6cccf463b30d8f79159435edccb348dcec5023c)
+- View the contracts and txs at [https://kovan.etherscan.io/address/<contract address>](https://kovan.etherscan.io/address/0xc6cccf463b30d8f79159435edccb348dcec5023c)
 
 - Update the hub and token address at [hub-template/app/client/js/home.js#L7](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/12d3b25c24d9059a2e91b58d850b498f6953e66d/solutions/Hub/app/client/js/home.js#L7).
 - Update the hub and token address at [exchange-complete/app/client/js/ether.js#8](https://github.com/Blockchain-Learning-Group/exchange-complete/blob/57a93e957ef5b5ce6c6ec8875d35673bdecb3f8b/app/client/js/ether.js#L8).
