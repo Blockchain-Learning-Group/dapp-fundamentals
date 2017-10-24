@@ -9,11 +9,13 @@ blg $ cd Hub-eod2 && npm install
 
 - Stop your ethereum client. Your real Ethereum client, parity.
 - Note --rpccorsdomain flag required.
+
 _Full Node_
 ```
 parity --chain kovan --tracing off --rpccorsdomain '*' ui
 ```
 *OR* 
+
 _Light Node_
 ```
 parity --chain kovan --tracing off --light --rpccorsdomain '*' ui
