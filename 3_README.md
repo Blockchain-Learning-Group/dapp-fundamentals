@@ -80,6 +80,7 @@ hub-template/app $ node server
 ### IPFS
 - Deploy the exchange to ipfs.
 ```
+$ pip3 install ipfsapi
 cd exchange/deploy
 deploy $ python3 deploy_to_ipfs.py
 
