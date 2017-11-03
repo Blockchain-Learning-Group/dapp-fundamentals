@@ -2,71 +2,43 @@
 This serves as an outline of useful resources leveraged over the duration of Blockchain Learning Group's DApp Development Fundamentals course.
 
 ## Pre-requisites and Installs
-0. 20GB Disk Space(Full Node, much less if light client chosen) and 4GB of memory.
-1. Python 3+
-2. Node and npm
-- Node.js version 8.7.0
-- npm version 5.4.2
-- [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04)
-   Ensure build-essential apt package installed as well.
-   - symlink nodejs => node
-   ```
-   sudo ln -s "$(which nodejs)" /usr/bin/node
-   ```
-- [MacOS](http://yoember.com/nodejs/the-best-way-to-install-node-js/)
-   - macOS ensure you have the XCode command line tools installed.
-- Use the official Node.js packages, do not use the package supplied by your distribution.
-
-3. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
+0. 20GB Disk Space(Safe full node requirements) and 4GB of memory recommended.
+1. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
+- Version > 55.0.0.  Check in browser bar: `chrome://version/`
+2. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 - Create an account on Kovan and share your address via the BLG slack channel.
 
-4. [Truffle](http://truffleframework.com/)
-
+### Docker Configuration
+1. Install Docker
+- [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
+- [MacOS](https://www.docker.com/docker-mac)
+- [Windows](https://www.docker.com/docker-windows)
+2. Pull the dapp-fundamentals Image
 ```
-npm install -g truffle
-```
-
-5. [testrpc](https://github.com/ethereumjs/testrpc)
-
-```
-npm install -g ethereumjs-testrpc
+sudo docker pull blockchainlearninggroup/blg-dapp-fundamentals
 ```
 
-6. [Partiy](https://parity.io/)
+### Ethereum Client
+1. [Partiy](https://parity.io/)
 
-Download from here and sync beforehand if possible.
+Download from here above link and sync beforehand if possible.  Alternative install methods below.
 
 - Ubuntu / Mac(potentially? Error experienced on OSX 10.11.6):
 ```
 bash <(curl https://get.parity.io -L)
 ```
-
 - [Mac Homebrew Install](https://github.com/paritytech/homebrew-paritytech/blob/master/README.md)
 ```
 /usr/bin/ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'
 brew tap paritytech/paritytech
 brew install parity --stable
 ```
-
 Sync your node to Kovan.
-
-Light Node recommended, faster sync and less disk usage
-```
-parity --chain kovan --tracing off --light
-```
 
 Full Node
 ```
-parity --chain kovan --tracing off
+parity --chain kovan --tracing off --rpccorsdomain "*" ui
 ```
-
-7. [PySha3](https://pypi.python.org/pypi/pysha3)
-```
-pip3 install pysha3==1.0.2
-```
-
-8. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
-
 
 ## Day 1
 1. [https://ethstats.net/](https://ethstats.net/)
@@ -331,3 +303,51 @@ Usage:
 
 ### Homework
   - Get your parity node synced!
+
+
+## Appendix: Local Machine Prerequisites
+1. Python 3+
+2. Node and npm
+- Node.js version 8.7.0
+- npm version 5.4.2
+- [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04)
+Ensure build-essential apt package installed as well.
+- symlink nodejs => node
+```
+sudo ln -s "$(which nodejs)" /usr/bin/node
+```
+- [MacOS](http://yoember.com/nodejs/the-best-way-to-install-node-js/)
+- macOS ensure you have the XCode command line tools installed.
+- Use the official Node.js packages, do not use the package supplied by your distribution.
+3. [Truffle](http://truffleframework.com/)
+```
+npm install -g truffle@3.4.11
+```
+4. [testrpc](https://github.com/ethereumjs/testrpc)
+```
+npm install -g ethereumjs-testrpc@4.1.3
+```
+5. [Partiy](https://parity.io/)
+
+Download from here and sync beforehand if possible.
+
+- Ubuntu / Mac(potentially? Error experienced on OSX 10.11.6):
+```
+bash <(curl https://get.parity.io -L)
+```
+- [Mac Homebrew Install](https://github.com/paritytech/homebrew-paritytech/blob/master/README.md)
+```
+/usr/bin/ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'
+brew tap paritytech/paritytech
+brew install parity --stable
+```
+Sync your node to Kovan.
+
+Full Node
+```
+parity --chain kovan --tracing off --rpccorsdomain "*" ui
+```
+6. [PySha3](https://pypi.python.org/pypi/pysha3)
+```
+pip3 install pysha3==1.0.2
+```
