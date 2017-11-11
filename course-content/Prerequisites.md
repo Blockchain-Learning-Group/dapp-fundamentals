@@ -33,7 +33,7 @@ parity --chain kovan --tracing off --rpccorsdomain "*" ui
 - [Windows](https://www.docker.com/docker-windows)
 2. Pull the dapp-fundamentals Image
 ```
-sudo docker pull blockchainlearninggroup/dapp-fundamentals-env
+docker pull blockchainlg/dapp-dev-env
 ```
 3. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
 - Version > 55.0.0.  Check in browser bar: `chrome://version/`
@@ -93,11 +93,11 @@ pip3 install pysha3==1.0.2
 - [Windows](https://www.docker.com/docker-windows)
 2. Pull the Chrome Enabled Dapp Fundamentals Image
 ```
-sudo docker pull blockchainlearninggroup/dapp-fundamentals-env-chrome
+docker pull blockchainlg/dapp-dev-env-chrome
 ```
 3. Run the container
 ```
-docker run -d -p 5900:5900 -e VNC_SERVER_PASSWORD=password --name=blg-env --user apps --privileged blockchainlearninggroup/dapp-fundamentals-env-chrome
+docker run -d -p 5900:5900 -e VNC_SERVER_PASSWORD=password --name=blg-env --user apps --privileged blockchainlg/dapp-dev-env-chrome
 ```
 4. Install a VNC Client
 - Ubuntu: [RealVNC](https://www.realvnc.com/en/connect/download/viewer/linux/).

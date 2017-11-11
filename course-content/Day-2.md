@@ -1,6 +1,6 @@
 ## Day 2: DApp Development
 
-### [Application and Dev Enviroment Bootstrap]
+### Stage 1: Dev Enviroment Setup and Application Bootstrap
 1. Make a blg directory on your desktop
 
 *Linux and Mac*
@@ -38,17 +38,16 @@ adam@adam:~/Desktop/blg/wallet-template$
 
 *Linux and Mac*
 ```
-docker run -dit -p 3000:3000 -p 8545:8545 -v /home/USERNAME/Desktop/blg:/blg --name=blg-env blockchainlearninggroup/dapp-fundamentals-env
-
+docker run -dit -p 3000:3000 -p 8545:8545 -v /home/USERNAME/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 ```
 *Windows*
 - Follow the steps [here](https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c) to share your C drive with docker.
 ```
-docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/USERNAME/desktop/blg:/blg --name=blg-env blockchainlearninggroup/dapp-fundamentals-env
+docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/USERNAME/desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 ```
 Example output:
 ```
-adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlearninggroup/dapp-fundamentals-env
+adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 182d123ec0396a8c54709388baf0f5f61e88a40a4d244ef5b11b4337adfe687e
 adam@adam:~$
 ```
@@ -151,19 +150,20 @@ To ignore, add // eslint-disable-next-line to the line before.
 
 11. Load the app in chrome, [localhost:3000](http://localhost:3000/)
 
-### END [Application and Dev Enviroment Bootstrapped!]
+### END Stage 1: Dev Enviroment Set up and Application Bootstrapped!
 
-### START [Development]
+### START Stage 2: Token Interface
 
 12. Open up the repo /blg/wallet-template in a text editor of your choice
 
-13. Copy over your token contract
+13. Update Token contract
 
-*Token.sol That was completed at the end of Day 1 or the provided solution [Token.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Token.sol)*
+*contracts/Token.sol has been provided or do update with the Token that was completed at the end of Day 1*
 
-- 
+-
 
 
+### END Stage 2: Token Interface
 
 
 
