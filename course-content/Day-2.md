@@ -1,9 +1,173 @@
-## Day 2
-1. TestRpc
+## Day 2: DApp Development
+
+### [Application and Dev Enviroment Bootstrap]
+1. Make a blg directory on your desktop
+
+*Linux and Mac*
 ```
-npm install -g ethereumjs-testrpc
+cd ~/Desktop && mkdir blg
+```
+Example:
+```
+adam@adam:~$ cd ~/Desktop && mkdir blg
+```
+*Windows*
+```
+cd c:\Users\USERNAME\desktop && MD blg
+```
+
+2. Clone the wallet template and change in its directory
+```
+git clone https://github.com/Blockchain-Learning-Group/wallet-template.git && cd wallet-template
+```
+Example output:
+```
+adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git && cd wallet-template
+Cloning into 'wallet-template'...
+remote: Counting objects: 30, done.
+remote: Compressing objects: 100% (28/28), done.
+remote: Total 30 (delta 0), reused 30 (delta 0), pack-reused 0
+Unpacking objects: 100% (30/30), done.
+Checking connectivity... done.
+adam@adam:~/Desktop/blg/wallet-template$
+```
+
+3. Run your docker container
+
+*Replace USERNAME with your username!*
+
+*Linux and Mac*
+```
+docker run -dit -p 3000:3000 -p 8545:8545 -v /home/USERNAME/Desktop/blg:/blg --name=blg-env blockchainlearninggroup/dapp-fundamentals-env
+
+```
+*Windows*
+- Follow the steps [here](https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c) to share your C drive with docker.
+```
+docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/USERNAME/desktop/blg:/blg --name=blg-env blockchainlearninggroup/dapp-fundamentals-env
+```
+Example output:
+```
+adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlearninggroup/dapp-fundamentals-env
+182d123ec0396a8c54709388baf0f5f61e88a40a4d244ef5b11b4337adfe687e
+adam@adam:~$
+```
+
+4. Exec into the container
+
+*Container will serve as your virtual environment.*
+```
+docker exec -it blg-env bash
+```
+Example output:
+```
+adam@adam:~$ docker exec -it blg-env bash
+root@182d123ec039:/blg/wallet-template#
+```
+
+5. Install dependencies
+```
+yarn
+```
+Example output:
+```
+root@2e9e0eda980d:~/blg/wallet-template# yarn
+yarn install v1.2.0
+[1/4] Resolving packages...
+[....]
+Done in 42.65s.
+root@2e9e0eda980d:~/blg/wallet-template#
+```
+
+6. Compile the contracts
+```
+cd src && truffle compile
+```
+Example output:
+```
+root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
+Compiling ./contracts/token/ERC20.sol...
+[...]
+Writing artifacts to ./build/contracts
+
+root@2e9e0eda980d:~/blg/wallet-template/src#
+```
+
+7. Start up your window manager, screen
+```
+screen
+```
+Example output:
+```
+root@ebab36647c9e:/blg/wallet-template/src# screen
+Screen version 4.02.01 (GNU) 28-Apr-14
+[...]
+                [Press Space or Return to end.]
+ENTER
+#
+```
+
+8. Start up your Ethereum client, testrpc
+```
 testrpc
 ```
+Example output:
+```
+# testrpc
+EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
+[...]
+Listening on localhost:8545
+```
+
+9. Create a new window
+
+*ctrl AND a THEN c*
+```
+ctrl+a c  
+```
+Example output: Result in new empty window, in same directory.
+```
+#
+```
+
+10. Start the app
+```
+yarn start
+```
+Example output:
+```
+# yarn start
+yarn run v1.2.0
+$ react-scripts start
+Starting the development server...
+Compiled with warnings.
+
+./src/App.js
+  Line 41:  'defaultAccount' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+```
+
+11. Load the app in chrome, [localhost:3000](http://localhost:3000/)
+
+### END [Application and Dev Enviroment Bootstrapped!]
+
+### START [Development]
+
+12. Open up the repo /blg/wallet-template in a text editor of your choice
+
+13. Copy over your token contract
+
+*Token.sol That was completed at the end of Day 1.*
+
+
+
+
+
+
+
+
 
 2. Parity Config
 
@@ -19,11 +183,6 @@ parity --chain kovan ui
 
 - Start syncing your node to Kovan now / tonight!
 
-_Light node recommended_
-```
-parity --chain kovan --tracing off --light
-```
-
 _Full node_
 ```
 parity --chain kovan --tracing off
@@ -38,35 +197,6 @@ ether $ truffle compile
 ```
 
 - In a separate window start testrpc.
-```
-$ testrpc
-```
-
-- Test and deploy.
-```
-ether $ truffle test
-ether $ truffle migrate
-```
-
-4. DApp Development
-- We are going to require 3 terminal windows for today's development session.
-1. testrpc
-2. Hub server
-3. Truffle
-
-- Create a folder for the course content.  We will be storing the hub and exchange in this folder
-```
-Development $ mkdir blg
-Development $ cd blg
-```
-
-- Clone the repo
-```
-blg $ git clone https://github.com/Blockchain-Learning-Group/hub-template
-blg $ cd hub-template
-```
-
-- In another window run your client, testrpc if it isn't already.
 ```
 $ testrpc
 ```

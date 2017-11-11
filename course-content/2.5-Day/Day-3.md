@@ -14,16 +14,10 @@ _Full Node_
 ```
 parity --chain kovan --tracing off --rpccorsdomain '*' ui
 ```
-*OR* 
-
-_Light Node_
-```
-parity --chain kovan --tracing off --light --rpccorsdomain '*' ui
-```
 
 - If troubles connecting to ui update ui and dapps ports
 ```
-parity --chain kovan --tracing off --light --rpccorsdomain '*' --ui-port 3333 --dapps-port 4444 ui
+parity --chain kovan --tracing off --rpccorsdomain '*' --ui-port 3333 --dapps-port 4444 ui
 ```
 
 - Fund your parity account, send a transaction from your metamask account.
