@@ -159,9 +159,9 @@ To ignore, add // eslint-disable-next-line to the line before.
 
 13. Copy over your token contract
 
-*Token.sol That was completed at the end of Day 1.*
+*Token.sol That was completed at the end of Day 1 or the provided solution [Token.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Token.sol)*
 
-
+- 
 
 
 
