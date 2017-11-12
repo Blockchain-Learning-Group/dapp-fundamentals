@@ -143,7 +143,7 @@ To ignore, add // eslint-disable-next-line to the line before.
 
 ### END Stage 1: Dev Enviroment Set up and Application Bootstrapped!
 ---
-### START Stage 2: Token Interface
+### Stage 2: Token Interface
 
 1. Create a new window, Ethereum client
 
@@ -239,9 +239,8 @@ Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a37
 ```
 
 ### END Stage 2: Token Interface
-
-
-### START Stage 3: Token Interaction - GET
+---
+### Stage 3: Token Interaction - GET
 
 _Time to start coding!_
 
@@ -278,9 +277,8 @@ token.decimals((err, tokenDecimals) => {
 6. View the default account balances and token information in your browser!
 
 ### END Stage 3: Token Interaction - GET
-
-
-### START Stage 4: Token Interaction - Mint Tokens
+---
+### Stage 4: Token Interaction - Mint Tokens
 
 1. Add a method to mint tokens, sending a transaction to the token contract. [wallet-template/src/App.js#L155](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L170)
 ```
@@ -308,9 +306,8 @@ null
 3. Refresh chrome and view the account's balance of shiny new tokens!
 
 ### END Stage 4: Token Interaction - Mint Tokens
-
-
-### START Stage 5: Events
+---
+### Stage 5: Events
 
 1. Add an event to listen for when tokens are minted, [wallet-template/src/App.js#L131](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L135)
 ```
@@ -356,7 +353,7 @@ this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
 
 ### END Stage 5: Events
 ---
-### START Stage 6: Transfer Tokens
+### Stage 6: Transfer Tokens
 
 _Try this portion on your own!_
 
