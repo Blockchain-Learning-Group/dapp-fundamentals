@@ -145,7 +145,7 @@ To ignore, add // eslint-disable-next-line to the line before.
 ### END Stage 1: Dev Enviroment Set up and Application Bootstrapped!
 ---
 ### Stage 2: Token Interface
-
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-2.png)
 1. Create a new window, Ethereum client
 
 *ctrl AND a THEN c*
@@ -243,6 +243,7 @@ Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a37
 ### END Stage 2: Token Interface
 ---
 ### Stage 3: Token Interaction - GET
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-3.png)
 
 _Time to start coding!_
 
@@ -281,7 +282,8 @@ token.decimals((err, tokenDecimals) => {
 ### END Stage 3: Token Interaction - GET
 ---
 ### Stage 4: Token Interaction - Mint Tokens
-
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4.png)
+![Completed 2](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4-2.png)
 1. Add a method to mint tokens, sending a transaction to the token contract. [wallet-template/src/App.js#L155](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L170)
 ```
 this.state.token.mint(
@@ -310,7 +312,8 @@ null
 ### END Stage 4: Token Interaction - Mint Tokens
 ---
 ### Stage 5: Events
-
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-5.png)
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-5-2.png)
 1. Add an event to listen for when tokens are minted, [wallet-template/src/App.js#L131](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L135)
 ```
 this.state.token.LogTokensMinted({ fromBlock: 'latest', toBlock: 'latest' })
@@ -356,7 +359,9 @@ this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
 ### END Stage 5: Events
 ---
 ### Stage 6: Transfer Tokens
-
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6.png)
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6-2.png)
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6-3.png)
 _Try this portion on your own!_
 
 The required components included:
