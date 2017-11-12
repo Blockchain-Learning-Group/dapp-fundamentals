@@ -5,16 +5,16 @@
 
 *Linux and Mac*
 ```
-cd /home && sudo mkdir blg && cd blg
+cd ~/Desktop && mkdir blg && cd blg
 ```
 *Windows*
 ```
-cd c:\Users && sudo MD blg && cd blg
+cd c:\Users\USERNAME\desktop && MD blg && cd blg
 ```
 - *Example output:*
   ```
-  adam@adam:/$ cd /home && sudo mkdir blg && cd blg
-  adam@adam:/home/blg$
+  adam@adam:/$ cd ~/Desktop && mkdir blg && cd blg
+  adam@adam:~/Desktop/blg$
   ```
 
 2. Clone the wallet template
@@ -35,19 +35,21 @@ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
 
 3. Run your docker container
 
+*Replace <USERNAME> with your username.*
+
 *Linux and Mac*
 ```
-docker run -dit -p 3000:3000 -p 8545:8545 -v /home/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+docker run -dit -p 3000:3000 -p 8545:8545 -v /home/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 ```
 *Windows*
 - Follow the steps [here](https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c) to share your C drive with docker.
 ```
-docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/USERNAME/desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 ```
 - *Example output:*
   ```
-  adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
-  182d123ec0396a8c54709388baf0f5f61e88a40a4d244ef5b11b4337adfe687e
+  adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+  1bb232a56e6868e2bc4dbeaf86405ec3ed892090809fcab1823cab38e8337dc1
   adam@adam:~$
   ```
 
