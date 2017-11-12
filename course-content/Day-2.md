@@ -1,7 +1,15 @@
 ## Day 2: DApp Development
 
 ## Table of Contents
-1. [Stage 1](#stage-1-dev-enviroment-setup-and-application-bootstrap)
+1. [Stage 1: Dev Enviroment Setup and App Bootstrapping](#stage-1-dev-enviroment-setup-and-application-bootstrap)
+2. [Stage 2: ](#stage-2-token-interface)
+3. [Stage 3](#stage-3-token-interaction--get)
+4. [Stage 4](#stage-4-token-interaction--mint-tokens)
+5. [Stage 5](#stage-5-events)
+6. [Stage 6](#stage-6-transfer-tokens)
+7. [Bonus](#bonus-extend-your-wallet)
+
+--------------------------------------------------------------------------------
 
 ### Stage 1: Dev Enviroment Setup and Application Bootstrap
 1. Make a blg directory on your desktop
@@ -361,9 +369,9 @@ The required components included:
 
 3. Add an event listener to watch for token transfers. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L144)
 
-4. Tranfer tokens between accounts and review balances.
+_Finally tranfer tokens between accounts and review balances._
 
 ### END Stage 6: Transfer Tokens
 
-### Bonus: Extended Your Wallet
+### Bonus: Extend Your Wallet
 1. Enable the wallet to support multiple ERC20 tokens.
