@@ -12,26 +12,26 @@ cd ~/Desktop && mkdir blg && cd blg
 cd c:\Users\USERNAME\desktop && MD blg && cd blg
 ```
 - *Example output:*
-  ```
-  adam@adam:/$ cd ~/Desktop && mkdir blg && cd blg
-  adam@adam:~/Desktop/blg$
-  ```
+```
+adam@adam:/$ cd ~/Desktop && mkdir blg && cd blg
+adam@adam:~/Desktop/blg$
+```
 
 2. Clone the wallet template
 ```
 git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
 ```
 - *Example output:*
-  ```
-  adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
-  Cloning into 'wallet-template'...
-  remote: Counting objects: 30, done.
-  remote: Compressing objects: 100% (28/28), done.
-  remote: Total 30 (delta 0), reused 30 (delta 0), pack-reused 0
-  Unpacking objects: 100% (30/30), done.
-  Checking connectivity... done.
-  adam@adam:~/Desktop/blg$
-  ```
+```
+adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
+Cloning into 'wallet-template'...
+remote: Counting objects: 30, done.
+remote: Compressing objects: 100% (28/28), done.
+remote: Total 30 (delta 0), reused 30 (delta 0), pack-reused 0
+Unpacking objects: 100% (30/30), done.
+Checking connectivity... done.
+adam@adam:~/Desktop/blg$
+```
 
 3. Run your docker container
 
@@ -47,11 +47,11 @@ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/<USERNAME>/Desktop/blg:/blg -
 docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/USERNAME/desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 ```
 - *Example output:*
-  ```
-  adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
-  1bb232a56e6868e2bc4dbeaf86405ec3ed892090809fcab1823cab38e8337dc1
-  adam@adam:~$
-  ```
+```
+adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+1bb232a56e6868e2bc4dbeaf86405ec3ed892090809fcab1823cab38e8337dc1
+adam@adam:~$
+```
 
 4. Exec into the container
 
@@ -60,87 +60,88 @@ docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/USERNAME/desktop/blg:/blg 
 docker exec -it blg-env bash
 ```
 - *Example output:*
-  ```
-  adam@adam:~$ docker exec -it blg-env bash
-  root@182d123ec039:/blg/wallet-template#
-  ```
+```
+adam@adam:~$ docker exec -it blg-env bash
+root@182d123ec039:/blg/wallet-template#
+```
 
 5. Install dependencies
 ```
 yarn
 ```
 - *Example output:*
-  ```
-  root@2e9e0eda980d:~/blg/wallet-template# yarn
-  yarn install v1.2.0
-  [1/4] Resolving packages...
-  [....]
-  Done in 42.65s.
-  root@2e9e0eda980d:~/blg/wallet-template#
-  ```
+```
+root@2e9e0eda980d:~/blg/wallet-template# yarn
+yarn install v1.2.0
+[1/4] Resolving packages...
+[....]
+Done in 42.65s.
+root@2e9e0eda980d:~/blg/wallet-template#
+```
 
 6. Compile the contracts
 ```
 cd src && truffle compile
 ```
 - *Example output:*
-  ```
-  root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
-  Compiling ./contracts/token/ERC20.sol...
-  [...]
-  Writing artifacts to ./build/contracts
+```
+root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
+Compiling ./contracts/token/ERC20.sol...
+[...]
+Writing artifacts to ./build/contracts
 
-  root@2e9e0eda980d:~/blg/wallet-template/src#
-  ```
+root@2e9e0eda980d:~/blg/wallet-template/src#
+```
 
 7. Start up your window manager, screen
 ```
 screen
 ```
 - *Example output:*
-  ```
-  root@ebab36647c9e:/blg/wallet-template/src# screen
-  Screen version 4.02.01 (GNU) 28-Apr-14
-  [...]
-                  [Press Space or Return to end.]
-  ```
-  *PRESS ENTER*
-  ```
-  #
-  ```
+```
+root@ebab36647c9e:/blg/wallet-template/src# screen
+Screen version 4.02.01 (GNU) 28-Apr-14
+[...]
+                [Press Space or Return to end.]
+```
+*PRESS ENTER*
+```
+#
+```
 
 8. Start the app
 ```
 yarn start
 ```
 - *Example output:*
-  ```
-  # yarn start
-  yarn run v1.2.0
-  $ react-scripts start
-  Starting the development server...
-  Compiled with warnings.
+```
+# yarn start
+yarn run v1.2.0
+$ react-scripts start
+Starting the development server...
+Compiled with warnings.
 
-  ./src/App.js
-    Line 41:  'defaultAccount' is assigned a value but never used  no-unused-vars
+./src/App.js
+  Line 41:  'defaultAccount' is assigned a value but never used  no-unused-vars
 
-  Search for the keywords to learn more about each warning.
-  To ignore, add // eslint-disable-next-line to the line before.
-  ```
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+```
 
 9. Load the app in chrome, [localhost:3000](http://localhost:3000/)
 
 ### END Stage 1: Dev Enviroment Set up and Application Bootstrapped!
 
+
 ### START Stage 2: Token Interface
 
-1. Create a new window
+1. Create a new window, Ethereum client
 
 *ctrl AND a THEN c*
 ```
 ctrl+a c  
 ```
-Example output: Result in new empty window, in same directory.
+- *Example output: Result in new empty window, in same directory.*
 ```
 #
 ```
@@ -149,7 +150,7 @@ Example output: Result in new empty window, in same directory.
 ```
 testrpc
 ```
-Example output:
+- *Example output:*
 ```
 # testrpc
 EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
@@ -157,22 +158,119 @@ EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
 Listening on localhost:8545
 ```
 
+3. Create a new window, Truffle
 
-12. Open up the repo /blg/wallet-template in a text editor of your choice
+*ctrl AND a THEN c*
+```
+ctrl+a c  
+```
+- *Example output: Result in new empty window, in same directory.*
+```
+#
+```
 
-13. Test Your Token contract
+4. Test Your Token contract
 
-*contracts/Token.sol has been provided or do update with the Token that was completed at the end of Day 1.*
+*contracts/Token.sol has been provided or do update it with the Token that was completed at the end of Day 1.*
 *Also one test file has been provided to confirm the mint method was implemented correctly.*
 ```
 truffle test
 ```
-Example output:
+- *Example output:*
 ```
+# truffle test
+Using network 'development'.
+  Contract: Token.mint()
+    � should mint new tokens and allocate to user. (416ms)
+    � should return false and LogErrorString when not from owner. (379ms)
+    � should return false and LogErrorString when minting a value of 0. (318ms)
+  3 passing (1s)
+#
 ```
 
+5. Refresh your chrome browser and open up the developer console
+`right click => inspect`
+
+*Note the error message:* `Token has not been deployed to the detected network.`
+
+6. Deploy your Token
+```
+truffle migrate
+```
+- *Example output:*
+```
+# truffle migrate
+Using network 'development'.
+
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+  ... 0x26ff3f480502a228f34363e938289c3164edf8bc49c75f5d6d9623a05da92dbf
+  Migrations: 0x3e47fad1423cbf6bd97fee18ae2de546b0e9188a
+Saving successful migration to network...
+  ... 0x19a7a819df452847f34815e2573765be8c26bac43b1c10d3b7528e6d952ac02c
+Saving artifacts...
+Running migration: 2_deploy_contracts.js
+  Deploying Token...
+  ... 0x4a69e7840d0f96067964fb515ffea1a04a98fc5759849d3308584af4770c8f7b
+  Token: 0xd58c6b5e848d70fd94693a370045968c0bc762a7
+Saving successful migration to network...
+  ... 0xd1e9bef5f19bb37daa200d7e563f4fa438da60dbc349f408d1982f8626b3c202
+Saving artifacts...
+#
+```
+
+7. Refresh chrome, server may already have done so.
+
+*View in the developer console the token instance is now present*
+
+- *Example output:*
+```
+Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a370045968c0bc762a7", abi: Array[20]}
+```
 
 ### END Stage 2: Token Interface
+
+
+### START Stage 3: Token Interaction - GET
+
+_Time to start coding!_
+
+1. Open up the repo ~/Desktop/blg/wallet-template in a text editor of your choice
+
+2. Set the default account's ether balance, [wallet-template/src/App.js#L55](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/6095b3cad3b3aff0628c17f52cba15c8f2171ece/src/App.js#L55)
+```
+this.web3.eth.getBalance(defaultAccount, (err, ethBalance) => {
+  this.setState({ ethBalance })
+})
+```
+
+3. Set the default account's token balance, [wallet-template/src/App.js#L74](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L74)
+```
+token.balanceOf(defaultAccount, (err, tokenBalance) => {
+  this.setState({ tokenBalance })
+})
+```
+
+4. Set the token's symbol, [wallet-template/src/App.js#L81](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L81)
+```
+token.symbol((err, tokenSymbol) => {
+  this.setState({ tokenSymbol })
+})
+```
+
+5. Set the token's decimal places, [wallet-template/src/App.js#L88](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L88)
+```
+token.decimals((err, tokenDecimals) => {
+  this.setState({ tokenDecimals })
+})
+```
+
+6. View the default account balances and token information in the browser!
+
+### END Stage 3: Token Interaction - GET
+
+
+### START Stage 3: Token Interaction - Send Transactions
 
 
 

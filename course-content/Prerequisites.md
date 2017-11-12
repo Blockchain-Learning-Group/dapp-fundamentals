@@ -7,6 +7,10 @@
 # Machine Specs
 0. 20GB Disk Space(Safe full node requirements) and 4GB of memory recommended.
 
+# Text Editor
+*Atom will be used through-out*
+1. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/) and solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
+
 # Ethereum Client
 1. [Partiy](https://parity.io/)
 Download from here and sync beforehand if possible.
