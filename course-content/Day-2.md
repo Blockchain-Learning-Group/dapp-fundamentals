@@ -5,7 +5,7 @@
 
 *Linux and Mac*
 ```
-cd ~/Desktop && mkdir blg
+cd ~/Desktop && mkdir blg && cd blg
 ```
 Example:
 ```

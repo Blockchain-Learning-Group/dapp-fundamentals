@@ -1,5 +1,9 @@
 # Pre-requisites and Installs
 
+# Prerequisite Resources
+*Recommended to review beforehand*
+- screen
+
 # Machine Specs
 0. 20GB Disk Space(Safe full node requirements) and 4GB of memory recommended.
 
