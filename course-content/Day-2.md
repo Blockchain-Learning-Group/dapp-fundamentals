@@ -11,8 +11,7 @@
 8. [Day 2 Clean up](#day-2-clean-up)
 ---
 ### Stage 1: Dev Enviroment Setup and Application Bootstrap
-#### Objective:
-![alt text](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02-stage-1.png)
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png)
 
 1. Make a blg directory on your desktop
 
