@@ -14,9 +14,13 @@
 1. Make a blg directory on your desktop
 
 *Linux and Mac*
-`cd ~/Desktop && mkdir blg && cd blg`
+```
+cd ~/Desktop && mkdir blg && cd blg
+```
 *Windows*
-`cd c:\Users\USERNAME\desktop && MD blg && cd blg`
+```
+cd c:\Users\USERNAME\desktop && MD blg && cd blg
+```
 - *Example output:*
 ```
 adam@adam:/$ cd ~/Desktop && mkdir blg && cd blg
@@ -24,7 +28,9 @@ adam@adam:~/Desktop/blg$
 ```
 
 2. Clone the wallet template
-`git clone https://github.com/Blockchain-Learning-Group/wallet-template.git`
+```
+git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
+```
 - *Example output:*
 ```
 adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
@@ -60,7 +66,9 @@ adam@adam:~$
 4. Exec into the container
 
 *Container will serve as your virtual environment.*
-`docker exec -it blg-env bash`
+```
+docker exec -it blg-env bash
+```
 - *Example output:*
 ```
 adam@adam:~$ docker exec -it blg-env bash
@@ -68,7 +76,9 @@ root@182d123ec039:/blg/wallet-template#
 ```
 
 5. Install dependencies
-`yarn`
+```
+yarn
+```
 - *Example output:*
 ```
 root@2e9e0eda980d:~/blg/wallet-template# yarn
@@ -80,7 +90,9 @@ root@2e9e0eda980d:~/blg/wallet-template#
 ```
 
 6. Compile the contracts
-`cd src && truffle compile`
+```
+cd src && truffle compile
+```
 - *Example output:*
 ```
 root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
@@ -92,7 +104,9 @@ root@2e9e0eda980d:~/blg/wallet-template/src#
 ```
 
 7. Start up your window manager, screen
-`screen`
+```
+screen
+```
 - *Example output:*
 ```
 root@ebab36647c9e:/blg/wallet-template/src# screen
@@ -184,6 +198,7 @@ Using network 'development'.
 ```
 
 5. Refresh your chrome browser and open up the developer console
+
 `right click => inspect`
 
 *Note the error message:* `Token has not been deployed to the detected network.`
@@ -360,13 +375,19 @@ _Finally tranfer tokens between accounts and review balances._
 1. Detach from your screen session
 
 *ctrl AND a THEN d*
-`ctrl+a d`
+```
+ctrl+a d
+```
 
 2. Detach from the container
-`ctrl+d`
+```
+ctrl+d
+```
 
 3. Stop the container
-`docker stop blg-env`
+```
+docker stop blg-env
+``
 - *Example output:*
 ```
 adam@adam:~/$ docker stop blg-env
