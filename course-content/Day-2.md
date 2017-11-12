@@ -9,27 +9,27 @@ cd ~/Desktop && mkdir blg
 ```
 Example:
 ```
-adam@adam:~$ cd ~/Desktop && mkdir blg
+adam@adam:~$ cd ~/Desktop && mkdir blg && cd blg
 ```
 *Windows*
 ```
-cd c:\Users\USERNAME\desktop && MD blg
+cd c:\Users\USERNAME\desktop && MD blg && cd blg
 ```
 
-2. Clone the wallet template and change in its directory
+2. Clone the wallet template
 ```
-git clone https://github.com/Blockchain-Learning-Group/wallet-template.git && cd wallet-template
+git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
 ```
 Example output:
 ```
-adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git && cd wallet-template
+adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
 Cloning into 'wallet-template'...
 remote: Counting objects: 30, done.
 remote: Compressing objects: 100% (28/28), done.
 remote: Total 30 (delta 0), reused 30 (delta 0), pack-reused 0
 Unpacking objects: 100% (30/30), done.
 Checking connectivity... done.
-adam@adam:~/Desktop/blg/wallet-template$
+adam@adam:~/Desktop/blg$
 ```
 
 3. Run your docker container
@@ -102,34 +102,13 @@ root@ebab36647c9e:/blg/wallet-template/src# screen
 Screen version 4.02.01 (GNU) 28-Apr-14
 [...]
                 [Press Space or Return to end.]
-ENTER
-#
 ```
-
-8. Start up your Ethereum client, testrpc
-```
-testrpc
-```
-Example output:
-```
-# testrpc
-EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
-[...]
-Listening on localhost:8545
-```
-
-9. Create a new window
-
-*ctrl AND a THEN c*
-```
-ctrl+a c  
-```
-Example output: Result in new empty window, in same directory.
+*PRESS ENTER*
 ```
 #
 ```
 
-10. Start the app
+8. Start the app
 ```
 yarn start
 ```
@@ -148,19 +127,48 @@ Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.
 ```
 
-11. Load the app in chrome, [localhost:3000](http://localhost:3000/)
+9. Load the app in chrome, [localhost:3000](http://localhost:3000/)
 
 ### END Stage 1: Dev Enviroment Set up and Application Bootstrapped!
 
 ### START Stage 2: Token Interface
 
+1. Create a new window
+
+*ctrl AND a THEN c*
+```
+ctrl+a c  
+```
+Example output: Result in new empty window, in same directory.
+```
+#
+```
+
+2. Start up your Ethereum client, testrpc
+```
+testrpc
+```
+Example output:
+```
+# testrpc
+EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
+[...]
+Listening on localhost:8545
+```
+
+
 12. Open up the repo /blg/wallet-template in a text editor of your choice
 
-13. Update Token contract
+13. Test Your Token contract
 
-*contracts/Token.sol has been provided or do update with the Token that was completed at the end of Day 1*
-
--
+*contracts/Token.sol has been provided or do update with the Token that was completed at the end of Day 1.*
+*Also one test file has been provided to confirm the mint method was implemented correctly.*
+```
+truffle test
+```
+Example output:
+```
+```
 
 
 ### END Stage 2: Token Interface
