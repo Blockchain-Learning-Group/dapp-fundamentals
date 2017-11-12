@@ -2,14 +2,14 @@
 
 ## Table of Contents
 1. [Stage 1: Dev Enviroment Setup and App Bootstrapping](#stage-1-dev-enviroment-setup-and-application-bootstrap)
-2. [Stage 2: ](#stage-2-token-interface)
-3. [Stage 3](#stage-3-token-interaction--get)
-4. [Stage 4](#stage-4-token-interaction--mint-tokens)
-5. [Stage 5](#stage-5-events)
-6. [Stage 6](#stage-6-transfer-tokens)
+2. [Stage 2: Token Interface](#stage-2-token-interface)
+3. [Stage 3: Token Interaction](#stage-3-token-interaction--get)
+4. [Stage 4: Minting Tokens](#stage-4-token-interaction--mint-tokens)
+5. [Stage 5: Events](#stage-5-events)
+6. [Stage 6: Transfer Tokens](#stage-6-transfer-tokens)
 7. [Bonus](#bonus-extend-your-wallet)
 
---------------------------------------------------------------------------------
+---
 
 ### Stage 1: Dev Enviroment Setup and Application Bootstrap
 1. Make a blg directory on your desktop
@@ -142,8 +142,7 @@ To ignore, add // eslint-disable-next-line to the line before.
 9. Load the app in chrome, [localhost:3000](http://localhost:3000/)
 
 ### END Stage 1: Dev Enviroment Set up and Application Bootstrapped!
-
-
+---
 ### START Stage 2: Token Interface
 
 1. Create a new window, Ethereum client
@@ -356,8 +355,7 @@ this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
 *Note testrpc known bug where it will re-broadcast the latest event every time a new connection is made.  For example every the browser refreshes in our case the event dialog will appear.*
 
 ### END Stage 5: Events
-
-
+---
 ### START Stage 6: Transfer Tokens
 
 _Try this portion on your own!_
@@ -372,6 +370,6 @@ The required components included:
 _Finally tranfer tokens between accounts and review balances._
 
 ### END Stage 6: Transfer Tokens
-
+---
 ### Bonus: Extend Your Wallet
 1. Enable the wallet to support multiple ERC20 tokens.
