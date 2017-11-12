@@ -361,7 +361,7 @@ this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
 ### Stage 6: Transfer Tokens
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6.png)
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6-2.png)
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6-3.png)
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/test.png)
 _Try this portion on your own!_
 
 The required components included:
