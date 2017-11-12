@@ -387,7 +387,7 @@ ctrl+d
 3. Stop the container
 ```
 docker stop blg-env
-``
+```
 - *Example output:*
 ```
 adam@adam:~/$ docker stop blg-env
