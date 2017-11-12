@@ -1,5 +1,8 @@
 ## Day 2: DApp Development
 
+## Table of Contents
+1. [Stage 1](#stage-1-dev-enviroment-setup-and-application-bootstrap)
+
 ### Stage 1: Dev Enviroment Setup and Application Bootstrap
 1. Make a blg directory on your desktop
 
