@@ -8,9 +8,7 @@
 5. [Stage 5: Events](#stage-5-events)
 6. [Stage 6: Transfer Tokens](#stage-6-transfer-tokens)
 7. [Bonus](#bonus-extend-your-wallet)
-
 ---
-
 ### Stage 1: Dev Enviroment Setup and Application Bootstrap
 1. Make a blg directory on your desktop
 
