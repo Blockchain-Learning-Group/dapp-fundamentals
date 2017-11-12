@@ -8,18 +8,15 @@
 5. [Stage 5: Events](#stage-5-events)
 6. [Stage 6: Transfer Tokens](#stage-6-transfer-tokens)
 7. [Bonus](#bonus-extend-your-wallet)
+8. [Day 2 Clean up](#day-2-clean-up)
 ---
 ### Stage 1: Dev Enviroment Setup and Application Bootstrap
 1. Make a blg directory on your desktop
 
 *Linux and Mac*
-```
-cd ~/Desktop && mkdir blg && cd blg
-```
+`cd ~/Desktop && mkdir blg && cd blg`
 *Windows*
-```
-cd c:\Users\USERNAME\desktop && MD blg && cd blg
-```
+`cd c:\Users\USERNAME\desktop && MD blg && cd blg`
 - *Example output:*
 ```
 adam@adam:/$ cd ~/Desktop && mkdir blg && cd blg
@@ -27,9 +24,7 @@ adam@adam:~/Desktop/blg$
 ```
 
 2. Clone the wallet template
-```
-git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
-```
+`git clone https://github.com/Blockchain-Learning-Group/wallet-template.git`
 - *Example output:*
 ```
 adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
@@ -65,9 +60,7 @@ adam@adam:~$
 4. Exec into the container
 
 *Container will serve as your virtual environment.*
-```
-docker exec -it blg-env bash
-```
+`docker exec -it blg-env bash`
 - *Example output:*
 ```
 adam@adam:~$ docker exec -it blg-env bash
@@ -75,9 +68,7 @@ root@182d123ec039:/blg/wallet-template#
 ```
 
 5. Install dependencies
-```
-yarn
-```
+`yarn`
 - *Example output:*
 ```
 root@2e9e0eda980d:~/blg/wallet-template# yarn
@@ -89,9 +80,7 @@ root@2e9e0eda980d:~/blg/wallet-template#
 ```
 
 6. Compile the contracts
-```
-cd src && truffle compile
-```
+`cd src && truffle compile`
 - *Example output:*
 ```
 root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
@@ -103,9 +92,7 @@ root@2e9e0eda980d:~/blg/wallet-template/src#
 ```
 
 7. Start up your window manager, screen
-```
-screen
-```
+`screen`
 - *Example output:*
 ```
 root@ebab36647c9e:/blg/wallet-template/src# screen
@@ -368,3 +355,21 @@ _Finally tranfer tokens between accounts and review balances._
 ---
 ### Bonus: Extend Your Wallet
 1. Enable the wallet to support multiple ERC20 tokens.
+---
+### Day 2 Clean up
+1. Detach from your screen session
+
+*ctrl AND a THEN d*
+`ctrl+a d`
+
+2. Detach from the container
+`ctrl+d`
+
+3. Stop the container
+`docker stop blg-env`
+- *Example output:*
+```
+adam@adam:~/$ docker stop blg-env
+blg-env
+adam@adam:~/$
+```
