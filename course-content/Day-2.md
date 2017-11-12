@@ -347,7 +347,7 @@ this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
 })
 ```
 
-5. Mint tokens and view the dialog confirmation and token and ETH balance updated!  Also mint tokens from an account that is not the owner and view the error message.
+6. Mint tokens and view the dialog confirmation and token and ETH balance updated!  Also mint tokens from an account that is not the owner and view the error message.
 
 *Note testrpc known bug where it will re-broadcast the latest event every time a new connection is made.  For example every the browser refreshes in our case the event dialog will appear.*
 
