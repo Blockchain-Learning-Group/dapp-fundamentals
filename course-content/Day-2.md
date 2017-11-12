@@ -7,21 +7,21 @@
 ```
 cd /home && sudo mkdir blg && cd blg
 ```
-Example:
-```
-adam@adam:/$ cd /home && sudo mkdir blg && cd blg
-adam@adam:/home/blg$
-```
 *Windows*
 ```
-cd c:\Users && MD blg && cd blg
+cd c:\Users && sudo MD blg && cd blg
 ```
+- *Example output:*
+  ```
+  adam@adam:/$ cd /home && sudo mkdir blg && cd blg
+  adam@adam:/home/blg$
+  ```
 
 2. Clone the wallet template
 ```
 git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
 ```
-  Example output:
+- *Example output:*
   ```
   adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
   Cloning into 'wallet-template'...
@@ -44,7 +44,7 @@ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/blg:/blg --name=blg-env block
 ```
 docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 ```
-  Example output:
+- *Example output:*
   ```
   adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
   182d123ec0396a8c54709388baf0f5f61e88a40a4d244ef5b11b4337adfe687e
@@ -57,7 +57,7 @@ docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/blg:/blg --name=blg-env bl
 ```
 docker exec -it blg-env bash
 ```
-  Example output:
+- *Example output:*
   ```
   adam@adam:~$ docker exec -it blg-env bash
   root@182d123ec039:/blg/wallet-template#
@@ -67,7 +67,7 @@ docker exec -it blg-env bash
 ```
 yarn
 ```
-  Example output:
+- *Example output:*
   ```
   root@2e9e0eda980d:~/blg/wallet-template# yarn
   yarn install v1.2.0
@@ -81,7 +81,7 @@ yarn
 ```
 cd src && truffle compile
 ```
-  Example output:
+- *Example output:*
   ```
   root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
   Compiling ./contracts/token/ERC20.sol...
@@ -95,7 +95,7 @@ cd src && truffle compile
 ```
 screen
 ```
-  Example output:
+- *Example output:*
   ```
   root@ebab36647c9e:/blg/wallet-template/src# screen
   Screen version 4.02.01 (GNU) 28-Apr-14
@@ -111,7 +111,7 @@ screen
 ```
 yarn start
 ```
-  Example output:
+- *Example output:*
   ```
   # yarn start
   yarn run v1.2.0
