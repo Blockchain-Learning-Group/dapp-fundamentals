@@ -35,7 +35,7 @@ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
 
 3. Run your docker container
 
-*Replace <USERNAME> with your username.*
+*Replace `<USERNAME>` with your username.*
 
 *Linux and Mac*
 ```
