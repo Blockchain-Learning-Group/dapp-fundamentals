@@ -5,52 +5,51 @@
 
 *Linux and Mac*
 ```
-cd ~/Desktop && mkdir blg && cd blg
+cd /home && sudo mkdir blg && cd blg
 ```
 Example:
 ```
-adam@adam:~$ cd ~/Desktop && mkdir blg && cd blg
+adam@adam:/$ cd /home && sudo mkdir blg && cd blg
+adam@adam:/home/blg$
 ```
 *Windows*
 ```
-cd c:\Users\USERNAME\desktop && MD blg && cd blg
+cd c:\Users && MD blg && cd blg
 ```
 
 2. Clone the wallet template
 ```
 git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
 ```
-Example output:
-```
-adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
-Cloning into 'wallet-template'...
-remote: Counting objects: 30, done.
-remote: Compressing objects: 100% (28/28), done.
-remote: Total 30 (delta 0), reused 30 (delta 0), pack-reused 0
-Unpacking objects: 100% (30/30), done.
-Checking connectivity... done.
-adam@adam:~/Desktop/blg$
-```
+  Example output:
+  ```
+  adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
+  Cloning into 'wallet-template'...
+  remote: Counting objects: 30, done.
+  remote: Compressing objects: 100% (28/28), done.
+  remote: Total 30 (delta 0), reused 30 (delta 0), pack-reused 0
+  Unpacking objects: 100% (30/30), done.
+  Checking connectivity... done.
+  adam@adam:~/Desktop/blg$
+  ```
 
 3. Run your docker container
 
-*Replace USERNAME with your username!*
-
 *Linux and Mac*
 ```
-docker run -dit -p 3000:3000 -p 8545:8545 -v /home/USERNAME/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+docker run -dit -p 3000:3000 -p 8545:8545 -v /home/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 ```
 *Windows*
 - Follow the steps [here](https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c) to share your C drive with docker.
 ```
-docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/USERNAME/desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 ```
-Example output:
-```
-adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
-182d123ec0396a8c54709388baf0f5f61e88a40a4d244ef5b11b4337adfe687e
-adam@adam:~$
-```
+  Example output:
+  ```
+  adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+  182d123ec0396a8c54709388baf0f5f61e88a40a4d244ef5b11b4337adfe687e
+  adam@adam:~$
+  ```
 
 4. Exec into the container
 
@@ -58,74 +57,74 @@ adam@adam:~$
 ```
 docker exec -it blg-env bash
 ```
-Example output:
-```
-adam@adam:~$ docker exec -it blg-env bash
-root@182d123ec039:/blg/wallet-template#
-```
+  Example output:
+  ```
+  adam@adam:~$ docker exec -it blg-env bash
+  root@182d123ec039:/blg/wallet-template#
+  ```
 
 5. Install dependencies
 ```
 yarn
 ```
-Example output:
-```
-root@2e9e0eda980d:~/blg/wallet-template# yarn
-yarn install v1.2.0
-[1/4] Resolving packages...
-[....]
-Done in 42.65s.
-root@2e9e0eda980d:~/blg/wallet-template#
-```
+  Example output:
+  ```
+  root@2e9e0eda980d:~/blg/wallet-template# yarn
+  yarn install v1.2.0
+  [1/4] Resolving packages...
+  [....]
+  Done in 42.65s.
+  root@2e9e0eda980d:~/blg/wallet-template#
+  ```
 
 6. Compile the contracts
 ```
 cd src && truffle compile
 ```
-Example output:
-```
-root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
-Compiling ./contracts/token/ERC20.sol...
-[...]
-Writing artifacts to ./build/contracts
+  Example output:
+  ```
+  root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
+  Compiling ./contracts/token/ERC20.sol...
+  [...]
+  Writing artifacts to ./build/contracts
 
-root@2e9e0eda980d:~/blg/wallet-template/src#
-```
+  root@2e9e0eda980d:~/blg/wallet-template/src#
+  ```
 
 7. Start up your window manager, screen
 ```
 screen
 ```
-Example output:
-```
-root@ebab36647c9e:/blg/wallet-template/src# screen
-Screen version 4.02.01 (GNU) 28-Apr-14
-[...]
-                [Press Space or Return to end.]
-```
-*PRESS ENTER*
-```
-#
-```
+  Example output:
+  ```
+  root@ebab36647c9e:/blg/wallet-template/src# screen
+  Screen version 4.02.01 (GNU) 28-Apr-14
+  [...]
+                  [Press Space or Return to end.]
+  ```
+  *PRESS ENTER*
+  ```
+  #
+  ```
 
 8. Start the app
 ```
 yarn start
 ```
-Example output:
-```
-# yarn start
-yarn run v1.2.0
-$ react-scripts start
-Starting the development server...
-Compiled with warnings.
+  Example output:
+  ```
+  # yarn start
+  yarn run v1.2.0
+  $ react-scripts start
+  Starting the development server...
+  Compiled with warnings.
 
-./src/App.js
-  Line 41:  'defaultAccount' is assigned a value but never used  no-unused-vars
+  ./src/App.js
+    Line 41:  'defaultAccount' is assigned a value but never used  no-unused-vars
 
-Search for the keywords to learn more about each warning.
-To ignore, add // eslint-disable-next-line to the line before.
-```
+  Search for the keywords to learn more about each warning.
+  To ignore, add // eslint-disable-next-line to the line before.
+  ```
 
 9. Load the app in chrome, [localhost:3000](http://localhost:3000/)
 
