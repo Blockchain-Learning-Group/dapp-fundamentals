@@ -1,6 +1,6 @@
 # DApp Fundamentals Course Pre-requisites
 
-# Join our Slack Team: [Blockchain-Learning-Group](https://join.slack.com/t/blockchainlearning/shared_invite/enQtMjIyMzIyODMxMjE3LWM4MTA5YWUwNWI0YmMyMTI5OTY1ODhlYjU3NGJiYWYzYzliMDZlMzM4OGUyZjg0Njk0NzQ0NmI5NGYzZDJlNWY)
+### Join our Slack Team: [Blockchain-Learning-Group](https://join.slack.com/t/blockchainlearning/shared_invite/enQtMjIyMzIyODMxMjE3LWM4MTA5YWUwNWI0YmMyMTI5OTY1ODhlYjU3NGJiYWYzYzliMDZlMzM4OGUyZjg0Njk0NzQ0NmI5NGYzZDJlNWY)
 ---
 # Course Resources
 
@@ -25,7 +25,8 @@
 ---
 # Ethereum Client
 1. [Partiy](https://parity.io/)
-Download and sync beforehand if possible.
+
+Download and sync beforehand.
 - Ubuntu / Mac(potentially? Error experienced on OSX 10.11.6):
 ```
 bash <(curl https://get.parity.io -L)
@@ -52,19 +53,25 @@ adam@adam:~$ parity --chain kovan --tracing off --rpccorsdomain '*'
 ---
 # Environment Setup
 ## 3 Options - follow ONLY 1
-1. __Recommended__: Dockerized Dev Environment and Local Chrome
+1. __[Recommended]__ Dockerized Dev Environment and Local Chrome
   - A docker container has been configured with all development dependencies.
   - All development will be conducted within the docker container, virtual environment.
-  - Chrome will be installed on the local machine and run locally interacting with the application running inside the container.
+  - Chrome will be installed on the local machine and will interact with the application running inside the container.
+
 2. Local Machine
+
+*If you wish to run everything locally and are familiar with installing packages via package managers such as npm then the following may be for you.*
 - All development dependencies will be installed on the local machine.
-- All development will conducted within the local mahcine's environment.
-- Chrome will be installed on the local machine and run locally interacting with the application running locally.
-3. Completely Dockerized - Dev and Chrome Configuration
+- All development will conducted within the local machine's environment.
+- Chrome will be installed on the local machine and will interact with the application running locally.
+
+3. __[Not Recommended]__ Completely Dockerized - Dev and Chrome Configuration
+
+*In the rare case where your machine is constrained to an older version of chrome and therefore metamask will not work proceed with this dockerized chrome version.*
 - All development dependencies configured within docker container.
 - All development will conducted within the local mahcine's environment.
 - Chrome will be run inside the docker container and all work shall live within its environment.
-
+---
 ## 1. Recommended: Dockerized Dev Environment and Local Chrome
 1. Install Docker
 - [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
@@ -79,8 +86,6 @@ docker pull blockchainlg/dapp-dev-env
 4. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 - Create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
 ---
-*If you wish to run everything locally and are familiar with installing packages via package managers such as npm then the following may be for you.*
-
 ## 2. Local Machine
 1. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
 - Version > 55.0.0.  Check in browser bar: `chrome://version/`
@@ -113,11 +118,9 @@ npm install -g ethereumjs-testrpc@4.1.3
 pip3 install pysha3==1.0.2
 ```
 ---
-*In the rare case where you machine is constrained to an older version of chrome and therefore metamask will not work proceed with dockerized chrome version.*
+## 3. Dockerized Chrome Configuration
 
 *NOTE still experimental and not recommended!*
-
-## 3. Dockerized Chrome Configuration
 1. Install Docker
 - [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 - [MacOS](https://www.docker.com/docker-mac)
@@ -144,10 +147,4 @@ docker run -d -p 5900:5900 -e VNC_SERVER_PASSWORD=password --name=blg-env --user
 ```
 $ docker stop blg-env
 ```
-
-## FAQ
-1. Truffle test error
-```
-Error: Don't set config.from directly. Instead, set config.networks and then config.networks[<network name>].from
-```
-Fix: Upgrade version of node to 8.7 and restart your terminal window
+---
