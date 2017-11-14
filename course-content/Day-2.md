@@ -15,6 +15,8 @@
 
 *Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.*
 
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-1-01.mp4?raw=true)
+
 1. Make a blg directory on your desktop
 
 *Linux and Mac*
@@ -148,6 +150,9 @@ To ignore, add // eslint-disable-next-line to the line before.
 ---
 ### Stage 2: Token Interface
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-2.png)
+
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-2-01.mp4?raw=true)
+
 1. Create a new window, Ethereum client
 
 *ctrl AND a THEN c*
@@ -249,6 +254,8 @@ Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a37
 
 _Time to start coding!_
 
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-3-01.mp4?raw=true)
+
 1. Open up the repo ~/Desktop/blg/wallet-template in a text editor of your choice
 
 2. Set the default account's ether balance, [wallet-template/src/App.js#L55](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/6095b3cad3b3aff0628c17f52cba15c8f2171ece/src/App.js#L55)
@@ -286,6 +293,9 @@ token.decimals((err, tokenDecimals) => {
 ### Stage 4: Token Interaction - Mint Tokens
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4.png)
 ![Completed 2](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4-2.png)
+
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-4-01.mp4?raw=true)
+
 1. Add a method to mint tokens, sending a transaction to the token contract. [wallet-template/src/App.js#L155](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L170)
 ```
 this.state.token.mint(
@@ -316,6 +326,9 @@ null
 ### Stage 5: Events
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-5.png)
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-5-2.png)
+
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-5-01.mp4?raw=true)
+
 1. Add an event to listen for when tokens are minted, [wallet-template/src/App.js#L131](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L135)
 ```
 this.state.token.LogTokensMinted({ fromBlock: 'latest', toBlock: 'latest' })
@@ -366,6 +379,8 @@ this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6-3.png)
 _Try this portion on your own!_
 
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-6-01.mp4?raw=true)
+
 The required components included:
 1. Add the React transfer tokens form component. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L269)
 
@@ -381,6 +396,9 @@ _Finally tranfer tokens between accounts and review balances._
 1. Enable the wallet to support multiple ERC20 tokens.
 ---
 ### Day 2 Clean up
+
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-cleanup-01.mp4?raw=true)
+
 1. Detach from your screen session
 
 *ctrl AND a THEN d*
