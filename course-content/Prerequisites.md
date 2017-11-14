@@ -93,22 +93,24 @@ adam@adam:~$
 ```
 - Run the container to confirm install and image working correctly
 ```
-docker run -dit -p 3000:3000 -p 8545:8545 --name=blg-env blockchainlg/dapp-dev-env
+docker run --name=blg-env blockchainlg/dapp-dev-env
 ```
 - *Example output:*
 ```
-adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 --name=blg-env blockchainlg/dapp-dev-env
-aa0e0a2e61571a9fc4fb15ee7800146a4d78cfdd0dfd3ed0ac3fab788068d810
-adam@adam:~$
+adam@adam:~/Desktop/blg$ docker run --name=blg-env blockchainlg/dapp-dev-env
+2017-11-14 21:11:35,916 CRIT Supervisor running as root (no user in config file)
+2017-11-14 21:11:35,928 INFO RPC interface 'supervisor' initialized
+2017-11-14 21:11:35,929 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2017-11-14 21:11:35,929 INFO supervisord started with pid 1
 ```
-- Stop the container and remove it for now
+- Kill the process, ctrl AND c: `ctrl+c`
+- Remove the container for now
 ```
-docker stop blg-env && docker rm blg-env
+docker rm blg-env
 ```
 - *Example output:*
 ```
-adam@adam:~$ docker stop blg-env && docker rm blg-env
-blg-env
+adam@adam:~$ docker rm blg-env
 blg-env
 adam@adam:~$
 ```
