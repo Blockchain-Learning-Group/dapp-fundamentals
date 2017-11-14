@@ -4,7 +4,7 @@
 ---
 # Course Resources
 
-*Familiarity beforehand recommended*
+*Familiarity beforehand recommended, not required.*
 1. [Docker](https://www.docker.com/)
 2. [ReactJS](https://reactjs.org/)
 3. [Truffle Framework](http://truffleframework.com/)
@@ -53,26 +53,26 @@ adam@adam:~$ parity --chain kovan --tracing off --rpccorsdomain '*'
 ---
 # Environment Setup
 ## 3 Options - follow ONLY 1
-1. __[Recommended]__ Dockerized Dev Environment and Local Chrome
+1. [__[Recommended]__ Dockerized Dev Environment and Local Chrome](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#1-recommended-dockerized-dev-environment-and-local-chrome)
   - A docker container has been configured with all development dependencies.
   - All development will be conducted within the docker container, virtual environment.
   - Chrome will be installed on the local machine and will interact with the application running inside the container.
 
-2. Local Machine
+2. [Local Machine](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#2-local-machine)
 
 *If you wish to run everything locally and are familiar with installing packages via package managers such as npm then the following may be for you.*
 - All development dependencies will be installed on the local machine.
 - All development will conducted within the local machine's environment.
 - Chrome will be installed on the local machine and will interact with the application running locally.
 
-3. __[Not Recommended]__ Completely Dockerized - Dev and Chrome Configuration
+3. [__[Not Recommended]__ Completely Dockerized - Dev and Chrome Configuration](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#2-local-machine)
 
 *In the rare case where your machine is constrained to an older version of chrome and therefore metamask will not work proceed with this dockerized chrome version.*
 - All development dependencies configured within docker container.
 - All development will conducted within the local mahcine's environment.
 - Chrome will be run inside the docker container and all work shall live within its environment.
 ---
-## 1. Recommended: Dockerized Dev Environment and Local Chrome
+## 1. [Recommended] Dockerized Dev Environment and Local Chrome
 1. Install Docker
 - [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 - [MacOS](https://www.docker.com/docker-mac)
@@ -80,6 +80,37 @@ adam@adam:~$ parity --chain kovan --tracing off --rpccorsdomain '*'
 2. Pull the Dev Environment Image
 ```
 docker pull blockchainlg/dapp-dev-env
+```
+- *Example output: [may take a few minutes]*
+```
+adam@adam:~$ docker pull blockchainlg/dapp-dev-env
+Using default tag: latest
+[...]
+27dbc59e6374: Pull complete
+Digest: sha256:dd092aac455c2c3fccf017c26fe14c40a13a2bbdf69cf67d1bd0adf66a708ec4
+Status: Downloaded newer image for blockchainlg/dapp-dev-env:latest
+adam@adam:~$
+```
+- Run the container to confirm install and image working correctly
+```
+docker run -dit -p 3000:3000 -p 8545:8545 --name=blg-env blockchainlg/dapp-dev-env
+```
+- *Example output:*
+```
+adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 --name=blg-env blockchainlg/dapp-dev-env
+aa0e0a2e61571a9fc4fb15ee7800146a4d78cfdd0dfd3ed0ac3fab788068d810
+adam@adam:~$
+```
+- Stop the container and remove it for now
+```
+docker stop blg-env && docker rm blg-env
+```
+- *Example output:*
+```
+adam@adam:~$ docker stop blg-env && docker rm blg-env
+blg-env
+blg-env
+adam@adam:~$
 ```
 3. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
 - Version > 55.0.0.  Check in browser bar: `chrome://version/`
@@ -118,7 +149,7 @@ npm install -g ethereumjs-testrpc@4.1.3
 pip3 install pysha3==1.0.2
 ```
 ---
-## 3. Dockerized Chrome Configuration
+## 3. [Not Recommended] Dockerized Chrome Configuration
 
 *NOTE still experimental and not recommended!*
 1. Install Docker
