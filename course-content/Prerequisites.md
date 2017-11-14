@@ -1,25 +1,31 @@
-# Pre-requisites and Installs
+# DApp Fundamentals Course Pre-requisites
 
+# Join our Slack Team: [Blockchain-Learning-Group](https://join.slack.com/t/blockchainlearning/shared_invite/enQtMjIyMzIyODMxMjE3LWM4MTA5YWUwNWI0YmMyMTI5OTY1ODhlYjU3NGJiYWYzYzliMDZlMzM4OGUyZjg0Njk0NzQ0NmI5NGYzZDJlNWY)
+---
 # Course Resources
+
 *Familiarity beforehand recommended*
-1. Truffle Framework
-2. TestRPC
-3. Parity
-4. Docker
-5. ReactJS
-6. Material UI
-7. screen
-
+1. [Docker](https://www.docker.com/)
+2. [ReactJS](https://reactjs.org/)
+3. [Truffle Framework](http://truffleframework.com/)
+4. [Web3JS](https://github.com/ethereum/wiki/wiki/JavaScript-API)
+5. [Metamask](https://metamask.io/)
+6. [TestRPC](https://github.com/ethereumjs/testrpc)
+7. [Parity](https://parity.io/)
+8. [Material UI](https://reactjs.org/)
+9. [screen](https://www.tecmint.com/screen-command-examples-to-manage-linux-terminals/)
+---
 # Machine Specs
-0. 20GB Disk Space(Safe full node requirements) and 4GB of memory recommended.
-
+1. 20GB Disk Space(Safe full node requirements) and 4GB of memory recommended.
+---
 # Text Editor
-*Atom will be used through-out*
-1. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/) and solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
 
+*Atom will be used through-out. Recommended but not required, a text editor with solidity support is advised however.*
+1. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/) and solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
+---
 # Ethereum Client
 1. [Partiy](https://parity.io/)
-Download from here and sync beforehand if possible.
+Download and sync beforehand if possible.
 - Ubuntu / Mac(potentially? Error experienced on OSX 10.11.6):
 ```
 bash <(curl https://get.parity.io -L)
@@ -34,18 +40,37 @@ Sync your node to Kovan.
 ```
 parity --chain kovan --tracing off --rpccorsdomain "*" ui
 ```
+- *Example output: [while syncing]*
+```
+adam@adam:~$ parity --chain kovan --tracing off --rpccorsdomain '*'
+2017-11-14 15:29:49  Starting Parity/v1.8.0-beta-9882902-20171015/x86_64-linux-gnu/rustc1.20.0
+[...]
+2017-11-14 15:30:51  Syncing #4565495 586b…9203     0 blk/s    0 tx/s   0 Mgas/s      0+    0 Qed  #4565495    7/25 peers   79 KiB chain 15 KiB db 0 bytes queue 404 KiB sync  RPC:  0 conn,  6 req/s,  27 µs
+[...]
+```
+- Will continue syncing up until latest block on Kovan: [Kovan Blocks](https://kovan.etherscan.io/blocks)
+---
+# Environment Setup
+## 3 Options - follow ONLY 1
+1. __Recommended__: Dockerized Dev Environment and Local Chrome
+  - A docker container has been configured with all development dependencies.
+  - All development will be conducted within the docker container, virtual environment.
+  - Chrome will be installed on the local machine and run locally interacting with the application running inside the container.
+2. Local Machine
+- All development dependencies will be installed on the local machine.
+- All development will conducted within the local mahcine's environment.
+- Chrome will be installed on the local machine and run locally interacting with the application running locally.
+3. Completely Dockerized - Dev and Chrome Configuration
+- All development dependencies configured within docker container.
+- All development will conducted within the local mahcine's environment.
+- Chrome will be run inside the docker container and all work shall live within its environment.
 
-# Environment Setup - 3 options, follow ONLY 1
 ## 1. Recommended: Dockerized Dev Environment and Local Chrome
-- A docker container has been configured with all development dependencies.
-- All development will be conducted within the docker container's environment.
-- Chrome will be installed on the local machine and run locally interacting with the application running inside the container.
-
 1. Install Docker
 - [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 - [MacOS](https://www.docker.com/docker-mac)
 - [Windows](https://www.docker.com/docker-windows)
-2. Pull the dapp-fundamentals Image
+2. Pull the Dev Environment Image
 ```
 docker pull blockchainlg/dapp-dev-env
 ```
@@ -53,14 +78,10 @@ docker pull blockchainlg/dapp-dev-env
 - Version > 55.0.0.  Check in browser bar: `chrome://version/`
 4. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 - Create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
-
+---
 *If you wish to run everything locally and are familiar with installing packages via package managers such as npm then the following may be for you.*
 
 ## 2. Local Machine
-- All development dependencies will be installed on the local machine.
-- All development will conducted within the local mahcine's environment.
-- Chrome will be installed on the local machine and run locally interacting with the application running locally.
-
 1. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
 - Version > 55.0.0.  Check in browser bar: `chrome://version/`
 2. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
@@ -91,16 +112,12 @@ npm install -g ethereumjs-testrpc@4.1.3
 ```
 pip3 install pysha3==1.0.2
 ```
+---
+*In the rare case where you machine is constrained to an older version of chrome and therefore metamask will not work proceed with dockerized chrome version.*
 
-*If a late enough version of chrome cannot be installed and therefore metamask will not work proceed with dockerized chrome version.*
-
-*NOTE still experimental!*
+*NOTE still experimental and not recommended!*
 
 ## 3. Dockerized Chrome Configuration
-- All development dependencies configured within docker container.
-- All development will conducted within the local mahcine's environment.
-- Chrome will be run inside the docker container and all work shall live within its environment.
-
 1. Install Docker
 - [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 - [MacOS](https://www.docker.com/docker-mac)
