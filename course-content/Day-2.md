@@ -13,6 +13,8 @@
 ### Stage 1: Dev Enviroment Setup and Application Bootstrap
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png)
 
+*Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.*
+
 1. Make a blg directory on your desktop
 
 *Linux and Mac*

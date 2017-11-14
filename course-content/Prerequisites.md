@@ -1,8 +1,14 @@
 # Pre-requisites and Installs
 
-# Prerequisite Resources
-*Recommended to review beforehand*
-- screen
+# Course Resources
+*Familiarity beforehand recommended*
+1. Truffle Framework
+2. TestRPC
+3. Parity
+4. Docker
+5. ReactJS
+6. Material UI
+7. screen
 
 # Machine Specs
 0. 20GB Disk Space(Safe full node requirements) and 4GB of memory recommended.
