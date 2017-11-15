@@ -143,72 +143,28 @@ Saving artifacts...
 ### END Stage 1: Dev Enviroment Set up and Application Bootstrapped!
 ---
 ### Stage 2: Create the Exchange Component
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/03-stage-2.png)
 
-1. Add # based routing to render the exchange component, [wallet-template/src/App.js#L214]()
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/03_video_tutorials/03-stage-1-01.mp4?raw=true)
+
+1. Add # based routing to render the exchange component, [wallet-template/src/App.js#L215]()
 ```
-let component
+215:  if (window.location.hash === '#exchange') {
 
-// Routing to render the wallet or exchange components
-if (window.location.hash === '#exchange') {
-
-} else {
-
-}
-```
-
-2. Pull out the wallet component into the else statement, [wallet-template/src/App.js#L220]()
-- Cut lines 230 - 304
-```
-230: <h3>Active Account</h3>
-    <DropDownMenu
-      maxHeight={300}
-      width={500}
-      value={this.state.defaultAccount}
-      onChange={this.handleDropDownChange}
-    >
-      {this.state.availableAccounts}
-    </DropDownMenu>
-
-    [...]
-
-      <RaisedButton
-        label="Transfer"
-        labelPosition="before"
-        primary={true}
-        onClick={() => this.transfer(this.state.transferUser, this.state.transferAmount)}
-      />
-304: </div>
-```
-- Paste on line 221, assign the component variable to this component in the else statment.  
-
-__Don't forget to add the closing </div>!!__
-```
-219:} else {
-220:  component = <div>  
-        <h3>Active Account</h3>
-        <DropDownMenu
-          maxHeight={300}
-          width={500}
-          value={this.state.defaultAccount}
-          onChange={this.handleDropDownChange}
-        >
-          {this.state.availableAccounts}
-        </DropDownMenu>
-
+217:  } else {
+        component = <div>
         [...]
-
-          <RaisedButton
-          label="Transfer"
-          labelPosition="before"
-          primary={true}
-          onClick={() => this.transfer(this.state.transferUser, this.state.transferAmount)}
-          />
         </div>
-296:  </div>
-297:}
+291:  }
 ```
+
+2. Confirm the routing is working, open [localhost:3000/#exchange](http://localhost:3000/#exchange)
+- *Example output*
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/03-stage-2-blank-exchange.png)
 
 3. Create the exchange component
+
+
 
 ### END Stage 2: Token Interface
 ---
