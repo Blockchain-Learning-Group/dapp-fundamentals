@@ -160,7 +160,7 @@ Saving artifacts...
 
 2. Confirm the routing is working, open [localhost:3000/#exchange](http://localhost:3000/#exchange)
 - *Example output*
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/03-stage-2-blank-exchange.png)
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-2-blank-exchange.png)
 
 3. Create the exchange component
 
