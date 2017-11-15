@@ -166,41 +166,49 @@ Saving artifacts...
 
 
 
-### END Stage 2: Token Interface
+### END Stage 2: Create the Exchange Component
 ---
 
-5. Set the token's decimal places, [wallet-template/src/App.js#L88](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L88)
-```
-token.decimals((err, tokenDecimals) => {
-  this.setState({ tokenDecimals })
-})
-```
 
-6. View the default account balances and token information in your browser!
+- Write the exchange contract - submit order
 
-### END Stage 3: Token Interaction - GET
----
-### Stage 6: Transfer Tokens
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6.png)
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6-2.png)
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6-3.png)
-_Try this portion on your own!_
+- Write the exchange contract - execute order
 
-#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-6-01.mp4?raw=true)
+- add exchange to deploy script, updating migration file
 
-The required components included:
-1. Add the React transfer tokens form component. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L269)
+- test the exchange.sol!
 
-2. Complete the transfer method to send the transfer transaction. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L193)
+- create the ui component
+  - create reference to the exchange contract now too!
+    - add exchange to state
+    - import artifacts
+    - create ref to it in the did mount
+  - create ui form to submit an order
+    - add bid and ask amount to the state
+  - create submitOrder method to submit orders
 
-3. Add an event listener to watch for token transfers. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L144)
 
-_Finally tranfer tokens between accounts and review balances._
 
-### END Stage 6: Transfer Tokens
----
-### Bonus: Extend Your Wallet
-1. Enable the wallet to support multiple ERC20 tokens.
+- submit order button and on click
+- submit order function
+
+### Bonus: Extend Your Exchange
+TODO:
+  - pre-condition checks!  amounts > 0, etc.
+  - Integrate error logging pattern in place of requires
+  - ERC20 / ETH pairings
+  - ERC20 / ERC20 pairings
+  - Partial fills, matched by ratio not exact
+
+  - Write tests for the exchange!
+  - Move storage of order book off-chain to reduce cost
+
+    TODO
+    map the ether to a specific user, therefore they have a balance not
+    just the exchange total.
+- gas estimation!
+
+
 ---
 ### Clean up
 

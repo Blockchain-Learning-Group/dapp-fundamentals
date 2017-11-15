@@ -252,6 +252,30 @@ contract Token is ERC20, LoggingErrors {
   // Constants
 
   /**
+   * @return the allowance the owner gave the spender
+   */
+  function allowance(address _owner, address _spender)
+    external
+    constant
+    returns(uint256)
+  {
+    return allowed_[_owner][_spender];
+  }
+
+  /**
+   * @param _owner The address from which the balance will be retrieved.
+   * @return The balance
+   */
+  function balanceOf(
+    address _owner
+  ) external
+    constant
+    returns (uint256)
+  {
+    return balances_[_owner];
+  }
+
+  /**
    * @return total amount of tokens.
    */
   function totalSupply ()
@@ -260,19 +284,5 @@ contract Token is ERC20, LoggingErrors {
     returns (uint256)
   {
     return totalSupply_;
-  }
-
-  /**
-   * @param _owner The address from which the balance will be retrieved.
-   * @return The balance
-   */
-  function balanceOf (
-    address _owner
-  ) external
-    constant
-    returns (uint256)
-  {
-    // return the balance for this address from the balances mapping
-    return 0;
   }
 }
