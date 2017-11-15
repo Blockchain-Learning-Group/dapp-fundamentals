@@ -15,7 +15,7 @@
 
 *Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.*
 
-#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-1-01.mp4?raw=true)
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/03_video_tutorials/03-stage-1-01.mp4?raw=true)
 
 1. Start your container back up
 ```
@@ -144,46 +144,74 @@ Saving artifacts...
 ---
 ### Stage 2: Create the Exchange Component
 
-7. Refresh chrome, server may already have done so.
-
-*View in the developer console the token instance is now present*
-
-- *Example output:*
+1. Add # based routing to render the exchange component, [wallet-template/src/App.js#L214]()
 ```
-Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a370045968c0bc762a7", abi: Array[20]}
+let component
+
+// Routing to render the wallet or exchange components
+if (window.location.hash === '#exchange') {
+
+} else {
+
+}
 ```
+
+2. Pull out the wallet component into the else statement, [wallet-template/src/App.js#L220]()
+- Cut lines 230 - 304
+```
+230: <h3>Active Account</h3>
+    <DropDownMenu
+      maxHeight={300}
+      width={500}
+      value={this.state.defaultAccount}
+      onChange={this.handleDropDownChange}
+    >
+      {this.state.availableAccounts}
+    </DropDownMenu>
+
+    [...]
+
+      <RaisedButton
+        label="Transfer"
+        labelPosition="before"
+        primary={true}
+        onClick={() => this.transfer(this.state.transferUser, this.state.transferAmount)}
+      />
+304: </div>
+```
+- Paste on line 221, assign the component variable to this component in the else statment.  
+
+__Don't forget to add the closing </div>!!__
+```
+219:} else {
+220:  component = <div>  
+        <h3>Active Account</h3>
+        <DropDownMenu
+          maxHeight={300}
+          width={500}
+          value={this.state.defaultAccount}
+          onChange={this.handleDropDownChange}
+        >
+          {this.state.availableAccounts}
+        </DropDownMenu>
+
+        [...]
+
+          <RaisedButton
+          label="Transfer"
+          labelPosition="before"
+          primary={true}
+          onClick={() => this.transfer(this.state.transferUser, this.state.transferAmount)}
+          />
+        </div>
+296:  </div>
+297:}
+```
+
+3. Create the exchange component
 
 ### END Stage 2: Token Interface
 ---
-### Stage 3: Token Interaction - GET
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-3.png)
-
-_Time to start coding!_
-
-#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-3-01.mp4?raw=true)
-
-1. Open up the repo ~/Desktop/blg/wallet-template in a text editor of your choice
-
-2. Set the default account's ether balance, [wallet-template/src/App.js#L55](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/6095b3cad3b3aff0628c17f52cba15c8f2171ece/src/App.js#L55)
-```
-this.web3.eth.getBalance(defaultAccount, (err, ethBalance) => {
-  this.setState({ ethBalance })
-})
-```
-
-3. Set the default account's token balance, [wallet-template/src/App.js#L74](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L74)
-```
-token.balanceOf(defaultAccount, (err, tokenBalance) => {
-  this.setState({ tokenBalance })
-})
-```
-
-4. Set the token's symbol, [wallet-template/src/App.js#L81](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L81)
-```
-token.symbol((err, tokenSymbol) => {
-  this.setState({ tokenSymbol })
-})
-```
 
 5. Set the token's decimal places, [wallet-template/src/App.js#L88](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L88)
 ```
@@ -195,89 +223,6 @@ token.decimals((err, tokenDecimals) => {
 6. View the default account balances and token information in your browser!
 
 ### END Stage 3: Token Interaction - GET
----
-### Stage 4: Token Interaction - Mint Tokens
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4.png)
-![Completed 2](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4-2.png)
-
-#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-4-01.mp4?raw=true)
-
-1. Add a method to mint tokens, sending a transaction to the token contract. [wallet-template/src/App.js#L155](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L170)
-```
-this.state.token.mint(
-  user,
-  amount*10**this.state.tokenDecimals, // Convert to correct decimal places
-  { from: this.web3.eth.accounts[this.state.defaultAccount] },
-  (err, res) => {
-    console.log(err)
-    console.log(res)
-  }
-)
-```
-
-2. In the GUI mint tokens to available accounts.
-
-*Note transaction hash in develop console*
-*Note the transaction is sent from the current default account and only the contract owner, account 0, has permission to do so.*
-- *Example output:*
-```
-null
-0x4b396191e87c31a02e80160cb6a2661da6086c073f6e91e9bd1f796e29b0c983
-```
-
-3. Refresh chrome and view the account's balance of shiny new tokens!
-
-### END Stage 4: Token Interaction - Mint Tokens
----
-### Stage 5: Events
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-5.png)
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-5-2.png)
-
-#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-5-01.mp4?raw=true)
-
-1. Add an event to listen for when tokens are minted, [wallet-template/src/App.js#L131](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L135)
-```
-this.state.token.LogTokensMinted({ fromBlock: 'latest', toBlock: 'latest' })
-.watch((err, res) => {
-  alert('Tokens Minted!')
-  this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
-})
-```
-
-2. Update the default account's token balance when the event is fired.
-[wallet-template/src/App.js#L115](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L115)
-```
-this.state.token.balanceOf(account, (err, tokenBalance) => {
-  this.setState({ tokenBalance })
-})
-```
-
-3. Update the default account's ETH balance when the event is fired.
-[wallet-template/src/App.js#L122](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L122)
-```
-this.web3.eth.getBalance(account, (err, ethBalance) => {
-  this.setState({ ethBalance })
-})
-```
-
-4. Load the contract events, [wallet-template/src/App.js#L95](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L95)
-```
-this.loadEventListeners()
-```
-
-5. Add another event listener to watch for errors, [wallet-template/src/App.js#L149](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L153)
-```
-this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
-.watch((err, res) => {
-  alert(res.args.errorString)
-})
-```
-
-6. Mint tokens and view the dialog confirmation and token and ETH balance updated!  Also mint tokens from an account that is not the owner and view the error message.
-
-*Note testrpc known bug where it will re-broadcast the latest event every time a new connection is made.  For example every the browser refreshes in our case the event dialog will appear.*
-
-### END Stage 5: Events
 ---
 ### Stage 6: Transfer Tokens
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6.png)
@@ -301,7 +246,7 @@ _Finally tranfer tokens between accounts and review balances._
 ### Bonus: Extend Your Wallet
 1. Enable the wallet to support multiple ERC20 tokens.
 ---
-### Day 2 Clean up
+### Clean up
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-cleanup-01.mp4?raw=true)
 

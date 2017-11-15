@@ -8,7 +8,7 @@
 5. [Stage 5: Events](#stage-5-events)
 6. [Stage 6: Transfer Tokens](#stage-6-transfer-tokens)
 7. [Bonus](#bonus-extend-your-wallet)
-8. [Day 2 Clean up](#day-2-clean-up)
+8. [Clean up](#clean-up)
 ---
 ### Stage 1: Dev Enviroment Setup and Application Bootstrap
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png)
@@ -382,7 +382,7 @@ _Try this portion on your own!_
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-6-01.mp4?raw=true)
 
 The required components included:
-1. Add the React transfer tokens form component. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L269)
+1. Add the React transfer tokens form component. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/61a6bb6cf0238b5e635907ef931a7c4e5419b66a/src/App.js#L261)
 
 2. Complete the transfer method to send the transfer transaction. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L193)
 
@@ -395,7 +395,7 @@ _Finally tranfer tokens between accounts and review balances._
 ### Bonus: Extend Your Wallet
 1. Enable the wallet to support multiple ERC20 tokens.
 ---
-### Day 2 Clean up
+### Clean up
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-cleanup-01.mp4?raw=true)
 
