@@ -9,11 +9,14 @@
 2. [ReactJS](https://reactjs.org/)
 3. [Truffle Framework](http://truffleframework.com/)
 4. [Web3JS](https://github.com/ethereum/wiki/wiki/JavaScript-API)
-5. [Metamask](https://metamask.io/)
-6. [TestRPC](https://github.com/ethereumjs/testrpc)
-7. [Parity](https://parity.io/)
-8. [Material UI](https://reactjs.org/)
-9. [screen](https://www.tecmint.com/screen-command-examples-to-manage-linux-terminals/)
+5. [Solidity](https://solidity.readthedocs.io/en/develop/)
+6. [Remix](https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js)
+7. [Metamask](https://metamask.io/)
+8. [TestRPC](https://github.com/ethereumjs/testrpc)
+9. [Parity](https://parity.io/)
+10. [Material UI](https://reactjs.org/)
+11. [screen](https://www.tecmint.com/screen-command-examples-to-manage-linux-terminals/)
+
 ---
 # Machine Specs
 1. 20GB Disk Space(Safe full node requirements) and 4GB of memory recommended.

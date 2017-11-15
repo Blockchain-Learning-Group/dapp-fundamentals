@@ -1,4 +1,4 @@
-## Day 2: DApp Development
+## Day 3: DApp Extension
 
 ## Table of Contents
 1. [Stage 1: Dev Enviroment Setup and App Bootstrapping](#stage-1-dev-enviroment-setup-and-application-bootstrap)
@@ -10,66 +10,25 @@
 7. [Bonus](#bonus-extend-your-wallet)
 8. [Day 2 Clean up](#day-2-clean-up)
 ---
-### Stage 1: Dev Enviroment Setup and Application Bootstrap
+### Stage 1: Restart your Dev Environment and App
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png)
 
 *Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.*
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-1-01.mp4?raw=true)
 
-1. Make a blg directory on your desktop
-
-*Linux and Mac*
+1. Start your container back up
 ```
-cd ~/Desktop && mkdir blg && cd blg
-```
-*Windows*
-```
-cd c:\Users\USERNAME\desktop && MD blg && cd blg
+docker start blg-env
 ```
 - *Example output:*
 ```
-adam@adam:/$ cd ~/Desktop && mkdir blg && cd blg
-adam@adam:~/Desktop/blg$
-```
-
-2. Clone the wallet template
-```
-git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
-```
-- *Example output:*
-```
-adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
-Cloning into 'wallet-template'...
-remote: Counting objects: 30, done.
-remote: Compressing objects: 100% (28/28), done.
-remote: Total 30 (delta 0), reused 30 (delta 0), pack-reused 0
-Unpacking objects: 100% (30/30), done.
-Checking connectivity... done.
-adam@adam:~/Desktop/blg$
-```
-
-3. Run your docker container
-
-*Replace `<USERNAME>` with your username.*
-
-*Linux and Mac*
-```
-docker run -dit -p 3000:3000 -p 8545:8545 -v /home/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
-```
-*Windows*
-- Follow the steps [here](https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c) to share your C drive with docker.
-```
-docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/USERNAME/desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
-```
-- *Example output:*
-```
-adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
-1bb232a56e6868e2bc4dbeaf86405ec3ed892090809fcab1823cab38e8337dc1
+adam@adam:~$ docker start blg-env
+blg-env
 adam@adam:~$
 ```
 
-4. Attach into the container
+2. Attach into your container
 
 *Container will serve as your virtual environment.*
 ```
@@ -78,38 +37,10 @@ docker exec -it blg-env bash
 - *Example output:*
 ```
 adam@adam:~$ docker exec -it blg-env bash
-root@182d123ec039:/blg/wallet-template#
+root@9c52f3787e28:/blg/wallet-template#
 ```
 
-5. Install dependencies
-```
-yarn
-```
-- *Example output:*
-```
-root@2e9e0eda980d:~/blg/wallet-template# yarn
-yarn install v1.2.0
-[1/4] Resolving packages...
-[....]
-Done in 42.65s.
-root@2e9e0eda980d:~/blg/wallet-template#
-```
-
-6. Compile the contracts
-```
-cd src && truffle compile
-```
-- *Example output:*
-```
-root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
-Compiling ./contracts/token/ERC20.sol...
-[...]
-Writing artifacts to ./build/contracts
-
-root@2e9e0eda980d:~/blg/wallet-template/src#
-```
-
-7. Start up your window manager, screen
+3. Start up your window manager, screen
 ```
 screen
 ```
@@ -125,7 +56,7 @@ Screen version 4.02.01 (GNU) 28-Apr-14
 #
 ```
 
-8. Start the app
+4. Start the app
 ```
 yarn start
 ```
@@ -135,25 +66,19 @@ yarn start
 yarn run v1.2.0
 $ react-scripts start
 Starting the development server...
-Compiled with warnings.
 
-./src/App.js
-  Line 41:  'defaultAccount' is assigned a value but never used  no-unused-vars
+Compiled successfully!
 
-Search for the keywords to learn more about each warning.
-To ignore, add // eslint-disable-next-line to the line before.
+You can now view my-app in the browser.
+
+  Local:            http://localhost:3000/
+  On Your Network:  http://172.17.0.2:3000/
+
+Note that the development build is not optimized.
+To create a production build, use yarn build.
 ```
 
-9. Load the app in chrome, [localhost:3000](http://localhost:3000/)
-
-### END Stage 1: Dev Enviroment Set up and Application Bootstrapped!
----
-### Stage 2: Token Interface
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-2.png)
-
-#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-2-01.mp4?raw=true)
-
-1. Create a new window, Ethereum client
+5. Create a new window, Ethereum client
 
 *ctrl AND a THEN c*
 ```
@@ -164,7 +89,7 @@ ctrl+a c
 #
 ```
 
-2. Start up your Ethereum client, testrpc
+6. Start up your Ethereum client, testrpc
 ```
 testrpc
 ```
@@ -176,7 +101,7 @@ EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
 Listening on localhost:8545
 ```
 
-3. Create a new window, Truffle
+7. Create a new window, Truffle
 
 *ctrl AND a THEN c*
 ```
@@ -187,38 +112,13 @@ ctrl+a c
 #
 ```
 
-4. Test Your Token contract
-
-*contracts/Token.sol has been provided or do update it with the Token that was completed at the end of Day 1.*
-*Also one test file has been provided to confirm the mint method was implemented correctly.*
+8. Deploy your Token
 ```
-truffle test
+cd src && truffle migrate
 ```
 - *Example output:*
 ```
-# truffle test
-Using network 'development'.
-  Contract: Token.mint()
-    � should mint new tokens and allocate to user. (416ms)
-    � should return false and LogErrorString when not from owner. (379ms)
-    � should return false and LogErrorString when minting a value of 0. (318ms)
-  3 passing (1s)
-#
-```
-
-5. Refresh your chrome browser and open up the developer console
-
-`right click => inspect`
-
-*Note the error message:* `Token has not been deployed to the detected network.`
-
-6. Deploy your Token
-```
-truffle migrate
-```
-- *Example output:*
-```
-# truffle migrate
+# cd src && truffle migrate
 Using network 'development'.
 
 Running migration: 1_initial_migration.js
@@ -237,6 +137,12 @@ Saving successful migration to network...
 Saving artifacts...
 #
 ```
+
+9. Load the app in chrome, [localhost:3000](http://localhost:3000/)
+
+### END Stage 1: Dev Enviroment Set up and Application Bootstrapped!
+---
+### Stage 2: Create the Exchange Component
 
 7. Refresh chrome, server may already have done so.
 
