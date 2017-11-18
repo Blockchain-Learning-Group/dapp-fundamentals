@@ -193,7 +193,7 @@ LogOrderSubmitted(orderId, msg.sender, _bidToken,_bidAmount, _askToken, _askAmou
 ### END Stage 3: Write the submitOrder Method
 ---
 ### Stage 4: Test the submitOrder Method
-#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-3.mp4?raw=true)
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-4.mp4?raw=true)
 
 1. Create a new file wallet-template/src/test/test_submit_executeOrder.js
 ```
@@ -279,6 +279,7 @@ Contract: Exchange.submitOrder() && executeOrder()
 ### END Stage 4: Test the submitOrder method
 ---
 ### END Stage 5: Write the executeOrder Method
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-5.mp4?raw=true)
 
 __Test Setup__
 
@@ -352,6 +353,12 @@ Contract: Exchange.submitOrder() && executeOrder()
 
 
 
+
+
+
+### Stage X:
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true)
+### END Stage X:
 
 ### Stage 3: Create the Exchange Component
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/03-stage-2.png)
