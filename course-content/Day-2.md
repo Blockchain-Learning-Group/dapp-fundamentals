@@ -332,7 +332,6 @@ this.state.token.mint(
 *Note the transaction is sent from the current default account and only the contract owner, account 0, has permission to do so.*
 - *Example output:*
 ```
-null
 0x4b396191e87c31a02e80160cb6a2661da6086c073f6e91e9bd1f796e29b0c983
 ```
 
