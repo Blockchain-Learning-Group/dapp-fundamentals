@@ -192,11 +192,86 @@ LogOrderSubmitted(orderId, msg.sender, _bidToken,_bidAmount, _askToken, _askAmou
 ### Stage 4: Test the submitOrder method.
 1. Create a new file wallet-template/src/test/test_submit_executeOrder.js
 
-2. Copy the [test template]() into wallet-template/src/test/test_submit_executeOrder.js
+2. Copy the [test template](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/test_submit_executeOrder-template.js) into wallet-template/src/test/test_submit_executeOrder.js
 
+__Test Setup__
+3. Define the accounts to be user, maker and taker, [wallet-template/src/test/test_submit_executeOrder.js#L12](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L12)
+```
+const maker = accounts[0]
+const taker = accounts[1]
+```
+
+4. Deploy a new exchange and token in the test case, [wallet-template/src/test/test_submit_executeOrder.js#L19](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L19)
+```
+exchange = await Exchange.new()
+token = await Token.new({ from: maker })
+```
+
+5. Define the order parameters, [wallet-template/src/test/test_submit_executeOrder.js#L25](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L25)
+```
+const bidToken = token.address
+const bidAmount = 1
+const askToken = 0
+const askAmount = 100
+```
+
+6. Setup the transaction by minting token to the maker and giving allowance to the exchange, [wallet-template/src/test/test_submit_executeOrder.js#L33](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L33)
+```
+await token.mint(maker, bidAmount, { from: maker });
+await token.approve(exchange.address, bidAmount, { from: maker })
+```
+
+7. Send the transaction submitting the order, [wallet-template/src/test/test_submit_executeOrder.js#L39](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L39)
+```
+const tx = await exchange.submitOrder(bidToken, bidAmount, askToken, askAmount, {
+    from: maker,
+    gas : 4e6
+  }
+)
+```
+
+__Assertions__
+8. Confirm the correct event emitted, [wallet-template/src/test/test_submit_executeOrder.js#L48](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L48)
+```
+const log = tx.logs[0]
+assert.equal(log.event, 'LogOrderSubmitted', 'Event not emitted')
+```
+
+9. Confirm the order stored on-chain is correct, [wallet-template/src/test/test_submit_executeOrder.js#L54](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L54)
+```
+orderId = tx.logs[0].args.id
+const order = await exchange.orderBook_(orderId)
+assert.equal(order[0], maker, 'maker incorrect')
+assert.equal(order[1], bidToken, 'bid token incorrect')
+assert.equal(order[2], bidAmount, 'bid amount incorrect')
+assert.equal(order[3], askToken, 'ask token incorrect')
+assert.equal(order[4], askAmount, 'ask amount incorrect')
+```
+
+10. Execute the test and confirm it is passing!
+```
+truffle test test/test_submit_executeOrder.js
+```
+- *Example output:*
+```
+# truffle test test/test_submit_executeOrder.js
+[...]
+Contract: Exchange.submitOrder() && executeOrder()
+  � submitOrder(), should succeed by adding a new order to the orderBook on-chain. (648ms)
+  � executeOrder(), should succeed by trading the tokens. Maker bids ether.
+
+
+2 passing (694ms)
+
+#
+```
 
 ### END Stage 4: Test the submitOrder method.
 ---
+
+
+
+
 
 
 ### Stage 3: Create the Exchange Component
