@@ -345,11 +345,11 @@ this.state.token.mint(
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-5-01.mp4?raw=true)
 
-1. Add an event to listen for when tokens are minted, [wallet-template/src/App.js#L131](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L135)
+1. Add an event to listen for when tokens are minted, [wallet-template/src/App.js#L131](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L135)
 ```
 this.state.token.LogTokensMinted({ fromBlock: 'latest', toBlock: 'latest' })
 .watch((err, res) => {
-  alert('Tokens Minted!')
+  console.log(`Tokens Minted! TxHash: https://kovan.etherscan.io/tx/${res.transactionHash}`)
   this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
 })
 ```
@@ -375,11 +375,11 @@ this.web3.eth.getBalance(account, (err, ethBalance) => {
 this.loadEventListeners()
 ```
 
-5. Add another event listener to watch for errors, [wallet-template/src/App.js#L149](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L153)
+5. Add another event listener to watch for errors, [wallet-template/src/App.js#L149](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L153)
 ```
 this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
 .watch((err, res) => {
-  alert(res.args.errorString)
+  console.error(res.args.errorString)
 })
 ```
 
