@@ -383,26 +383,26 @@ this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
 })
 ```
 
-6. Mint tokens and view the dialog confirmation and token and ETH balance updated!  Also mint tokens from an account that is not the owner and view the error message.
+6. Mint tokens and view the log confirmation in the developer console and token and ETH balance updated!  Also mint tokens from an account that is not the owner and view the error message.
 
-*Note testrpc known bug where it will re-broadcast the latest event every time a new connection is made.  For example every the browser refreshes in our case the event dialog will appear.*
+*Note testrpc known bug where it will re-broadcast the latest event every time a new connection is made.  For example every time the browser refreshes in our case the event log will appear.*
 
 ### END Stage 5: Events
 ---
 ### Stage 6: Transfer Tokens
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6.png)
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6-2.png)
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6-3.png)
+
 _Try this portion on your own!_
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-6-01.mp4?raw=true)
 
 The required components included:
-1. Add the React transfer tokens form component. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/61a6bb6cf0238b5e635907ef931a7c4e5419b66a/src/App.js#L261)
+1. Add the React transfer tokens form component. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L238)
 
-2. Complete the transfer method to send the transfer transaction. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L193)
+2. Complete the transfer method to send the transfer transaction. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L193)
 
-3. Add an event listener to watch for token transfers. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L144)
+3. Add an event listener to watch for token transfers. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L144)
 
 _Finally tranfer tokens between accounts and review balances._
 
