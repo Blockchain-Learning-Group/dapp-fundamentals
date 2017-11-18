@@ -187,14 +187,15 @@ orderBook_[orderId] = Order({
 LogOrderSubmitted(orderId, msg.sender, _bidToken,_bidAmount, _askToken, _askAmount);
 ```
 
-### END Stage 3: Write the submitOrder method.
+### END Stage 3: Write the submitOrder Method
 ---
-### Stage 4: Test the submitOrder method.
+### Stage 4: Test the submitOrder Method
 1. Create a new file wallet-template/src/test/test_submit_executeOrder.js
 
 2. Copy the [test template](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/test_submit_executeOrder-template.js) into wallet-template/src/test/test_submit_executeOrder.js
 
 __Test Setup__
+
 3. Define the accounts to be user, maker and taker, [wallet-template/src/test/test_submit_executeOrder.js#L12](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L12)
 ```
 const maker = accounts[0]
@@ -231,6 +232,7 @@ const tx = await exchange.submitOrder(bidToken, bidAmount, askToken, askAmount, 
 ```
 
 __Assertions__
+
 8. Confirm the correct event emitted, [wallet-template/src/test/test_submit_executeOrder.js#L48](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L48)
 ```
 const log = tx.logs[0]
