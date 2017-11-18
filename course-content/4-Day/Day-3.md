@@ -142,7 +142,17 @@ Saving artifacts...
 
 ### END Stage 1: Dev Enviroment Set up and Application Bootstrapped!
 ---
-### Stage 2: Create the Exchange Component
+### Stage 2: Create the Exchange Contract
+1. Create a new file :wallet-template/src/contracts/Exchange.sol
+
+2. Copy the below into the new file.
+```
+```
+
+
+### END Stage 2: Create the Exchange Contract
+---
+### Stage 3: Create the Exchange Component
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/03-stage-2.png)
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/03_video_tutorials/03-stage-1-01.mp4?raw=true)
@@ -185,12 +195,42 @@ Saving artifacts...
     - create ref to it in the did mount
   - create ui form to submit an order
     - add bid and ask amount to the state
+    - add on change method to set the bid and ask amount
   - create submitOrder method to submit orders
 
+- create listener for order submitted
 
+- add a list of orders to the state
+  - orderBook: []
 
-- submit order button and on click
-- submit order function
+- Order book table
+  - Add table and table react components
+  - Add the table div
+
+- Add the addOrder method
+- Call it when the orderSubmitted event fires
+- add the Font Icon element from material
+
+- on check change set selected order to execute!
+
+- add selected order to state
+
+- raised button to execute order
+
+- add execute order method
+
+- order executed event listener
+
+- load the order book via events
+  - loadOrderBook method
+  - call to it in bottom of componentDidMount
+
+- Update the addOrder to check that the order does not already exist
+
+- convert to metamask
+
+- note won't be able to mint tokens from the browser!  Will need to do a transfer...
+  - disable metamask, transfer to that account that re-enable
 
 ### Bonus: Extend Your Exchange
 TODO:
@@ -208,6 +248,10 @@ TODO:
     just the exchange total.
 - gas estimation!
 
+- clean up the allowance is the transaction fails
+
+- sort the orders
+- allow multiple orders with the same parameters to exist
 
 ---
 ### Clean up
