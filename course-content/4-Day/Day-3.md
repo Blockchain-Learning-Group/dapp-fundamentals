@@ -140,18 +140,21 @@ Saving artifacts...
 
 9. Load the app in chrome, [localhost:3000](http://localhost:3000/)
 
-### END Stage 1: Dev Enviroment Set up and Application Bootstrapped!
+### END Stage 1: Restart Your Dev Environment and App
 ---
 ### Stage 2: Create the Exchange Contract
-1. Create a new file :wallet-template/src/contracts/Exchange.sol
+1. Create a new file wallet-template/src/contracts/Exchange.sol
 
-2. Copy the below into the new file.
-```
-```
+2. Copy [Exchange Template](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/ExchangeTemplate.sol) into the new file, wallet-template/src/contracts/Exchange.sol.
 
+3. Review the contents of the provided template.
 
 ### END Stage 2: Create the Exchange Contract
 ---
+
+
+
+
 ### Stage 3: Create the Exchange Component
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/03-stage-2.png)
 

@@ -404,7 +404,7 @@ The required components included:
 
 3. Add an event listener to watch for token transfers. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L144)
 
-_Finally tranfer tokens between accounts and review balances._
+_Finally transfer tokens between accounts and review balances._
 
 ### END Stage 6: Transfer Tokens
 ---
