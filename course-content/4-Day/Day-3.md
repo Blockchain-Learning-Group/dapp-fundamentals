@@ -151,8 +151,44 @@ Saving artifacts...
 
 ### END Stage 2: Create the Exchange Contract
 ---
+### Stage 3: Write the submitOrder Method
+1. Ensure the exchange has been given a sufficient token allowance [wallet-template/src/contracts/Exchange.sol#L61](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L61).
+```
+require(ERC20(_bidToken).allowance(msg.sender, this) >= _bidAmount);
+```
 
+2. Compute a `unique` id for the order, [wallet-template/src/contracts/Exchange.sol#L66](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L66)
+```
+bytes32 orderId = keccak256(_bidToken, _bidAmount, _askToken, _askAmount);
+```
 
+3. Confirm this order does not already exist, [wallet-template/src/contracts/Exchange.sol#L67](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L67)
+```
+require(orderBook_[orderId].askAmount == 0); // check for existence, default to 0, assume no one is giving tokens away for free
+```
+
+4. Add the order to the order book, [wallet-template/src/contracts/Exchange.sol#L72](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L72)
+```
+orderBook_[orderId] = Order({
+  maker: msg.sender,
+  bidToken: _bidToken,
+  bidAmount: _bidAmount,
+  askToken: _askToken,
+  askAmount: _askAmount
+});
+```
+
+5. Emit the order submitted event, [wallet-template/src/contracts/Exchange.sol#L83](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L83)
+```
+LogOrderSubmitted(orderId, msg.sender, _bidToken,_bidAmount, _askToken, _askAmount);
+```
+
+### END Stage 3: Write the submitOrder method.
+---
+### Stage 4: Test the submitOrder method.
+
+### END Stage 4: Test the submitOrder method.
+---
 
 
 ### Stage 3: Create the Exchange Component
