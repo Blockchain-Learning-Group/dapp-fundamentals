@@ -146,6 +146,9 @@ Saving artifacts...
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-2.mp4?raw=true)
 
 1. Create a new file wallet-template/src/contracts/Exchange.sol
+```
+Exchange.sol
+```
 
 2. Copy [Exchange Template](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/ExchangeTemplate.sol) into the new file, wallet-template/src/contracts/Exchange.sol.
 
@@ -190,6 +193,8 @@ LogOrderSubmitted(orderId, msg.sender, _bidToken,_bidAmount, _askToken, _askAmou
 ### END Stage 3: Write the submitOrder Method
 ---
 ### Stage 4: Test the submitOrder Method
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-3.mp4?raw=true)
+
 1. Create a new file wallet-template/src/test/test_submit_executeOrder.js
 ```
 test_submit_executeOrder.js
@@ -199,7 +204,7 @@ test_submit_executeOrder.js
 
 __Test Setup__
 
-3. Define the accounts to be user, maker and taker, [wallet-template/src/test/test_submit_executeOrder.js#L12](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L12)
+3. Define the accounts to be used, maker and taker, [wallet-template/src/test/test_submit_executeOrder.js#L12](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L12)
 ```
 const maker = accounts[0]
 const taker = accounts[1]
@@ -219,7 +224,7 @@ const askToken = 0
 const askAmount = 100
 ```
 
-6. Setup the transaction by minting token to the maker and giving allowance to the exchange, [wallet-template/src/test/test_submit_executeOrder.js#L33](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L33)
+6. Setup the transaction by minting tokens to the maker and giving allowance to the exchange, [wallet-template/src/test/test_submit_executeOrder.js#L33](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L33)
 ```
 await token.mint(maker, bidAmount, { from: maker });
 await token.approve(exchange.address, bidAmount, { from: maker })
@@ -271,10 +276,79 @@ Contract: Exchange.submitOrder() && executeOrder()
 #
 ```
 
-### END Stage 4: Test the submitOrder method.
+### END Stage 4: Test the submitOrder method
 ---
+### END Stage 5: Write the executeOrder Method
+
+__Test Setup__
+
+1. Get the initial ether balances for both accounts, [wallet-template/src/test/test_submit_executeOrder.js#L67](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L67)
+```
+const makerBalanceBefore = web3.eth.getBalance(maker).toNumber()
+const takerBalanceBefore = web3.eth.getBalance(taker).toNumber()
+```
+
+2. Submit the transaction to execute the order, [wallet-template/src/test/test_submit_executeOrder.js#L73](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L73)
+```
+const tx = await exchange.executeOrder(orderId, {
+    from: taker,
+    gas : 4e6,
+    value: 100 // ask amount from previously submitted order
+  }
+)
+```
+
+__Assertions__
+
+3. Confirm the execute order event emitted, [wallet-template/src/test/test_submit_executeOrder.js#L83](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L83)
+```
+const log = tx.logs[0]
+assert.equal(log.event, 'LogOrderExecuted', 'Event not emitted')
+```
+
+4. Confirm the token balances updated correctly, [wallet-template/src/test/test_submit_executeOrder.js#L89](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L89)
+```
+const makerTokenBalance = (await token.balanceOf(maker)).toNumber()
+const takerTokenBalance = (await token.balanceOf(taker)).toNumber()
+assert.equal(makerTokenBalance, 0, 'Maker token balance incorrect.')
+assert.equal(takerTokenBalance, 1, 'Taker token balance incorrect.')
+```
+
+5. Confirm the ether balances updated correctly, [wallet-template/src/test/test_submit_executeOrder.js#L97](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L97)
+```
+const makerBalanceAfter = web3.eth.getBalance(maker).toNumber()
+const takerBalanceAfter = web3.eth.getBalance(taker).toNumber()
+assert.equal(makerBalanceAfter, makerBalanceBefore + 100, 'Maker eth balance incorrect')
+// Note taker also had to pay for the executeOrder tx
+assert.isBelow(takerBalanceAfter, takerBalanceBefore - 100, 'Taker eth balance incorrect')
+```
+
+6. Confirm the order was removed from the order book, [wallet-template/src/test/test_submit_executeOrder.js#L106](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L106)
+```
+const order = await exchange.orderBook_(orderId)
+assert.equal(order[4], 0)
+```
+
+7. Execute the test and confirm it is passing!
+```
+truffle test test/test_submit_executeOrder.js
+```
+- *Example output:*
+```
+# truffle test test/test_submit_executeOrder.js
+[...]
+Contract: Exchange.submitOrder() && executeOrder()
+  � submitOrder(), should succeed by adding a new order to the orderBook on-chain. (648ms)
+  � executeOrder(), should succeed by trading the tokens. Maker bids ether.
 
 
+2 passing (994ms)
+
+#
+```
+
+### END Stage 5: Write the executeOrder Method
+---
 
 
 
