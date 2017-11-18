@@ -278,7 +278,7 @@ Contract: Exchange.submitOrder() && executeOrder()
 
 ### END Stage 4: Test the submitOrder method
 ---
-### END Stage 5: Write the executeOrder Method
+### Stage 5: Write the executeOrder Method
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-5.mp4?raw=true)
 
 __Test Setup__
