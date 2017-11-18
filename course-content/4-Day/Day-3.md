@@ -190,6 +190,10 @@ LogOrderSubmitted(orderId, msg.sender, _bidToken,_bidAmount, _askToken, _askAmou
 ### END Stage 3: Write the submitOrder method.
 ---
 ### Stage 4: Test the submitOrder method.
+1. Create a new file wallet-template/src/test/test_submit_executeOrder.js
+
+2. Copy the [test template]() into wallet-template/src/test/test_submit_executeOrder.js
+
 
 ### END Stage 4: Test the submitOrder method.
 ---
