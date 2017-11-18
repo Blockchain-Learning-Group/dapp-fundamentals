@@ -68,6 +68,23 @@ adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg
 1bb232a56e6868e2bc4dbeaf86405ec3ed892090809fcab1823cab38e8337dc1
 adam@adam:~$
 ```
+- __Common Error:__
+```
+adam@adam:~/Desktop/blg$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+docker: Error response from daemon: Conflict. The container name "/blg-env" is already in use by container "9c52f3787e28c64b197e22ec509fb2a73cd5066543ec6345956e11b6e69ba41c". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+```
+- Solution:
+```
+docker stop blg-env && docker rm blg-env
+```
+- *Examle Output*
+```
+adam@adam:~/Desktop/blg$ docker stop blg-env && docker rm blg-env
+blg-env
+blg-env
+adam@adam:~/Desktop/blg$
+```
 
 4. Attach into the container
 
@@ -296,15 +313,15 @@ token.decimals((err, tokenDecimals) => {
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-4-01.mp4?raw=true)
 
-1. Add a method to mint tokens, sending a transaction to the token contract. [wallet-template/src/App.js#L155](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L170)
+1. Add a method to mint tokens, sending a transaction to the token contract. [wallet-template/src/App.js#L155](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L170)
 ```
 this.state.token.mint(
   user,
   amount*10**this.state.tokenDecimals, // Convert to correct decimal places
   { from: this.web3.eth.accounts[this.state.defaultAccount] },
   (err, res) => {
-    console.log(err)
-    console.log(res)
+    if (err) console.error(err)
+    else console.log(res)
   }
 )
 ```
