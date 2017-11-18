@@ -191,6 +191,9 @@ LogOrderSubmitted(orderId, msg.sender, _bidToken,_bidAmount, _askToken, _askAmou
 ---
 ### Stage 4: Test the submitOrder Method
 1. Create a new file wallet-template/src/test/test_submit_executeOrder.js
+```
+test_submit_executeOrder.js
+```
 
 2. Copy the [test template](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/test_submit_executeOrder-template.js) into wallet-template/src/test/test_submit_executeOrder.js
 
