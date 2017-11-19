@@ -40,20 +40,13 @@ adam@adam:~$ docker exec -it blg-env bash
 root@9c52f3787e28:/blg/wallet-template#
 ```
 
-3. Start up your window manager, screen
+3. Start up your window manager, tmux
 ```
-screen
+tmux
 ```
 - *Example output:*
 ```
-root@ebab36647c9e:/blg/wallet-template/src# screen
-Screen version 4.02.01 (GNU) 28-Apr-14
-[...]
-                [Press Space or Return to end.]
-```
-*PRESS ENTER*
-```
-#
+root@a75baed9ceba:/blg/wallet-template#
 ```
 
 4. Start the app
@@ -80,9 +73,9 @@ To create a production build, use yarn build.
 
 5. Create a new window, Ethereum client
 
-*ctrl AND a THEN c*
+*ctrl AND b THEN c*
 ```
-ctrl+a c  
+ctrl+b c  
 ```
 - *Example output: Result in new empty window, in same directory.*
 ```
@@ -103,9 +96,9 @@ Listening on localhost:8545
 
 7. Create a new window, Truffle
 
-*ctrl AND a THEN c*
+*ctrl AND b THEN c*
 ```
-ctrl+a c  
+ctrl+b c  
 ```
 - *Example output: Result in new empty window, in same directory.*
 ```
@@ -788,9 +781,9 @@ this.loadOrderBook()
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-16.mp4?raw=true)
 
-1. Switch to your ethereum client window, ctrl AND a THEN 1
+1. Switch to your ethereum client window, ctrl AND b THEN 1
 ```
-ctrl+a 1
+ctrl+b 1
 ```
 - *Example output:*
 ```
@@ -914,11 +907,11 @@ TODO:
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-cleanup-01.mp4?raw=true)
 
-1. Detach from your screen session
+1. Detach from your tmux session
 
-*ctrl AND a THEN d*
+*ctrl AND b THEN d*
 ```
-ctrl+a d
+ctrl+b d
 ```
 
 2. Detach from the container

@@ -126,20 +126,13 @@ Writing artifacts to ./build/contracts
 root@2e9e0eda980d:~/blg/wallet-template/src#
 ```
 
-7. Start up your window manager, screen
+7. Start up your window manager, tmux
 ```
-screen
+tmux
 ```
 - *Example output:*
 ```
-root@ebab36647c9e:/blg/wallet-template/src# screen
-Screen version 4.02.01 (GNU) 28-Apr-14
-[...]
-                [Press Space or Return to end.]
-```
-*PRESS ENTER*
-```
-#
+root@a75baed9ceba:/blg/wallet-template#
 ```
 
 8. Start the app
@@ -172,9 +165,9 @@ To ignore, add // eslint-disable-next-line to the line before.
 
 1. Create a new window, Ethereum client
 
-*ctrl AND a THEN c*
+*ctrl AND b THEN c*
 ```
-ctrl+a c  
+ctrl+b c  
 ```
 - *Example output: Result in new empty window, in same directory.*
 ```
@@ -195,9 +188,9 @@ Listening on localhost:8545
 
 3. Create a new window, Truffle
 
-*ctrl AND a THEN c*
+*ctrl AND b THEN c*
 ```
-ctrl+a c  
+ctrl+b c  
 ```
 - *Example output: Result in new empty window, in same directory.*
 ```
@@ -415,11 +408,11 @@ _Finally transfer tokens between accounts and review balances._
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-cleanup-01.mp4?raw=true)
 
-1. Detach from your screen session
+1. Detach from your tmux session
 
-*ctrl AND a THEN d*
+*ctrl AND b THEN d*
 ```
-ctrl+a d
+ctrl+b d
 ```
 
 2. Detach from the container
