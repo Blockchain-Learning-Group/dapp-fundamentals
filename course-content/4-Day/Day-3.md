@@ -382,24 +382,22 @@ Contract: Exchange.submitOrder() && executeOrder()
 #
 ```
 
+__Success, The exchange contract is complete!__
+
 ### END Stage 6: Test the executeOrder Method
 ---
+### Stage 7: Add Basic Routing to the DApp
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-7.mp4?raw=true)
 
+1. Add # based routing to render the exchange component, [wallet-template/src/App.js#L215](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L363)
+```
+if (window.location.hash === '#exchange') {
 
+} else {
 
-
-
-
-### Stage X:
-#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true)
-### END Stage X:
-
-### Stage 3: Create the Exchange Component
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/03-stage-2.png)
-
-#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/03_video_tutorials/03-stage-1-01.mp4?raw=true)
-
-1. Add # based routing to render the exchange component, [wallet-template/src/App.js#L215]()
+}
+```
+- *Example:*
 ```
 215:  if (window.location.hash === '#exchange') {
 
@@ -407,18 +405,20 @@ Contract: Exchange.submitOrder() && executeOrder()
         component = <div>
         [...]
         </div>
-291:  }
+253:  }
 ```
 
 2. Confirm the routing is working, open [localhost:3000/#exchange](http://localhost:3000/#exchange)
 - *Example output*
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-2-blank-exchange.png)
 
-3. Create the exchange component
+### END Stage 7: Add Basic Routing to the DApp
+---
 
 
-
-### END Stage 2: Create the Exchange Component
+### Stage X:
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true)
+### END Stage X:
 ---
 
 
