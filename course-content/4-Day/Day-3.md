@@ -596,6 +596,54 @@ this.state.exchange.LogOrderSubmitted({ fromBlock: 'latest', toBlock: 'latest' }
 
 ### END Stage 11: Listen for Submitted Order Events
 ---
+### Stage 12: Create the Order Book Table
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-12.png)
+
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-12.mp4?raw=true)
+
+1. Import Material UI table components, [wallet-template/src/App.js#L12](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L12)
+```
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
+```
+
+2. Add the order book to the state, [wallet-template/src/App.js#L43](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L43)
+```
+orderBook: [],
+```
+
+3. Add the order book component, [wallet-template/src/App.js#L296](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L387)
+```
+<h3>Order Book</h3>
+<p>Select an order to execute!</p>
+<RaisedButton label="Execute Order" labelPosition="after" style={{width: 500}} primary={true}
+  onClick={() => this.executeOrder(this.state.selectedOrder)}
+/>
+<Table style={{ maxHeight: 500, overflow: "auto" }} fixedHeader={true} multiSelectable={false} >
+  <TableHeader>
+    <TableRow>
+      <TableHeaderColumn>Maker</TableHeaderColumn>
+      <TableHeaderColumn>Bid Token</TableHeaderColumn>
+      <TableHeaderColumn>Bid Amount</TableHeaderColumn>
+      <TableHeaderColumn>Ask Token</TableHeaderColumn>
+      <TableHeaderColumn>Ask Amount</TableHeaderColumn>
+    </TableRow>
+  </TableHeader>
+  <TableBody> { this.state.orderBook } </TableBody>
+</Table>
+```
+
+4. View new order book table in the ui.
+
+### END Stage 12: Create the Order Book Table
+---
+
 
 
 ### Stage X:
@@ -607,8 +655,6 @@ this.state.exchange.LogOrderSubmitted({ fromBlock: 'latest', toBlock: 'latest' }
 
 ### END Stage X:
 ---
-
-- create listener for order submitted
 
 - add a list of orders to the state
   - orderBook: []
