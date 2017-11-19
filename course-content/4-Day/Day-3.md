@@ -788,11 +788,86 @@ this.loadOrderBook()
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-16.mp4?raw=true)
 
-1. Stop your local ethereum client, testrpc
+1. Switch to your ethereum client window, ctrl AND a THEN 1
+```
+ctrl+a 1
+```
+- *Example output:*
+```
+[...]
+eth_getFilterChanges
+eth_getFilterChanges
+```
 
-__Added steps for those utilizing the BLG provided remote node__
+2. Stop the client, ctrl AND c
+```
+ctrl+c
+```
 
-1.
+  __If the process does not terminate: (in a separate window)__
+
+  - Find the process id of testrpc
+  ```
+  ps aux | grep testrpc
+  ```
+    - *Example output:*
+    ```
+    # ps aux | grep testrpc
+    root       847  2.1  0.5 948376 59096 pts/3    Sl+  20:13   0:02 node /usr/local/bin/testrpc
+    ```
+  - Kill the process
+  ```
+  kill 847
+  ```
+    - *Example output:*
+    ```
+    # kill 847
+    #
+    ```
+    *Result in the testrpc window:*
+    ```
+    [...]
+    Terminated
+    #
+    ```
+3. Start your `real` Ethereum client, parity.
+
+  __If utilizing the BLG provided remote node__
+
+  - Forward the container's ports to the remote server. Password to be provided via a secure channel.
+  ```
+  ssh -g -4 -NL 8180:127.0.0.1:8180 -NL 8546:127.0.0.1:8546 -NL 8545:127.0.0.1:8545 blg@52.235.45.47
+  ```
+  - *Example output:*
+  ```
+  # ssh -g -4 -NL 8180:127.0.0.1:8180 -NL 8546:127.0.0.1:8546 -NL 8545:127.0.0.1:8545 blg@52.235.45.47
+  # ssh -g -4 -NL 8180:127.0.0.1:8180 -NL 8546:127.0.0.1:8546 -NL 8545:127.0.0.1:8545 blg@52.235.45.47
+  blg@52.235.45.47's password:
+
+  ```
+
+  __If using a local node simply run it__
+
+  - run the node
+  ```
+  parity --chain kovan --tracing off --rpccorsdomain '*'
+  ```
+  - *Example output:*
+  ```
+  blg@parity-kovan-node-01:~$ parity --chain kovan --tracing off --rpccorsdomain '*'
+  2017-11-19 20:11:34 UTC Starting Parity/v1.8.2-beta-1b6588c-20171025/x86_64-linux-gnu/rustc1.21.0
+  [...]
+  2017-11-19 20:11:35 UTC Updated conversion rate to Ξ1 = US$350.03 (340106880 wei/gas)
+  2017-11-19 20:11:42 UTC Public node URL: enode://57f82c9206bbd1ee98b7fe811cbf838fbc61fff3ce5deb061ebfe5f5e1acb0b1c26560057ab4f9086488e1f565164c5f374b556a4b87b6cef34ab977ac9628de@10.0.0.4:30303
+  2017-11-19 20:11:46 UTC Imported #4761930 d67c…229c (0 txs, 0.00 Mgas, 0.31 ms, 0.57 KiB)
+  ```
+
+4. Deploy the exchange and token to the kovan testnet
+
+*Note one unlocked account has been provided on the remote node*
+```
+truffle migrate
+```
 
 ### END Stage 16: Deploy to the Kovan Public Testnet
 ---
