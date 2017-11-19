@@ -490,13 +490,91 @@ window.exchange = exchange
 
 ### END Stage 9: Create the Reference Exchange Object
 ---
-
-
-### Stage 10:
+### Stage 10: Create the UI Component to Submit an Order
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-10.png)
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-10.mp4?raw=true)
-### END Stage X:
+
+1. Create the container div, [wallet-template/src/App.js#226](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L364)
+```
+component = <div>
+  </div>
+```
+
+2. Add the components to load the active accounts, [wallet-template/src/App.js#L227](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L365)
+```
+<h3>Active Account</h3>
+<DropDownMenu maxHeight={300} width={500} value={this.state.defaultAccount} onChange={this.handleDropDownChange} >
+  {this.state.availableAccounts}
+</DropDownMenu>
+<h3>Account Balances</h3>
+<p className="App-intro">{this.state.ethBalance / 1e18} ETH</p>
+<p className="App-intro"> {this.state.tokenBalance / 10**this.state.tokenDecimals} {this.state.tokenSymbol}</p>
+<br />
+```
+
+3. Add the form to submit an order, [wallet-template/src/App.js#L235](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L373)
+```
+<h3>Submit an Order!</h3>
+<p>The default exchange supports only the pairing of {this.state.tokenSymbol} / ETH</p>
+<TextField floatingLabelText="Bid" style={{width: 75}} value={this.state.tokenSymbol} />
+<TextField floatingLabelText="Amount" style={{width: 75}} value={this.state.bidAmount}
+  onChange={(e, bidAmount) => this.setState({ bidAmount })}
+/>
+<TextField floatingLabelText="Ask" style={{width: 75}} value="ETH" />
+<TextField floatingLabelText="Amount" style={{width: 75}} value={this.state.askAmount}
+  onChange={(e, askAmount) => this.setState({ askAmount })}
+/>
+<br />
+<RaisedButton label="Submit" labelPosition="after" style={{width: 300}} primary={true} onClick={() => this.submitOrder()}/>
+<br />
+<br />
+```
+
+4. Add the bid and ask amounts to the state, [wallet-template/src/App.js#L31](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L39)
+```
+bidAmount: 10,
+askAmount: 1,
+```
+
+5. Write the method to submit and order, [wallet-template/src/App.js#L194](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L303)
+```
+/**
+ * Submit a new order to the order book.
+ */
+submitOrder() {
+  // First give the exchange the appropriate allowance
+  // NOTE if the submitOrder fails the exchange still has the allowance
+  this.state.token.approve(
+    this.state.exchange.address,
+    this.state.bidAmount*10**this.state.tokenDecimals, {
+      from: this.web3.eth.accounts[this.state.defaultAccount],
+      gas: 1e6
+    }, (err, res) => {
+      if (err) console.error(err)
+      else console.log(res)
+      // Submit the order to the exchange
+      this.state.exchange.submitOrder(
+        this.state.token.address,
+        this.state.bidAmount*10**this.state.tokenDecimals,
+        '0', // Ether address
+        this.state.askAmount*10**18 /* harcoded ETH decimal places */, {
+          from: this.web3.eth.accounts[this.state.defaultAccount],
+          gas: 1e6
+        }, (err, res) => {
+          if (err) console.error(err)
+          else console.log(res)
+        }
+      )
+  })
+}
+```
+
+6. Mint tokens to ensure the account has a sufficient token balance.
+
+7. Submit an order and view the transaction hashes(approve and submitOrder) in the browser developer console.
+
+### END Stage 10: Create the UI Component to Submit an Order
 ---
 
 
@@ -504,14 +582,12 @@ window.exchange = exchange
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-9.png)
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true)
+
+1.
+
 ### END Stage X:
 ---
 
-- create the ui component
-  - create reference to the exchange contract now too!
-    - add exchange to state
-    - import artifacts
-    - create ref to it in the did mount
   - create ui form to submit an order
     - add bid and ask amount to the state
     - add on change method to set the bid and ask amount
