@@ -389,6 +389,8 @@ __Success, The exchange contract is complete!__
 ### Stage 7: Add Basic Routing to the DApp
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-7.mp4?raw=true)
 
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-7-blank-exchange.png)
+
 1. Add # based routing to render the exchange component, [wallet-template/src/App.js#L215](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L363)
 ```
 if (window.location.hash === '#exchange') {
@@ -409,8 +411,6 @@ if (window.location.hash === '#exchange') {
 ```
 
 2. Confirm the routing is working, open [localhost:3000/#exchange](http://localhost:3000/#exchange)
-- *Example output*
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-2-blank-exchange.png)
 
 ### END Stage 7: Add Basic Routing to the DApp
 ---
