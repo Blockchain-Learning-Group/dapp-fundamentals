@@ -746,6 +746,8 @@ removeOrder(orderId) {
 }
 ```
 
+5. Execute an order and see that it has been removed from the table.
+
 ### END Stage 14: Select and Execute an Order
 ---
 
