@@ -576,6 +576,26 @@ submitOrder() {
 
 ### END Stage 10: Create the UI Component to Submit an Order
 ---
+### Stage 11: Listen for Submitted Order Events
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-11.png)
+
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-11.mp4?raw=true)
+
+1. Create an event listener for the order submitted event, [wallet-template/src/App.js#L170](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L230)
+```
+this.state.exchange.LogOrderSubmitted({ fromBlock: 'latest', toBlock: 'latest' })
+.watch((err, res) => {
+  console.log(`Order submitted! TxHash: https://kovan.etherscan.io/tx/${res.transactionHash}`)
+  this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
+})
+```
+
+2. Submit an order and view the caught event.
+
+3. Submit a duplicate order and view the error response.
+
+### END Stage 11: Listen for Submitted Order Events
+---
 
 
 ### Stage X:
@@ -587,11 +607,6 @@ submitOrder() {
 
 ### END Stage X:
 ---
-
-  - create ui form to submit an order
-    - add bid and ask amount to the state
-    - add on change method to set the bid and ask amount
-  - create submitOrder method to submit orders
 
 - create listener for order submitted
 
