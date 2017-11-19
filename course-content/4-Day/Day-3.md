@@ -414,21 +414,60 @@ if (window.location.hash === '#exchange') {
 
 ### END Stage 7: Add Basic Routing to the DApp
 ---
+### Stage 8: Deploy the Exchange
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-8.mp4?raw=true)
+
+1. Add the exchange to the deployment script, [https://raw.githubusercontent.com/Blockchain-Learning-Group/exchange-eod3/master/src/migrations/2_deploy_contracts.js](https://raw.githubusercontent.com/Blockchain-Learning-Group/exchange-eod3/master/src/migrations/2_deploy_contracts.js)
+```
+const Token = artifacts.require("./Token.sol");
+const Exchange = artifacts.require("./Exchange.sol");
+const owner = web3.eth.accounts[0]
+
+module.exports = deployer => {
+  deployer.deploy(Token, { from: owner, gas: 4e6 })
+  deployer.deploy(Exchange, { from: owner, gas: 4e6 })
+}
+```
+
+2. Deploy the exchange and a new token.
+```
+truffle migrate --reset
+```
+- *Example output:*
+```
+# truffle migrate --reset
+Using network 'development'.
+
+Running migration: 1_initial_migration.js
+  Replacing Migrations...
+  ... 0xaf3df4616497a63d75879d900ee9bd580881e3d88b359942aa89beb12ff05416
+  Migrations: 0x4d52502c81f1b7119a59d7a69ca8b061d557e071
+Saving successful migration to network...
+  ... 0xa57ed9864bf4a34835ad0f074083030011e9f36aae813b58182f7d8cde8d4571
+Saving artifacts...
+Running migration: 2_deploy_contracts.js
+  Replacing Token...
+  ... 0xfb84339717eebb27f7593d5419633086c6961a46736d9f730185f9584bbca671
+  Token: 0x1f8fbc989937346cbc923da292b1b6f9f958eafe
+  Deploying Exchange...
+  ... 0xd4566da630267b7f41a554b3773ea4c2880d98828275632e4c9e6fd7f8d26b03
+  Exchange: 0xb9d7ffb8c064384f167199025ef2ad0a130c49c6
+Saving successful migration to network...
+  ... 0x97f51a0d5d97de1bf4d3f5028783349616fa25e0ddbadadecafe76fb1895189d
+Saving artifacts...
+#
+```
+
+### END Stage 8: Deploy the Exchange
+---
 
 
 ### Stage X:
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true)
 ### END Stage X:
 ---
-
-
-- Write the exchange contract - submit order
-
-- Write the exchange contract - execute order
-
 - add exchange to deploy script, updating migration file
 
-- test the exchange.sol!
 
 - create the ui component
   - create reference to the exchange contract now too!
