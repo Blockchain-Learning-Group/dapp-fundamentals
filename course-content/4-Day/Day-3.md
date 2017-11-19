@@ -537,7 +537,7 @@ bidAmount: 10,
 askAmount: 1,
 ```
 
-5. Write the method to submit and order, [wallet-template/src/App.js#L194](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L303)
+5. Write the method to submit an order, [wallet-template/src/App.js#L194](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L303)
 ```
 /**
  * Submit a new order to the order book.
