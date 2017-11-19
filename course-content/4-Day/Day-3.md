@@ -470,7 +470,12 @@ Saving artifacts...
 import exchangeArtiacts from './build/contracts/Exchange.json'
 ```
 
-2. Create the reference object to the deployed exchange, [wallet-template/src/App.js#L71](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L89)
+2. Add the exchange to the state, [wallet-template/src/App.js#L32](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L42)
+```
+exchange: null, // exchange contract
+```
+
+3. Create the reference object to the deployed exchange, [wallet-template/src/App.js#L71](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L89)
 ```
 const exchangeAddress = exchangeArtiacts.networks[netId].address
 const exchange = this.web3.eth.contract(exchangeArtiacts.abi).at(exchangeAddress)
@@ -481,18 +486,26 @@ console.log(exchange)
 window.exchange = exchange
 ```
 
-3. View the exchange object in the browser developer console.
+4. View the exchange object in the browser developer console.
 
 ### END Stage 9: Create the Reference Exchange Object
 ---
 
 
-### Stage X:
-#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true)
+### Stage 10:
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-10.png)
+
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-10.mp4?raw=true)
 ### END Stage X:
 ---
 
 
+### Stage X:
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-9.png)
+
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true)
+### END Stage X:
+---
 
 - create the ui component
   - create reference to the exchange contract now too!
