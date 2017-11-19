@@ -643,7 +643,49 @@ orderBook: [],
 
 ### END Stage 12: Create the Order Book Table
 ---
+### Stage 13: Add an Order Element to the Table When Submitted
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-13.png)
 
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-13.mp4?raw=true)
+
+1. Create an addOrder method, [wallet-template/src/App.js#L127](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L138)
+```
+/**
+ * Add a new order to the oder book
+ * @param {Object} order The log object emitted by the exchange.
+ */
+addOrder(order) {
+  // Confirm this order is not already present
+  for (let i = 0; i < this.state.orderBook.length; i++) {
+    if (this.state.orderBook[i].key === order.id) {
+      return
+    }
+  }
+  // NOTE eth only supported as ask token
+  // TODO support multiple tokens and pairings
+  this.setState({
+    orderBook: [
+      <TableRow key={order.id} selected={this.setState({ selectedOrder: order.id })}>
+        <TableRowColumn>{order.maker}</TableRowColumn>
+        <TableRowColumn>{this.state.tokenSymbol}</TableRowColumn>
+        <TableRowColumn>{order.bidAmount.toNumber() / 10**this.state.tokenDecimals}</TableRowColumn>
+        <TableRowColumn>ETH</TableRowColumn>
+        <TableRowColumn>{order.askAmount.toNumber() / 10**18 }</TableRowColumn>
+      </TableRow>
+    ].concat(this.state.orderBook)
+  })
+}
+```
+
+2. Add the order to the order book when the order submitted event fired, [wallet-template/src/App.js#208](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L233)
+```
+this.addOrder(res.args)
+```
+
+3. Submit an order and view it added to the order book.
+
+### END Stage 13: Add an Order Element to the Table When Submitted
+---
 
 
 ### Stage X:
