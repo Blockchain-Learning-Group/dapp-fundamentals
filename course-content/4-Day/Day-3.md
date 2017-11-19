@@ -686,6 +686,68 @@ this.addOrder(res.args)
 
 ### END Stage 13: Add an Order Element to the Table When Submitted
 ---
+### Stage 14: Select and Execute an Order
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-14.png)
+
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-14.mp4?raw=true)
+
+1. Add a selectedOrder to the state, [wallet-template/src/App.js#L44](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L44)
+```
+selectedOrder: null
+```
+
+2. Add a method to execute the selected order, [wallet-template/src/App.js#L154](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L164)
+```
+/**
+ * Execute a selected order.
+ * @param {String} orderId The 32 byte hash of the order params representing its unique id.
+ */
+executeOrder(orderId) {
+  // Get the ask amount of the order, ether to send along with the tx
+  this.state.exchange.orderBook_(orderId, (err, order) => {
+    this.state.exchange.executeOrder(orderId, {
+      from: this.web3.eth.accounts[this.state.defaultAccount],
+      gas: 4e6,
+      value: order[4] // askAmount of maker order
+    }, (err, res) => {
+      if (err) console.error(err)
+      else console.log(res)
+    })
+  })
+}
+```
+
+3. Add an event to listen for executed orders, [wallet-template/src/App.js#L231](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L237)
+```
+this.state.exchange.LogOrderExecuted({ fromBlock: 'latest', toBlock: 'latest' })
+.watch((err, res) => {
+  console.log(`Order Executed! TxHash: https://kovan.etherscan.io/tx/${res.transactionHash}`)
+  this.removeOrder(res.args.id)
+  this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
+})
+```
+
+4. Add the method to remove the order from the order book table, [wallet-template/src/App.js#L262](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L288)
+```
+/**
+ * Remove an order from the orderBook.
+ * @param {String} orderId The 32 byte hash of the order params representing its unique id.
+ */
+removeOrder(orderId) {
+  for (let i = 0; i < this.state.orderBook.length; i++) {
+    if (this.state.orderBook[i].key === orderId) {
+      // Slice this index from the current order book and update
+      let updatedOrderBook = this.state.orderBook.slice();
+      updatedOrderBook.splice(i, 1);
+      this.setState({ orderBook: updatedOrderBook })
+      break
+    }
+  }
+}
+```
+
+### END Stage 14: Select and Execute an Order
+---
 
 
 ### Stage X:
@@ -698,26 +760,7 @@ this.addOrder(res.args)
 ### END Stage X:
 ---
 
-- add a list of orders to the state
-  - orderBook: []
 
-- Order book table
-  - Add table and table react components
-  - Add the table div
-
-- Add the addOrder method
-- Call it when the orderSubmitted event fires
-- add the Font Icon element from material
-
-- on check change set selected order to execute!
-
-- add selected order to state
-
-- raised button to execute order
-
-- add execute order method
-
-- order executed event listener
 
 - load the order book via events
   - loadOrderBook method
