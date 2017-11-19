@@ -750,6 +750,39 @@ removeOrder(orderId) {
 
 ### END Stage 14: Select and Execute an Order
 ---
+### Stage 15: Load the Order Book
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-15.png)
+
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-15.mp4?raw=true)
+
+1. Add a method to load the order book, [wallet-template/src/App.js#L239](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L248)
+```
+/**
+ * Load all orders into the order book via exchange events
+ */
+loadOrderBook() {
+  this.state.exchange.LogOrderSubmitted({}, {fromBlock: 0, toBlock: 'latest'})
+  .get((err, orders) => {
+    for (let i = 0; i < orders.length; i++) {
+      // confirm the order still exists then append to table
+      this.state.exchange.orderBook_(orders[i].args.id, (err, order) => {
+        if (order[4].toNumber() !== 0)
+          this.addOrder(orders[i].args)
+      })
+    }
+  })
+}
+```
+
+2. Load the order book when the page renders, [wallet-template/src/App.js#L119](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L123)
+```
+this.loadOrderBook()
+```
+
+3. View the loaded orders in the order book table.
+
+### END Stage 15: Load the Order Book
+---
 
 
 ### Stage X:
