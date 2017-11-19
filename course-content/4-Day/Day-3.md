@@ -475,7 +475,7 @@ import exchangeArtiacts from './build/contracts/Exchange.json'
 exchange: null, // exchange contract
 ```
 
-3. Create the reference object to the deployed exchange, [wallet-template/src/App.js#L71](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L89)
+3. Create the reference object to the deployed exchange, [wallet-template/src/App.js#L73](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L89)
 ```
 const exchangeAddress = exchangeArtiacts.networks[netId].address
 const exchange = this.web3.eth.contract(exchangeArtiacts.abi).at(exchangeAddress)
