@@ -783,6 +783,19 @@ this.loadOrderBook()
 
 ### END Stage 15: Load the Order Book
 ---
+### Stage 16: Deploy to the Kovan Public Testnet
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-16.png)
+
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-16.mp4?raw=true)
+
+1. Stop your local ethereum client, testrpc
+
+__Added steps for those utilizing the BLG provided remote node__
+
+1.
+
+### END Stage 16: Deploy to the Kovan Public Testnet
+---
 
 
 ### Stage X:
@@ -794,14 +807,6 @@ this.loadOrderBook()
 
 ### END Stage X:
 ---
-
-
-
-- load the order book via events
-  - loadOrderBook method
-  - call to it in bottom of componentDidMount
-
-- Update the addOrder to check that the order does not already exist
 
 - convert to metamask
 
