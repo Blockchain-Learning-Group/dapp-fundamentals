@@ -5,7 +5,7 @@
 # Table of Contents
 1. [Course Resources](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#10-course-resources)
 2. [Machine Specs](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#20-machine-specs)
-3. [Text Editor Specs](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#30-text-editor)
+3. [Text Editor](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#30-text-editor)
 4. [Environment Setup](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#40-environment-setup)
 5. [Ethereum Client](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#50-ethereum-client)
 
