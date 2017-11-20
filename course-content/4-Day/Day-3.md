@@ -776,7 +776,7 @@ this.loadOrderBook()
 
 ### END Stage 15: Load the Order Book
 ---
-### Stage 16: Deploy to the Kovan Public Testnet
+### Stage 16: Connect to a "Real" Ethereum Client
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-16.png)
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-16.mp4?raw=true)
@@ -799,6 +799,10 @@ ctrl+c
 
   __If the process does not terminate: (in a separate window)__
 
+  - Switch back to the truffle window
+  ```
+  ctrl+b 2
+  ```
   - Find the process id of testrpc
   ```
   ps aux | grep testrpc
@@ -819,6 +823,7 @@ ctrl+c
     ```
     *Result in the testrpc window:*
     ```
+    ctrl+b 1
     [...]
     Terminated
     #
@@ -833,8 +838,11 @@ ctrl+c
   ```
   - *Example output:*
   ```
-  # ssh -g -4 -NL 8180:127.0.0.1:8180 -NL 8546:127.0.0.1:8546 -NL 8545:127.0.0.1:8545 blg@52.235.45.47
-  # ssh -g -4 -NL 8180:127.0.0.1:8180 -NL 8546:127.0.0.1:8546 -NL 8545:127.0.0.1:8545 blg@52.235.45.47
+  root@7e7d419200b4:/blg/wallet-template# ssh -g -4 -NL 8180:127.0.0.1:8180 -NL 8546:127.0.0.1:8546 -NL 8545:127.0.0.1:8545 blg@52.235.45.47
+  The authenticity of host '52.235.45.47 (52.235.45.47)' can't be established.
+  ECDSA key fingerprint is c4:71:78:43:d8:78:f7:4b:24:36:ac:eb:09:a6:e7:f9.
+  Are you sure you want to continue connecting (yes/no)? yes
+  Warning: Permanently added '52.235.45.47' (ECDSA) to the list of known hosts.
   blg@52.235.45.47's password:
 
   ```
@@ -855,18 +863,50 @@ ctrl+c
   2017-11-19 20:11:46 UTC Imported #4761930 d67c…229c (0 txs, 0.00 Mgas, 0.31 ms, 0.57 KiB)
   ```
 
-4. Deploy the exchange and token to the kovan testnet
+4. View accounts from the node now available in the ui(3 if connected to remote node).
 
-*Note one unlocked account has been provided on the remote node*
+### END Stage 16: Connect to a "Real" Ethereum Client
+---
+### Stage 17: Deploy to the Kovan Public Testnet
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-9.png)
+
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true)
+
+1. Transition back to the truffle window.
+```
+ctrl+b 2
+```
+2. Deploy the contracts.
+
+*Note 3 unlocked accounts have been provided on the remote BLG node. But the ether will go fast so mind your deployments and transactions!*
 ```
 truffle migrate
 ```
+- *Example output:*
+```
+root@37709e3ee3e7:/blg/wallet-template/src# truffle migrate
+Using network 'development'.
 
-### END Stage 16: Deploy to the Kovan Public Testnet
+Running migration: 1_initial_migration.js
+[...]
+  Token: 0xf37825e75d9e597bfc55aa4e048a6ec6c0c6b5be
+[...]
+  Exchange: 0xadeadaf68eff9d6a633c30cddd6989b6e931f4ca
+[...]
+Saving artifacts...
+root@37709e3ee3e7:/blg/wallet-template/src#
+```
+
+3. View the contracts deployed to kovan @ https://kovan.etherscan.io/address/<TOKEN OR EXCHANGE ADDRESS>
+- Token Example: [https://kovan.etherscan.io/address/0xf37825e75d9e597bfc55aa4e048a6ec6c0c6b5be](https://kovan.etherscan.io/address/0xf37825e75d9e597bfc55aa4e048a6ec6c0c6b5be)
+- Exchange Example: [https://kovan.etherscan.io/address/0xadeadaf68eff9d6a633c30cddd6989b6e931f4ca](https://kovan.etherscan.io/address/0xadeadaf68eff9d6a633c30cddd6989b6e931f4ca)
+
+4. View the contract reference objects in the browser.
+
+### END Stage 17: Deploy to the Kovan Public Testnet
 ---
 
 
-### Stage X:
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-9.png)
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true)
