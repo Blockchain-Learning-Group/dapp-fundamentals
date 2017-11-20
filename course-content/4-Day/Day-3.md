@@ -897,6 +897,28 @@ Saving artifacts...
 root@37709e3ee3e7:/blg/wallet-template/src#
 ```
 
+__Common Error - Simply run the migration again__
+  ```
+  root@37709e3ee3e7:/blg/wallet-template/src# truffle migrate
+  Using network 'development'.
+
+  Running migration: 1_initial_migration.js
+    Deploying Migrations...
+    ... 0xfe605be6a2cfd5d2f22cdf7cdd548e8d7dd85e243bca9e7bbaeccb0ef1101144
+  Error encountered, bailing. Network state unknown. Review successful transactions manually.
+  Error: The contract code couldn't be stored, please check your gas amount.
+      at Object.callback (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:218485:46)
+      at /usr/local/lib/node_modules/truffle/build/cli.bundled.js:34886:25
+      at /usr/local/lib/node_modules/truffle/build/cli.bundled.js:220423:9
+      at /usr/local/lib/node_modules/truffle/build/cli.bundled.js:72910:11
+      at /usr/local/lib/node_modules/truffle/build/cli.bundled.js:204149:9
+      at XMLHttpRequest.request.onreadystatechange (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:205574:13)
+      at XMLHttpRequestEventTarget.dispatchEvent (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73069:18)
+      at XMLHttpRequest._setReadyState (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73359:12)
+      at XMLHttpRequest._onHttpResponseEnd (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73514:12)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73474:24)
+  ```
+
 3. View the contracts deployed to kovan @ https://kovan.etherscan.io/address/<TOKEN OR EXCHANGE ADDRESS>
 - Token Example: [https://kovan.etherscan.io/address/0xf37825e75d9e597bfc55aa4e048a6ec6c0c6b5be](https://kovan.etherscan.io/address/0xf37825e75d9e597bfc55aa4e048a6ec6c0c6b5be)
 - Exchange Example: [https://kovan.etherscan.io/address/0xadeadaf68eff9d6a633c30cddd6989b6e931f4ca](https://kovan.etherscan.io/address/0xadeadaf68eff9d6a633c30cddd6989b6e931f4ca)
