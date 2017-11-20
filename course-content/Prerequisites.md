@@ -33,7 +33,7 @@
 *Atom will be used through-out. Recommended but not required, a text editor with solidity support is advised however.*
 1. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/) and solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
 
-*For other options:* [Available Solidity Integrations](http://solidity.readthedocs.io/en/latest/index.html#available-solidity-integrations)
+- *For other options:* [Available Solidity Integrations](http://solidity.readthedocs.io/en/latest/index.html#available-solidity-integrations)
 ---
 # 4.0 Environment Setup
 ## 3 Options - follow ONLY 1
