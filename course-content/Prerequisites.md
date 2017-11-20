@@ -2,7 +2,7 @@
 
 ### Join our Slack Team: [Blockchain-Learning-Group](https://join.slack.com/t/blockchainlearning/shared_invite/enQtMjIyMzIyODMxMjE3LWM4MTA5YWUwNWI0YmMyMTI5OTY1ODhlYjU3NGJiYWYzYzliMDZlMzM4OGUyZjg0Njk0NzQ0NmI5NGYzZDJlNWY)
 ---
-# Course Resources
+# 1.0 Course Resources
 
 *Familiarity beforehand recommended, not required.*
 1. [Docker](https://www.docker.com/)
@@ -16,60 +16,30 @@
 9. [Parity](https://parity.io/)
 10. [Material UI](https://reactjs.org/)
 11. [screen](https://www.tecmint.com/screen-command-examples-to-manage-linux-terminals/)
-
 ---
-# Machine Specs
-1. 20GB Disk Space(Safe full node requirements) and 4GB of memory recommended.
+# 2.0 Machine Specs
+1. 4GB of memory recommended, 20GB Disk Space(if you wish to run a full node locally, not required).
+2. Operating System: Ubuntu 16.04+ preferred, Mac and Windows OK(Mac preferred).
 ---
-# Text Editor
+# 3.0 Text Editor
 
 *Atom will be used through-out. Recommended but not required, a text editor with solidity support is advised however.*
 1. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/) and solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
 
 For other options: [Available Solidity Integrations](http://solidity.readthedocs.io/en/latest/index.html#available-solidity-integrations)
 ---
-# Ethereum Client
-1. [Partiy](https://parity.io/)
-
-Download and sync beforehand.
-- Ubuntu / Mac(potentially? Error experienced on OSX 10.11.6):
-```
-bash <(curl https://get.parity.io -L)
-```
-- [Mac Homebrew Install](https://github.com/paritytech/homebrew-paritytech/blob/master/README.md)
-```
-/usr/bin/ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'
-brew tap paritytech/paritytech
-brew install parity --stable
-```
-Sync your node to Kovan.
-```
-parity --chain kovan --tracing off --rpccorsdomain "*" ui
-```
-- *Example output: [while syncing]*
-```
-adam@adam:~$ parity --chain kovan --tracing off --rpccorsdomain '*'
-2017-11-14 15:29:49  Starting Parity/v1.8.0-beta-9882902-20171015/x86_64-linux-gnu/rustc1.20.0
-[...]
-2017-11-14 15:30:51  Syncing #4565495 586b…9203     0 blk/s    0 tx/s   0 Mgas/s      0+    0 Qed  #4565495    7/25 peers   79 KiB chain 15 KiB db 0 bytes queue 404 KiB sync  RPC:  0 conn,  6 req/s,  27 µs
-[...]
-```
-- Will continue syncing up until latest block on Kovan: [Kovan Blocks](https://kovan.etherscan.io/blocks)
----
-# Environment Setup
+# 4.0 Environment Setup
 ## 3 Options - follow ONLY 1
 1. [__[Recommended]__ Dockerized Dev Environment and Local Chrome](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#1-recommended-dockerized-dev-environment-and-local-chrome)
   - A docker container has been configured with all development dependencies.
   - All development will be conducted within the docker container, virtual environment.
   - Chrome will be installed on the local machine and will interact with the application running inside the container.
-
 2. [Local Machine](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#2-local-machine)
 
 *If you wish to run everything locally and are familiar with installing packages via package managers such as npm then the following may be for you.*
 - All development dependencies will be installed on the local machine.
 - All development will conducted within the local machine's environment.
 - Chrome will be installed on the local machine and will interact with the application running locally.
-
 3. [__[Not Recommended]__ Completely Dockerized - Dev and Chrome Configuration](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#2-local-machine)
 
 *In the rare case where your machine is constrained to an older version of chrome and therefore metamask will not work proceed with this dockerized chrome version.*
@@ -80,7 +50,7 @@ adam@adam:~$ parity --chain kovan --tracing off --rpccorsdomain '*'
 ## 1. [Recommended] Dockerized Dev Environment and Local Chrome
 1. Install Docker
 - [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
-- [MacOS](https://www.docker.com/docker-mac)
+- [Mac](https://www.docker.com/docker-mac)
 - [Windows](https://www.docker.com/docker-windows)
 2. Pull the Dev Environment Image
 ```
@@ -149,7 +119,7 @@ Ensure build-essential apt package installed as well.
 $ sudo ln -s "$(which nodejs)" /usr/bin/node
 ```
   - Note default install on ubuntu is likely << 8.0.0 so be sure to install node @ 8.7.0
-- [MacOS](http://yoember.com/nodejs/the-best-way-to-install-node-js/)
+- [Mac](http://yoember.com/nodejs/the-best-way-to-install-node-js/)
 - macOS ensure you have the XCode command line tools installed.
 - Use the official Node.js packages, do not use the package supplied by your distribution.
 5. [Truffle](http://truffleframework.com/)
@@ -170,7 +140,7 @@ pip3 install pysha3==1.0.2
 *NOTE still experimental and not recommended!*
 1. Install Docker
 - [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
-- [MacOS](https://www.docker.com/docker-mac)
+- [Mac](https://www.docker.com/docker-mac)
 - [Windows](https://www.docker.com/docker-windows)
 2. Pull the Chrome Enabled Dapp Fundamentals Image
 ```
@@ -194,4 +164,36 @@ docker run -d -p 5900:5900 -e VNC_SERVER_PASSWORD=password --name=blg-env --user
 ```
 $ docker stop blg-env
 ```
+---
+# 5.0 Ethereum Client
+
+*BLG hosts a Kovan node that participants may interact with. Details to connect will follow via a secure channel.*
+
+## Local Client [if you wish to run a full client locally]
+1. [Partiy](https://parity.io/)
+
+Download and sync beforehand.
+- Ubuntu / Mac(potentially? Error experienced on OSX 10.11.6):
+```
+bash <(curl https://get.parity.io -L)
+```
+- [Mac Homebrew Install](https://github.com/paritytech/homebrew-paritytech/blob/master/README.md)
+```
+/usr/bin/ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'
+brew tap paritytech/paritytech
+brew install parity --stable
+```
+Sync your node to Kovan.
+```
+parity --chain kovan --tracing off --rpccorsdomain "*" ui
+```
+- *Example output: [while syncing]*
+```
+adam@adam:~$ parity --chain kovan --tracing off --rpccorsdomain '*'
+2017-11-14 15:29:49  Starting Parity/v1.8.0-beta-9882902-20171015/x86_64-linux-gnu/rustc1.20.0
+[...]
+2017-11-14 15:30:51  Syncing #4565495 586b…9203     0 blk/s    0 tx/s   0 Mgas/s      0+    0 Qed  #4565495    7/25 peers   79 KiB chain 15 KiB db 0 bytes queue 404 KiB sync  RPC:  0 conn,  6 req/s,  27 µs
+[...]
+```
+- Will continue syncing up until latest block on Kovan: [Kovan Blocks](https://kovan.etherscan.io/blocks)
 ---
