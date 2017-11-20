@@ -176,7 +176,7 @@ $ docker stop blg-env
 
 *BLG hosts a Kovan node that participants may interact with. Details to connect will follow via a secure channel.*
 
-## Local Client [if you wish to run a full client locally]
+## Local Client [if you wish to run a full client locally, NOT required]
 1. [Partiy](https://parity.io/)
 
 Download and sync beforehand.
