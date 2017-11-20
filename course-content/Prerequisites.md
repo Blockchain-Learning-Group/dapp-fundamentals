@@ -15,7 +15,7 @@
 8. [TestRPC](https://github.com/ethereumjs/testrpc)
 9. [Parity](https://parity.io/)
 10. [Material UI](https://reactjs.org/)
-11. [screen](https://www.tecmint.com/screen-command-examples-to-manage-linux-terminals/)
+11. [tmux cheatsheet](https://gist.github.com/MohamedAlaa/2961058), [manpage](http://manpages.ubuntu.com/manpages/zesty/man1/tmux.1.html)
 ---
 # 2.0 Machine Specs
 1. 4GB of memory recommended, 20GB Disk Space(if you wish to run a full node locally, not required).
