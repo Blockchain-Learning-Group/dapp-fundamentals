@@ -1,4 +1,4 @@
-## Day 3: DApp Extension
+# Decentralized Exchange Development
 
 ## Table of Contents
 1. [Stage 1: Restart Your Dev Enviroment and App](#stage-1-restart-your-dev-environment-and-app)
