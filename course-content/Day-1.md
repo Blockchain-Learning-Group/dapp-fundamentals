@@ -1,9 +1,4 @@
-# Decentralized Application Development Fundamentals
-This serves as an outline of useful resources leveraged over the duration of Blockchain Learning Group's DApp Development Fundamentals course.
-
-docker exec -it blg-env bash
-
-## Day 1
+# Blockchain Fundamentals
 1. [https://ethstats.net/](https://ethstats.net/)
 2. [http://ethgasstation.info/](http://ethgasstation.info/)
 3. [https://etherscan.io/](https://etherscan.io/)
