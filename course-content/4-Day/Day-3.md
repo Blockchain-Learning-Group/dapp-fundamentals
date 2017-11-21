@@ -965,24 +965,9 @@ __Success, your exchange is complete!__
 
 ### END Stage 19: Use the Exchange!
 ---
-
-
-### Stage X:
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-9.png)
-
-#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true)
-
-1.
-
-### END Stage X:
----
-
-- convert to metamask
-
-- note won't be able to mint tokens from the browser!  Will need to do a transfer...
-  - disable metamask, transfer to that account that re-enable
-
 ### Bonus: Extend Your Exchange
+1. Connect to another participant's exchange, updating the address to create the reference object at.
+
 TODO:
   - pre-condition checks!  amounts > 0, etc.
   - Integrate error logging pattern in place of requires
