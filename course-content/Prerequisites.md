@@ -8,6 +8,7 @@
 3. [Text Editor](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#30-text-editor)
 4. [Environment Setup](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#40-environment-setup)
 5. [Ethereum Client](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#50-ethereum-client)
+6. [Project Submission and Accreditation](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#50-project-submission-and-accreditation)
 
 # 1.0 Course Resources
 
@@ -204,3 +205,6 @@ adam@adam:~$ parity --chain kovan --tracing off --rpccorsdomain '*'
 ```
 - Will continue syncing up until latest block on Kovan: [Kovan Blocks](https://kovan.etherscan.io/blocks)
 ---
+
+# 6.0 Project Submission and Accreditation
+If you wish to submit your final project and have it accredited you must create a github account.  Please do so at [github.com](https://github.com/).

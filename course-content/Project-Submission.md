@@ -1,0 +1,48 @@
+# DApp Fundamentals Project Submission
+
+---
+# Table of Contents
+1. [Course Resources](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#10-course-resources)
+2. [Machine Specs](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#20-machine-specs)
+3. [Text Editor](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#30-text-editor)
+4. [Environment Setup](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#40-environment-setup)
+5. [Ethereum Client](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#50-ethereum-client)
+6. [Project Submission and Accreditation](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#50-project-submission-and-accreditation)
+
+## 1.0 Github Account
+If you have not already please create a github account.  Please do so at [github.com](https://github.com/).
+
+## 2.0 Submit Your Project
+
+*Replace USERNAME with your username below, the example below will use blockchainLG.*
+1. Navigate to the [BLG/Projects](https://github.com/Blockchain-Learning-Group/projects) repo.
+2. In the top right corner click on the fork icon. This should create your own copy of the repo.
+3. Clone this new copy onto your machine.
+```
+git clone https://github.com/USERNAME/projects.git
+```
+- *Example output:*
+```
+adam@adam:~/Desktop/blg$ git clone https://github.com/blockchainLG/projects.git
+Cloning into 'projects'...
+remote: Counting objects: 58, done.
+remote: Compressing objects: 100% (48/48), done.
+remote: Total 58 (delta 4), reused 52 (delta 2), pack-reused 0
+Unpacking objects: 100% (58/58), done.
+Checking connectivity... done.
+adam@adam:~/Desktop/blg$
+```
+4. Create a directory to submit your project and copy the contents of your project into the directory.
+
+*This may be done with any file browser as well, below are linux commands to do so.*
+```
+mkdir projects/submissions/USERNAME
+```
+```
+cp -a wallet-template/* projects/submissions/blockchainLG/
+```
+5. Navigate back to the [BLG/Projects](https://github.com/Blockchain-Learning-Group/projects) repo.
+6. Select new pull request
+7. Select compare across forks
+8. Select your fork
+9. Enter a pull request message and create the PR!
