@@ -35,6 +35,15 @@ cp -a wallet-template/* projects/submissions/USERNAME/
 ```
 5. Push your changes to your fork
 ```
+cd projects
+```
+```
+git add .
+```
+```
+git commit -m "USERNAME submitting course project"
+```
+```
 git push
 ```
 6. Navigate back to the [BLG/Projects](https://github.com/Blockchain-Learning-Group/projects) repo.
