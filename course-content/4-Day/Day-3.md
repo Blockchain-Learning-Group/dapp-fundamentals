@@ -928,8 +928,26 @@ __Common Error - Simply run the migration again__
 
 ### END Stage 17: Deploy to the Kovan Public Testnet
 ---
+### Stage 18: Convert to Metamask Web3 Provider
+![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-18.png)
 
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-18.mp4?raw=true)
 
+1. Ensure Metamask is installed, unlocked and connected to the kovan testnet.
+
+2. Add a conditional to use the Metamask web3 provider if present, [wallet-template/src/App.js#L49](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L49)
+```
+if (window.web3)
+    this.web3 = new Web3(window.web3.currentProvider)
+else
+```
+
+3. Refresh the browser and connect to your Metamask account. View your Metamask account now available within the application.
+
+### END Stage 18: Convert to Metamask Web3 Provider
+---
+
+### Stage X:
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-9.png)
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true)
