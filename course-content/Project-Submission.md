@@ -39,10 +39,14 @@ adam@adam:~/Desktop/blg$
 mkdir projects/submissions/USERNAME
 ```
 ```
-cp -a wallet-template/* projects/submissions/blockchainLG/
+cp -a wallet-template/* projects/submissions/USERNAME/
 ```
-5. Navigate back to the [BLG/Projects](https://github.com/Blockchain-Learning-Group/projects) repo.
-6. Select new pull request
-7. Select compare across forks
-8. Select your fork
-9. Enter a pull request message and create the PR!
+5. Push your changes to your fork
+```
+git push
+```
+6. Navigate back to the [BLG/Projects](https://github.com/Blockchain-Learning-Group/projects) repo.
+7. Select new pull request
+8. Select compare across forks
+9. Select your fork
+10. Enter a pull request message and create the PR!
