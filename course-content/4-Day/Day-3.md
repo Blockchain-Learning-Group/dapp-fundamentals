@@ -965,31 +965,20 @@ __Success, your exchange is complete!__
 ---
 ### Bonus: Extend Your Exchange
 1. Connect to another participant's exchange, updating the address to create the reference object at.
-
-TODO:
-  - pre-condition checks!  amounts > 0, etc.
-  - Integrate error logging pattern in place of requires
-  - ERC20 / ETH pairings
-  - ERC20 / ERC20 pairings
-  - Partial fills, matched by ratio not exact
-
-  - Write tests for the exchange!
-  - Move storage of order book off-chain to reduce cost
-
-    TODO
-    map the ether to a specific user, therefore they have a balance not
-    just the exchange total.
-- gas estimation!
-
-- clean up the allowance is the transaction fails
-
-- sort the orders
-- allow multiple orders with the same parameters to exist
-
+2. Pre-condition checks!  amounts > 0, etc.
+3. Integrate error logging pattern in place of requires
+4. Add other ERC20 / ETH pairings
+5. Enable ERC20 / ERC20 pairings
+6. Automated order matching, partial fills, matched by ratio not user selected.
+7. Write tests for the exchange
+8. Update gas amounts sent with each transaction.  Leverage web3's gas estimation!
+9. Slean up the allowance if the order submission transaction fails
+10. Sort the orders in the order book table
+11. Allow multiple orders with the same parameters to exist
 ---
 ### Clean up
 
-#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-cleanup-01.mp4?raw=true)
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/03-stage-cleanup.mp4?raw=true)
 
 1. Detach from your tmux session
 
