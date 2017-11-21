@@ -4,6 +4,7 @@
 If you have not already please create a github account.  Please do so at [github.com](https://github.com/).
 
 ## 2.0 Submit Your Project
+#### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/video-tutorials/project-submission.mp4?raw=true)
 
 *Replace USERNAME with your username below, the example below will use blockchainLG.*
 1. Navigate to the [BLG/Projects](https://github.com/Blockchain-Learning-Group/projects) repo.
