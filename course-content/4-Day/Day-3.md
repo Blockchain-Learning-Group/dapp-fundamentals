@@ -1,8 +1,6 @@
 ## Day 3: DApp Extension
 
 ## Table of Contents
-1. [Stage 1: Dev Enviroment Setup and App Bootstrapping](#stage-1-dev-enviroment-setup-and-application-bootstrap)
-
 1. [Stage 1: Restart Your Dev Enviroment and App](#stage-1-restart-your-dev-enviroment-and-app)
 2. [Stage 2: Create the Exchange Contract](#stage-2-create-the-exchange-ontract)
 3. [Stage 3: Write the submitOrder Method](#stage-3-write-the-submitOrder-method)
@@ -25,9 +23,6 @@
 20. [Bonus: Extend Your Exchange](#Bonus:-Extend-Your-Exchange)
 21. [Clean up](#clean-up)
 ---
-### Stage 1: Dev Enviroment Setup and Application Bootstrap
-
-
 ### Stage 1: Restart Your Dev Environment and App
 ![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-1.png)
 
