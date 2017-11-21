@@ -947,8 +947,6 @@ else
 ### END Stage 18: Convert to Metamask Web3 Provider
 ---
 ### Stage 19: Use the Exchange!
-![Completed](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-19.png)
-
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-19.mp4?raw=true)
 
 1. Mint tokens to your Metamask account.  Will need to be done from the parity account that deployed the contract as it is the owner.
