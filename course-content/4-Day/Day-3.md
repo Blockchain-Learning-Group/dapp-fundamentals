@@ -1,7 +1,7 @@
 ## Day 3: DApp Extension
 
 ## Table of Contents
-1. [Stage 1: Restart Your Dev Enviroment and App](#stage-1-restart-your-dev-enviroment-setup-and-app)
+1. [Stage 1: Restart Your Dev Enviroment and App](#stage-1-restart-your-dev-enviroment-and-app)
 2. [Stage 2: Create the Exchange Contract](#stage-2-create-the-exchange-ontract)
 3. [Stage 3: Write the submitOrder Method](#stage-3-write-the-submitOrder-method)
 4. [Stage 4: Test the submitOrder Method](#stage-4-test-the-submitOrder-method)
