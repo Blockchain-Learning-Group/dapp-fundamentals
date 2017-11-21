@@ -1,14 +1,5 @@
 # DApp Fundamentals Project Submission
 
----
-# Table of Contents
-1. [Course Resources](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#10-course-resources)
-2. [Machine Specs](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#20-machine-specs)
-3. [Text Editor](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#30-text-editor)
-4. [Environment Setup](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#40-environment-setup)
-5. [Ethereum Client](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#50-ethereum-client)
-6. [Project Submission and Accreditation](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#50-project-submission-and-accreditation)
-
 ## 1.0 Github Account
 If you have not already please create a github account.  Please do so at [github.com](https://github.com/).
 
@@ -49,4 +40,4 @@ git push
 7. Select new pull request
 8. Select compare across forks
 9. Select your fork
-10. Enter a pull request message and create the PR!
+10. Enter a pull request message and create the PR!  *Your project has been submitted and will be reviewed shortly.*
