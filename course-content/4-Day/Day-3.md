@@ -920,7 +920,7 @@ __Common Error - Simply run the migration again__
       at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73474:24)
   ```
 
-3. View the contracts deployed to kovan @ https://kovan.etherscan.io/address/`<TOKEN OR EXCHANGE ADDRESS>`
+3. View the contracts deployed to kovan @ https://kovan.etherscan.io/address/ `TOKEN OR EXCHANGE ADDRESS`
 - Token Example: [https://kovan.etherscan.io/address/0xf37825e75d9e597bfc55aa4e048a6ec6c0c6b5be](https://kovan.etherscan.io/address/0xf37825e75d9e597bfc55aa4e048a6ec6c0c6b5be)
 - Exchange Example: [https://kovan.etherscan.io/address/0xadeadaf68eff9d6a633c30cddd6989b6e931f4ca](https://kovan.etherscan.io/address/0xadeadaf68eff9d6a633c30cddd6989b6e931f4ca)
 
