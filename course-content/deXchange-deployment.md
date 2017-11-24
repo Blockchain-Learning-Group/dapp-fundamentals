@@ -330,7 +330,7 @@ __Success, your exchange is complete!__
 6. Automated order matching, partial fills, matched by ratio not user selected.
 7. Write tests for the exchange
 8. Update gas amounts sent with each transaction.  Leverage web3's gas estimation!
-9. Slean up the allowance if the order submission transaction fails
+9. Clean up the allowance if the order submission transaction fails
 10. Sort the orders in the order book table
 11. Allow multiple orders with the same parameters to exist
 ---
