@@ -16,6 +16,8 @@
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-1.mp4?raw=true)
 
+__If your container is still running you may jump to step 2__
+
 1. Start your container back up
 ```
 docker start blg-env
