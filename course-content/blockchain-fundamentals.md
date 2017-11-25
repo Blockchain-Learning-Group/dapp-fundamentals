@@ -51,6 +51,7 @@ function reachGasLimit() {
 [Download Video Tutorial]()
 
 __11.1__ Copy the exercise over to remix.
+
 __11.2__ Note LoggingErrors pattern contract inherited and SafeMath library utilized.
 
 __11.3__ Compile and deploy the contract. Confirm variables and methods are available.
