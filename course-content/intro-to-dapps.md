@@ -1,5 +1,7 @@
 # Day 2: DApp Development
 
+[Download Completed Wallet Demo]()
+
 ## Table of Contents
 1. [Stage 1: Dev Enviroment Setup and App Bootstrapping](#stage-1-dev-enviroment-setup-and-application-bootstrap)
 2. [Stage 2: Token Interface](#stage-2-token-interface)
