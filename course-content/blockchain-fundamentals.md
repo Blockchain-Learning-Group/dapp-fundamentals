@@ -62,22 +62,22 @@ __11.4__ Complete the mint method.
   if (msg.sender != owner_)
     return error('msg.sender != owner, Token.mint()');
   ```
-  - Confirm the value to be mint is greater than zero, line 97
+  - Confirm the value to be mint is greater than zero, line 98
   ```
   if (_value <= 0)
     return error('Cannot mint a value of <= 0, Token.mint()');
   ```
-  - Confirm you are not trying to mint to address 0, line 100
+  - Confirm you are not trying to mint to address 0, line 102
   ```
   if (_to == address(0))
     return error('Cannot mint tokens to address(0), Token.mint()');
   ```
-  - Update the total supply and the user's balance, line 105
+  - Update the total supply and the user's balance, line 108
   ```
   totalSupply_ = totalSupply_.add(_value);
   balances_[_to] = balances_[_to].add(_value);
   ```
-  - Finally emit events to notify the outside world, 108
+  - Finally emit events to notify the outside world, 112
   ```
   LogTokensMinted(_to, _to, _value, totalSupply_);
   Transfer(address(0), _to, _value);
@@ -86,31 +86,31 @@ __11.4__ Complete the mint method.
 __11.5__ Compile, deploy and confirm you can mint to an address. Confirm balance updated in balances_ mapping.
 
 __11.6__ Complete the transferFrom method.
-  - Confirm not transferring an amount of 0, line 137
+  - Confirm not transferring an amount of 0, line 142
   ```
   if (_amount <= 0)
     return error('Cannot transfer amount <= 0, Token.transferFrom()');
   ```
-  - Confirm the owner has a sufficient balance to transfer from, line 140
+  - Confirm the owner has a sufficient balance to transfer from, line 146
   ```
   if (_amount > balances_[_from])
     return error('From account has an insufficient balance, Token.transferFrom()');
   ```
-  - Confirm the spender has a sufficient allowance to transfer, line 143
+  - Confirm the spender has a sufficient allowance to transfer, line 150
   ```
   if (_amount > allowed_[_from][msg.sender])
     return error('msg.sender has insufficient allowance, Token.transferFrom()');
   ```
-  - Update the balances, subtracting from the from addressing and adding to the to, line 148
+  - Update the balances, subtracting from the from addressing and adding to the to, line 156
   ```
   balances_[_from] = balances_[_from].sub(_amount);
   balances_[_to] = balances_[_to].add(_amount);
   ```
-  - Reduce the spender's allowance,  151
+  - Reduce the spender's allowance,  160
   ```
   allowed_[_from][msg.sender] = allowed_[_from][msg.sender].sub(_amount);
   ```
-  - Finally emit an event of the transfer, 154
+  - Finally emit an event of the transfer, 163
   ```
   Transfer(_from, _to, _amount);
   ```
