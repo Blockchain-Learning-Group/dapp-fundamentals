@@ -50,12 +50,12 @@ function reachGasLimit() {
 
 [Download Video Tutorial]()
 
-a. Copy the exercise over to remix.
-b. Note LoggingErrors pattern contract inherited and SafeMath library utilized.
+__11.1__ Copy the exercise over to remix.
+__11.2__ Note LoggingErrors pattern contract inherited and SafeMath library utilized.
 
-c. Compile and deploy the contract. Confirm variables and methods are available.
+__11.3__ Compile and deploy the contract. Confirm variables and methods are available.
 
-d. Complete the mint method.
+__11.4__ Complete the mint method.
   - Only allow the owner to mint tokens, line 161
   ```
   if (msg.sender != owner_)
@@ -82,9 +82,9 @@ d. Complete the mint method.
   Transfer(address(0), _to, _value);
   ```
 
-e. Compile, deploy and confirm you can mint to an address. Confirm balance updated in balances_ mapping.
+__11.5__ Compile, deploy and confirm you can mint to an address. Confirm balance updated in balances_ mapping.
 
-f. Complete the transferFrom method.
+__11.6__ Complete the transferFrom method.
   - Confirm not transferring an amount of 0, line 214
   ```
   if (_amount <= 0)
@@ -114,8 +114,8 @@ f. Complete the transferFrom method.
   Transfer(_from, _to, _amount);
   ```
 
-- Compile and deploy and confirm transfer and transferFrom working.  
-- Note error logging if insufficient allowance and other errors correct.
+__11.7__ Compile and deploy and confirm transfer and transferFrom working.  
+__11.8__ Note error logging if insufficient allowance and other errors correct.
 
 Usage:
 1. minting
