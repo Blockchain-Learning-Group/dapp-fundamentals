@@ -56,7 +56,13 @@ __11.2__ Note LoggingErrors pattern contract inherited and SafeMath library util
 
 __11.3__ Compile and deploy the contract. Confirm variables and methods are available.
 
-__11.4__ Complete the mint method.
+__11.4__ Update the contract metadata to be your own! Line 55 - 56.
+```
+string public constant symbol = 'BLG';
+string public constant name = 'Blockchain Learning Group Community Token';
+```
+
+__11.5__ Complete the mint method.
   - Only allow the owner to mint tokens, line 94
   ```
   if (msg.sender != owner_)
@@ -83,9 +89,9 @@ __11.4__ Complete the mint method.
   Transfer(address(0), _to, _value);
   ```
 
-__11.5__ Compile, deploy and confirm you can mint to an address. Confirm balance updated in balances_ mapping.
+__11.6__ Compile, deploy and confirm you can mint to an address. Confirm balance updated in balances_ mapping.
 
-__11.6__ Complete the transferFrom method.
+__11.7__ Complete the transferFrom method.
   - Confirm not transferring an amount of 0, line 142
   ```
   if (_amount <= 0)
@@ -115,8 +121,8 @@ __11.6__ Complete the transferFrom method.
   Transfer(_from, _to, _amount);
   ```
 
-__11.7__ Compile and deploy and confirm transfer and transferFrom working.  
-__11.8__ Note error logging if insufficient allowance and other errors correct.
+__11.8__ Compile and deploy and confirm transfer and transferFrom working.  
+__11.9__ Note error logging if insufficient allowance and other errors correct.
 
 Usage:
 1. minting
