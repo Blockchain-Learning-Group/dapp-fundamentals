@@ -62,7 +62,7 @@ contract Token is ERC20, LoggingErrors {
   mapping(address => mapping (address => uint256)) public allowed_;
   address public owner_; // EOA
 
-  event LogTokensMinted(address indexed _to, address to, uint256 value, uint256 totalSupply);
+  event LogTokensMinted(address indexed _to, uint256 value, uint256 totalSupply);
 
   /// @dev CONSTRUCTOR - set owner account
   function Token() {

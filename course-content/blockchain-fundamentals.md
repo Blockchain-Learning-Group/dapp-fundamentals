@@ -85,7 +85,7 @@ __11.5__ Complete the mint method.
   ```
   - Finally emit events to notify the outside world, 112
   ```
-  LogTokensMinted(_to, _to, _value, totalSupply_);
+  LogTokensMinted(_to, _value, totalSupply_);
   Transfer(address(0), _to, _value);
   ```
 

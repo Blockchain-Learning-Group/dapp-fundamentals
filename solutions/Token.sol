@@ -140,7 +140,7 @@ contract Token is ERC20, LoggingErrors {
   /**
    * Events
    */
-  event LogTokensMinted(address indexed _to, address to, uint256 value, uint256 totalSupply);
+  event LogTokensMinted(address indexed _to, uint256 value, uint256 totalSupply);
 
   /**
    * @dev CONSTRUCTOR - set blg owner account
@@ -197,7 +197,7 @@ contract Token is ERC20, LoggingErrors {
     totalSupply_ = totalSupply_.add(_value);
     balances_[_to] = balances_[_to].add(_value);
 
-    LogTokensMinted(_to, _to, _value, totalSupply_);
+    LogTokensMinted(_to, _value, totalSupply_);
     Transfer(address(0), _to, _value);
 
     return true;
