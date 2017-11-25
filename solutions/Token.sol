@@ -123,7 +123,7 @@ contract Token is ERC20, LoggingErrors {
    * Storage
    *
    */
-  // Amount of tokens currentl in circulation
+  // Amount of tokens currently in circulation
   uint256 public totalSupply_;
 
   // User balances of tokens
