@@ -47,19 +47,9 @@ contract ERC20 {
 
 /**
  * @title Log Various Error Types
- * @author Adam Lemmon <adam@blockchainlearninggroup.com>
- * @dev Inherit this contract and your may now log errors easily
- * To support various error types, params, etc.
  */
 contract LoggingErrors {
-  /**
-  * Events
-  */
   event LogErrorString(string errorString);
-
-  /**
-  * Error cases
-  */
 
   /**
    * @dev Default error to simply log the error message and return
@@ -84,9 +74,7 @@ library SafeMath {
   }
 
   function div(uint256 a, uint256 b) internal constant returns (uint256) {
-    // assert(b > 0); // Solidity automatically throws when dividing by 0
     uint256 c = a / b;
-    // assert(a == b * c + a % b); // There is no case in which this doesn't hold
     return c;
   }
 
@@ -102,27 +90,19 @@ library SafeMath {
   }
 }
 
-
 /**
  * @title Basic ERC20 Token Implementation
  * @author <name>
  */
 contract Token is ERC20, LoggingErrors {
-
   using SafeMath for uint256;
-  /**
-   * Constants
-   */
   // Token metadata
   string public constant symbol = 'BLG';
   string public constant name = 'Blockchain Learning Group Community Token';
   uint public constant decimals = 18;
 
-  /**
-   * Storage
-   */
-   // Amount of tokens currentl in circulation
-   uint256 public totalSupply_;
+  // Amount of tokens currentl in circulation
+  uint256 public totalSupply_;
 
    // User balances of tokens
    mapping (address => uint256) public balances_;
@@ -135,9 +115,6 @@ contract Token is ERC20, LoggingErrors {
 
    address public owner_; // EOA
 
-  /**
-   * Events
-   */
   event LogTokensMinted(address indexed _to, address to, uint256 value, uint256 totalSupply);
 
   /**
@@ -146,10 +123,6 @@ contract Token is ERC20, LoggingErrors {
   function Token() {
     owner_ = msg.sender;
   }
-
-  /**
-   * External
-   */
 
   /**
    * @dev Approve a user to spend your tokens.
@@ -186,15 +159,20 @@ contract Token is ERC20, LoggingErrors {
   {
     // Only the owner may mint
 
+
     // Can't mint a value of 0!
 
+
     // Can't mint to address(0)
+
 
     // Update the total supply and balance of the _to user
     // Increase total supply my value
     // Increase _to in the balance mapping by the value
 
+
     // Logs
+
 
     return true;
   }
@@ -234,17 +212,23 @@ contract Token is ERC20, LoggingErrors {
   {
     // Can't transfer amount of 0!
 
+
     // Confirm from has a sufficient balance
 
+
     // Confirm sender has a sufficient allowance
+
 
     // Move the funds from the _from balance to the _to balance
     // Decrease from's balance by value
     // Incease _to's balance by value
 
+
     // Subtract the funds from the sender's allowance
 
+
     // Log
+
 
     return true;
   }

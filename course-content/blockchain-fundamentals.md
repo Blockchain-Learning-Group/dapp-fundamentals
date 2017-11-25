@@ -46,8 +46,89 @@ function reachGasLimit() {
   }
 }
 ```
+11. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/TokenSolution_EOD1.sol)
 
-11. [Voting Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Voting.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/VotingSolution.sol)
+[Download Video Tutorial]()
+
+a. Copy the exercise over to remix.
+b. Note LoggingErrors pattern contract inherited and SafeMath library utilized.
+
+c. Compile and deploy the contract. Confirm variables and methods are available.
+
+d. Complete the mint method.
+  - Only allow the owner to mint tokens, line 161
+  ```
+  if (msg.sender != owner_)
+    return error('msg.sender != owner, Token.mint()');
+  ```
+  - Confirm the value to be mint is greater than zero, line 164
+  ```
+  if (_value <= 0)
+    return error('Cannot mint a value of <= 0, Token.mint()');
+  ```
+  - Confirm you are not trying to mint to address 0, line 167
+  ```
+  if (_to == address(0))
+    return error('Cannot mint tokens to address(0), Token.mint()');
+  ```
+  - Update the total supply and the user's balance, line 172
+  ```
+  totalSupply_ = totalSupply_.add(_value);
+  balances_[_to] = balances_[_to].add(_value);
+  ```
+  - Finally emit events to notify the outside world, 175
+  ```
+  LogTokensMinted(_to, _to, _value, totalSupply_);
+  Transfer(address(0), _to, _value);
+  ```
+
+e. Compile, deploy and confirm you can mint to an address. Confirm balance updated in balances_ mapping.
+
+f. Complete the transferFrom method.
+  - Confirm not transferring an amount of 0, line 214
+  ```
+  if (_amount <= 0)
+    return error('Cannot transfer amount <= 0, Token.transferFrom()');
+  ```
+  - Confirm the owner has a sufficient balance to transfer from, line 217
+  ```
+  if (_amount > balances_[_from])
+    return error('From account has an insufficient balance, Token.transferFrom()');
+  ```
+  - Confirm the spender has a sufficient allowance to transfer, line 220
+  ```
+  if (_amount > allowed_[_from][msg.sender])
+    return error('msg.sender has insufficient allowance, Token.transferFrom()');
+  ```
+  - Update the balances, subtracting from the from addressing and adding to the to, line 225
+  ```
+  balances_[_from] = balances_[_from].sub(_amount);
+  balances_[_to] = balances_[_to].add(_amount);
+  ```
+  - Reduce the spender's allowance,  228
+  ```
+  allowed_[_from][msg.sender] = allowed_[_from][msg.sender].sub(_amount);
+  ```
+  - Finally emit an event of the transfer, 231
+  ```
+  Transfer(_from, _to, _amount);
+  ```
+
+- Compile and deploy and confirm transfer and transferFrom working.  
+- Note error logging if insufficient allowance and other errors correct.
+
+Usage:
+1. minting
+2. Transfers
+3. Approvals
+4. TransferFrom
+
+*Save this contract to disk. We will be using it tomorrow!*
+
+12. [Voting Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Voting.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/VotingSolution.sol)
+
+[Download Video Tutorial]()
+
 - Define the duration of the vote
 ```
 // Line 14
@@ -171,93 +252,6 @@ Usage:
 - Confirm user may only vote once.
 - Confirm vote may only be tallied after the number of blocks have elapsed.
 - Confirm correct winner logged.
-
-12. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/TokenSolution_EOD1.sol)
-- Copy the exercise over to remix.
-- Note LoggingErrors pattern, libraries, etc.
-
-- Compile and deploy the contract. Confirm variables and methods available.
-
-- Complete the mint method.
-```
-/**
- * @dev Mint tokens and allocate them to the specified user.
- * @param _to The address of the recipient.
- * @param _value The amount of tokens to be minted and transferred.
- * @return Success of the transaction.
- */
-function mint(address _to, uint _value)
-  external
-  returns(bool)
-{
-  if (msg.sender != owner_)
-    return error('msg.sender != owner, Token.mint()');
-
-  if (_value <= 0)
-    return error('Cannot mint a value of <= 0, Token.mint()');
-
-  if (_to == address(0))
-    return error('Cannot mint tokens to address(0), Token.mint()');
-
-  totalSupply_ = totalSupply_.add(_value);
-  balances_[_to] = balances_[_to].add(_value);
-
-  LogTokensMinted(_to, _to, _value, totalSupply_);
-  Transfer(address(0), _to, _value);
-
-  return true;
-}
-```
-
-- Compile deploy and confirm you can mint to an address. Confirm balance updated in balances_ mapping.
-
-- Complete the transfer from method.
-```
-/**
- * @param _from The address transferring from.
- * @param _to The address transferring to.
- * @param _amount The amount to transfer.
- * @return The success of this method.
- */
-function transferFrom(address _from, address _to, uint256 _amount)
-  external
-  returns(bool)
-{
-  if (_amount <= 0)
-    return error('Cannot transfer amount <= 0, Token.transferFrom()');
-
-  if (_amount > balances_[_from])
-    return error('From account has an insufficient balance, Token.transferFrom()');
-
-  if (_amount > allowed_[_from][msg.sender])
-    return error('msg.sender has insufficient allowance, Token.transferFrom()');
-
-  balances_[_from] = balances_[_from].sub(_amount);
-  balances_[_to] = balances_[_to].add(_amount);
-
-  allowed_[_from][msg.sender] = allowed_[_from][msg.sender].sub(_amount);
-
-  Transfer(_from, _to, _amount);
-
-  return true;
-}
-```
-
-- Complete the balanceOf method to return the user's balance.
-```
-return balances_[_owner];
-```
-
-- Compile and deploy and confirm transfer and transferFrom working.  
-- Note error logging if insufficient allowance and other errors correct.
-
-Usage:
-1. minting
-2. Transfers
-3. Approvals
-4. TransferFrom
-
-*Save this contract to disk. We will be using it tomorrow!*
-
+---
 ### Homework
-  - Get your parity node synced!
+  -
