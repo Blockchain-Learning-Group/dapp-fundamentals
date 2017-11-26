@@ -1,6 +1,6 @@
 # Day 2: DApp Development
 
-[Download Completed Wallet Demo]()
+[Download Completed Wallet Demo](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/wallet.mp4)
 
 ## Table of Contents
 1. [Stage 1: Dev Enviroment Setup and App Bootstrapping](#stage-1-dev-enviroment-setup-and-application-bootstrap)
