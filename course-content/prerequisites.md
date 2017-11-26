@@ -53,7 +53,7 @@ Escape character is '^]'.
 SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.2
 ```
 ---
-# 4.0 Environment Setup
+# 5.0 Environment Setup
 ## 3 Options - follow ONLY 1
 1. [__[Recommended]__ Dockerized Dev Environment and Local Chrome](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#1-recommended-dockerized-dev-environment-and-local-chrome)
   - A docker container has been configured with all development dependencies.
@@ -190,7 +190,7 @@ docker run -d -p 5900:5900 -e VNC_SERVER_PASSWORD=password --name=blg-env --user
 $ docker stop blg-env
 ```
 ---
-# 5.0 Ethereum Client
+# 6.0 Ethereum Client
 
 *BLG hosts a Kovan node that participants may interact with. Details to connect will follow via a secure channel.*
 
@@ -223,5 +223,5 @@ adam@adam:~$ parity --chain kovan --tracing off --rpccorsdomain '*'
 - Will continue syncing up until latest block on Kovan: [Kovan Blocks](https://kovan.etherscan.io/blocks)
 ---
 
-# 6.0 Project Submission and Accreditation
+# 7.0 Project Submission and Accreditation
 If you wish to submit your final project and have it accredited you must create a github account.  Please do so at [github.com](https://github.com/).
