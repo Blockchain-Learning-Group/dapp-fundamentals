@@ -6,9 +6,10 @@
 1. [Course Resources](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#10-course-resources)
 2. [Machine Specs](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#20-machine-specs)
 3. [Text Editor](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#30-text-editor)
-4. [Environment Setup](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#40-environment-setup)
-5. [Ethereum Client](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#50-ethereum-client)
-6. [Project Submission and Accreditation](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#50-project-submission-and-accreditation)
+4. [Network Requirements](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#40-network-requirements)
+5. [Environment Setup](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#50-environment-setup)
+6. [Ethereum Client](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#60-ethereum-client)
+7. [Project Submission and Accreditation](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#70-project-submission-and-accreditation)
 
 # 1.0 Course Resources
 
@@ -35,6 +36,22 @@
 1. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/) and solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
 
 - *For other options:* [Available Solidity Integrations](http://solidity.readthedocs.io/en/latest/index.html#available-solidity-integrations)
+---
+# 4.0 Network Requirements
+- Open network able to reach [https://github.com/Blockchain-Learning-Group/dapp-fundamentals/](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/) as well as the blg provided node `52.235.45.47`
+
+*Linux*
+```
+telnet 52.235.45.47 22
+```
+- *Example output:*
+```
+adam@adam:~$ telnet 52.235.45.47 22
+Trying 52.235.45.47...
+Connected to 52.235.45.47.
+Escape character is '^]'.
+SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.2
+```
 ---
 # 4.0 Environment Setup
 ## 3 Options - follow ONLY 1
