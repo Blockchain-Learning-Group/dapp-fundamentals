@@ -3,13 +3,13 @@
 ### Join our Slack Team: [Blockchain-Learning-Group](https://join.slack.com/t/blockchainlearning/shared_invite/enQtMjIyMzIyODMxMjE3LWM4MTA5YWUwNWI0YmMyMTI5OTY1ODhlYjU3NGJiYWYzYzliMDZlMzM4OGUyZjg0Njk0NzQ0NmI5NGYzZDJlNWY)
 ---
 # Table of Contents
-1. [Course Resources](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#10-course-resources)
-2. [Machine Specs](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#20-machine-specs)
-3. [Text Editor](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#30-text-editor)
-4. [Network Requirements](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#40-network-requirements)
-5. [Environment Setup](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#50-environment-setup)
-6. [Ethereum Client](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#60-ethereum-client)
-7. [Project Submission and Accreditation](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/Prerequisites.md#70-project-submission-and-accreditation)
+1. [Course Resources](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites.md#10-course-resources)
+2. [Machine Specs](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites.md#20-machine-specs)
+3. [Text Editor](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites.md#30-text-editor)
+4. [Network Requirements](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites.md#40-network-requirements)
+5. [Environment Setup](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites.md#50-environment-setup)
+6. [Ethereum Client](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites.md#60-ethereum-client)
+7. [Project Submission and Accreditation](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites.md#70-project-submission-and-accreditation)
 
 # 1.0 Course Resources
 
