@@ -29,7 +29,7 @@
 - Select install in the left naviation bar and search for remote-edit
 - The correct package has ~170k downloads, Select install
 
-__[Download Video Tutorial]()__
+__[Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/atom-remote-edit.mp4)__
 ---
 # 4.0 Network Requirements
 - Open network able to reach [https://github.com/Blockchain-Learning-Group/dapp-fundamentals/](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/) as well as the blg provided node `52.235.45.47`
