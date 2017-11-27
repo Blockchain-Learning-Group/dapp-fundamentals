@@ -1,4 +1,4 @@
-# DApp Fundamentals Course Pre-requisites
+# DApp Fundamentals Course Prerequisites
 
 ### Join our Slack Team: [Blockchain-Learning-Group](https://join.slack.com/t/blockchainlearning/shared_invite/enQtMjIyMzIyODMxMjE3LWM4MTA5YWUwNWI0YmMyMTI5OTY1ODhlYjU3NGJiYWYzYzliMDZlMzM4OGUyZjg0Njk0NzQ0NmI5NGYzZDJlNWY)
 ---
@@ -42,16 +42,14 @@
 
 *Linux*
 ```
-telnet 52.235.45.47 22
+ssh 52.235.45.47
 ```
 - *Example output:*
 ```
-adam@adam:~$ telnet 52.235.45.47 22
-Trying 52.235.45.47...
-Connected to 52.235.45.47.
-Escape character is '^]'.
-SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.2
+adam@adam:~$ ssh 52.235.45.47
+adam@52.235.45.47's password:
 ```
+*Login credentials to be provided via a secure channel where applicable.*
 ---
 # 5.0 Environment Setup
 ## 3 Options - follow ONLY 1
@@ -224,4 +222,4 @@ adam@adam:~$ parity --chain kovan --tracing off --rpccorsdomain '*'
 ---
 
 # 7.0 Project Submission and Accreditation
-If you wish to submit your final project and have it accredited you must create a github account.  Please do so at [github.com](https://github.com/).
+In order to submit your final project and have it accredited you must create a github account.  Please do so at [github.com](https://github.com/).
