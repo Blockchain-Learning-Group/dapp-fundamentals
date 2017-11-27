@@ -70,7 +70,7 @@ user@parity-kovan-node-01:~$
 ```
 2. Attach into your blg provided virtual environment
 
-*Note a virtual environment has been provided for each user and the username should be the user's first and last names concatenated. The example with <USERNAME> == adamlemmon*
+*Note a virtual environment has been provided for each user and the username should be the user's first and last names concatenated. The example with USERNAME == adamlemmon*
 ```
 docker exec -it <USERNAME> bash
 ```
