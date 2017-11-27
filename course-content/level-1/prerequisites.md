@@ -88,7 +88,7 @@ docker ps | grep <USERNAME>
 - *Example output:*
 ```
 user@parity-kovan-node-01:~$ docker ps | grep adamlemmon
-2ff70d83badf        blockchainlg/dapp-dev-env   "node"              3 minutes ago       Up 3 minutes        0.0.0.0:3001->3000/tcp, 0.0.0.0:8546->8545/tcp   adamlemmon
+2ff70d83badf blockchainlg/dapp-dev-env "node" 0.0.0.0:3001->3000/tcp, 0.0.0.0:8546->8545/tcp adamlemmon
 ```
 - The correct ports are then: 3001 and 8546 taken from: 0.0.0.0:__3001__ and 0.0.0.0:__8546__
 ```
