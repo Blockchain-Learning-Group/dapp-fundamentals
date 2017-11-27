@@ -42,12 +42,12 @@
 
 *Linux*
 ```
-ssh 52.235.45.47
+ssh user@52.235.45.47
 ```
 - *Example output:*
 ```
-adam@adam:~$ ssh 52.235.45.47
-adam@52.235.45.47's password:
+adam@adam:~$ ssh user@52.235.45.47
+user@52.235.45.47's password:
 ```
 *Login credentials to be provided via a secure channel where applicable.*
 ---

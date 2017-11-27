@@ -24,24 +24,23 @@
 
 *Atom will be used through-out. Recommended however a text editor with similar remote edit capabilities is required*
 1. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/) and solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
-2. Install the atom's [remote-edit](https://atom.io/packages/remote-edit) package.
+2. Install atom's [remote-edit](https://atom.io/packages/remote-edit) package.
 - Within atom along the top bar select Packages => Settings View => Manage Packages
 - Select install in the left naviation bar and search for remote-edit
 - The correct package has ~170k downloads, Select install
-
-__[Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/atom-remote-edit.mp4)__
+- __[Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/atom-remote-edit.mp4)__
 ---
 # 4.0 Network Requirements
 - Open network able to reach [https://github.com/Blockchain-Learning-Group/dapp-fundamentals/](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/) as well as the blg provided node `52.235.45.47`
 
 *Linux*
 ```
-ssh 52.235.45.47
+ssh user@52.235.45.47
 ```
 - *Example output:*
 ```
-adam@adam:~$ ssh blg@52.235.45.47
-adam@52.235.45.47's password:
+adam@adam:~$ ssh user@52.235.45.47
+user@52.235.45.47's password:
 ```
 *Login credentials to be provided via a secure channel where applicable.*
 ---
