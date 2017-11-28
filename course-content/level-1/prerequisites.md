@@ -51,7 +51,8 @@ user@52.235.45.14's password:
 - Create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
 
 __Windows Users ONLY__
-- Require an ssh slient
+- Require an ssh client
+
 [Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 ---
 # 6.0 Project Submission and Accreditation
