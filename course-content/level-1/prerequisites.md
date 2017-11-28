@@ -75,7 +75,7 @@ ssh user@52.235.45.14
 - *Example output:*
 ```
 adam@adam:~$ ssh user@52.235.45.14
-adam@52.235.45.14's password:
+user@52.235.45.14's password:
 [...]
 user@parity-kovan-node-01:~$
 ```
