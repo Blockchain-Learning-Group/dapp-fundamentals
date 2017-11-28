@@ -45,8 +45,7 @@ __Windows Users ONLY__
 [Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 ---
 # 4.0 Project Submission and Accreditation
-
-In order to submit your final project and have it accredited you must create a github account.  Please do so at [github.com](https://github.com/).
+- In order to submit your final project and have it accredited you must create a github account.  Please do so at [github.com](https://github.com/).
 ---
 # 5.0 Network Requirements
 - Open network able to reach [https://github.com/Blockchain-Learning-Group/dapp-fundamentals/](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/) as well as the blg provided node `52.235.45.14`
