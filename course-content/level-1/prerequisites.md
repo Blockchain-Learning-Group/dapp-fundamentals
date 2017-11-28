@@ -26,15 +26,15 @@
 
 *Atom will be used through-out. Recommended however a text editor with similar remote edit capabilities is required*
 
-a. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)
+    a. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)
 
-b. Install atom's solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
+    b. Install atom's solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
 
-c. Install atom's [remote-edit](https://atom.io/packages/remote-edit) package.
-- Within atom along the top bar select Packages => Settings View => Manage Packages
-- Select install in the left naviation bar and search for remote-edit and etheratom
-- The correct packages should have ~170k and ~3k downloads respectively, Select install
-- __[Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/atom-remote-edit.mp4)__
+    c. Install atom's [remote-edit](https://atom.io/packages/remote-edit) package.
+    - Within atom along the top bar select Packages => Settings View => Manage Packages
+    - Select install in the left naviation bar and search for remote-edit then etheratom
+    - The correct packages should have ~170k and ~3k downloads respectively, select install
+    - __[Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/atom-remote-edit.mp4)__
 
 2. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
 - Version > 55.0.0.  Check in browser bar: `chrome://version/`
