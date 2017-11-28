@@ -26,11 +26,11 @@
 
 *Atom will be used through-out. Recommended however a text editor with similar remote edit capabilities is required*
 
-    a. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)
+  a. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)
 
-    b. Install atom's solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
+  b. Install atom's solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
 
-    c. Install atom's [remote-edit](https://atom.io/packages/remote-edit) package.
+  c. Install atom's [remote-edit](https://atom.io/packages/remote-edit) package.
   - Within atom along the top bar select Packages => Settings View => Manage Packages
   - Select install in the left naviation bar and search for remote-edit then etheratom
   - The correct packages should have ~170k and ~3k downloads respectively, select install
