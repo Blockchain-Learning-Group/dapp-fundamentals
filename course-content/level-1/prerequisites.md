@@ -25,8 +25,11 @@
 1. Text Editor
 
 *Atom will be used through-out. Recommended however a text editor with similar remote edit capabilities is required*
+
 a. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)
+
 b. Install atom's solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
+
 c. Install atom's [remote-edit](https://atom.io/packages/remote-edit) package.
 - Within atom along the top bar select Packages => Settings View => Manage Packages
 - Select install in the left naviation bar and search for remote-edit and etheratom
@@ -40,9 +43,7 @@ c. Install atom's [remote-edit](https://atom.io/packages/remote-edit) package.
 - Create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
 
 __Windows Users ONLY__
-- Require an ssh client
-
-[Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+- Require an ssh client, [Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 ---
 # 4.0 Project Submission and Accreditation
 - In order to submit your final project and have it accredited you must create a github account.  Please do so at [github.com](https://github.com/).
