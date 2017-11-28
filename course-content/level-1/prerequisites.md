@@ -20,20 +20,23 @@
 1. 4GB of memory recommended.
 2. Operating System: Ubuntu 16.04+ preferred, Mac and Windows OK(Mac preferred).
 ---
-# 3.0 Text Editor
+# 3.0 Machine Setup
+
+1. Text Editor
 
 *Atom will be used through-out. Recommended however a text editor with similar remote edit capabilities is required*
-1. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/) and solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
-2. Install atom's [remote-edit](https://atom.io/packages/remote-edit) package.
+a. [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)
+b. Install atom's solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
+c. Install atom's [remote-edit](https://atom.io/packages/remote-edit) package.
 - Within atom along the top bar select Packages => Settings View => Manage Packages
-- Select install in the left naviation bar and search for remote-edit
-- The correct package has ~170k downloads, Select install
+- Select install in the left naviation bar and search for remote-edit and etheratom
+- The correct packages should have ~170k and ~3k downloads respectively, Select install
 - __[Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/atom-remote-edit.mp4)__
----
-# 4.0 Machine Setup
-1. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
+
+2. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
 - Version > 55.0.0.  Check in browser bar: `chrome://version/`
-2. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
+
+3. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 - Create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
 
 __Windows Users ONLY__
@@ -41,10 +44,11 @@ __Windows Users ONLY__
 
 [Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 ---
-# 5.0 Project Submission and Accreditation
+# 4.0 Project Submission and Accreditation
+
 In order to submit your final project and have it accredited you must create a github account.  Please do so at [github.com](https://github.com/).
 ---
-# 6.0 Network Requirements
+# 5.0 Network Requirements
 - Open network able to reach [https://github.com/Blockchain-Learning-Group/dapp-fundamentals/](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/) as well as the blg provided node `52.235.45.14`
 
 *Linux*
