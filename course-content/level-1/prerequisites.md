@@ -30,7 +30,21 @@
 - The correct package has ~170k downloads, Select install
 - __[Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/atom-remote-edit.mp4)__
 ---
-# 4.0 Network Requirements
+# 4.0 Machine Setup
+1. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
+- Version > 55.0.0.  Check in browser bar: `chrome://version/`
+2. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
+- Create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
+
+__Windows Users ONLY__
+- Require an ssh client
+
+[Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+---
+# 5.0 Project Submission and Accreditation
+In order to submit your final project and have it accredited you must create a github account.  Please do so at [github.com](https://github.com/).
+---
+# 6.0 Network Requirements
 - Open network able to reach [https://github.com/Blockchain-Learning-Group/dapp-fundamentals/](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/) as well as the blg provided node `52.235.45.14`
 
 *Linux*
@@ -43,24 +57,12 @@ adam@adam:~$ ssh user@52.235.45.14
 user@52.235.45.14's password:
 ```
 *Login credentials to be provided via a secure channel where applicable.*
----
-# 5.0 Machine Setup
-1. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
-- Version > 55.0.0.  Check in browser bar: `chrome://version/`
-2. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
-- Create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
-
-__Windows Users ONLY__
-- Require an ssh client
-
-[Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
----
-# 6.0 Project Submission and Accreditation
-In order to submit your final project and have it accredited you must create a github account.  Please do so at [github.com](https://github.com/).
 
 # END Prerequisites
 ---
-# Course Development Environment Setup
+# Development Environment Setup
+
+*Will be lead by a blg instructor in class.*
 
 1. ssh into the blg provided node, credentials provided in a secure channel.
 ```
