@@ -49,6 +49,10 @@ user@52.235.45.14's password:
 - Version > 55.0.0.  Check in browser bar: `chrome://version/`
 2. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 - Create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
+
+__Windows Users ONLY__
+- Require an ssh slient
+[Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 ---
 # 6.0 Project Submission and Accreditation
 In order to submit your final project and have it accredited you must create a github account.  Please do so at [github.com](https://github.com/).
@@ -79,7 +83,7 @@ docker exec -it <USERNAME> bash
 user@parity-kovan-node-01:~$ docker exec -it adamlemmon bash
 root@2ff70d83badf:/blg/wallet-template#
 ```
-3. Forward the ports of your local machin to the remote node.
+3. Forward the ports of your local machine to the remote node.
 
 - Find the ports to forward your machine to.
 ```
