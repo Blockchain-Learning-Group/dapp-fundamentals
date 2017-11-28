@@ -166,9 +166,9 @@ Exchange.sol
 require(ERC20(_bidToken).allowance(msg.sender, this) >= _bidAmount);
 ```
 
-2. Compute a `unique` id for the order, [wallet-template/src/contracts/Exchange.sol#L66](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L66)
+2. Compute a `unique` id for the order, [wallet-template/src/contracts/Exchange.sol#L66](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/5423f063a28d13328297a9eda0b274ff2e506159/src/contracts/Exchange.sol#L66)
 ```
-bytes32 orderId = keccak256(_bidToken, _bidAmount, _askToken, _askAmount);
+bytes32 orderId = keccak256(msg.sender, _bidToken, _bidAmount, _askToken, _askAmount);
 ```
 
 3. Confirm this order does not already exist, [wallet-template/src/contracts/Exchange.sol#L67](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L67)
@@ -620,14 +620,14 @@ import {
 orderBook: [],
 ```
 
-3. Add the order book component, [wallet-template/src/App.js#L296](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L387)
+3. Add the order book component, [wallet-template/src/App.js#L296](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/5423f063a28d13328297a9eda0b274ff2e506159/src/App.js#L387)
 ```
 <h3>Order Book</h3>
 <p>Select an order to execute!</p>
 <RaisedButton label="Execute Order" labelPosition="after" style={{width: 500}} primary={true}
-  onClick={() => this.executeOrder(this.state.selectedOrder)}
+  onClick={() => this.executeOrder(this.selectedOrder)}
 />
-<Table style={{ maxHeight: 500, overflow: "auto" }} fixedHeader={true} multiSelectable={false} >
+<Table style={{ maxHeight: 500, overflow: "auto" }} fixedHeader={true} multiSelectable={false} onRowSelection={r => { if (this.state.orderBook[r[0]]) this.selectedOrder = this.state.orderBook[r[0]].key}}>
   <TableHeader>
     <TableRow>
       <TableHeaderColumn>Maker</TableHeaderColumn>
@@ -650,7 +650,7 @@ orderBook: [],
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-13.mp4?raw=true)
 
-1. Create an addOrder method, [wallet-template/src/App.js#L127](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L138)
+1. Create an addOrder method, [wallet-template/src/App.js#L127](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/5423f063a28d13328297a9eda0b274ff2e506159/src/App.js#L138)
 ```
 /**
  * Add a new order to the oder book
@@ -667,7 +667,7 @@ addOrder(order) {
   // TODO support multiple tokens and pairings
   this.setState({
     orderBook: [
-      <TableRow key={order.id} selected={this.setState({ selectedOrder: order.id })}>
+    <TableRow key={order.id}>
         <TableRowColumn>{order.maker}</TableRowColumn>
         <TableRowColumn>{this.state.tokenSymbol}</TableRowColumn>
         <TableRowColumn>{order.bidAmount.toNumber() / 10**this.state.tokenDecimals}</TableRowColumn>
@@ -798,7 +798,6 @@ __Success your exchange running locally is complete! Try it out!__
 8. Update gas amounts sent with each transaction.  Leverage web3's gas estimation!
 9. Slean up the allowance if the order submission transaction fails
 10. Sort the orders in the order book table
-11. Allow multiple orders with the same parameters to exist
 ---
 ### Clean up
 

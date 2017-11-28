@@ -31,16 +31,16 @@
 - __[Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/atom-remote-edit.mp4)__
 ---
 # 4.0 Network Requirements
-- Open network able to reach [https://github.com/Blockchain-Learning-Group/dapp-fundamentals/](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/) as well as the blg provided node `52.235.45.47`
+- Open network able to reach [https://github.com/Blockchain-Learning-Group/dapp-fundamentals/](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/) as well as the blg provided node `52.235.45.14`
 
 *Linux*
 ```
-ssh user@52.235.45.47
+ssh user@52.235.45.14
 ```
 - *Example output:*
 ```
-adam@adam:~$ ssh user@52.235.45.47
-user@52.235.45.47's password:
+adam@adam:~$ ssh user@52.235.45.14
+user@52.235.45.14's password:
 ```
 *Login credentials to be provided via a secure channel where applicable.*
 ---
@@ -59,12 +59,12 @@ In order to submit your final project and have it accredited you must create a g
 
 1. ssh into the blg provided node, credentials provided in a secure channel.
 ```
-ssh user@52.235.45.47
+ssh user@52.235.45.14
 ```
 - *Example output:*
 ```
-adam@adam:~$ ssh user@52.235.45.47
-adam@52.235.45.47's password:
+adam@adam:~$ ssh user@52.235.45.14
+adam@52.235.45.14's password:
 [...]
 user@parity-kovan-node-01:~$
 ```
@@ -92,11 +92,11 @@ user@parity-kovan-node-01:~$ docker ps | grep adamlemmon
 ```
 - The correct ports are then: 3001 and 8546 taken from: 0.0.0.0:__3001__ and 0.0.0.0:__8546__
 ```
-ssh -NL 3000:127.0.0.1:3001 -NL 8545:127.0.0.1:8546 user@52.235.45.47
+ssh -NL 3000:127.0.0.1:3001 -NL 8545:127.0.0.1:8546 user@52.235.45.14
 ```
 - *Example output:*
 ```
-adam@adam:~$ ssh -NL 3000:127.0.0.1:3001 -NL 8545:127.0.0.1:8546 user@52.235.45.47
-user@52.235.45.47's password:
+adam@adam:~$ ssh -NL 3000:127.0.0.1:3001 -NL 8545:127.0.0.1:8546 user@52.235.45.14
+user@52.235.45.14's password:
 
 ```

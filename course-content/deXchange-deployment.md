@@ -194,16 +194,16 @@ ctrl+c
 
   - Forward the container's ports to the remote server. Password to be provided via a secure channel.
   ```
-  ssh -g -4 -NL 8545:127.0.0.1:8545 blg@52.235.45.47
+  ssh -g -4 -NL 8545:127.0.0.1:8545 blg@52.235.45.14
   ```
   - *Example output:*
   ```
-  root@7e7d419200b4:/blg/wallet-template# ssh -g -4 -NL 8545:127.0.0.1:8545 blg@52.235.45.47
-  The authenticity of host '52.235.45.47 (52.235.45.47)' can't be established.
+  root@7e7d419200b4:/blg/wallet-template# ssh -g -4 -NL 8545:127.0.0.1:8545 blg@52.235.45.14
+  The authenticity of host '52.235.45.14 (52.235.45.14)' can't be established.
   ECDSA key fingerprint is c4:71:78:43:d8:78:f7:4b:24:36:ac:eb:09:a6:e7:f9.
   Are you sure you want to continue connecting (yes/no)? yes
-  Warning: Permanently added '52.235.45.47' (ECDSA) to the list of known hosts.
-  blg@52.235.45.47's password:
+  Warning: Permanently added '52.235.45.14' (ECDSA) to the list of known hosts.
+  blg@52.235.45.14's password:
 
   ```
 
@@ -334,7 +334,6 @@ __Success, your exchange is complete!__
 8. Update gas amounts sent with each transaction.  Leverage web3's gas estimation!
 9. Clean up the allowance if the order submission transaction fails
 10. Sort the orders in the order book table
-11. Allow multiple orders with the same parameters to exist
 ---
 ### Clean up
 
