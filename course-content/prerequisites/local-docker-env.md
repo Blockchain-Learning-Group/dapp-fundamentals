@@ -6,6 +6,7 @@
 # Setup Guide
 1. Install Docker
 - [Ubuntu Installation Instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
+
   __Quick Start__
   ```
   sudo apt-get remove docker docker-engine docker.io
@@ -30,6 +31,7 @@
   sudo apt-get install docker-ce=17.09.0~ce-0~ubuntu
   ```
 - [Mac Installation Instructions](https://www.docker.com/docker-mac)
+
   __Quick Start__
   - Download Docker from: [https://store.docker.com/editions/community/docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac)
   - Double-click Docker.dmg to start the install process.
