@@ -1,15 +1,15 @@
 # Blockchain Fundamentals
 1. [https://ethstats.net/](https://ethstats.net/)
-2. [http://ethgasstation.info/](http://ethgasstation.info/)
-3. [https://etherscan.io/](https://etherscan.io/)
+2. [https://etherscan.io/](https://etherscan.io/)
     * [Augur](https://etherscan.io/token/REP#readContract)
-4. [https://www.ethernodes.org/](https://www.ethernodes.org/network/1)
+3. [https://www.ethernodes.org/](https://www.ethernodes.org/network/1)
 
-5. Hash Function
-
+4. Hash Function
+- Run and attach into the container
 ```
-$ pip3 install pysha3==1.0.2
-$ python3
+$ docker run -dit --name=blg-env blockchainlg/dapp-dev-env
+$ docker exec -it blg-env bash
+# python3
 >>> from sha3 import keccak_256
 >>> keccak_256(bytes(1)).hexdigest()
 bc36789e7a1e281436464229828f817d6612f7b477d66591ff96a9e064bcc98a
@@ -18,21 +18,18 @@ bc36789e7a1e281436464229828f817d6612f7b477d66591ff96a9e064bcc98a
 54a8c0ab653c15bfb48b47fd011ba2b9617af01cb45cab344acd57c924d56798
 ```
 
-6. [Mining Script](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/scripts/proof_of_work_mining.py)
+5. [Mining Script](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/scripts/proof_of_work_mining.py)
+- From within the docker container
 ```
-// Difficulty Increasing
-python3 proof_of_work_mining.py 0066d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
-python3 proof_of_work_mining.py 0006d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
-python3 proof_of_work_mining.py 0000d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
+# cd /blg
+blg# python3 proof_of_work_mining.py 0066d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
+blg# python3 proof_of_work_mining.py 0006d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
+blg# python3 proof_of_work_mining.py 0000d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
 ```
-
-7. [Bitcoin 51% Attack Cost](https://gobitcoin.io/tools/cost-51-attack/)
-
-8. [Remix](https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js)
-
-9. [DappDeveloper.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/samples/DappDeveloper.sol)
-
-10. Exceed Block Gas Limit
+6. [Bitcoin 51% Attack Cost](https://gobitcoin.io/tools/cost-51-attack/)
+7. [Remix](https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js)
+8. [DappDeveloper.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/samples/DappDeveloper.sol)
+9. Exceed Block Gas Limit
 
 _Add the below to DappDeveloper.sol_
 ```
@@ -46,23 +43,23 @@ function reachGasLimit() {
   }
 }
 ```
-11. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/TokenSolution_EOD1.sol)
+10. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol), [Solution](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/TokenSolution_EOD1.sol)
 
 [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/token-development.mp4)
 
-__11.1__ Copy the exercise over to remix.
+__10.1__ Copy the exercise over to remix.
 
-__11.2__ Note LoggingErrors pattern contract inherited and SafeMath library utilized.
+__10.2__ Note LoggingErrors pattern contract inherited and SafeMath library utilized.
 
-__11.3__ Compile and deploy the contract. Confirm variables and methods are available.
+__10.3__ Compile and deploy the contract. Confirm variables and methods are available.
 
-__11.4__ Update the contract metadata to be your own! Line 55 - 56.
+__10.4__ Update the contract metadata to be your own! Line 55 - 56.
 ```
 string public constant symbol = 'BLG';
 string public constant name = 'Blockchain Learning Group Community Token';
 ```
 
-__11.5__ Complete the mint method.
+__10.5__ Complete the mint method.
   - Only allow the owner to mint tokens, line 94
   ```
   if (msg.sender != owner_)
@@ -89,9 +86,9 @@ __11.5__ Complete the mint method.
   Transfer(address(0), _to, _value);
   ```
 
-__11.6__ Compile, deploy and confirm you can mint to an address. Confirm balance updated in balances_ mapping.
+__10.6__ Compile, deploy and confirm you can mint to an address. Confirm balance updated in balances_ mapping.
 
-__11.7__ Complete the transferFrom method.
+__10.7__ Complete the transferFrom method.
   - Confirm not transferring an amount of 0, line 142
   ```
   if (_amount <= 0)
@@ -121,8 +118,8 @@ __11.7__ Complete the transferFrom method.
   Transfer(_from, _to, _amount);
   ```
 
-__11.8__ Compile and deploy and confirm transfer and transferFrom working.  
-__11.9__ Note error logging if insufficient allowance and other errors correct.
+__10.8__ Compile and deploy and confirm transfer and transferFrom working.  
+__10.9__ Note error logging if insufficient allowance and other errors correct.
 
 Usage:
 1. minting
