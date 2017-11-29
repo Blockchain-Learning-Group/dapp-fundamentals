@@ -1,33 +1,24 @@
 # Remote Development Environment
+- All development will be conducted in an environment on a remote server configured and provided by BLG.
+- The participant may simply tunnel into the machine and access their own personal environment.
 
-# 1.0 Text Editor
+# Setup Guide
+## 1.0 Text Editor
 
-*Atom will be used through-out. Recommended however a text editor with similar remote edit capabilities is required. The following assume atom has been installed as per general.md instructions*
-
-1. Install the atom editor [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)
-2. Install atom's solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
-3. Install atom's [remote-edit](https://atom.io/packages/remote-edit) package.
-- Within atom along the top bar select Packages => Settings View => Manage Packages
-- Select install in the left naviation bar and search for remote-edit then etheratom
-- The correct packages should have ~170k and ~3k downloads respectively, select install
+*Atom will be used through-out. Recommended however a text editor with similar remote edit capabilities is required. The following assume atom has been installed as per the [general instructions.](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites/general.md#31-text-editor)*
+1. Install atom's [remote-edit](https://atom.io/packages/remote-edit) package.
 - __[Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/atom-remote-edit.mp4)__
+- Within atom along the top bar select Packages => Settings View => Manage Packages
+- Select install in the left naviation bar and search for remote-edit
+- The correct packages should have ~170k
+- Select install
 
-2. [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
-- Version > 55.0.0.  Check in browser bar: `chrome://version/`
-
-3. [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
-- Create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
-
-__Windows Users ONLY__
-- Require an ssh client, [Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+## 2.0 [Windows Users ONLY] SSH Client
+- Require an ssh client, download PuTTY from here: [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 ---
+# Development Environment Setup [Post Prerequisites]
 
-
-# END Prerequisites
----
-# Development Environment Setup
-
-*Will be lead by a blg instructor in class.*
+*Will be lead by a blg instructor in class. NOT a prereq!*
 
 1. ssh into the blg provided node, credentials provided in a secure channel.
 ```

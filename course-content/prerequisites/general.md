@@ -58,7 +58,7 @@
 
 __Follow ONLY 1 option below__
 
-1. [__[Recommended]__ Local Docker Environment](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites/local-docker-env.md)
+1. [__[Recommended]__ Local Dockerized Environment](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites/local-docker-env.md)
 
 *Note all examples and video tutorials will utilize this environment.*
   - Development will be conducted within a docker container(virtual environment) booted from a blg provided image.

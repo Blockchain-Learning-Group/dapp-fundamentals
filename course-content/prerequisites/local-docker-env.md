@@ -1,10 +1,9 @@
-# Local Dockerized Work Station [Recommended]
+# Local Dockerized Development Environment [Recommended]
 - A docker image has been configured with all development dependencies.
 - All development will be conducted within a docker container(virtual environment) booted from the provided image.
 - Chrome will be installed on the local machine and will interact with the application running inside the container.
 
 # Setup Guide
-## Docker
 1. Install Docker
 - [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
   ```

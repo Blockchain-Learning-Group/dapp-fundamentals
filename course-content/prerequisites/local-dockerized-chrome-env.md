@@ -1,4 +1,9 @@
-# Dockerized Chrome Work Station [Not Recommended]
+# Dockerized Chrome Environment [Not Recommended]
+- All development dependencies configured within docker container.
+- All development will conducted within the local mahcine's environment.
+- Chrome will be run inside the docker container and all work shall live within its environment.
+
+# Setup Guide
 
 *NOTE still experimental and not recommended!*
 1. Install Docker
