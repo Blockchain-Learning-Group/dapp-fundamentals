@@ -7,9 +7,9 @@
 
 *NOTE still experimental and not recommended!*
 1. Install Docker
-- [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
-- [Mac](https://www.docker.com/docker-mac)
-- [Windows](https://www.docker.com/docker-windows)
+- [Ubuntu Installation Instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
+- [Mac Installation Instructions](https://www.docker.com/docker-mac)
+- [Windows Installation Instructions](https://www.docker.com/docker-windows)
 2. Pull the Chrome Enabled Dapp Fundamentals Image
 ```
 docker pull blockchainlg/dapp-dev-env-chrome

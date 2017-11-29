@@ -1,5 +1,6 @@
 # Local Parity Node Install
-1. Download the parity software package, [Partiy Home](https://parity.io/)
+1. Download the parity software package.
+- [Parity Home](https://parity.io/)
 - Ubuntu Quick Start, Mac(potentially? Error experienced on OSX 10.11.6):
 ```
 bash <(curl https://get.parity.io -L)

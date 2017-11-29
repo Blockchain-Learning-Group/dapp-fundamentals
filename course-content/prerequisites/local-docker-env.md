@@ -5,25 +5,31 @@
 
 # Setup Guide
 1. Install Docker
-- [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
+- [Ubuntu Installation Instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
   ```
   sudo apt-get remove docker docker-engine docker.io
+
   sudo apt-get update
+
   sudo apt-get install \
       apt-transport-https \
       ca-certificates \
       curl \
       software-properties-common
+
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
   sudo add-apt-repository \
      "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
      $(lsb_release -cs) \
      stable"
+
   sudo apt-get update
+
   sudo apt-get install docker-ce=17.09.0~ce-0~ubuntu
   ```
-- [Mac](https://www.docker.com/docker-mac)
-- [Windows](https://www.docker.com/docker-windows)
+- [Mac Installation Instructions](https://www.docker.com/docker-mac)
+- [Windows Installation Instructions](https://www.docker.com/docker-windows)
 
 2. Pull the Dev Environment Image
 ```

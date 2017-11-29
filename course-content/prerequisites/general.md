@@ -21,11 +21,11 @@
 7. [Metamask](https://metamask.io/)
 8. [TestRPC](https://github.com/ethereumjs/testrpc)
 9. [Parity](https://parity.io/)
-10. [Material UI](https://reactjs.org/)
+10. [Material UI](http://www.material-ui.com/)
 11. [tmux cheatsheet](https://gist.github.com/MohamedAlaa/2961058), [manpage](http://manpages.ubuntu.com/manpages/zesty/man1/tmux.1.html)
 ---
 # 2.0 Machine Specs
-1. 4GB of memory and some disk space recommended.
+1. 4GB of memory and some disk space(10GB+) recommended.
 2. Operating System: Ubuntu 16.04+ preferred, Mac and Windows OK(Mac preferred).
 ---
 # 3.0 Machine Setup
@@ -34,14 +34,14 @@
 
 ### 3.1 Text Editor
 
-*Atom will be used through-out. and thus is recommended but not required. A text editor with solidity support is advised however.*
+*Atom will be used through-out and thus is recommended but not required. A text editor with solidity support is advised however.*
 1. Install the atom editor from: [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)
 - Other options: [Available Solidity Integrations](http://solidity.readthedocs.io/en/latest/index.html#available-solidity-integrations)
 
 2. Install atom's solidity plug-in [Etheratom](https://atom.io/packages/etheratom)
 - Within atom along the top bar select Packages => Settings View => Manage Packages
 - Select install in the left naviation bar and search for etheratom
-- The correct packages should have ~3k downloads
+- The correct package should have ~3k downloads
 - Select install
 
 ### 3.2 Google Chrome

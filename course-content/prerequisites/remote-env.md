@@ -10,7 +10,7 @@
 - __[Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/atom-remote-edit.mp4)__
 - Within atom along the top bar select Packages => Settings View => Manage Packages
 - Select install in the left naviation bar and search for remote-edit
-- The correct packages should have ~170k
+- The correct package should have ~170k
 - Select install
 
 ## 2.0 [Windows Users ONLY] SSH Client
