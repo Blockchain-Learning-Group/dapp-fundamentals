@@ -33,7 +33,7 @@
   __Quick Start__
   - Download Docker from: [https://store.docker.com/editions/community/docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac)
   - Double-click Docker.dmg to start the install process.
-  - Run it
+  - Double-click the application to run it
   - Check to see if it works by running `docker version`, confirm you have the latest release installed.
 
 - [Windows Installation Instructions](https://www.docker.com/docker-windows)
