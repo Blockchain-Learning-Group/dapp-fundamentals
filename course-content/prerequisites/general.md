@@ -61,7 +61,7 @@ __Follow ONLY 1 option below__
 1. [__[Recommended]__ Local Dockerized Environment](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites/local-docker-env.md)
 
 *Note all examples and video tutorials will utilize this environment.*
-  - Development will be conducted within a docker container(virtual environment) booted from a blg provided image.
+  - Development will be conducted within a docker container(virtual environment) booted from a BLG provided image.
   - Chrome will be installed on the local machine and will interact with the application running inside the container.
 
 2. [Local Environment](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites/local-env.md)

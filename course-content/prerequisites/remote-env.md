@@ -18,9 +18,9 @@
 ---
 # Development Environment Setup [Post Prerequisites]
 
-*Will be lead by a blg instructor in class. NOT a prereq!*
+*Will be lead by a BLG instructor in class. NOT a prereq!*
 
-1. ssh into the blg provided node, credentials provided in a secure channel.
+1. ssh into the BLG provided node, credentials provided in a secure channel.
 ```
 ssh user@52.235.45.14
 ```
@@ -31,7 +31,7 @@ user@52.235.45.14's password:
 [...]
 user@parity-kovan-node-01:~$
 ```
-2. Attach into your blg provided virtual environment
+2. Attach into your BLG provided virtual environment
 
 *Note a virtual environment has been provided for each user and the username should be the user's first and last names concatenated. The example with USERNAME == adamlemmon*
 ```
