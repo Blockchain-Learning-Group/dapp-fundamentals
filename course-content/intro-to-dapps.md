@@ -405,7 +405,7 @@ _Finally transfer tokens between accounts and review balances._
 ---
 ### Bonus: Extend Your Wallet
 1. Metamask Integration
-- [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-18.mp4?raw=true)
+- [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-bonus-metamask-integration.mp4?raw=true)
 - Ensure Metamask is installed, unlocked and connected to the local client(localhost:8545).
 - Fund your metamask account!
 ```
