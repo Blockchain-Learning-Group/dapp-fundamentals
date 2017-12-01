@@ -54,22 +54,13 @@
 1. Install the chrome plugin, Metamask from: [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 2. Once installed, create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
 
+### [Windows users ONLY]
+1. Git client
+- Install git for windows [here](https://git-for-windows.github.io/)
+
 ### 3.4 Development Dependencies
-
-__Follow ONLY 1 option below__
-
-1. [__[Recommended]__ Local Dockerized Environment](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites/local-docker-env.md)
-
-*Note all examples and video tutorials will utilize this environment.*
-  - Development will be conducted within a docker container(virtual environment) booted from a BLG provided image.
-  - Chrome will be installed on the local machine and will interact with the application running inside the container.
-
-2. [Local Environment](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites/local-env.md)
-
-*If you wish to run everything locally and are familiar with installing packages via package managers such as npm and apt-get then the following may be for you. Note that all course examples and video tutorials will NOT utilize this environment.*
-- All development dependencies will be installed on the local machine.
-- All development will conducted within the local machine's environment.
-- Chrome will be installed on the local machine and will interact with the application running locally.
+1. Local Dockerized Environment
+- Follow the instructions here: [local-docker-env.md](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites/local-docker-env.md) to configure your environment.
 ---
 # 4.0 Ethereum Client
 

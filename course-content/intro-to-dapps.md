@@ -55,9 +55,13 @@ adam@adam:~/Desktop/blg$
 
 *Replace `<USERNAME>` with your username.*
 
-*Linux and Mac*
+*Linux*
 ```
 docker run -dit -p 3000:3000 -p 8545:8545 -v /home/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+```
+*Mac*
+```
+docker run -dit -p 3000:3000 -p 8545:8545 -v /Users/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 ```
 *Windows*
 - Follow the steps [here](https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c) to share your C drive with docker.
