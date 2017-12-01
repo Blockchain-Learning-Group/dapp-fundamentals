@@ -6,8 +6,7 @@
 1. [Course Resources](#10-course-resources)
 2. [Machine Specs](#20-machine-specs)
 3. [Machine Setup](#30-machine-setup)
-4. [Ethereum Client](#40-ethereum-client)
-5. [Project Submission and Accreditation](#50-project-submission-and-accreditation)
+4. [Project Submission and Accreditation](#40-project-submission-and-accreditation)
 
 # 1.0 Course Resources
 
@@ -48,8 +47,6 @@
 1. Install the Google Chrome browser from: [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
 - Version > 55.0.0.  Check in address bar: `chrome://version/`
 
-*In the rare case where your machine is constrained to an older version of chrome and therefore metamask will not work, proceed with this dockerized chrome local environment setup: [local-dockerized-chrome-env](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites/local-dockerized-chrome-env.md)*
-
 ### 3.3 Metamask
 1. Install the chrome plugin, Metamask from: [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 2. Once installed, create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
@@ -62,12 +59,6 @@
 1. Local Dockerized Environment
 - Follow the instructions here: [local-docker-env.md](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites/local-docker-env.md) to configure your environment.
 ---
-# 4.0 Ethereum Client
-
-*BLG hosts a Kovan node that participants may interact with. Details to connect will follow via a secure channel. Note examples and video tutorials will make use of the remote node.*
-
-- However, if you do wish to run a full ethereum node locally, NOT required, the steps to do so are here: [parity-local-install](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites/parity-local-install.md)
----
-# 5.0 Project Submission and Accreditation
+# 4.0 Project Submission and Accreditation
 - In order to submit your final project and have it accredited you must create a github account.  Please do so at [github.com](https://github.com/).
 - Submission process details to follow.
