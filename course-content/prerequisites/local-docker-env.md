@@ -1,4 +1,4 @@
-# Local Dockerized Development Environment [Recommended]
+# Local Dockerized Development Environment
 - A docker image has been configured with all development dependencies.
 - All development will be conducted within a docker container(virtual environment) booted from the provided image.
 - Chrome will be installed on the local machine and will interact with the application running inside the container.
