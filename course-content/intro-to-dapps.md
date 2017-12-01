@@ -407,18 +407,20 @@ _Finally transfer tokens between accounts and review balances._
 1. Metamask Integration
 - [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-18.mp4?raw=true)
 - Ensure Metamask is installed, unlocked and connected to the local client(localhost:8545).
-- Add a conditional to use the Metamask web3 provider if present, [wallet-template/src/App.js#L49](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L49)
+- Fund your metamask account!
+```
+truffle console
+truffle(development)> web3.eth.sendTransaction({ from: web3.eth.accounts[0], to: 'METAMASK_ADDRESS', value: 1e18 })
+```
+- Transfer tokens to your metamask account(from within the application).
+- Add a conditional to use the Metamask web3 provider if present, [wallet-template/src/App.js#L35](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L49)
 ```
 if (window.web3)
     this.web3 = new Web3(window.web3.currentProvider)
 else
 ```
 - Refresh the browser and connect to your Metamask account. View your Metamask account now available within the application.
-- Fund your metamask account!
-```
-truffle console
-truffle(development)> web3.eth.sendTransaction({ from: web3.eth.accounts[0], to: 'METAMASK_ADDRESS', value: 1e18 })
-```
+
 2. Enable the wallet to support multiple ERC20 tokens.
 ---
 ### Clean up
