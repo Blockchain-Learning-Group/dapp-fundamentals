@@ -414,6 +414,11 @@ if (window.web3)
 else
 ```
 - Refresh the browser and connect to your Metamask account. View your Metamask account now available within the application.
+- Fund your metamask account!
+```
+truffle console
+truffle(development)> web3.eth.sendTransaction({ from: web3.eth.accounts[0], to: 'METAMASK_ADDRESS', value: 1e18 })
+```
 2. Enable the wallet to support multiple ERC20 tokens.
 ---
 ### Clean up
