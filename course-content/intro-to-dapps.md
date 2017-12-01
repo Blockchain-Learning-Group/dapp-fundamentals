@@ -66,7 +66,7 @@ docker run -dit -p 3000:3000 -p 8545:8545 -v /Users/<USERNAME>/Desktop/blg:/blg 
 *Windows*
 - Follow the steps [here](https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c) to share your C drive with docker.
 ```
-docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/USERNAME/desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/<USERNAME>/desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 ```
 - *Example output:*
 ```
