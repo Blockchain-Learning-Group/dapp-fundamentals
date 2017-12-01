@@ -3,11 +3,11 @@
 ### Join our Slack Team: [Blockchain-Learning-Group](https://join.slack.com/t/blockchainlearning/shared_invite/enQtMjIyMzIyODMxMjE3LWM4MTA5YWUwNWI0YmMyMTI5OTY1ODhlYjU3NGJiYWYzYzliMDZlMzM4OGUyZjg0Njk0NzQ0NmI5NGYzZDJlNWY)
 ---
 # Table of Contents
-1. [Course Resources](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/general.md#10-course-resources)
-2. [Machine Specs](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/general.md#20-machine-specs)
-3. [Machine Setup](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/general.md#30-machine-setup)
-4. [Ethereum Client](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/general.md#40-ethereum-client)
-5. [Project Submission and Accreditation](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/general.md#50-project-submission-and-accreditation)
+1. [Course Resources](#10-course-resources)
+2. [Machine Specs](#20-machine-specs)
+3. [Machine Setup](#30-machine-setup)
+4. [Ethereum Client](#40-ethereum-client)
+5. [Project Submission and Accreditation](#50-project-submission-and-accreditation)
 
 # 1.0 Course Resources
 
