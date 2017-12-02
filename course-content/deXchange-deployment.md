@@ -159,16 +159,16 @@ __3. Connect to your `real` Ethereum client, parity.__
   ```
   - Forward the container's ports to the remote server. Password to be provided via a secure channel.
   ```
-  ssh -g -4 -NL 8545:127.0.0.1:8545 user@52.235.45.14
+  ssh -g -4 -NL 8545:127.0.0.1:8545 user@52.242.37.231
   ```
   - *Example output:*
   ```
-  root@7e7d419200b4:/blg/wallet-template# ssh -g -4 -NL 8545:127.0.0.1:8545 user@52.235.45.14
-  The authenticity of host '52.235.45.14 (52.235.45.14)' can't be established.
+  root@7e7d419200b4:/blg/wallet-template# ssh -g -4 -NL 8545:127.0.0.1:8545 user@52.242.37.231
+  The authenticity of host '52.242.37.231 (52.242.37.231)' can't be established.
   ECDSA key fingerprint is c4:71:78:43:d8:78:f7:4b:24:36:ac:eb:09:a6:e7:f9.
   Are you sure you want to continue connecting (yes/no)? yes
-  Warning: Permanently added '52.235.45.14' (ECDSA) to the list of known hosts.
-  user@52.235.45.14's password:
+  Warning: Permanently added '52.242.37.231' (ECDSA) to the list of known hosts.
+  user@52.242.37.231's password:
 
   ```
 

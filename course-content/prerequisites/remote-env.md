@@ -22,12 +22,12 @@
 
 1. ssh into the BLG provided node, credentials provided in a secure channel.
 ```
-ssh user@52.235.45.14
+ssh user@52.242.37.231
 ```
 - *Example output:*
 ```
-adam@adam:~$ ssh user@52.235.45.14
-user@52.235.45.14's password:
+adam@adam:~$ ssh user@52.242.37.231
+user@52.242.37.231's password:
 [...]
 user@parity-kovan-node-01:~$
 ```
@@ -55,11 +55,11 @@ user@parity-kovan-node-01:~$ docker ps | grep adamlemmon
 ```
 - The correct ports are then: 3001 and 8546 taken from: 0.0.0.0:__3001__ and 0.0.0.0:__8546__
 ```
-ssh -NL 3000:127.0.0.1:3001 -NL 8545:127.0.0.1:8546 user@52.235.45.14
+ssh -NL 3000:127.0.0.1:3001 -NL 8545:127.0.0.1:8546 user@52.242.37.231
 ```
 - *Example output:*
 ```
-adam@adam:~$ ssh -NL 3000:127.0.0.1:3001 -NL 8545:127.0.0.1:8546 user@52.235.45.14
-user@52.235.45.14's password:
+adam@adam:~$ ssh -NL 3000:127.0.0.1:3001 -NL 8545:127.0.0.1:8546 user@52.242.37.231
+user@52.242.37.231's password:
 
 ```
