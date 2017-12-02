@@ -19,7 +19,7 @@
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-1-01.mp4?raw=true)
 
-1. Make a blg directory on your desktop
+__1. Make a blg directory on your desktop__
 
 *Linux and Mac*
 ```
@@ -35,7 +35,7 @@ adam@adam:/$ cd ~/Desktop && mkdir blg && cd blg
 adam@adam:~/Desktop/blg$
 ```
 
-2. Clone the wallet template
+__2. Clone the wallet template__
 ```
 git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
 ```
@@ -51,7 +51,7 @@ Checking connectivity... done.
 adam@adam:~/Desktop/blg$
 ```
 
-3. Run your docker container
+__3. Run your docker container__
 
 *Replace `<USERNAME>` with your username.*
 
@@ -92,7 +92,7 @@ blg-env
 adam@adam:~/Desktop/blg$
 ```
 
-4. Attach into the container
+__4. Attach into the container__
 
 *Container will serve as your virtual environment.*
 ```
@@ -104,7 +104,7 @@ adam@adam:~$ docker exec -it blg-env bash
 root@182d123ec039:/blg/wallet-template#
 ```
 
-5. Install dependencies
+__5. Install dependencies__
 ```
 yarn
 ```
@@ -118,7 +118,7 @@ Done in 42.65s.
 root@2e9e0eda980d:~/blg/wallet-template#
 ```
 
-6. Compile the contracts
+__6. Compile the contracts__
 ```
 cd src && truffle compile
 ```
@@ -132,7 +132,7 @@ Writing artifacts to ./build/contracts
 root@2e9e0eda980d:~/blg/wallet-template/src#
 ```
 
-7. Start up your window manager, tmux
+__7. Start up your window manager, tmux__
 ```
 tmux
 ```
@@ -141,7 +141,7 @@ tmux
 root@a75baed9ceba:/blg/wallet-template#
 ```
 
-8. Start the app
+__8. Start the app__
 ```
 yarn start
 ```
@@ -160,7 +160,7 @@ Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.
 ```
 
-9. Load the app in chrome, [localhost:3000](http://localhost:3000/)
+__9. Load the app in chrome, [localhost:3000](http://localhost:3000/)__
 
 ### END Stage 1: Dev Enviroment Set up and Application Bootstrapped!
 ---

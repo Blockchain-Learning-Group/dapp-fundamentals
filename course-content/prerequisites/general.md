@@ -54,6 +54,7 @@
 ### [Windows users ONLY]
 1. Git client
 - Install git for windows [here](https://git-for-windows.github.io/)
+- And to enable command line usage: `set PATH=%PATH%;"C:\Program Files\Git\cmd`
 
 ### 3.4 Development Dependencies
 1. Local Dockerized Environment
