@@ -18,7 +18,7 @@
 
 __If your container is still running you may jump to step 2__
 
-1. Start your container back up
+__1. Start your container back up__
 ```
 docker start blg-env
 ```
@@ -29,7 +29,7 @@ blg-env
 adam@adam:~$
 ```
 
-2. Attach into your container
+__2. Attach into your container__
 
 *Container will serve as your virtual environment.*
 ```
@@ -41,7 +41,7 @@ adam@adam:~$ docker exec -it blg-env bash
 root@9c52f3787e28:/blg/wallet-template#
 ```
 
-3. Start up your window manager, tmux
+__3. Start up your window manager, tmux__
 ```
 tmux
 ```
@@ -50,7 +50,7 @@ tmux
 root@a75baed9ceba:/blg/wallet-template#
 ```
 
-4. Start the app
+__4. Start the app__
 ```
 yarn start
 ```
@@ -72,7 +72,7 @@ Note that the development build is not optimized.
 To create a production build, use yarn build.
 ```
 
-5. Create a new window, Ethereum client
+__5. Create a new window, Ethereum client__
 
 *ctrl AND b THEN c*
 ```
@@ -83,7 +83,7 @@ ctrl+b c
 #
 ```
 
-6. Create a new window, Truffle
+__6. Create a new window, Truffle__
 
 *ctrl AND b THEN c*
 ```
@@ -103,8 +103,9 @@ __9. Load the app in chrome, [localhost:3000](http://localhost:3000/), note no c
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-16.mp4?raw=true)
 
-__If testrpc is still active in your container otherwise proceed to #3__
-1. Switch to your ethereum client window, ctrl AND b THEN 1
+*If testrpc is still active in your container otherwise proceed to #3*
+
+__1. Switch to your ethereum client window, ctrl AND b THEN 1__
 ```
 ctrl+b 1
 ```
@@ -115,7 +116,7 @@ eth_getFilterChanges
 eth_getFilterChanges
 ```
 
-2. Stop the client, ctrl AND c
+__2. Stop the client, ctrl AND c__
 ```
 ctrl+c
 ```
@@ -151,7 +152,7 @@ ctrl+c
   Terminated
   #
   ```
-3. Start your `real` Ethereum client, parity.
+__3. Start your `real` Ethereum client, parity.__
   - Switch into your client window, 1.
   ```
   ctrl+b 1
@@ -171,7 +172,7 @@ ctrl+c
 
   ```
 
-4. View accounts from the node now available in the ui(3 if connected to remote node).
+__4. View accounts from the node now available in the ui(3 if connected to remote node).__
 
 ### END Stage 2: Connect to a "Real" Ethereum Client
 ---
@@ -181,11 +182,11 @@ ctrl+c
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-17.mp4?raw=true)
 
-1. Transition back to the truffle window.
+__1. Transition back to the truffle window.__
 ```
 ctrl+b 2
 ```
-2. Deploy the contracts.
+__2. Deploy the contracts.__
 
 *Note 3 unlocked accounts have been provided on the remote BLG node. But the ether will go fast so mind your deployments and transactions!*
 ```
@@ -228,11 +229,11 @@ __Common Error - Simply run the migration again__
       at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73474:24)
   ```
 
-3. View the contracts deployed to kovan @ https://kovan.etherscan.io/address/ `TOKEN OR EXCHANGE ADDRESS`
+__3. View the contracts deployed to kovan @ https://kovan.etherscan.io/address/ `TOKEN OR EXCHANGE ADDRESS`__
 - Token Example: [https://kovan.etherscan.io/address/0xf37825e75d9e597bfc55aa4e048a6ec6c0c6b5be](https://kovan.etherscan.io/address/0xf37825e75d9e597bfc55aa4e048a6ec6c0c6b5be)
 - Exchange Example: [https://kovan.etherscan.io/address/0xadeadaf68eff9d6a633c30cddd6989b6e931f4ca](https://kovan.etherscan.io/address/0xadeadaf68eff9d6a633c30cddd6989b6e931f4ca)
 
-4. View the contract reference objects in the browser.
+__4. View the contract reference objects in the browser.__
 
 ### END Stage 3: Deploy to the Kovan Public Testnet
 ---
@@ -241,31 +242,31 @@ __Common Error - Simply run the migration again__
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-18.mp4?raw=true)
 
-1. Ensure Metamask is installed, unlocked and connected to the kovan testnet.
+__1. Ensure Metamask is installed, unlocked and connected to the kovan testnet.__
 
-2. Add a conditional to use the Metamask web3 provider if present, [wallet-template/src/App.js#L49](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L49)
+__2. Add a conditional to use the Metamask web3 provider if present, [wallet-template/src/App.js#L49](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L49)__
 ```
 if (window.web3)
     this.web3 = new Web3(window.web3.currentProvider)
 else
 ```
 
-3. Refresh the browser and connect to your Metamask account. View your Metamask account now available within the application.
+__3. Refresh the browser and connect to your Metamask account. View your Metamask account now available within the application.__
 
 ### END Stage 4: Convert to Metamask Web3 Provider
 ---
 ### Stage 5: Use the Exchange!
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-19.mp4?raw=true)
 
-1. Mint tokens to your Metamask account.  Will need to be done from the parity account that deployed the contract as it is the owner.
+__1. Mint tokens to your Metamask account.  Will need to be done from the parity account that deployed the contract as it is the owner.__
 
-2. Submit an order!  Note the Metamask dialog now appears to allow you, the user, to approve the transaction and therefore also pay for its execution.
+__2. Submit an order!  Note the Metamask dialog now appears to allow you, the user, to approve the transaction and therefore also pay for its execution.__
 
-3. Create a new Metamask account.
+__3. Create a new Metamask account.__
 
-4. Send ether to it from your initial Metamask account.
+__4. Send ether to it from your initial Metamask account.__
 
-5. Execute the order from your new account and view the updated token balances.
+__5. Execute the order from your new account and view the updated token balances.__
 
 __Success, your exchange is complete!__
 
@@ -287,19 +288,19 @@ __Success, your exchange is complete!__
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/03-stage-cleanup.mp4?raw=true)
 
-1. Detach from your tmux session
+__1. Detach from your tmux session__
 
 *ctrl AND b THEN d*
 ```
 ctrl+b d
 ```
 
-2. Detach from the container
+__2. Detach from the container__
 ```
 ctrl+d
 ```
 
-3. Stop the container
+__3. Stop the container__
 ```
 docker stop blg-env
 ```

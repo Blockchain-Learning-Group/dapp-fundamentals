@@ -169,7 +169,7 @@ __9. Load the app in chrome, [localhost:3000](http://localhost:3000/)__
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-2-01.mp4?raw=true)
 
-1. Create a new window, Ethereum client
+__1. Create a new window, Ethereum client__
 
 *ctrl AND b THEN c*
 ```
@@ -180,7 +180,7 @@ ctrl+b c
 #
 ```
 
-2. Start up your Ethereum client, testrpc
+__2. Start up your Ethereum client, testrpc__
 ```
 testrpc
 ```
@@ -192,7 +192,7 @@ EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
 Listening on localhost:8545
 ```
 
-3. Create a new window, Truffle
+__3. Create a new window, Truffle__
 
 *ctrl AND b THEN c*
 ```
@@ -203,7 +203,7 @@ ctrl+b c
 #
 ```
 
-4. Test Your Token contract
+__4. Test Your Token contract__
 
 *contracts/Token.sol has been provided or do update it with the Token that was completed at the end of Day 1.*
 *Also one test file has been provided to confirm the mint method was implemented correctly.*
@@ -222,13 +222,13 @@ Using network 'development'.
 #
 ```
 
-5. Refresh your chrome browser and open up the developer console
+__5. Refresh your chrome browser and open up the developer console__
 
 `right click => inspect`
 
 *Note the error message:* `Token has not been deployed to the detected network.`
 
-6. Deploy your Token
+__6. Deploy your Token__
 ```
 truffle migrate
 ```
@@ -254,7 +254,7 @@ Saving artifacts...
 #
 ```
 
-7. Refresh chrome, server may already have done so.
+__7. Refresh chrome, server may already have done so.__
 
 *View in the developer console the token instance is now present*
 
@@ -272,37 +272,37 @@ _Time to start coding!_
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-3-01.mp4?raw=true)
 
-1. Open up the repo ~/Desktop/blg/wallet-template in a text editor of your choice
+__1. Open up the repo ~/Desktop/blg/wallet-template in a text editor of your choice__
 
-2. Set the default account's ether balance, [wallet-template/src/App.js#L55](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/6095b3cad3b3aff0628c17f52cba15c8f2171ece/src/App.js#L55)
+__2. Set the default account's ether balance, [wallet-template/src/App.js#L55](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/6095b3cad3b3aff0628c17f52cba15c8f2171ece/src/App.js#L55)__
 ```
 this.web3.eth.getBalance(defaultAccount, (err, ethBalance) => {
   this.setState({ ethBalance })
 })
 ```
 
-3. Set the default account's token balance, [wallet-template/src/App.js#L74](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L74)
+__3. Set the default account's token balance, [wallet-template/src/App.js#L74](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L74)__
 ```
 token.balanceOf(defaultAccount, (err, tokenBalance) => {
   this.setState({ tokenBalance })
 })
 ```
 
-4. Set the token's symbol, [wallet-template/src/App.js#L81](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L81)
+__4. Set the token's symbol, [wallet-template/src/App.js#L81](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L81)__
 ```
 token.symbol((err, tokenSymbol) => {
   this.setState({ tokenSymbol })
 })
 ```
 
-5. Set the token's decimal places, [wallet-template/src/App.js#L88](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L88)
+__5. Set the token's decimal places, [wallet-template/src/App.js#L88](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L88)__
 ```
 token.decimals((err, tokenDecimals) => {
   this.setState({ tokenDecimals })
 })
 ```
 
-6. View the default account balances and token information in your browser!
+__6. View the default account balances and token information in your browser!__
 
 ### END Stage 3: Token Interaction - GET
 ---
@@ -312,7 +312,7 @@ token.decimals((err, tokenDecimals) => {
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-4-01.mp4?raw=true)
 
-1. Add a method to mint tokens, sending a transaction to the token contract. [wallet-template/src/App.js#L155](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L170)
+__1. Add a method to mint tokens, sending a transaction to the token contract. [wallet-template/src/App.js#L155](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L170)__
 ```
 this.state.token.mint(
   user,
@@ -325,7 +325,7 @@ this.state.token.mint(
 )
 ```
 
-2. In the GUI mint tokens to available accounts.
+__2. In the GUI mint tokens to available accounts.__
 
 *Note transaction hash in develop console*
 *Note the transaction is sent from the current default account and only the contract owner, account 0, has permission to do so.*
@@ -334,7 +334,7 @@ this.state.token.mint(
 0x4b396191e87c31a02e80160cb6a2661da6086c073f6e91e9bd1f796e29b0c983
 ```
 
-3. Refresh chrome and view the account's balance of shiny new tokens!
+__3. Refresh chrome and view the account's balance of shiny new tokens!__
 
 ### END Stage 4: Token Interaction - Mint Tokens
 ---
@@ -344,7 +344,7 @@ this.state.token.mint(
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-5-01.mp4?raw=true)
 
-1. Add an event to listen for when tokens are minted, [wallet-template/src/App.js#L131](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L135)
+__1. Add an event to listen for when tokens are minted, [wallet-template/src/App.js#L131](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L135)__
 ```
 this.state.token.LogTokensMinted({ fromBlock: 'latest', toBlock: 'latest' })
 .watch((err, res) => {
@@ -353,28 +353,28 @@ this.state.token.LogTokensMinted({ fromBlock: 'latest', toBlock: 'latest' })
 })
 ```
 
-2. Update the default account's token balance when the event is fired.
-[wallet-template/src/App.js#L115](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L115)
+__2. Update the default account's token balance when the event is fired.
+[wallet-template/src/App.js#L115](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L115)__
 ```
 this.state.token.balanceOf(account, (err, tokenBalance) => {
   this.setState({ tokenBalance })
 })
 ```
 
-3. Update the default account's ETH balance when the event is fired.
-[wallet-template/src/App.js#L122](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L122)
+__3. Update the default account's ETH balance when the event is fired.
+[wallet-template/src/App.js#L122](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L122)__
 ```
 this.web3.eth.getBalance(account, (err, ethBalance) => {
   this.setState({ ethBalance })
 })
 ```
 
-4. Load the contract events, [wallet-template/src/App.js#L95](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L95)
+__4. Load the contract events, [wallet-template/src/App.js#L95](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L95)__
 ```
 this.loadEventListeners()
 ```
 
-5. Add another event listener to watch for errors, [wallet-template/src/App.js#L149](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L153)
+__5. Add another event listener to watch for errors, [wallet-template/src/App.js#L149](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L153)__
 ```
 this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
 .watch((err, res) => {
@@ -382,7 +382,7 @@ this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
 })
 ```
 
-6. Mint tokens and view the log confirmation in the developer console and token and ETH balance updated!  Also mint tokens from an account that is not the owner and view the error message.
+__6. Mint tokens and view the log confirmation in the developer console and token and ETH balance updated!  Also mint tokens from an account that is not the owner and view the error message.__
 
 *Note testrpc known bug where it will re-broadcast the latest event every time a new connection is made.  For example every time the browser refreshes in our case the event log will appear.*
 
@@ -397,19 +397,19 @@ _Try this portion on your own!_
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-6-01.mp4?raw=true)
 
 The required components included:
-1. Add the React transfer tokens form component. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L238)
+__1. Add the React transfer tokens form component. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L238)__
 
-2. Complete the transfer method to send the transfer transaction. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L193)
+__2. Complete the transfer method to send the transfer transaction. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L193)__
 
-3. Add an event listener to watch for token transfers. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L144)
+__3. Add an event listener to watch for token transfers. [Solution](https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L144)__
 
 _Finally transfer tokens between accounts and review balances._
 
 ### END Stage 6: Transfer Tokens
 ---
 ### Bonus: Extend Your Wallet
-1. Metamask Integration
-- [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-bonus-metamask-integration.mp4?raw=true)
+__1. Metamask Integration
+- [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-bonus-metamask-integration.mp4?raw=true)__
 - Ensure Metamask is installed, unlocked and connected to the local client(localhost:8545).
 - Fund your metamask account!
 ```
@@ -425,25 +425,25 @@ else
 ```
 - Refresh the browser and connect to your Metamask account. View your Metamask account now available within the application.
 
-2. Enable the wallet to support multiple ERC20 tokens.
+__2. Enable the wallet to support multiple ERC20 tokens.__
 ---
 ### Clean up
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-cleanup-01.mp4?raw=true)
 
-1. Detach from your tmux session
+__1. Detach from your tmux session__
 
 *ctrl AND b THEN d*
 ```
 ctrl+b d
 ```
 
-2. Detach from the container
+__2. Detach from the container__
 ```
 ctrl+d
 ```
 
-3. Stop the container
+__3. Stop the container__
 ```
 docker stop blg-env
 ```

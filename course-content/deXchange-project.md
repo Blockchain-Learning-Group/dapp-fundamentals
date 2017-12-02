@@ -26,7 +26,7 @@
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-1.mp4?raw=true)
 
-1. Start your container back up
+__1. Start your container back up__
 ```
 docker start blg-env
 ```
@@ -37,7 +37,7 @@ blg-env
 adam@adam:~$
 ```
 
-2. Attach into your container
+__2. Attach into your container__
 
 *Container will serve as your virtual environment.*
 ```
@@ -49,7 +49,7 @@ adam@adam:~$ docker exec -it blg-env bash
 root@9c52f3787e28:/blg/wallet-template#
 ```
 
-3. Start up your window manager, tmux
+__3. Start up your window manager, tmux__
 ```
 tmux
 ```
@@ -58,7 +58,7 @@ tmux
 root@a75baed9ceba:/blg/wallet-template#
 ```
 
-4. Start the app
+__4. Start the app__
 ```
 yarn start
 ```
@@ -80,7 +80,7 @@ Note that the development build is not optimized.
 To create a production build, use yarn build.
 ```
 
-5. Create a new window, Ethereum client
+__5. Create a new window, Ethereum client__
 
 *ctrl AND b THEN c*
 ```
@@ -91,7 +91,7 @@ ctrl+b c
 #
 ```
 
-6. Start up your Ethereum client, testrpc
+__6. Start up your Ethereum client, testrpc__
 ```
 testrpc
 ```
@@ -103,7 +103,7 @@ EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
 Listening on localhost:8545
 ```
 
-7. Create a new window, Truffle
+__7. Create a new window, Truffle__
 
 *ctrl AND b THEN c*
 ```
@@ -114,7 +114,7 @@ ctrl+b c
 #
 ```
 
-8. Deploy your Token
+__8. Deploy your Token__
 ```
 cd src && truffle migrate
 ```
@@ -140,43 +140,43 @@ Saving artifacts...
 #
 ```
 
-9. Load the app in chrome, [localhost:3000](http://localhost:3000/)
+__9. Load the app in chrome, [localhost:3000](http://localhost:3000/)__
 
 ### END Stage 1: Restart Your Dev Environment and App
 ---
 ### Stage 2: Create the Exchange Contract
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-2.mp4?raw=true)
 
-1. Create a new file wallet-template/src/contracts/Exchange.sol
+__1. Create a new file wallet-template/src/contracts/Exchange.sol__
 ```
 Exchange.sol
 ```
 
-2. Copy [Exchange Template](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/ExchangeTemplate.sol) into the new file, wallet-template/src/contracts/Exchange.sol.
+__2. Copy [Exchange Template](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/ExchangeTemplate.sol) into the new file, wallet-template/src/contracts/Exchange.sol.__
 
-3. Review the contents of the provided template.
+__3. Review the contents of the provided template.__
 
 ### END Stage 2: Create the Exchange Contract
 ---
 ### Stage 3: Write the submitOrder Method
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-3.mp4?raw=true)
 
-1. Ensure the exchange has been given a sufficient token allowance [wallet-template/src/contracts/Exchange.sol#L61](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L61).
+__1. Ensure the exchange has been given a sufficient token allowance [wallet-template/src/contracts/Exchange.sol#L61](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L61).__
 ```
 require(ERC20(_bidToken).allowance(msg.sender, this) >= _bidAmount);
 ```
 
-2. Compute a `unique` id for the order, [wallet-template/src/contracts/Exchange.sol#L66](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/5423f063a28d13328297a9eda0b274ff2e506159/src/contracts/Exchange.sol#L66)
+__2. Compute a `unique` id for the order, [wallet-template/src/contracts/Exchange.sol#L66](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/5423f063a28d13328297a9eda0b274ff2e506159/src/contracts/Exchange.sol#L66)__
 ```
 bytes32 orderId = keccak256(msg.sender, _bidToken, _bidAmount, _askToken, _askAmount);
 ```
 
-3. Confirm this order does not already exist, [wallet-template/src/contracts/Exchange.sol#L67](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L67)
+__3. Confirm this order does not already exist, [wallet-template/src/contracts/Exchange.sol#L67](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L67)__
 ```
 require(orderBook_[orderId].askAmount == 0); // check for existence, default to 0, assume no one is giving tokens away for free
 ```
 
-4. Add the order to the order book, [wallet-template/src/contracts/Exchange.sol#L72](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L72)
+__4. Add the order to the order book, [wallet-template/src/contracts/Exchange.sol#L72](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L72)__
 ```
 orderBook_[orderId] = Order({
   maker: msg.sender,
@@ -187,7 +187,7 @@ orderBook_[orderId] = Order({
 });
 ```
 
-5. Emit the order submitted event, [wallet-template/src/contracts/Exchange.sol#L83](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L83)
+__5. Emit the order submitted event, [wallet-template/src/contracts/Exchange.sol#L83](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L83)__
 ```
 LogOrderSubmitted(orderId, msg.sender, _bidToken,_bidAmount, _askToken, _askAmount);
 ```
@@ -197,28 +197,28 @@ LogOrderSubmitted(orderId, msg.sender, _bidToken,_bidAmount, _askToken, _askAmou
 ### Stage 4: Test the submitOrder Method
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-4.mp4?raw=true)
 
-1. Create a new file wallet-template/src/test/test_submit_executeOrder.js
+__1. Create a new file wallet-template/src/test/test_submit_executeOrder.js__
 ```
 test_submit_executeOrder.js
 ```
 
-2. Copy the [test template](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/test_submit_executeOrder-template.js) into wallet-template/src/test/test_submit_executeOrder.js
+__2. Copy the [test template](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/test_submit_executeOrder-template.js) into wallet-template/src/test/test_submit_executeOrder.js__
 
 __Test Setup__
 
-3. Define the accounts to be used, maker and taker, [wallet-template/src/test/test_submit_executeOrder.js#L12](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L12)
+__3. Define the accounts to be used, maker and taker, [wallet-template/src/test/test_submit_executeOrder.js#L12](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L12)__
 ```
 const maker = accounts[0]
 const taker = accounts[1]
 ```
 
-4. Deploy a new exchange and token in the test case, [wallet-template/src/test/test_submit_executeOrder.js#L19](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L19)
+__4. Deploy a new exchange and token in the test case, [wallet-template/src/test/test_submit_executeOrder.js#L19](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L19)__
 ```
 exchange = await Exchange.new()
 token = await Token.new({ from: maker })
 ```
 
-5. Define the order parameters, [wallet-template/src/test/test_submit_executeOrder.js#L25](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L25)
+__5. Define the order parameters, [wallet-template/src/test/test_submit_executeOrder.js#L25](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L25)__
 ```
 const bidToken = token.address
 const bidAmount = 1
@@ -226,13 +226,13 @@ const askToken = 0
 const askAmount = 100
 ```
 
-6. Setup the transaction by minting tokens to the maker and giving allowance to the exchange, [wallet-template/src/test/test_submit_executeOrder.js#L33](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L33)
+__6. Setup the transaction by minting tokens to the maker and giving allowance to the exchange, [wallet-template/src/test/test_submit_executeOrder.js#L33](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L33)__
 ```
 await token.mint(maker, bidAmount, { from: maker });
 await token.approve(exchange.address, bidAmount, { from: maker })
 ```
 
-7. Send the transaction submitting the order, [wallet-template/src/test/test_submit_executeOrder.js#L39](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L39)
+__7. Send the transaction submitting the order, [wallet-template/src/test/test_submit_executeOrder.js#L39](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L39)__
 ```
 const tx = await exchange.submitOrder(bidToken, bidAmount, askToken, askAmount, {
     from: maker,
@@ -243,13 +243,13 @@ const tx = await exchange.submitOrder(bidToken, bidAmount, askToken, askAmount, 
 
 __Assertions__
 
-8. Confirm the correct event emitted, [wallet-template/src/test/test_submit_executeOrder.js#L48](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L48)
+__8. Confirm the correct event emitted, [wallet-template/src/test/test_submit_executeOrder.js#L48](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L48)__
 ```
 const log = tx.logs[0]
 assert.equal(log.event, 'LogOrderSubmitted', 'Event not emitted')
 ```
 
-9. Confirm the order stored on-chain is correct, [wallet-template/src/test/test_submit_executeOrder.js#L54](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L54)
+__9. Confirm the order stored on-chain is correct, [wallet-template/src/test/test_submit_executeOrder.js#L54](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L54)__
 ```
 orderId = tx.logs[0].args.id
 const order = await exchange.orderBook_(orderId)
@@ -260,7 +260,7 @@ assert.equal(order[3], askToken, 'ask token incorrect')
 assert.equal(order[4], askAmount, 'ask amount incorrect')
 ```
 
-10. Execute the test and confirm it is passing!
+__10. Execute the test and confirm it is passing!__
 ```
 truffle test test/test_submit_executeOrder.js
 ```
@@ -283,17 +283,17 @@ Contract: Exchange.submitOrder() && executeOrder()
 ### Stage 5: Write the executeOrder Method
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true)
 
-1. Load the order struct into memory(will save gas cost for subsequent reads), [wallet-template/src/contracts/Exchange.sol#L98](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L98)
+__1. Load the order struct into memory(will save gas cost for subsequent reads), [wallet-template/src/contracts/Exchange.sol#L98](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L98)__
 ```
 Order memory order = orderBook_[_orderId];
 ```
 
-2. Confirm enough ether was sent with the transaction to fill the order, [wallet-template/src/contracts/Exchange.sol#L103](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L103)
+__2. Confirm enough ether was sent with the transaction to fill the order, [wallet-template/src/contracts/Exchange.sol#L103](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L103)__
 ```
 require(msg.value == order.askAmount);
 ```
 
-3. Execute the trade.
+__3. Execute the trade.__
   - Moving ether to the maker, [wallet-template/src/contracts/Exchange.sol#L108](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L108)
   ```
   order.maker.transfer(order.askAmount);
@@ -303,12 +303,12 @@ require(msg.value == order.askAmount);
   require(ERC20(order.bidToken).transferFrom(order.maker, msg.sender, order.bidAmount));
   ```
 
-4.  Remove the filled order from the order book, [wallet-template/src/contracts/Exchange.sol#L114](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L114)
+__4.  Remove the filled order from the order book, [wallet-template/src/contracts/Exchange.sol#L114](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L114)__
 ```
 delete orderBook_[_orderId];
 ```
 
-5. Emit the order executed event, [wallet-template/src/contracts/Exchange.sol#L119](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L119)
+__5. Emit the order executed event, [wallet-template/src/contracts/Exchange.sol#L119](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L119)__
 ```
 LogOrderExecuted(_orderId, order.maker, msg.sender, order.bidToken, order.bidAmount, order.askToken, order.askAmount);
 ```
@@ -319,13 +319,13 @@ LogOrderExecuted(_orderId, order.maker, msg.sender, order.bidToken, order.bidAmo
 
 __Test Setup__
 
-1. Get the initial ether balances for both accounts, [wallet-template/src/test/test_submit_executeOrder.js#L67](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L67)
+__1. Get the initial ether balances for both accounts, [wallet-template/src/test/test_submit_executeOrder.js#L67](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L67)__
 ```
 const makerBalanceBefore = web3.eth.getBalance(maker).toNumber()
 const takerBalanceBefore = web3.eth.getBalance(taker).toNumber()
 ```
 
-2. Submit the transaction to execute the order, [wallet-template/src/test/test_submit_executeOrder.js#L73](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L73)
+__2. Submit the transaction to execute the order, [wallet-template/src/test/test_submit_executeOrder.js#L73](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L73)__
 ```
 const tx = await exchange.executeOrder(orderId, {
     from: taker,
@@ -337,13 +337,13 @@ const tx = await exchange.executeOrder(orderId, {
 
 __Assertions__
 
-3. Confirm the execute order event emitted, [wallet-template/src/test/test_submit_executeOrder.js#L83](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L83)
+__3. Confirm the execute order event emitted, [wallet-template/src/test/test_submit_executeOrder.js#L83](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L83)__
 ```
 const log = tx.logs[0]
 assert.equal(log.event, 'LogOrderExecuted', 'Event not emitted')
 ```
 
-4. Confirm the token balances updated correctly, [wallet-template/src/test/test_submit_executeOrder.js#L89](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L89)
+__4. Confirm the token balances updated correctly, [wallet-template/src/test/test_submit_executeOrder.js#L89](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L89)__
 ```
 const makerTokenBalance = (await token.balanceOf(maker)).toNumber()
 const takerTokenBalance = (await token.balanceOf(taker)).toNumber()
@@ -351,7 +351,7 @@ assert.equal(makerTokenBalance, 0, 'Maker token balance incorrect.')
 assert.equal(takerTokenBalance, 1, 'Taker token balance incorrect.')
 ```
 
-5. Confirm the ether balances updated correctly, [wallet-template/src/test/test_submit_executeOrder.js#L97](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L97)
+__5. Confirm the ether balances updated correctly, [wallet-template/src/test/test_submit_executeOrder.js#L97](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L97)__
 ```
 const makerBalanceAfter = web3.eth.getBalance(maker).toNumber()
 const takerBalanceAfter = web3.eth.getBalance(taker).toNumber()
@@ -360,13 +360,13 @@ assert.equal(makerBalanceAfter, makerBalanceBefore + 100, 'Maker eth balance inc
 assert.isBelow(takerBalanceAfter, takerBalanceBefore - 100, 'Taker eth balance incorrect')
 ```
 
-6. Confirm the order was removed from the order book, [wallet-template/src/test/test_submit_executeOrder.js#L106](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L106)
+__6. Confirm the order was removed from the order book, [wallet-template/src/test/test_submit_executeOrder.js#L106](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L106)__
 ```
 const order = await exchange.orderBook_(orderId)
 assert.equal(order[4], 0)
 ```
 
-7. Execute the test and confirm it is passing!
+__7. Execute the test and confirm it is passing!__
 ```
 truffle test test/test_submit_executeOrder.js
 ```
@@ -393,7 +393,7 @@ __Success, The exchange contract is complete!__
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-7.mp4?raw=true)
 
-1. Add # based routing to render the exchange component, [wallet-template/src/App.js#L215](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L363)
+__1. Add # based routing to render the exchange component, [wallet-template/src/App.js#L215](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L363)__
 ```
 if (window.location.hash === '#exchange') {
 
@@ -412,14 +412,14 @@ if (window.location.hash === '#exchange') {
 253:  }
 ```
 
-2. Confirm the routing is working, open [localhost:3000/#exchange](http://localhost:3000/#exchange)
+__2. Confirm the routing is working, open [localhost:3000/#exchange](http://localhost:3000/#exchange)__
 
 ### END Stage 7: Add Basic Routing to the DApp
 ---
 ### Stage 8: Deploy the Exchange
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-8.mp4?raw=true)
 
-1. Add the exchange to the deployment script, [wallet-template/master/src/migrations/2_deploy_contracts.js](https://raw.githubusercontent.com/Blockchain-Learning-Group/exchange-eod3/master/src/migrations/2_deploy_contracts.js)
+__1. Add the exchange to the deployment script, [wallet-template/master/src/migrations/2_deploy_contracts.js](https://raw.githubusercontent.com/Blockchain-Learning-Group/exchange-eod3/master/src/migrations/2_deploy_contracts.js)__
 ```
 const Token = artifacts.require("./Token.sol");
 const Exchange = artifacts.require("./Exchange.sol");
@@ -431,7 +431,7 @@ module.exports = deployer => {
 }
 ```
 
-2. Deploy the exchange and a new token.
+__2. Deploy the exchange and a new token.__
 ```
 truffle migrate --reset
 ```
@@ -467,17 +467,17 @@ Saving artifacts...
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-9.mp4?raw=true)
 
-1. Import the exchange build artifacts, [wallet-template/src/App.js#L15](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L23)
+__1. Import the exchange build artifacts, [wallet-template/src/App.js#L15](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L23)__
 ```
 import exchangeArtiacts from './build/contracts/Exchange.json'
 ```
 
-2. Add the exchange to the state, [wallet-template/src/App.js#L32](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L42)
+__2. Add the exchange to the state, [wallet-template/src/App.js#L32](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L42)__
 ```
 exchange: null, // exchange contract
 ```
 
-3. Create the reference object to the deployed exchange, [wallet-template/src/App.js#L73](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L89)
+__3. Create the reference object to the deployed exchange, [wallet-template/src/App.js#L73](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L89)__
 ```
 const exchangeAddress = exchangeArtiacts.networks[netId].address
 const exchange = this.web3.eth.contract(exchangeArtiacts.abi).at(exchangeAddress)
@@ -488,7 +488,7 @@ console.log(exchange)
 window.exchange = exchange
 ```
 
-4. View the exchange object in the browser developer console.
+__4. View the exchange object in the browser developer console.__
 
 ### END Stage 9: Create the Reference Exchange Object
 ---
@@ -497,13 +497,13 @@ window.exchange = exchange
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-10.mp4?raw=true)
 
-1. Create the container div, [wallet-template/src/App.js#226](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L364)
+__1. Create the container div, [wallet-template/src/App.js#226](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L364)__
 ```
 component = <div>
   </div>
 ```
 
-2. Add the components to load the active accounts, [wallet-template/src/App.js#L227](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L365)
+__2. Add the components to load the active accounts, [wallet-template/src/App.js#L227](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L365)__
 ```
 <h3>Active Account</h3>
 <DropDownMenu maxHeight={300} width={500} value={this.state.defaultAccount} onChange={this.handleDropDownChange} >
@@ -515,7 +515,7 @@ component = <div>
 <br />
 ```
 
-3. Add the form to submit an order, [wallet-template/src/App.js#L235](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L373)
+__3. Add the form to submit an order, [wallet-template/src/App.js#L235](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L373)__
 ```
 <h3>Submit an Order!</h3>
 <p>The default exchange supports only the pairing of {this.state.tokenSymbol} / ETH</p>
@@ -533,13 +533,13 @@ component = <div>
 <br />
 ```
 
-4. Add the bid and ask amounts to the state, [wallet-template/src/App.js#L31](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L39)
+__4. Add the bid and ask amounts to the state, [wallet-template/src/App.js#L31](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L39)__
 ```
 bidAmount: 10,
 askAmount: 1,
 ```
 
-5. Write the method to submit an order, [wallet-template/src/App.js#L194](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L303)
+__5. Write the method to submit an order, [wallet-template/src/App.js#L194](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L303)__
 ```
 /**
  * Submit a new order to the order book.
@@ -572,9 +572,9 @@ submitOrder() {
 }
 ```
 
-6. Mint tokens to ensure the account has a sufficient token balance.
+__6. Mint tokens to ensure the account has a sufficient token balance.__
 
-7. Submit an order and view the transaction hashes(approve and submitOrder) in the browser developer console.
+__7. Submit an order and view the transaction hashes(approve and submitOrder) in the browser developer console.__
 
 ### END Stage 10: Create the UI Component to Submit an Order
 ---
@@ -583,7 +583,7 @@ submitOrder() {
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-11.mp4?raw=true)
 
-1. Create an event listener for the order submitted event, [wallet-template/src/App.js#L170](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L230)
+__1. Create an event listener for the order submitted event, [wallet-template/src/App.js#L170](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L230)__
 ```
 this.state.exchange.LogOrderSubmitted({ fromBlock: 'latest', toBlock: 'latest' })
 .watch((err, res) => {
@@ -592,9 +592,9 @@ this.state.exchange.LogOrderSubmitted({ fromBlock: 'latest', toBlock: 'latest' }
 })
 ```
 
-2. Submit an order and view the caught event.
+__2. Submit an order and view the caught event.__
 
-3. Submit a duplicate order and view the error response.
+__3. Submit a duplicate order and view the error response.__
 
 ### END Stage 11: Listen for Submitted Order Events
 ---
@@ -603,7 +603,7 @@ this.state.exchange.LogOrderSubmitted({ fromBlock: 'latest', toBlock: 'latest' }
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-12.mp4?raw=true)
 
-1. Import Material UI table components, [wallet-template/src/App.js#L12](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L12)
+__1. Import Material UI table components, [wallet-template/src/App.js#L12](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L12)__
 ```
 import {
   Table,
@@ -615,12 +615,12 @@ import {
 } from 'material-ui/Table';
 ```
 
-2. Add the order book to the state, [wallet-template/src/App.js#L43](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L43)
+__2. Add the order book to the state, [wallet-template/src/App.js#L43](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L43)__
 ```
 orderBook: [],
 ```
 
-3. Add the order book component, [wallet-template/src/App.js#L296](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/5423f063a28d13328297a9eda0b274ff2e506159/src/App.js#L387)
+__3. Add the order book component, [wallet-template/src/App.js#L296](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/5423f063a28d13328297a9eda0b274ff2e506159/src/App.js#L387)__
 ```
 <h3>Order Book</h3>
 <p>Select an order to execute!</p>
@@ -641,7 +641,7 @@ orderBook: [],
 </Table>
 ```
 
-4. View new order book table in the ui.
+__4. View new order book table in the ui.__
 
 ### END Stage 12: Create the Order Book Table
 ---
@@ -650,7 +650,7 @@ orderBook: [],
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-13.mp4?raw=true)
 
-1. Create an addOrder method, [wallet-template/src/App.js#L127](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/5423f063a28d13328297a9eda0b274ff2e506159/src/App.js#L138)
+__1. Create an addOrder method, [wallet-template/src/App.js#L127](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/5423f063a28d13328297a9eda0b274ff2e506159/src/App.js#L138)__
 ```
 /**
  * Add a new order to the oder book
@@ -679,12 +679,12 @@ addOrder(order) {
 }
 ```
 
-2. Add the order to the order book when the order submitted event fired, [wallet-template/src/App.js#208](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L233)
+__2. Add the order to the order book when the order submitted event fired, [wallet-template/src/App.js#208](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L233)__
 ```
 this.addOrder(res.args)
 ```
 
-3. Submit an order and view it added to the order book.
+__3. Submit an order and view it added to the order book.__
 
 ### END Stage 13: Add an Order Element to the Table When Submitted
 ---
@@ -693,12 +693,12 @@ this.addOrder(res.args)
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-14.mp4?raw=true)
 
-1. Add a selectedOrder to the state, [wallet-template/src/App.js#L44](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L44)
+__1. Add a selectedOrder to the state, [wallet-template/src/App.js#L44](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L44)__
 ```
 selectedOrder: null
 ```
 
-2. Add a method to execute the selected order, [wallet-template/src/App.js#L154](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L164)
+__2. Add a method to execute the selected order, [wallet-template/src/App.js#L154](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L164)__
 ```
 /**
  * Execute a selected order.
@@ -719,7 +719,7 @@ executeOrder(orderId) {
 }
 ```
 
-3. Add an event to listen for executed orders, [wallet-template/src/App.js#L231](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L237)
+__3. Add an event to listen for executed orders, [wallet-template/src/App.js#L231](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L237)__
 ```
 this.state.exchange.LogOrderExecuted({ fromBlock: 'latest', toBlock: 'latest' })
 .watch((err, res) => {
@@ -729,7 +729,7 @@ this.state.exchange.LogOrderExecuted({ fromBlock: 'latest', toBlock: 'latest' })
 })
 ```
 
-4. Add the method to remove the order from the order book table, [wallet-template/src/App.js#L262](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L288)
+__4. Add the method to remove the order from the order book table, [wallet-template/src/App.js#L262](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L288)__
 ```
 /**
  * Remove an order from the orderBook.
@@ -748,7 +748,7 @@ removeOrder(orderId) {
 }
 ```
 
-5. Execute an order and see that it has been removed from the table.
+__5. Execute an order and see that it has been removed from the table.__
 
 ### END Stage 14: Select and Execute an Order
 ---
@@ -757,7 +757,7 @@ removeOrder(orderId) {
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-15.mp4?raw=true)
 
-1. Add a method to load the order book, [wallet-template/src/App.js#L239](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L248)
+__1. Add a method to load the order book, [wallet-template/src/App.js#L239](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L248)__
 ```
 /**
  * Load all orders into the order book via exchange events
@@ -776,12 +776,12 @@ loadOrderBook() {
 }
 ```
 
-2. Load the order book when the page renders, [wallet-template/src/App.js#L119](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L123)
+__2. Load the order book when the page renders, [wallet-template/src/App.js#L119](https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L123)__
 ```
 this.loadOrderBook()
 ```
 
-3. View the loaded orders in the order book table.
+__3. View the loaded orders in the order book table.__
 
 __Success your exchange running locally is complete! Try it out!__
 
@@ -803,19 +803,19 @@ __Success your exchange running locally is complete! Try it out!__
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/03-stage-cleanup.mp4?raw=true)
 
-1. Detach from your tmux session
+__1. Detach from your tmux session__
 
 *ctrl AND b THEN d*
 ```
 ctrl+b d
 ```
 
-2. Detach from the container
+__2. Detach from the container__
 ```
 ctrl+d
 ```
 
-3. Stop the container
+__3. Stop the container__
 ```
 docker stop blg-env
 ```
