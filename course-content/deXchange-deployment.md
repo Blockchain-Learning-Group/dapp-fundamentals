@@ -83,19 +83,7 @@ ctrl+b c
 #
 ```
 
-6. Start up your Ethereum client, testrpc
-```
-testrpc
-```
-- *Example output:*
-```
-# testrpc
-EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
-[...]
-Listening on localhost:8545
-```
-
-7. Create a new window, Truffle
+6. Create a new window, Truffle
 
 *ctrl AND b THEN c*
 ```
@@ -106,33 +94,7 @@ ctrl+b c
 #
 ```
 
-8. Deploy your Token
-```
-cd src && truffle migrate
-```
-- *Example output:*
-```
-# cd src && truffle migrate
-Using network 'development'.
-
-Running migration: 1_initial_migration.js
-  Deploying Migrations...
-  ... 0x26ff3f480502a228f34363e938289c3164edf8bc49c75f5d6d9623a05da92dbf
-  Migrations: 0x3e47fad1423cbf6bd97fee18ae2de546b0e9188a
-Saving successful migration to network...
-  ... 0x19a7a819df452847f34815e2573765be8c26bac43b1c10d3b7528e6d952ac02c
-Saving artifacts...
-Running migration: 2_deploy_contracts.js
-  Deploying Token...
-  ... 0x4a69e7840d0f96067964fb515ffea1a04a98fc5759849d3308584af4770c8f7b
-  Token: 0xd58c6b5e848d70fd94693a370045968c0bc762a7
-Saving successful migration to network...
-  ... 0xd1e9bef5f19bb37daa200d7e563f4fa438da60dbc349f408d1982f8626b3c202
-Saving artifacts...
-#
-```
-
-9. Load the app in chrome, [localhost:3000](http://localhost:3000/)
+__9. Load the app in chrome, [localhost:3000](http://localhost:3000/), note no client running yet!__
 
 ### END Stage 1: Restart Your Dev Environment and App
 ---
@@ -141,6 +103,7 @@ Saving artifacts...
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-16.mp4?raw=true)
 
+__If testrpc still active in your container otherwise proceed to #3__
 1. Switch to your ethereum client window, ctrl AND b THEN 1
 ```
 ctrl+b 1
@@ -189,9 +152,10 @@ ctrl+c
     #
     ```
 3. Start your `real` Ethereum client, parity.
-
-  __If utilizing the BLG provided remote node__
-
+  - Switch into your client window, 1.
+  ```
+  ctrl+b 1
+  ```
   - Forward the container's ports to the remote server. Password to be provided via a secure channel.
   ```
   ssh -g -4 -NL 8545:127.0.0.1:8545 blg@52.235.45.14

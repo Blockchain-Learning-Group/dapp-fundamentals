@@ -74,7 +74,7 @@ adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg
 1bb232a56e6868e2bc4dbeaf86405ec3ed892090809fcab1823cab38e8337dc1
 adam@adam:~$
 ```
-- __Common Error:__
+- *Common Error:*
 ```
 adam@adam:~/Desktop/blg$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 docker: Error response from daemon: Conflict. The container name "/blg-env" is already in use by container "9c52f3787e28c64b197e22ec509fb2a73cd5066543ec6345956e11b6e69ba41c". You have to remove (or rename) that container to be able to reuse that name.
