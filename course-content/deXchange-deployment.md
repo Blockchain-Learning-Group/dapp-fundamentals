@@ -190,6 +190,7 @@ __2. Deploy the contracts.__
 
 *Note 3 unlocked accounts have been provided on the remote BLG node. But the ether will go fast so mind your deployments and transactions!*
 ```
+cd src
 truffle migrate
 ```
 - *Example output:*
@@ -258,15 +259,15 @@ __3. Refresh the browser and connect to your Metamask account. View your Metamas
 ### Stage 5: Use the Exchange!
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-19.mp4?raw=true)
 
-__1. Mint tokens to your Metamask account.  Will need to be done from the parity account that deployed the contract as it is the owner.__
+1. Mint tokens to your Metamask account.  Will need to be done from the parity account that deployed the contract as it is the owner.
 
-__2. Submit an order!  Note the Metamask dialog now appears to allow you, the user, to approve the transaction and therefore also pay for its execution.__
+2. Submit an order!  Note the Metamask dialog now appears to allow you, the user, to approve the transaction and therefore also pay for its execution.
 
-__3. Create a new Metamask account.__
+3. Create a new Metamask account.
 
-__4. Send ether to it from your initial Metamask account.__
+4. Send ether to it from your initial Metamask account.
 
-__5. Execute the order from your new account and view the updated token balances.__
+5. Execute the order from your new account and view the updated token balances.
 
 __Success, your exchange is complete!__
 
