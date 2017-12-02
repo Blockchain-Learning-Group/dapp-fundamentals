@@ -152,7 +152,7 @@ ctrl+c
   Terminated
   #
   ```
-__3. Start your `real` Ethereum client, parity.__
+__3. Connect to your `real` Ethereum client, parity.__
   - Switch into your client window, 1.
   ```
   ctrl+b 1
