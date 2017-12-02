@@ -158,33 +158,17 @@ ctrl+c
   ```
   - Forward the container's ports to the remote server. Password to be provided via a secure channel.
   ```
-  ssh -g -4 -NL 8545:127.0.0.1:8545 blg@52.235.45.14
+  ssh -g -4 -NL 8545:127.0.0.1:8545 user@52.235.45.14
   ```
   - *Example output:*
   ```
-  root@7e7d419200b4:/blg/wallet-template# ssh -g -4 -NL 8545:127.0.0.1:8545 blg@52.235.45.14
+  root@7e7d419200b4:/blg/wallet-template# ssh -g -4 -NL 8545:127.0.0.1:8545 user@52.235.45.14
   The authenticity of host '52.235.45.14 (52.235.45.14)' can't be established.
   ECDSA key fingerprint is c4:71:78:43:d8:78:f7:4b:24:36:ac:eb:09:a6:e7:f9.
   Are you sure you want to continue connecting (yes/no)? yes
   Warning: Permanently added '52.235.45.14' (ECDSA) to the list of known hosts.
-  blg@52.235.45.14's password:
+  user@52.235.45.14's password:
 
-  ```
-
-  __If using a local node simply run it__
-
-  - run the node
-  ```
-  parity --chain kovan --tracing off --rpccorsdomain '*'
-  ```
-  - *Example output:*
-  ```
-  blg@parity-kovan-node-01:~$ parity --chain kovan --tracing off --rpccorsdomain '*'
-  2017-11-19 20:11:34 UTC Starting Parity/v1.8.2-beta-1b6588c-20171025/x86_64-linux-gnu/rustc1.21.0
-  [...]
-  2017-11-19 20:11:35 UTC Updated conversion rate to Ξ1 = US$350.03 (340106880 wei/gas)
-  2017-11-19 20:11:42 UTC Public node URL: enode://57f82c9206bbd1ee98b7fe811cbf838fbc61fff3ce5deb061ebfe5f5e1acb0b1c26560057ab4f9086488e1f565164c5f374b556a4b87b6cef34ab977ac9628de@10.0.0.4:30303
-  2017-11-19 20:11:46 UTC Imported #4761930 d67c…229c (0 txs, 0.00 Mgas, 0.31 ms, 0.57 KiB)
   ```
 
 4. View accounts from the node now available in the ui(3 if connected to remote node).
