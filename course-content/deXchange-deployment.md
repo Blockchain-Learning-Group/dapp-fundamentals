@@ -103,7 +103,7 @@ __9. Load the app in chrome, [localhost:3000](http://localhost:3000/), note no c
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-16.mp4?raw=true)
 
-__If testrpc still active in your container otherwise proceed to #3__
+__If testrpc is still active in your container otherwise proceed to #3__
 1. Switch to your ethereum client window, ctrl AND b THEN 1
 ```
 ctrl+b 1
@@ -130,27 +130,27 @@ ctrl+c
   ```
   ps aux | grep testrpc
   ```
-    - *Example output:*
-    ```
-    # ps aux | grep testrpc
-    root       847  2.1  0.5 948376 59096 pts/3    Sl+  20:13   0:02 node /usr/local/bin/testrpc
-    ```
+  - *Example output:*
+  ```
+  # ps aux | grep testrpc
+  root       847  2.1  0.5 948376 59096 pts/3    Sl+  20:13   0:02 node /usr/local/bin/testrpc
+  ```
   - Kill the process
   ```
   kill 847
   ```
-    - *Example output:*
-    ```
-    # kill 847
-    #
-    ```
-    *Result in the testrpc window:*
-    ```
-    ctrl+b 1
-    [...]
-    Terminated
-    #
-    ```
+  - *Example output:*
+  ```
+  # kill 847
+  #
+  ```
+  *Result in the testrpc window:*
+  ```
+  ctrl+b 1
+  [...]
+  Terminated
+  #
+  ```
 3. Start your `real` Ethereum client, parity.
   - Switch into your client window, 1.
   ```
