@@ -67,7 +67,16 @@ __Windows 7+ Home(8, 10)__
 __Virtualization must be enabled!__
 - Once downloaded Double click the downloaded .exe file
 - Select next through all defaults and finally install
-- Once installed, on your Desktop, find the Docker QuickStart Terminal icon.
+- Forward the ports of the virtual machine to the host
+- Open virtualbox manager, icon on desktop
+- Select the `default` vm, created for docker-machine
+- Open Settings -> Network -> Advanced -> Port Forward
+- Forward 3000 and 8545 from VM to host:
+  - Protocol    Host IP    Host Port    Guest IP    Guest Port
+  - TCP         127.0.0.1  3000                     3000
+  - TCP         127.0.0.1  8545                     8545
+- Select ok
+- Find the Docker QuickStart Terminal icon, also on your desktop
 - Double click to run it
 - May take a few minutes to complete
 - Resulting with a docker enabled shell for your use.  Note it is this shell that you are now required to use to interact with docker. All linux commands may be executed within as well and you are required to follow the `Docker shell` commands.

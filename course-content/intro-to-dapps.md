@@ -113,6 +113,13 @@ root@182d123ec039:/blg/wallet-template#
 ```
 
 __5. Install dependencies__
+
+__Docker Shell__
+```
+yarn --no-bin-links
+yarn global add react-scripts
+```
+__Mac, Linux, Widows__
 ```
 yarn
 ```
