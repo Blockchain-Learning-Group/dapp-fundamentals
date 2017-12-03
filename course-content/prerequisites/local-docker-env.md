@@ -4,7 +4,7 @@
 - Chrome will be installed on the local machine and will interact with the application running inside the container.
 
 # Setup Guide
-1. Install Docker
+__1. Install Docker__
 - [Ubuntu Installation Instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 
   __Quick Start__
@@ -40,7 +40,7 @@
 
 - [Windows Installation Instructions](https://www.docker.com/docker-windows)
 
-2. Pull the Dev Environment Image
+__2. Pull the Dev Environment Image__
 ```
 docker pull blockchainlg/dapp-dev-env
 ```
