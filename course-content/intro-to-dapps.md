@@ -114,7 +114,7 @@ root@182d123ec039:/blg/wallet-template#
 
 __5. Install dependencies__
 ```
-yarn
+yarn --no-bin-links
 ```
 - *Example output:*
 ```

@@ -50,11 +50,11 @@ C:\Users\adamj>
 
 __Windows 7+ Home(8, 10)__
 
-*64-bit operating system running Windows 7+ required, if you do not meet this specification please contact blg asap to provide an environment*
+*64-bit operating system running Windows 7+ required, if you do not meet this specification please contact BLG asap to provide an environment.*
 
 - Install docker toolbox: [DockerToolbox.exe](https://download.docker.com/win/stable/DockerToolbox.exe)
 - Ensure virtualization is enabled on your machine, [Process to check](https://docs.docker.com/toolbox/toolbox_install_windows/#step-1-check-your-version)
-  - If it is disabled, Check with your manufacturer to define the process
+  - If it is disabled, Check with the manufacturer to define the exact process, example below.
   - __Process on HP pavilion: [Solution](https://h30434.www3.hp.com/t5/Desktop-Hardware-and-Upgrade-Questions/How-to-Enable-Intel-Virtualization-Technology-vt-x-on-HP/td-p/3198063)__
   - Boot into bios: restart and rapidly tap esc
   - Select BIOS setup
