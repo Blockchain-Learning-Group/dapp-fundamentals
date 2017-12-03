@@ -4,8 +4,8 @@
 - Chrome will be installed on the local machine and will interact with the application running inside the container.
 
 # Setup Guide
-__1. Install Docker__
-- [Ubuntu Installation Instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
+### 1. Install Docker
+#### [Ubuntu Installation Instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 
   __Quick Start__
   ```
@@ -30,7 +30,7 @@ __1. Install Docker__
 
   sudo apt-get install docker-ce=17.09.0~ce-0~ubuntu
   ```
-- [Mac Installation Instructions](https://www.docker.com/docker-mac)
+#### [Mac Installation Instructions](https://www.docker.com/docker-mac)
 
   __Quick Start__
   - Download Docker from: [https://store.docker.com/editions/community/docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac)
@@ -38,7 +38,8 @@ __1. Install Docker__
   - Double-click the application to run it
   - Check to see if it works by running `docker version`, confirm you have the latest release installed.
 
-- [Windows Installation Instructions](https://www.docker.com/docker-windows)
+#### [Windows Installation Instructions](https://www.docker.com/docker-windows)
+
 __Quick Start__
 - Check which OS version you are running, `ver`
 ```
