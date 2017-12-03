@@ -67,7 +67,7 @@ __Windows 7+ Home(8, 10)__
 __Virtualization must be enabled!__
 - Once downloaded Double click the downloaded .exe file
 - Select next through all defaults and finally install
-- Forward the ports of the virtual machine to the host
+- Forward the ports of the virtual machine to the host, [Further Reference](https://stackoverflow.com/questions/36286305/how-do-i-forward-a-docker-machine-port-to-my-host-port-on-osx)
 - Open virtualbox manager, icon on desktop
 - Select the `default` vm, created for docker-machine
 - Open Settings -> Network -> Advanced -> Port Forward
