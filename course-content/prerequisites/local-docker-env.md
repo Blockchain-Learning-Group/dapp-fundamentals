@@ -70,7 +70,7 @@ __Virtualization must be enabled!__
 - Once installed, on your Desktop, find the Docker QuickStart Terminal icon.
 - Double click to run it
 - May take a few minutes to complete
-- Resulting with a docker enabled shell for your use.  Note it is this shell that you are now required to use to interact with docker
+- Resulting with a docker enabled shell for your use.  Note it is this shell that you are now required to use to interact with docker. All linux commands may be executed within as well and you are required to follow the `Docker shell` commands.
 ```
                         ##         .
                   ## ## ##        ==

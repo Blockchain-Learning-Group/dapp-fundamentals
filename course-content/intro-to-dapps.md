@@ -29,6 +29,10 @@ cd ~/Desktop && mkdir blg && cd blg
 ```
 cd c:\Users\USERNAME\desktop && MD blg && cd blg
 ```
+*Docker shell*
+```
+cd ~/Desktop && mkdir blg && cd blg
+```
 - *Example output:*
 ```
 adam@adam:/$ cd ~/Desktop && mkdir blg && cd blg
@@ -67,6 +71,10 @@ docker run -dit -p 3000:3000 -p 8545:8545 -v /Users/<USERNAME>/Desktop/blg:/blg 
 - Follow the steps [here](https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c) to share your C drive with docker.
 ```
 docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/<USERNAME>/desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+```
+*Docker shell*
+```
+$ docker run -dit -p 3000:3000 -p 8545:8545 -v /c/Users/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 ```
 - *Example output:*
 ```
