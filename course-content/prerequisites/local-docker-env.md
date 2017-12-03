@@ -96,7 +96,7 @@ __Windows 10 Professional or Enterprise 64-bit with Hyper-V Available__
 - Upon login docker should start automatically
 - Within a command prompt simply enter: `docker version` to confirm docker has been installed correctly.
 
-__2. Pull the Dev Environment Image__
+### 2. Pull the Dev Environment Image
 ```
 docker pull blockchainlg/dapp-dev-env
 ```
