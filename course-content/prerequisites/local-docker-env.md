@@ -39,6 +39,61 @@ __1. Install Docker__
   - Check to see if it works by running `docker version`, confirm you have the latest release installed.
 
 - [Windows Installation Instructions](https://www.docker.com/docker-windows)
+__Quick Start__
+- Check which OS version you are running, `ver`
+```
+C:\Users\adamj>ver
+Microsoft Windows [Version 10.0.15063]
+C:\Users\adamj>
+```
+
+__Windows 7+ Home(8, 10)__
+
+*64-bit operating system running Windows 7+ required, if you do not meet this specification please contact blg asap to provide an environment*
+
+- Install docker toolbox: [DockerToolbox.exe](https://download.docker.com/win/stable/DockerToolbox.exe)
+- Ensure virtualization is enabled on your machine, [Process to check](https://docs.docker.com/toolbox/toolbox_install_windows/#step-1-check-your-version)
+  - If it is disabled, Check with your manufacturer to define the process
+  - __Process on HP pavilion: [Solution](https://h30434.www3.hp.com/t5/Desktop-Hardware-and-Upgrade-Questions/How-to-Enable-Intel-Virtualization-Technology-vt-x-on-HP/td-p/3198063)__
+  - Boot into bios: restart and rapidly tap esc
+  - Select BIOS setup
+  - Under system configuration
+  - Select virtualization
+  - Enable
+  - Hit F10 to save and exit
+  - If you have a previous version of VirtualBox installed, do not reinstall it with the Docker Toolbox installer. When prompted, uncheck it. If you have Virtual Box running, you must shut it down before running the installer.
+
+__Virtualization must be enabled!__
+- Once downloaded Double click the downloaded .exe file
+- Select next through all defaults and finally install
+- Once installed, on your Desktop, find the Docker QuickStart Terminal icon.
+- Double click to run it
+- May take a few minutes to complete
+- Resulting with a docker enabled shell for your use.  Note it is this shell that you are now required to use to interact with docker
+```
+                        ##         .
+                  ## ## ##        ==
+              ## ## ## ## ##    ===
+          /"""""""""""""""""\___/ ===
+    ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
+        \______ o           __/
+          \    \         __/
+           \____\_______/
+
+docker is configured to use the default machine with IP 192.168.99.100
+For help getting started, check out the docs at https://docs.docker.com
+
+Start interactive shell
+
+adamj@DESKTOP-B2ADN05 MINGW64 ~
+$
+```
+
+__Windows 10 Professional or Enterprise 64-bit with Hyper-V Available__
+- Download from: [https://store.docker.com/editions/community/docker-ce-desktop-windows](https://store.docker.com/editions/community/docker-ce-desktop-windows)
+- Follow the few install steps and you will be required to log out
+- Upon login docker should start automatically
+- Within a command prompt simply enter: `docker version` to confirm docker has been installed correctly.
 
 __2. Pull the Dev Environment Image__
 ```
