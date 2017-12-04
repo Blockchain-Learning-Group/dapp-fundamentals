@@ -51,11 +51,23 @@
 1. Install the chrome plugin, Metamask from: [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 2. Once installed, create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
 
+### 3.4 Video Player
+- In order to view the video tutorials a sufficient multi-media player is required some options include:
+__Mac__
+1. [VLC](https://www.videolan.org/vlc/download-macosx.html)
+2. [Cisdem](https://www.cisdem.com/video-player-mac.html)
+
+__Windows__
+1. [VLC](https://www.videolan.org/vlc/download-windows.html)
+
+__Linux__
+1. [VLC](https://www.videolan.org/vlc/download-ubuntu.html)
+
 ### [Windows users ONLY]
 1. Git client
 - Install git for windows [here](https://git-for-windows.github.io/)
 - And to enable usage within windows command prompt execute the following within a prompt: `set PATH=%PATH%;"C:\Program Files\Git\cmd`
-- Confirm git is configured correctly simply run: `git` 
+- Confirm git is configured correctly simply run: `git`
 
 ### 3.4 Development Dependencies
 1. Local Dockerized Environment

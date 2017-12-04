@@ -18,6 +18,10 @@
 
 __If your container is still running you may jump to step 2__
 
+__Docker Machine ONLY - if Docker shell exited__
+- Double-click the `Docker QuickStart` icon on your Desktop to restart docker machine.
+- Execute everything following from within the Docker shell.
+
 __1. Start your container back up__
 ```
 docker start blg-env

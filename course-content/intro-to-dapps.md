@@ -57,7 +57,10 @@ adam@adam:~/Desktop/blg$
 
 __3. Run your docker container__
 
-*Replace `<USERNAME>` with your username.*
+*Replace `<USERNAME>` with your username. This is your machine's active user and can likely be found here:*
+- Linux: `adam@ubuntu-box:~$`, username == `adam`
+- Mac: `mac-box:~ adam1$`, username == `adam1`
+- Windows: `C:\Users\adam2>`, username == `adamj2`
 
 *Linux*
 ```
@@ -468,9 +471,3 @@ adam@adam:~/$ docker stop blg-env
 blg-env
 adam@adam:~/$
 ```
-__Docker Machine ONLY__
-- Stop docker machine, within command prompt NOT the docker shell.
-```
-docker-machine stop default
-```
-- Close the docker shell
