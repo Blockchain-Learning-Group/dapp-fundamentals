@@ -29,7 +29,7 @@ cd ~/Desktop && mkdir blg && cd blg
 ```
 cd c:\Users\USERNAME\desktop && MD blg && cd blg
 ```
-*Docker shell*
+*Docker Machine*
 ```
 cd ~/Desktop && mkdir blg && cd blg
 ```
@@ -72,7 +72,7 @@ docker run -dit -p 3000:3000 -p 8545:8545 -v /Users/<USERNAME>/Desktop/blg:/blg 
 ```
 docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/<USERNAME>/desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 ```
-*Docker shell*
+*Docker Machine*
 ```
 docker run -dit -p 3000:3000 -p 8545:8545 -v /c/Users/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 ```
@@ -114,7 +114,7 @@ root@182d123ec039:/blg/wallet-template#
 
 __5. Install dependencies__
 
-__Docker Shell__
+__Docker Machine__
 ```
 yarn --no-bin-links
 yarn global add react-scripts
@@ -468,3 +468,9 @@ adam@adam:~/$ docker stop blg-env
 blg-env
 adam@adam:~/$
 ```
+__Docker Machine ONLY__
+- Stop docker machine, within command prompt NOT the docker shell.
+```
+docker-machine stop default
+```
+- Close the docker shell

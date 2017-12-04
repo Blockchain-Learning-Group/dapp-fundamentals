@@ -54,20 +54,21 @@ __Windows 7+ Home(8, 10)__
 
 - Install docker toolbox: [DockerToolbox.exe](https://download.docker.com/win/stable/DockerToolbox.exe)
 - Ensure virtualization is enabled on your machine, [Process to check](https://docs.docker.com/toolbox/toolbox_install_windows/#step-1-check-your-version)
-  - If it is disabled, Check with the manufacturer to define the exact process, example below.
+  - If it is disabled, check with the manufacturer to define the exact process, example below.
   - __Process on HP pavilion: [Solution](https://h30434.www3.hp.com/t5/Desktop-Hardware-and-Upgrade-Questions/How-to-Enable-Intel-Virtualization-Technology-vt-x-on-HP/td-p/3198063)__
   - Boot into bios: restart and rapidly tap esc
   - Select BIOS setup
   - Under system configuration
   - Select virtualization
-  - Enable
+  - Toggle to Enabled
   - Hit F10 to save and exit
   - If you have a previous version of VirtualBox installed, do not reinstall it with the Docker Toolbox installer. When prompted, uncheck it. If you have Virtual Box running, you must shut it down before running the installer.
 
-__Virtualization must be enabled!__
+__Virtualization must be enabled to continue!__
 - Once downloaded Double click the downloaded .exe file
 - Select next through all defaults and finally install
-- Forward the ports of the virtual machine to the host, [Further Reference](https://stackoverflow.com/questions/36286305/how-do-i-forward-a-docker-machine-port-to-my-host-port-on-osx)
+- Once installation completes...
+- Forward the ports of the virtual machine to the host: [(Further Reference)](https://stackoverflow.com/questions/36286305/how-do-i-forward-a-docker-machine-port-to-my-host-port-on-osx)
 - Open virtualbox manager, icon on desktop
 - Select the `default` vm, created for docker-machine
 - Open Settings -> Network -> Advanced -> Port Forward
@@ -79,7 +80,7 @@ __Virtualization must be enabled!__
 - Find the Docker QuickStart Terminal icon, also on your desktop
 - Double click to run it
 - May take a few minutes to complete
-- Resulting with a docker enabled shell for your use.  Note it is this shell that you are now required to use to interact with docker. All linux commands may be executed within as well and you are required to follow the `Docker shell` commands.
+- Resulting with a docker enabled shell for your use.  Note it is this shell that you are now required to use to interact with docker. All linux commands may be executed within as well and you are required to follow the `Docker Machine` commands in the subsequent documentation.
 ```
                         ##         .
                   ## ## ##        ==

@@ -26,6 +26,10 @@
 
 #### [Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-1.mp4?raw=true)
 
+__Docker Machine ONLY__
+- Double-click the `Docker QuickStart` icon on your Desktop to restart docker machine.
+- Execute everything following from within the Docker shell.
+
 __1. Start your container back up__
 ```
 docker start blg-env
