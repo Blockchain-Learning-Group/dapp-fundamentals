@@ -53,16 +53,12 @@
 
 ### 3.4 Video Player
 - In order to view the video tutorials a sufficient multi-media player is required some options include:
-
-__Mac__
-1. [VLC](https://www.videolan.org/vlc/download-macosx.html)
-2. [Cisdem](https://www.cisdem.com/video-player-mac.html)
-
-__Windows__
-1. [VLC](https://www.videolan.org/vlc/download-windows.html)
-
-__Linux__
-1. [VLC](https://www.videolan.org/vlc/download-ubuntu.html)
+1. VLC
+- [Mac](https://www.videolan.org/vlc/download-macosx.html)
+- [Windows](https://www.videolan.org/vlc/download-windows.html)
+- [Linux](https://www.videolan.org/vlc/download-ubuntu.html)
+2. Cisdem
+- [Mac](https://www.cisdem.com/video-player-mac.html)
 
 ### 3.5 Development Dependencies
 1. Local Dockerized Environment
