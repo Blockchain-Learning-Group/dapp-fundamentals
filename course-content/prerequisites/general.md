@@ -53,6 +53,7 @@
 
 ### 3.4 Video Player
 - In order to view the video tutorials a sufficient multi-media player is required some options include:
+
 __Mac__
 1. [VLC](https://www.videolan.org/vlc/download-macosx.html)
 2. [Cisdem](https://www.cisdem.com/video-player-mac.html)
@@ -63,15 +64,15 @@ __Windows__
 __Linux__
 1. [VLC](https://www.videolan.org/vlc/download-ubuntu.html)
 
+### 3.5 Development Dependencies
+1. Local Dockerized Environment
+- Follow the instructions here: [local-docker-env.md](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites/local-docker-env.md) to configure your environment.
+
 ### [Windows users ONLY]
 1. Git client
 - Install git for windows [here](https://git-for-windows.github.io/)
 - And to enable usage within windows command prompt execute the following within a prompt: `set PATH=%PATH%;"C:\Program Files\Git\cmd`
 - Confirm git is configured correctly simply run: `git`
-
-### 3.4 Development Dependencies
-1. Local Dockerized Environment
-- Follow the instructions here: [local-docker-env.md](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/prerequisites/local-docker-env.md) to configure your environment.
 ---
 # 4.0 Project Submission and Accreditation
 - In order to submit your final project and have it accredited you must create a github account.  Please do so at [github.com](https://github.com/).
