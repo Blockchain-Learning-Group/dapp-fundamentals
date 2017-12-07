@@ -33,6 +33,7 @@
 
 ### 3.1 Text Editor
 
+#### Atom
 *Atom will be used through-out and thus is recommended but not required. A text editor with solidity support is advised however.*
 1. Install the atom editor from: [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)
 - Other options: [Available Solidity Integrations](http://solidity.readthedocs.io/en/latest/index.html#available-solidity-integrations)
@@ -42,6 +43,22 @@
 - Select install in the left naviation bar and search for etheratom
 - The correct package should have ~3k downloads
 - Select install
+__If an error is encountered when installing, has been experienced on Windows 10 then please proceed to install Sublime below.__
+
+#### Sublime
+1. Install the Sublime text editor
+- Download the editor here: [https://www.sublimetext.com/3](https://www.sublimetext.com/3)
+- Complete the installer steps
+
+2. Install Sublime Package Control
+- Open the editor
+- `ctrl+shift+p` or `cmd+shift+p` (Mac)
+- Select install package control
+
+3. Install the Ethereum package
+- `ctrl+shift+p` or `cmd+shift+p` (Mac)
+- Select install package
+- Search for and selct Ethereum
 
 ### 3.2 Google Chrome
 1. Install the Google Chrome browser from: [Google Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB)
