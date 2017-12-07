@@ -44,7 +44,7 @@
 - The correct package should have ~3k downloads
 - Select install
 
-__If an error is encountered when installing, has been experienced on Windows 10 then please proceed to install Sublime below.__
+__If an error is encountered when installing etheratom, as has been experienced on Windows 10, then please proceed to install Sublime below.__
 
 #### Sublime
 1. Install the Sublime text editor
