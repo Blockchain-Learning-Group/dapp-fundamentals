@@ -43,6 +43,7 @@
 - Select install in the left naviation bar and search for etheratom
 - The correct package should have ~3k downloads
 - Select install
+
 __If an error is encountered when installing, has been experienced on Windows 10 then please proceed to install Sublime below.__
 
 #### Sublime
