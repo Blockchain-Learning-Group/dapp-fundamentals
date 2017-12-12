@@ -160,8 +160,14 @@ root@a75baed9ceba:/blg/wallet-template#
 ```
 
 __8. Start the app__
+
+__Mac and Linux__
 ```
 yarn start
+```
+__Windows and Docker Machine__
+```
+CHOKIDAR_USEPOLLING=true yarn start
 ```
 - *Example output:*
 ```
