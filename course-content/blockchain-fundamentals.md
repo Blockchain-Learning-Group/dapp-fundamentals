@@ -128,3 +128,13 @@ Usage:
 4. TransferFrom
 
 *Save this contract to disk. We will be using it again!*
+---
+## Bonus
+__1. Deploy your token to the Kovan Test Net!__
+- Ensure Metamask is installed, enabled and unlocked
+- Ensure Metamask is connected to Kovan via the drop down in the top left corner
+- Within remix under the `run` tab switch from `Javascript VM` to `injected web3`
+- Refresh the browser
+- Now re-deploy and the contract will be sent from your Metamask account.
+  - *NOTE a Metamask window will pop-up for you to confirm the transaction*
+  - Also __SAVE__ the address the token was deployed at! You may need it later :)

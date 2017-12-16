@@ -449,7 +449,9 @@ if (window.web3)
 else
 ```
 - Refresh the browser and connect to your Metamask account. View your Metamask account now available within the application.
-__2. Enable the wallet to support multiple ERC20 tokens.__
+__2. Interact with your token that was deployed to Kovan__
+__3. Interact with another participant's token on Kovan__
+__4. Enable the wallet to support multiple ERC20 tokens__
 ---
 ### Clean up
 
