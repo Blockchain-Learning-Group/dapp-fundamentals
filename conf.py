@@ -29,7 +29,7 @@ source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = './course-content/index'
+master_doc = 'course-content/index'
 
 # General information about the project.
 project = 'Blockchain Learning Group DApp Fundamentals'
