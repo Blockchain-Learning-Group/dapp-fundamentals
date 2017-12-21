@@ -242,6 +242,10 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 .. image:: 02-stage-1.png
    :target: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png
 
+
+.. |ImageLink| image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png
+
+
 **END Stage 1: Dev Enviroment Set up and Application Bootstrapped!**
 
 ----
