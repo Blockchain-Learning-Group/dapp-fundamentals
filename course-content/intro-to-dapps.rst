@@ -373,13 +373,15 @@ Stage 2: Token Interface
 
 **END Stage 2: Token Interface**
 
+----
+
 Stage 3: Token Interaction - GET
 ================================
 
 **Time to start coding!**
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-3-01.mp4?raw=true>`_
-==============================
+------------------------
 
 1. Open up the repo ``~/Desktop/blg/wallet-template`` in a text editor of your choice
 ---------------------------------------------------------------------------------
@@ -387,7 +389,7 @@ Stage 3: Token Interaction - GET
 2. Set the default account's ether balance, `wallet-template/src/App.js#L55 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/6095b3cad3b3aff0628c17f52cba15c8f2171ece/src/App.js#L55>`_
 ---------------------------------------------------------------------------
 
-.. code-block:: Javascript
+.. code-block:: javascript
 
   this.web3.eth.getBalance(defaultAccount, (err, ethBalance) => {
     this.setState({ ethBalance })
