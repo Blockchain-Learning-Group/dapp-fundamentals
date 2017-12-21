@@ -1,5 +1,5 @@
 =======================
-Day 2: DApp Development
+Introduction to DApp Development
 =======================
 
 `Download Completed Wallet Demo <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/wallet.mp4>`_
@@ -9,26 +9,30 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 *Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.*
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-1-01.mp4?raw=true>`_
-========================
+------------------------
 
 1. Make a blg directory on your desktop
 ---------------------------------------
 *Linux and Mac*
+
 .. code-block:: bash
 
   cd ~/Desktop && mkdir blg && cd blg
 
 *Windows*
+
 .. code-block:: bash
 
   cd c:\Users\USERNAME\desktop && MD blg && cd blg
 
 *Docker Machine*
+
 .. code-block:: bash
 
   cd ~/Desktop && mkdir blg && cd blg
 
 - *Example output:*
+
 .. code-block:: bash
 
   adam@adam:/$ cd ~/Desktop && mkdir blg && cd blg
@@ -36,11 +40,13 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 2. Clone the wallet template
 ----------------------------
+
 .. code-block:: bash
 
   git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
 
 - *Example output:*
+
 .. code-block:: bash
 
   adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
@@ -55,6 +61,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 3. Run your docker container
 ----------------------------
 - First stop and remove the test container run at the end of the prerequisites
+
 .. code-block:: bash
 
   docker stop blg-env && docker rm blg-env
@@ -65,27 +72,32 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 - Windows: ``C:\Users\adam2>``, username == ``adamj2``
 
 *Linux*
+
 .. code-block:: bash
 
   docker run -dit -p 3000:3000 -p 8545:8545 -v /home/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 
 *Mac*
+
 .. code-block:: bash
 
   docker run -dit -p 3000:3000 -p 8545:8545 -v /Users/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 
 *Windows*
 - Follow the steps `here <https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c>`_ to share your C drive with docker.
+
 .. code-block:: bash
 
   docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/<USERNAME>/desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 
 *Docker Machine*
+
 .. code-block:: bash
 
   docker run -dit -p 3000:3000 -p 8545:8545 -v /c/Users/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 
 - *Example output:*
+
 .. code-block:: bash
 
   adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
@@ -93,6 +105,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   adam@adam:~$
 
 - *Common Error:*
+
 .. code-block:: bash
 
   adam@adam:~/Desktop/blg$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
@@ -100,11 +113,13 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   See 'docker run --help'.
 
 - Solution:
+
 .. code-block:: bash
 
   docker stop blg-env && docker rm blg-env
 
 - *Examle Output*
+
 .. code-block:: bash
 
   adam@adam:~/Desktop/blg$ docker stop blg-env && docker rm blg-env
@@ -116,11 +131,13 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 ----------------------------
 
 *Container will serve as your virtual environment.*
+
 .. code-block:: bash
 
   docker exec -it blg-env bash
 
 - *Example output:*
+
 .. code-block:: bash
 
   adam@adam:~$ docker exec -it blg-env bash
@@ -130,6 +147,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 -----------------------
 
 *Docker Machine*
+
 
 .. code-block:: bash
 
