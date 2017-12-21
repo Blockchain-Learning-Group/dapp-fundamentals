@@ -6,4 +6,4 @@ theme: readthedocs
 pages:
 - 'Home': 'index.md'
 - 'Course Content':
-  - 'Blockchain Fundamentals': 'course-content/blockchain-fundamentals.md'
+  - 'Blockchain Fundamentals': 'blockchain-fundamentals.md'
