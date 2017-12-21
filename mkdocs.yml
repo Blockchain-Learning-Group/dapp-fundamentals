@@ -1,0 +1,9 @@
+site_name: Blockchain Learning Group
+repo_url: https://github.com/Blockchain-Learning-Group/dapp-fundamentals
+site_description: BLG DApp Fundamentals
+docs_dir: 'course-content'
+theme: readthedocs
+pages:
+- 'Home': 'index.md'
+- 'Course Content':
+  - 'Blockchain Fundamentals': 'course-content/blockchain-fundamentals.md'
