@@ -80,6 +80,7 @@ Blockchain Fundamentals
 10.4 Update the contract metadata to be your own! Line 55 - 56.
 ---------------------------------------------------------------
 ::
+
   string public constant symbol = 'BLG';
   string public constant name = 'Blockchain Learning Group Community Token';
 
@@ -105,6 +106,7 @@ Blockchain Fundamentals
 
   - Update the total supply and the user's balance, line 108
   ::
+
     totalSupply_ = totalSupply_.add(_value);
     balances_[_to] = balances_[_to].add(_value);
 
@@ -121,6 +123,7 @@ Blockchain Fundamentals
 -------------------------------------
   - Confirm not transferring an amount of 0, line 142
   ::
+
     if (_amount <= 0)
       return error('Cannot transfer amount <= 0, Token.transferFrom()');
 
@@ -138,23 +141,24 @@ Blockchain Fundamentals
 
   - Update the balances, subtracting from the from addressing and adding to the to, line 156
   ::
+
     balances_[_from] = balances_[_from].sub(_amount);
     balances_[_to] = balances_[_to].add(_amount);
 
   - Reduce the spender's allowance,  160
   ::
+
     allowed_[_from][msg.sender] = allowed_[_from][msg.sender].sub(_amount);
 
   - Finally emit an event of the transfer, 163
-  :
-  Transfer(_from, _to, _amount);
-  :
+  ::
+
+    Transfer(_from, _to, _amount);
 
 10.8 Compile and deploy and confirm transfer and transferFrom working.
 ----------------------------------------------------------------------
 10.9 Note error logging if insufficient allowance and other errors correct.
 ---------------------------------------------------------------------------
-
 10.10 Usage
 -----
 1. minting
