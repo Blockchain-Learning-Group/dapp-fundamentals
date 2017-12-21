@@ -8,6 +8,7 @@
 #### [Ubuntu Installation Instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 
   __Quick Start__
+  - If running Ubuntu 17.10 please follow the instructions here: [17.10 QuickStart](https://gist.github.com/levsthings/0a49bfe20b25eeadd61ff0e204f50088)
   ```
   sudo apt-get remove docker docker-engine docker.io
 
@@ -29,6 +30,12 @@
   sudo apt-get update
 
   sudo apt-get install docker-ce=17.09.0~ce-0~ubuntu
+  ```
+  - If you wish to manage Docker as a `Non-root user` ie. `sudo` not required at the beginning of each command
+  ```
+  sudo groupadd docker
+  sudo usermod -aG docker $USER
+  newgrp docker
   ```
 #### [Mac Installation Instructions](https://www.docker.com/docker-mac)
 
