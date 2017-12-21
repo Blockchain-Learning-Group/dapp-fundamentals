@@ -2,14 +2,14 @@
 Blockchain Fundamentals
 =======================
 
-1. `https://ethstats.net/ <https://ethstats.net/>`
+1. `ethstats.net <https://ethstats.net/>`_
 ==================================================
 
-2. `https://etherscan.io/ <https://etherscan.io/>`
+2. `etherscan.io <https://etherscan.io/>`_
 ==================================================
     * `Augur <https://etherscan.io/token/REP#readContract>`
 
-3. `https://www.ethernodes.org/ <https://www.ethernodes.org/network/1>`
+3. `ethernodes.org <https://www.ethernodes.org/network/1>`_
 =======================================================================
 
 4. Hash Function
