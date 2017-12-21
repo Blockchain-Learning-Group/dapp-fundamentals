@@ -19,8 +19,7 @@ Blockchain Fundamentals
 
 - Run and attach into the container
 
-:bash:
-
+.. code:: bash
   $ docker run -dit --name=blg-env blockchainlg/dapp-dev-env
   $ docker exec -it blg-env bash
   # python3
@@ -33,7 +32,7 @@ Blockchain Fundamentals
 
 
 
-5. [Mining Script](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/proof_of_work_mining.py)
+5. `Mining Script <(https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/proof_of_work_mining.py>`_
 - From within the docker container
 ```
 # cd /blg
@@ -41,9 +40,9 @@ blg# python3 proof_of_work_mining.py 0066d6a68c353ec7c7726ffa7389725b6215e463baf
 blg# python3 proof_of_work_mining.py 0006d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
 blg# python3 proof_of_work_mining.py 0000d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
 ```
-6. [Bitcoin 51% Attack Cost](https://gobitcoin.io/tools/cost-51-attack/)
-7. [Remix](https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js)
-8. [DappDeveloper.sol](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/DappDeveloper.sol)
+6. `Bitcoin 51% Attack Cost <https://gobitcoin.io/tools/cost-51-attack/)>`_
+7. `Remix <https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js)>`_
+8. `DappDeveloper.sol <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/DappDeveloper.sol)>`_
 9. Exceed Block Gas Limit
 
 _Add the below to DappDeveloper.sol_
