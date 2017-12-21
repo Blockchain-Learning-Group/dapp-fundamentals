@@ -18,7 +18,9 @@ Blockchain Fundamentals
    :language: bash
 
 - Run and attach into the container
+
 :bash:
+
   $ docker run -dit --name=blg-env blockchainlg/dapp-dev-env
   $ docker exec -it blg-env bash
   # python3
@@ -28,6 +30,8 @@ Blockchain Fundamentals
 
   >>> keccak_256(bytes(2)).hexdigest()
   54a8c0ab653c15bfb48b47fd011ba2b9617af01cb45cab344acd57c924d56798
+
+
 
 5. [Mining Script](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/proof_of_work_mining.py)
 - From within the docker container
