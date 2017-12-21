@@ -1,6 +1,6 @@
-========
+================================================================
 Welcome to Blockchain Learning Group's DApp Fundamentals Course!
-========
+================================================================
 
 An immersive, hands on bootcamp in Blockchain technology, with a focus on decentralized application (DApp) development. From the basics of Blockchain technology to cutting edge smart contract development patterns and deployment techniques. Additionally, a deep dive into utilizing the Ethereum platform to build powerful and impactful applications.
 
@@ -15,5 +15,9 @@ Contents
 .. toctree::
    :maxdepth: 2
 
+   prerequisites/general
    blockchain-fundamentals
    intro-to-dapps
+   deXchange-project
+   deXchange-deployment
+   project-submission
