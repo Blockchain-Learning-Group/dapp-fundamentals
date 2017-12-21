@@ -31,50 +31,62 @@ Blockchain Fundamentals
   >>> keccak_256(bytes(2)).hexdigest()
   54a8c0ab653c15bfb48b47fd011ba2b9617af01cb45cab344acd57c924d56798
 
-
-
 5. `Mining Script <(https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/proof_of_work_mining.py>`_
+===================================================================================================================================
 - From within the docker container
-```
-# cd /blg
-blg# python3 proof_of_work_mining.py 0066d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
-blg# python3 proof_of_work_mining.py 0006d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
-blg# python3 proof_of_work_mining.py 0000d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
-```
+
+.. code:: bash
+
+  # cd /blg
+  blg# python3 proof_of_work_mining.py 0066d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
+  blg# python3 proof_of_work_mining.py 0006d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
+  blg# python3 proof_of_work_mining.py 0000d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
+
 6. `Bitcoin 51% Attack Cost <https://gobitcoin.io/tools/cost-51-attack/)>`_
+===========================================================================
 7. `Remix <https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js)>`_
+======================================================================================================
 8. `DappDeveloper.sol <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/DappDeveloper.sol)>`_
+=================================================================================================================================
 9. Exceed Block Gas Limit
+=========================
 
-_Add the below to DappDeveloper.sol_
-```
-uint256 value_;
+**Add the below to DappDeveloper.sol**
 
-function reachGasLimit() {
-  for (uint256 i = 0; i < 10**18; i++) {
-      value_ = i;
-      value_ = i + 1;
-      value_ = i + 2;
+.. code:: Solidity
+
+  uint256 value_;
+
+  function reachGasLimit() {
+    for (uint256 i = 0; i < 10**18; i++) {
+        value_ = i;
+        value_ = i + 1;
+        value_ = i + 2;
+    }
   }
-}
-```
-10. [Token Exercise](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol), [Solution](https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Token.sol)
 
-[Download Video Tutorial](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/token-development.mp4)
+10. `Token Exercise <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol`_
+=====================================================================================================================
+- `Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Token.sol`_
 
-__10.1__ Copy the exercise over to remix.
+`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/token-development.mp4`_
 
-__10.2__ Note LoggingErrors pattern contract inherited and SafeMath library utilized.
+10.1 Copy the exercise over to remix.
+-------------------------------------
+10.2 Note LoggingErrors pattern contract inherited and SafeMath library utilized.
+---------------------------------------------------------------------------------
+10.3 Compile and deploy the contract. Confirm variables and methods are available.
+----------------------------------------------------------------------------------
+10.4 Update the contract metadata to be your own! Line 55 - 56.
+---------------------------------------------------------------
 
-__10.3__ Compile and deploy the contract. Confirm variables and methods are available.
+.. code:: Solidity
 
-__10.4__ Update the contract metadata to be your own! Line 55 - 56.
-```
-string public constant symbol = 'BLG';
-string public constant name = 'Blockchain Learning Group Community Token';
-```
+  string public constant symbol = 'BLG';
+  string public constant name = 'Blockchain Learning Group Community Token';
 
-__10.5__ Complete the mint method.
+10.5 Complete the mint method.
+------------------------------
   - Only allow the owner to mint tokens, line 94
   ```
   if (msg.sender != owner_)
@@ -101,9 +113,11 @@ __10.5__ Complete the mint method.
   Transfer(address(0), _to, _value);
   ```
 
-__10.6__ Compile, deploy and confirm you can mint to an address. Confirm balance updated in balances_ mapping.
+10.6 Compile, deploy and confirm you can mint to an address. Confirm balance updated in ``balances`` mapping.
+----------------------------------------------------------------------------------------------------------
 
-__10.7__ Complete the transferFrom method.
+10.7 Complete the transferFrom method.
+-------------------------------------
   - Confirm not transferring an amount of 0, line 142
   ```
   if (_amount <= 0)
@@ -133,23 +147,28 @@ __10.7__ Complete the transferFrom method.
   Transfer(_from, _to, _amount);
   ```
 
-__10.8__ Compile and deploy and confirm transfer and transferFrom working.
-__10.9__ Note error logging if insufficient allowance and other errors correct.
+10.8 Compile and deploy and confirm transfer and transferFrom working.
+----------------------------------------------------------------------
+10.9 Note error logging if insufficient allowance and other errors correct.
+---------------------------------------------------------------------------
 
-Usage:
+10.10 Usage
+-----
 1. minting
 2. Transfers
 3. Approvals
 4. TransferFrom
 
 *Save this contract to disk. We will be using it again!*
----
-## Bonus
-__1. Deploy your token to the Kovan Test Net!__
+
+Bonus
+=====
+1. Deploy your token to the Kovan Test Net!
+-------------------------------------
 - Ensure Metamask is installed, enabled and unlocked
 - Ensure Metamask is connected to Kovan via the drop down in the top left corner
 - Within remix under the `run` tab switch from `Javascript VM` to `injected web3`
 - Refresh the browser
 - Now re-deploy and the contract will be sent from your Metamask account.
   - *NOTE a Metamask window will pop-up for you to confirm the transaction*
-  - Also __SAVE__ the address the token was deployed at! You may need it later :)
+  - Also **SAVE** the address the token was deployed at! You may need it later :)
