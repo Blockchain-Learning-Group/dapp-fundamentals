@@ -4,6 +4,8 @@ Introduction to DApp Development
 
 `Download Completed Wallet Demo <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/wallet.mp4>`_
 
+----
+
 Stage 1: Dev Enviroment Setup and Application Bootstrap
 =======================================================
 *Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.*
@@ -246,131 +248,150 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 ----
 
-### Stage 2: Token Interface
-`![Completed <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-2.png>`_
+Stage 2: Token Interface
+==============================
 
-`#### [Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-2-01.mp4?raw=true>`_
-
+`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-2-01.mp4?raw=true>`_
+------------------------
 
 1. Create a new window, Ethereum client
----
+---------------------------------------
+
 *ctrl AND b THEN c*
 
-ctrl+b c
+.. code-block:: bash
+
+  ctrl+b c
 
 - *Example output: Result in new empty window, in same directory.*
 
-#
+.. code-block:: bash
 
-
+  #
 
 2. Start up your Ethereum client, testrpc
----
-testrpc
+-----------------------------------------
+
+.. code-block:: bash
+
+  testrpc
 
 - *Example output:*
+.. code-block:: bash
 
-# testrpc
-EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
-[...]
-Listening on localhost:8545
-
-
+  # testrpc
+  EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
+  [...]
+  Listening on localhost:8545
 
 3. Create a new window, Truffle
----
+-------------------------------
 *ctrl AND b THEN c*
 
-ctrl+b c
+.. code-block:: bash
+
+  ctrl+b c
 
 - *Example output: Result in new empty window, in same directory.*
 
-#
+.. code-block:: bash
 
-
+  #
 
 4. Test Your Token contract
----
+---------------------------
 *contracts/Token.sol has been provided or do update it with the Token that was completed at the end of Day 1.*
 *Also one test file has been provided to confirm the mint method was implemented correctly.*
 
-truffle test
+.. code-block:: bash
+
+  truffle test
 
 - *Example output:*
 
-# truffle test
-Using network 'development'.
-  Contract: Token.mint()
-    � should mint new tokens and allocate to user. (416ms)
-    � should return false and LogErrorString when not from owner. (379ms)
-    � should return false and LogErrorString when minting a value of 0. (318ms)
-  3 passing (1s)
-#
+.. code-block:: bash
 
-
+  # truffle test
+  Using network 'development'.
+    Contract: Token.mint()
+      � should mint new tokens and allocate to user. (416ms)
+      � should return false and LogErrorString when not from owner. (379ms)
+      � should return false and LogErrorString when minting a value of 0. (318ms)
+    3 passing (1s)
+  #
 
 5. Refresh your chrome browser and open up the developer console
----
-`right click => inspect`
+----------------------------------------------------------------
+``right click => inspect``
 
-*Note the error message:* `Token has not been deployed to the detected network.`
+.. note::
+  Error should be present: ``Token has not been deployed to the detected network.``
 
 
 6. Deploy your Token
----
-truffle migrate
+--------------------
+
+.. code-block:: bash
+
+  truffle migrate
 
 - *Example output:*
 
-# truffle migrate
-Using network 'development'.
+.. code-block:: bash
 
-Running migration: 1_initial_migration.js
-  Deploying Migrations...
-  ... 0x26ff3f480502a228f34363e938289c3164edf8bc49c75f5d6d9623a05da92dbf
-  Migrations: 0x3e47fad1423cbf6bd97fee18ae2de546b0e9188a
-Saving successful migration to network...
-  ... 0x19a7a819df452847f34815e2573765be8c26bac43b1c10d3b7528e6d952ac02c
-Saving artifacts...
-Running migration: 2_deploy_contracts.js
-  Deploying Token...
-  ... 0x4a69e7840d0f96067964fb515ffea1a04a98fc5759849d3308584af4770c8f7b
-  Token: 0xd58c6b5e848d70fd94693a370045968c0bc762a7
-Saving successful migration to network...
-  ... 0xd1e9bef5f19bb37daa200d7e563f4fa438da60dbc349f408d1982f8626b3c202
-Saving artifacts...
-#
+  # truffle migrate
+  Using network 'development'.
 
-
+  Running migration: 1_initial_migration.js
+    Deploying Migrations...
+    ... 0x26ff3f480502a228f34363e938289c3164edf8bc49c75f5d6d9623a05da92dbf
+    Migrations: 0x3e47fad1423cbf6bd97fee18ae2de546b0e9188a
+  Saving successful migration to network...
+    ... 0x19a7a819df452847f34815e2573765be8c26bac43b1c10d3b7528e6d952ac02c
+  Saving artifacts...
+  Running migration: 2_deploy_contracts.js
+    Deploying Token...
+    ... 0x4a69e7840d0f96067964fb515ffea1a04a98fc5759849d3308584af4770c8f7b
+    Token: 0xd58c6b5e848d70fd94693a370045968c0bc762a7
+  Saving successful migration to network...
+    ... 0xd1e9bef5f19bb37daa200d7e563f4fa438da60dbc349f408d1982f8626b3c202
+  Saving artifacts...
+  #
 
 7. Refresh chrome, server may already have done so.
----
+---------------------------------------------------
 *View in the developer console the token instance is now present*
 
 - *Example output:*
 
-Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a370045968c0bc762a7", abi: Array[20]}
+.. code-block:: bash
 
+  Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a370045968c0bc762a7", abi: Array[20]}
 
-### END Stage 2: Token Interface
----
-### Stage 3: Token Interaction - GET
-`![Completed <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-3.png>`_
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-2.png
+  :target: index.html
 
-_Time to start coding!_
+**END Stage 2: Token Interface**
 
-`#### [Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-3-01.mp4?raw=true>`_
+Stage 3: Token Interaction - GET
+================================
 
+**Time to start coding!**
 
-1. Open up the repo ~/Desktop/blg/wallet-template in a text editor of your choice
----
-`
-2. Set the default account's ether balance, [wallet-template/src/App.js#L55 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/6095b3cad3b3aff0628c17f52cba15c8f2171ece/src/App.js#L55)
->---`_
----
-this.web3.eth.getBalance(defaultAccount, (err, ethBalance) => {
-  this.setState({ ethBalance })
-})
+`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-3-01.mp4?raw=true>`_
+==============================
+
+1. Open up the repo ``~/Desktop/blg/wallet-template`` in a text editor of your choice
+---------------------------------------------------------------------------------
+
+2. Set the default account's ether balance, `wallet-template/src/App.js#L55 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/6095b3cad3b3aff0628c17f52cba15c8f2171ece/src/App.js#L55>`_
+---------------------------------------------------------------------------
+
+.. code-block:: Javascript
+
+  this.web3.eth.getBalance(defaultAccount, (err, ethBalance) => {
+    this.setState({ ethBalance })
+  })
 
 
 `
@@ -403,14 +424,24 @@ token.decimals((err, tokenDecimals) => {
 
 6. View the default account balances and token information in your browser!
 ---
-### END Stage 3: Token Interaction - GET
----
-### Stage 4: Token Interaction - Mint Tokens
-`![Completed <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4.png>`_
-`![Completed 2 <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4-2.png>`_
 
-`#### [Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-4-01.mp4?raw=true>`_
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-3.png
+  :target: index.html
 
+**END Stage 3: Token Interaction - GET**
+==============================---
+
+Stage 4: Token Interaction - Mint Tokens
+==============================
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4.png
+  :target: index.html
+
+.. image::  <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4-2.png
+  :target: index.html
+
+`#
+[Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-4-01.mp4?raw=true>`_
+==============================
 `
 1. Add a method to mint tokens, sending a transaction to the token contract. [wallet-template/src/App.js#L155 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L170)
 >---`_
@@ -439,14 +470,21 @@ this.state.token.mint(
 
 3. Refresh chrome and view the account's balance of shiny new tokens!
 ---
-### END Stage 4: Token Interaction - Mint Tokens
----
-### Stage 5: Events
-`![Completed <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-5.png>`_
-`![Completed <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-5-2.png>`_
 
-`#### [Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-5-01.mp4?raw=true>`_
+**END Stage 4: Token Interaction - Mint Tokens**
+==============================---
 
+Stage 5: Events
+==============================
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-5.png
+  :target: index.html
+
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-5-2.png
+  :target: index.html
+
+`#
+[Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-5-01.mp4?raw=true>`_
+==============================
 `
 1. Add an event to listen for when tokens are minted, [wallet-template/src/App.js#L131 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L135)
 >---`_
@@ -500,16 +538,23 @@ this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
 ---
 *Note testrpc known bug where it will re-broadcast the latest event every time a new connection is made.  For example every time the browser refreshes in our case the event log will appear.*
 
-### END Stage 5: Events
----
-### Stage 6: Transfer Tokens
-`![Completed <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6.png>`_
-`![Completed <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6-2.png>`_
+
+**END Stage 5: Events**
+==============================---
+
+Stage 6: Transfer Tokens
+==============================
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6.png
+  :target: index.html
+
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6-2.png
+  :target: index.html
 
 _Try this portion on your own!_
 
-`#### [Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-6-01.mp4?raw=true>`_
-
+`#
+[Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-6-01.mp4?raw=true>`_
+==============================
 The required components included:
 
 `1. Add the React transfer tokens form component. [Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L238>`_
@@ -520,10 +565,12 @@ The required components included:
 
 _Finally transfer tokens between accounts and review balances._
 
-### END Stage 6: Transfer Tokens
----
-### Bonus: Extend Your Wallet
 
+**END Stage 6: Transfer Tokens**
+==============================---
+
+Bonus: Extend Your Wallet
+==============================
 1. Metamask Integration
 ---
 `- [Download Video Tuto---rial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-bonus-metamask-integration.mp4?raw=true>`_
@@ -548,10 +595,12 @@ else
 ---
 4. Enable the wallet to support multiple ERC20 tokens
 ---
-### Clean up
 
-`#### [Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-cleanup-01.mp4?raw=true>`_
-
+Clean up
+==============================
+`#
+[Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-cleanup-01.mp4?raw=true>`_
+==============================
 
 1. Detach from your tmux session
 ---
