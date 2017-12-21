@@ -17,25 +17,25 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 ---------------------------------------
 *Linux and Mac*
 
-.. code-block:: bash
+.. code-block:: console
 
   cd ~/Desktop && mkdir blg && cd blg
 
 *Windows*
 
-.. code-block:: bash
+.. code-block:: console
 
   cd c:\Users\USERNAME\desktop && MD blg && cd blg
 
 *Docker Machine*
 
-.. code-block:: bash
+.. code-block:: console
 
   cd ~/Desktop && mkdir blg && cd blg
 
 - *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
   adam@adam:/$ cd ~/Desktop && mkdir blg && cd blg
   adam@adam:~/Desktop/blg$
@@ -43,13 +43,13 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 2. Clone the wallet template
 ----------------------------
 
-.. code-block:: bash
+.. code-block:: console
 
   git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
 
 - *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
   adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
   Cloning into 'wallet-template'...
@@ -64,7 +64,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 ----------------------------
 - First stop and remove the test container run at the end of the prerequisites
 
-.. code-block:: bash
+.. code-block:: console
 
   docker stop blg-env && docker rm blg-env
 
@@ -78,32 +78,32 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 *Linux*
 
-.. code-block:: bash
+.. code-block:: console
 
   docker run -dit -p 3000:3000 -p 8545:8545 -v /home/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 
 *Mac*
 
-.. code-block:: bash
+.. code-block:: console
 
   docker run -dit -p 3000:3000 -p 8545:8545 -v /Users/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 
 *Windows*
 - Follow the steps `here <https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c>`_ to share your C drive with docker.
 
-.. code-block:: bash
+.. code-block:: console
 
   docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/<USERNAME>/desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 
 *Docker Machine*
 
-.. code-block:: bash
+.. code-block:: console
 
   docker run -dit -p 3000:3000 -p 8545:8545 -v /c/Users/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 
 - *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
   adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
   1bb232a56e6868e2bc4dbeaf86405ec3ed892090809fcab1823cab38e8337dc1
@@ -111,7 +111,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 - *Common Error:*
 
-.. code-block:: bash
+.. code-block:: console
 
   adam@adam:~/Desktop/blg$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
   docker: Error response from daemon: Conflict. The container name "/blg-env" is already in use by container "9c52f3787e28c64b197e22ec509fb2a73cd5066543ec6345956e11b6e69ba41c". You have to remove (or rename) that container to be able to reuse that name.
@@ -119,13 +119,13 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 - Solution:
 
-.. code-block:: bash
+.. code-block:: console
 
   docker stop blg-env && docker rm blg-env
 
 - *Examle Output*
 
-.. code-block:: bash
+.. code-block:: console
 
   adam@adam:~/Desktop/blg$ docker stop blg-env && docker rm blg-env
   blg-env
@@ -137,13 +137,13 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 *Container will serve as your virtual environment.*
 
-.. code-block:: bash
+.. code-block:: console
 
   docker exec -it blg-env bash
 
 - *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
   adam@adam:~$ docker exec -it blg-env bash
   root@182d123ec039:/blg/wallet-template#
@@ -153,7 +153,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 *Docker Machine*
 
-.. code-block:: bash
+.. code-block:: console
 
   yarn --no-bin-links
   yarn global add react-scripts
@@ -161,13 +161,13 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 *Mac, Linux, Windows*
 
-.. code-block:: bash
+.. code-block:: console
 
   yarn
 
 - *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
   root@2e9e0eda980d:~/blg/wallet-template# yarn
   yarn install v1.2.0
@@ -179,13 +179,13 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 6. Compile the contracts
 ------------------------
 
-.. code-block:: bash
+.. code-block:: console
 
   cd src && truffle compile
 
 - *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
   root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
   Compiling ./contracts/token/ERC20.sol...
@@ -197,13 +197,13 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 7. Start up your window manager, tmux
 -------------------------------------
 
-.. code-block:: bash
+.. code-block:: console
 
   tmux
 
 - *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
   root@a75baed9ceba:/blg/wallet-template#
 
@@ -212,19 +212,19 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 *Mac and Linux*
 
-.. code-block:: bash
+.. code-block:: console
 
   yarn start
 
 *Windows and Docker Machine*
 
-.. code-block:: bash
+.. code-block:: console
 
   CHOKIDAR_USEPOLLING=true yarn start
 
 - *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
   # yarn start
   yarn run v1.2.0
@@ -259,25 +259,25 @@ Stage 2: Token Interface
 
 *ctrl AND b THEN c*
 
-.. code-block:: bash
+.. code-block:: console
 
   ctrl+b c
 
 - *Example output: Result in new empty window, in same directory.*
 
-.. code-block:: bash
+.. code-block:: console
 
   #
 
 2. Start up your Ethereum client, testrpc
 -----------------------------------------
 
-.. code-block:: bash
+.. code-block:: console
 
   testrpc
 
 - *Example output:*
-.. code-block:: bash
+.. code-block:: console
 
   # testrpc
   EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
@@ -288,13 +288,13 @@ Stage 2: Token Interface
 -------------------------------
 *ctrl AND b THEN c*
 
-.. code-block:: bash
+.. code-block:: console
 
   ctrl+b c
 
 - *Example output: Result in new empty window, in same directory.*
 
-.. code-block:: bash
+.. code-block:: console
 
   #
 
@@ -303,13 +303,13 @@ Stage 2: Token Interface
 *contracts/Token.sol has been provided or do update it with the Token that was completed at the end of Day 1.*
 *Also one test file has been provided to confirm the mint method was implemented correctly.*
 
-.. code-block:: bash
+.. code-block:: console
 
   truffle test
 
 - *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
   # truffle test
   Using network 'development'.
@@ -331,13 +331,13 @@ Stage 2: Token Interface
 6. Deploy your Token
 --------------------
 
-.. code-block:: bash
+.. code-block:: console
 
   truffle migrate
 
 - *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
   # truffle migrate
   Using network 'development'.
@@ -364,7 +364,7 @@ Stage 2: Token Interface
 
 - *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
   Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a370045968c0bc762a7", abi: Array[20]}
 
@@ -389,7 +389,7 @@ Stage 3: Token Interaction - GET
 2. Set the default account's ether balance, `wallet-template/src/App.js#L55 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/6095b3cad3b3aff0628c17f52cba15c8f2171ece/src/App.js#L55>`_
 ---------------------------------------------------------------------------
 
-::
+.. code-block:: javascript
 
   this.web3.eth.getBalance(defaultAccount, (err, ethBalance) => {
     this.setState({ ethBalance })

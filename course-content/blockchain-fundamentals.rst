@@ -14,12 +14,9 @@ Blockchain Fundamentals
 
 4. Hash Function
 ================
-.. role:: bash(code)
-   :language: bash
-
 - Run and attach into the container
 
-.. code-block:: bash
+.. code-block:: console
 
   $ docker run -dit --name=blg-env blockchainlg/dapp-dev-env
   $ docker exec -it blg-env bash
@@ -35,7 +32,7 @@ Blockchain Fundamentals
 ===================================================================================================================================
 - From within the docker container
 
-.. code-block:: bash
+.. code-block:: console
 
   # cd /blg
   blg# python3 proof_of_work_mining.py 0066d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
