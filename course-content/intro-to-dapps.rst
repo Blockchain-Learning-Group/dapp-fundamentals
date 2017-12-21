@@ -66,9 +66,12 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
   docker stop blg-env && docker rm blg-env
 
-*Replace `<USERNAME>` with your username. This is your machine's active user and can likely be found here:*
+*Replace ``<USERNAME>`` with your username. This is your machine's active user and can likely be found here:*
+
 - Linux: ``adam@ubuntu-box:~$``, username == ``adam``
+
 - Mac: ``mac-box:~ adam1$``, username == ``adam1``
+
 - Windows: ``C:\Users\adam2>``, username == ``adamj2``
 
 *Linux*
