@@ -491,7 +491,7 @@ Stage 5: Events
     this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
   })
 
-2. Update the default account's token balance when the event is fired.`wallet-template/src/App.js#L115 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L115>`_
+2. Update the default account's token balance when the event is fired. `wallet-template/src/App.js#L115 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L115>`_
 -------------------------------------------------------------------------------------------------------
 
 .. code-block:: javascript
