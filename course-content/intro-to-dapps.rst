@@ -239,7 +239,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 9. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
 -------------------------------------------------------------------
 
-.. image:: pageflip-200.png
+.. image:: 
    :target: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png
 
 **END Stage 1: Dev Enviroment Set up and Application Bootstrapped!**
