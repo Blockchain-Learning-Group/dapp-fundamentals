@@ -458,7 +458,7 @@ Stage 4: Token Interaction - Mint Tokens
 .. note::
   Note transaction hash in develop console
   Note the transaction is sent from the current default account and only the contract owner, account 0, has permission to do so.
-  
+
   *Example transaction hash:* ``0x4b396191e87c31a02e80160cb6a2661da6086c073f6e91e9bd1f796e29b0c983``
 
 3. Refresh chrome and view the account's balance of shiny new tokens!
@@ -467,7 +467,7 @@ Stage 4: Token Interaction - Mint Tokens
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4.png
   :target: index.html
 
-.. image::  <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4-2.png
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4-2.png
   :target: index.html
 
 **END Stage 4: Token Interaction - Mint Tokens**
@@ -491,7 +491,7 @@ Stage 5: Events
     this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
   })
 
-2. Update the default account's token balance when the event is fired.`wallet-template/src/App.js#L115 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L115`_
+2. Update the default account's token balance when the event is fired.`wallet-template/src/App.js#L115 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L115>`_
 -------------------------------------------------------------------------------------------------------
 
 .. code-block:: javascript
@@ -500,7 +500,7 @@ Stage 5: Events
     this.setState({ tokenBalance })
   })
 
-3. Update the default account's ETH balance when the event is fired. `wallet-template/src/App.js#L122 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L122`_
+3. Update the default account's ETH balance when the event is fired. `wallet-template/src/App.js#L122 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L122>`_
 -----------------------------------------------------------------------------------------------------
 
 .. code-block:: javascript
@@ -510,14 +510,14 @@ Stage 5: Events
   })
 
 
-4. Load the contract events, `wallet-template/src/App.js#L95 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L95`_
+4. Load the contract events, `wallet-template/src/App.js#L95 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L95>`_
 ------------------------------------------------------------
 
 .. code-block:: javascript
 
   this.loadEventListeners()
 
-5. Add another event listener to watch for errors, `wallet-template/src/App.js#L149 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L153`_
+5. Add another event listener to watch for errors, `wallet-template/src/App.js#L149 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L153>`_
 -----------------------------------------------------------------------------------
 
 .. code-block:: javascript
@@ -554,14 +554,17 @@ Stage 6: Transfer Tokens
 
 The required components included:
 
-1. Add the React transfer tokens form component. `Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L238>`_
-----------------------------------------------------------
+1. Add the React transfer tokens form component.
+---------------------------------------------------------
+- `Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L238>`_
 
-2. Complete the transfer method to send the transfer transaction. `Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L193>`_
+2. Complete the transfer method to send the transfer transaction.
 ---------------------------------------------------------------------------
+- `Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L193>`_
 
-3. Add an event listener to watch for token transfers. `Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L144>`_
+3. Add an event listener to watch for token transfers.
 ----------------------------------------------------------------
+- `Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L144>`_
 
 **Finally transfer tokens between accounts and review balances.**
 
@@ -587,7 +590,7 @@ Bonus: Extend Your Wallet
 
 .. code-block:: console
 
-  truffle console
+  $ truffle console
   truffle(development> web3.eth.sendTransaction({ from: web3.eth.accounts[0], to: 'METAMASK_ADDRESS', value: 1e18 })
 
 - Transfer tokens to your metamask account(from within the application).
@@ -610,6 +613,8 @@ Bonus: Extend Your Wallet
 4. Enable the wallet to support multiple ERC20 tokens
 -----------------------------------------------------
 
+----
+
 Clean up
 ========
 
@@ -617,7 +622,8 @@ Clean up
 ------------------------
 
 1. Detach from your tmux session
----
+--------------------------------
+
 *ctrl AND b THEN d*
 
 .. code-block:: bash
