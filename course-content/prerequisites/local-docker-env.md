@@ -113,6 +113,8 @@ __Windows 10 Professional or Enterprise 64-bit with Hyper-V Available__
 - Upon login docker should start automatically
 - Within a command prompt simply enter: `docker version` to confirm docker has been installed correctly.
 
+- Follow the steps `here <https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c>`_ to share your C drive with docker.
+
 ### 2. Pull the Dev Environment Image
 ```
 docker pull blockchainlg/dapp-dev-env

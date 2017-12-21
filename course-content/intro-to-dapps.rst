@@ -66,7 +66,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
   docker stop blg-env && docker rm blg-env
 
-*Replace ``<USERNAME>`` with your username. This is your machine's active user and can likely be found here:*
+*Replace* ``<USERNAME>`` *with your username. This is your machine's active user and can likely be found here:*
 
 - Linux: ``adam@ubuntu-box:~$``, username == ``adam``
 
@@ -151,7 +151,6 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 *Docker Machine*
 
-
 .. code-block:: bash
 
   yarn --no-bin-links
@@ -159,11 +158,13 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 
 *Mac, Linux, Windows*
+
 .. code-block:: bash
 
   yarn
 
 - *Example output:*
+
 .. code-block:: bash
 
   root@2e9e0eda980d:~/blg/wallet-template# yarn
@@ -175,11 +176,13 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 6. Compile the contracts
 ------------------------
+
 .. code-block:: bash
 
   cd src && truffle compile
 
 - *Example output:*
+
 .. code-block:: bash
 
   root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
@@ -191,11 +194,13 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 7. Start up your window manager, tmux
 -------------------------------------
+
 .. code-block:: bash
 
   tmux
 
 - *Example output:*
+
 .. code-block:: bash
 
   root@a75baed9ceba:/blg/wallet-template#
@@ -204,16 +209,19 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 ----------------
 
 *Mac and Linux*
+
 .. code-block:: bash
 
   yarn start
 
 *Windows and Docker Machine*
+
 .. code-block:: bash
 
   CHOKIDAR_USEPOLLING=true yarn start
 
 - *Example output:*
+
 .. code-block:: bash
 
   # yarn start
@@ -231,7 +239,8 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 9. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
 -------------------------------------------------------------------
 
-`<https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png>`_
+.. image:: pageflip-200.png
+   :target: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png
 
 **END Stage 1: Dev Enviroment Set up and Application Bootstrapped!**
 
