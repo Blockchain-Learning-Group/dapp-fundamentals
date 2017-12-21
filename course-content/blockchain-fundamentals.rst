@@ -53,7 +53,7 @@ Blockchain Fundamentals
 
 **Add the below to DappDeveloper.sol**
 
-.. code:: Solidity
+::
 
   uint256 value_;
 
