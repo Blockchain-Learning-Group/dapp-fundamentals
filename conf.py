@@ -192,6 +192,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
+    ('course-content/index', 'index', 'BLG DApp Fundamentals', 'Adam J Lemmon', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
