@@ -16,3 +16,4 @@ Contents
    :maxdepth: 2
 
    blockchain-fundamentals
+   intro-to-dapps

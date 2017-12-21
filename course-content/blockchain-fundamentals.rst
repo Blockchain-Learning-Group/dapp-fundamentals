@@ -174,7 +174,7 @@ Bonus
 -------------------------------------
 - Ensure Metamask is installed, enabled and unlocked
 - Ensure Metamask is connected to Kovan via the drop down in the top left corner
-- Within remix under the `run` tab switch from `Javascript VM` to `injected web3`
+- Within remix under the ``run`` tab switch from ``Javascript VM`` to ``injected web3``
 - Refresh the browser
 - Now re-deploy and the contract will be sent from your Metamask account.
   - *NOTE a Metamask window will pop-up for you to confirm the transaction*
