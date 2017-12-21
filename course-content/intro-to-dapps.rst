@@ -6,229 +6,268 @@ Day 2: DApp Development
 
 Stage 1: Dev Enviroment Setup and Application Bootstrap
 =======================================================
-`!Completed <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png>`_
-
 *Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.*
 
-`#### [Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-1-01.mp4?raw=true>`_
+`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-1-01.mp4?raw=true>`_
+========================
 
-__1. Make a blg directory on your desktop__
-
+1. Make a blg directory on your desktop
+---------------------------------------
 *Linux and Mac*
-```
-cd ~/Desktop && mkdir blg && cd blg
-```
+.. code-block:: bash
+
+  cd ~/Desktop && mkdir blg && cd blg
+
 *Windows*
-```
-cd c:\Users\USERNAME\desktop && MD blg && cd blg
-```
+.. code-block:: bash
+
+  cd c:\Users\USERNAME\desktop && MD blg && cd blg
+
 *Docker Machine*
-```
-cd ~/Desktop && mkdir blg && cd blg
-```
-- *Example output:*
-```
-adam@adam:/$ cd ~/Desktop && mkdir blg && cd blg
-adam@adam:~/Desktop/blg$
-```
+.. code-block:: bash
 
-__2. Clone the wallet template__
-```
-git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
-```
-- *Example output:*
-```
-adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
-Cloning into 'wallet-template'...
-remote: Counting objects: 30, done.
-remote: Compressing objects: 100% (28/28), done.
-remote: Total 30 (delta 0), reused 30 (delta 0), pack-reused 0
-Unpacking objects: 100% (30/30), done.
-Checking connectivity... done.
-adam@adam:~/Desktop/blg$
-```
+  cd ~/Desktop && mkdir blg && cd blg
 
-__3. Run your docker container__
+- *Example output:*
+.. code-block:: bash
+
+  adam@adam:/$ cd ~/Desktop && mkdir blg && cd blg
+  adam@adam:~/Desktop/blg$
+
+2. Clone the wallet template
+----------------------------
+.. code-block:: bash
+
+  git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
+
+- *Example output:*
+.. code-block:: bash
+
+  adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
+  Cloning into 'wallet-template'...
+  remote: Counting objects: 30, done.
+  remote: Compressing objects: 100% (28/28), done.
+  remote: Total 30 (delta 0), reused 30 (delta 0), pack-reused 0
+  Unpacking objects: 100% (30/30), done.
+  Checking connectivity... done.
+  adam@adam:~/Desktop/blg$
+
+3. Run your docker container
+----------------------------
+- First stop and remove the test container run at the end of the prerequisites
+.. code-block:: bash
+
+  docker stop blg-env && docker rm blg-env
 
 *Replace `<USERNAME>` with your username. This is your machine's active user and can likely be found here:*
-- Linux: `adam@ubuntu-box:~$`, username == `adam`
-- Mac: `mac-box:~ adam1$`, username == `adam1`
-- Windows: `C:\Users\adam2>`, username == `adamj2`
+- Linux: ``adam@ubuntu-box:~$``, username == ``adam``
+- Mac: ``mac-box:~ adam1$``, username == ``adam1``
+- Windows: ``C:\Users\adam2>``, username == ``adamj2``
 
 *Linux*
-```
-docker run -dit -p 3000:3000 -p 8545:8545 -v /home/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
-```
-*Mac*
-```
-docker run -dit -p 3000:3000 -p 8545:8545 -v /Users/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
-```
-*Windows*
-`- Follow the steps [here <https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c) to share your C drive with docker.>`_
-```
-docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/<USERNAME>/desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
-```
-*Docker Machine*
-```
-docker run -dit -p 3000:3000 -p 8545:8545 -v /c/Users/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
-```
-- *Example output:*
-```
-adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
-1bb232a56e6868e2bc4dbeaf86405ec3ed892090809fcab1823cab38e8337dc1
-adam@adam:~$
-```
-- *Common Error:*
-```
-adam@adam:~/Desktop/blg$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
-docker: Error response from daemon: Conflict. The container name "/blg-env" is already in use by container "9c52f3787e28c64b197e22ec509fb2a73cd5066543ec6345956e11b6e69ba41c". You have to remove (or rename) that container to be able to reuse that name.
-See 'docker run --help'.
-```
-- Solution:
-```
-docker stop blg-env && docker rm blg-env
-```
-- *Examle Output*
-```
-adam@adam:~/Desktop/blg$ docker stop blg-env && docker rm blg-env
-blg-env
-blg-env
-adam@adam:~/Desktop/blg$
-```
+.. code-block:: bash
 
-__4. Attach into the container__
+  docker run -dit -p 3000:3000 -p 8545:8545 -v /home/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+
+*Mac*
+.. code-block:: bash
+
+  docker run -dit -p 3000:3000 -p 8545:8545 -v /Users/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+
+*Windows*
+- Follow the steps `here <https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c>`_ to share your C drive with docker.
+.. code-block:: bash
+
+  docker run -dit -p 3000:3000 -p 8545:8545 -v c:/Users/<USERNAME>/desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+
+*Docker Machine*
+.. code-block:: bash
+
+  docker run -dit -p 3000:3000 -p 8545:8545 -v /c/Users/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+
+- *Example output:*
+.. code-block:: bash
+
+  adam@adam:~$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+  1bb232a56e6868e2bc4dbeaf86405ec3ed892090809fcab1823cab38e8337dc1
+  adam@adam:~$
+
+- *Common Error:*
+.. code-block:: bash
+
+  adam@adam:~/Desktop/blg$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+  docker: Error response from daemon: Conflict. The container name "/blg-env" is already in use by container "9c52f3787e28c64b197e22ec509fb2a73cd5066543ec6345956e11b6e69ba41c". You have to remove (or rename) that container to be able to reuse that name.
+  See 'docker run --help'.
+
+- Solution:
+.. code-block:: bash
+
+  docker stop blg-env && docker rm blg-env
+
+- *Examle Output*
+.. code-block:: bash
+
+  adam@adam:~/Desktop/blg$ docker stop blg-env && docker rm blg-env
+  blg-env
+  blg-env
+  adam@adam:~/Desktop/blg$
+
+4. Attach into the container
+----------------------------
 
 *Container will serve as your virtual environment.*
-```
-docker exec -it blg-env bash
-```
+.. code-block:: bash
+
+  docker exec -it blg-env bash
+
 - *Example output:*
-```
-adam@adam:~$ docker exec -it blg-env bash
-root@182d123ec039:/blg/wallet-template#
-```
+.. code-block:: bash
 
-__5. Install dependencies__
+  adam@adam:~$ docker exec -it blg-env bash
+  root@182d123ec039:/blg/wallet-template#
 
-__Docker Machine__
-```
-yarn --no-bin-links
-yarn global add react-scripts
-```
-__Mac, Linux, Widows__
-```
-yarn
-```
+5. Install dependencies
+-----------------------
+
+*Docker Machine*
+
+.. code-block:: bash
+
+  yarn --no-bin-links
+  yarn global add react-scripts
+
+
+*Mac, Linux, Windows*
+.. code-block:: bash
+
+  yarn
+
 - *Example output:*
-```
-root@2e9e0eda980d:~/blg/wallet-template# yarn
-yarn install v1.2.0
-[1/4] Resolving packages...
-[....]
-Done in 42.65s.
-root@2e9e0eda980d:~/blg/wallet-template#
-```
+.. code-block:: bash
 
-__6. Compile the contracts__
-```
-cd src && truffle compile
-```
+  root@2e9e0eda980d:~/blg/wallet-template# yarn
+  yarn install v1.2.0
+  [1/4] Resolving packages...
+  [....]
+  Done in 42.65s.
+  root@2e9e0eda980d:~/blg/wallet-template#
+
+6. Compile the contracts
+------------------------
+.. code-block:: bash
+
+  cd src && truffle compile
+
 - *Example output:*
-```
-root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
-Compiling ./contracts/token/ERC20.sol...
-[...]
-Writing artifacts to ./build/contracts
+.. code-block:: bash
 
-root@2e9e0eda980d:~/blg/wallet-template/src#
-```
+  root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
+  Compiling ./contracts/token/ERC20.sol...
+  [...]
+  Writing artifacts to ./build/contracts
 
-__7. Start up your window manager, tmux__
-```
-tmux
-```
+  root@2e9e0eda980d:~/blg/wallet-template/src#
+
+7. Start up your window manager, tmux
+-------------------------------------
+.. code-block:: bash
+
+  tmux
+
 - *Example output:*
-```
-root@a75baed9ceba:/blg/wallet-template#
-```
+.. code-block:: bash
 
-__8. Start the app__
+  root@a75baed9ceba:/blg/wallet-template#
 
-__Mac and Linux__
-```
-yarn start
-```
-__Windows and Docker Machine__
-```
-CHOKIDAR_USEPOLLING=true yarn start
-```
+8. Start the app
+----------------
+
+*Mac and Linux*
+.. code-block:: bash
+
+  yarn start
+
+*Windows and Docker Machine*
+.. code-block:: bash
+
+  CHOKIDAR_USEPOLLING=true yarn start
+
 - *Example output:*
-```
-# yarn start
-yarn run v1.2.0
-$ react-scripts start
-Starting the development server...
-Compiled with warnings.
+.. code-block:: bash
 
-./src/App.js
-  Line 41:  'defaultAccount' is assigned a value but never used  no-unused-vars
+  # yarn start
+  yarn run v1.2.0
+  $ react-scripts start
+  Starting the development server...
+  Compiled with warnings.
 
-Search for the keywords to learn more about each warning.
-To ignore, add // eslint-disable-next-line to the line before.
-```
+  ./src/App.js
+    Line 41:  'defaultAccount' is assigned a value but never used  no-unused-vars
 
-`__9. Load the app in chrome, [localhost:3000 <http://localhost:3000/)__>`_
+  Search for the keywords to learn more about each warning.
+  To ignore, add // eslint-disable-next-line to the line before.
 
-### END Stage 1: Dev Enviroment Set up and Application Bootstrapped!
----
+9. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
+-------------------------------------------------------------------
+
+`<https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png>`_
+
+**END Stage 1: Dev Enviroment Set up and Application Bootstrapped!**
+
+----
+
 ### Stage 2: Token Interface
 `![Completed <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-2.png>`_
 
 `#### [Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-2-01.mp4?raw=true>`_
 
-__1. Create a new window, Ethereum client__
 
+1. Create a new window, Ethereum client
+---
 *ctrl AND b THEN c*
-```
-ctrl+b c
-```
-- *Example output: Result in new empty window, in same directory.*
-```
-#
-```
 
-__2. Start up your Ethereum client, testrpc__
-```
+ctrl+b c
+
+- *Example output: Result in new empty window, in same directory.*
+
+#
+
+
+
+2. Start up your Ethereum client, testrpc
+---
 testrpc
-```
+
 - *Example output:*
-```
+
 # testrpc
 EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
 [...]
 Listening on localhost:8545
-```
 
-__3. Create a new window, Truffle__
 
+
+3. Create a new window, Truffle
+---
 *ctrl AND b THEN c*
-```
+
 ctrl+b c
-```
+
 - *Example output: Result in new empty window, in same directory.*
-```
+
 #
-```
 
-__4. Test Your Token contract__
 
+
+4. Test Your Token contract
+---
 *contracts/Token.sol has been provided or do update it with the Token that was completed at the end of Day 1.*
 *Also one test file has been provided to confirm the mint method was implemented correctly.*
-```
+
 truffle test
-```
+
 - *Example output:*
-```
+
 # truffle test
 Using network 'development'.
   Contract: Token.mint()
@@ -237,20 +276,22 @@ Using network 'development'.
     � should return false and LogErrorString when minting a value of 0. (318ms)
   3 passing (1s)
 #
-```
 
-__5. Refresh your chrome browser and open up the developer console__
 
+
+5. Refresh your chrome browser and open up the developer console
+---
 `right click => inspect`
 
 *Note the error message:* `Token has not been deployed to the detected network.`
 
-__6. Deploy your Token__
-```
+
+6. Deploy your Token
+---
 truffle migrate
-```
+
 - *Example output:*
-```
+
 # truffle migrate
 Using network 'development'.
 
@@ -269,16 +310,17 @@ Saving successful migration to network...
   ... 0xd1e9bef5f19bb37daa200d7e563f4fa438da60dbc349f408d1982f8626b3c202
 Saving artifacts...
 #
-```
 
-__7. Refresh chrome, server may already have done so.__
 
+
+7. Refresh chrome, server may already have done so.
+---
 *View in the developer console the token instance is now present*
 
 - *Example output:*
-```
+
 Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a370045968c0bc762a7", abi: Array[20]}
-```
+
 
 ### END Stage 2: Token Interface
 ---
@@ -289,38 +331,48 @@ _Time to start coding!_
 
 `#### [Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-3-01.mp4?raw=true>`_
 
-__1. Open up the repo ~/Desktop/blg/wallet-template in a text editor of your choice__
 
-`__2. Set the default account's ether balance, [wallet-template/src/App.js#L55 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/6095b3cad3b3aff0628c17f52cba15c8f2171ece/src/App.js#L55)__>`_
-```
+1. Open up the repo ~/Desktop/blg/wallet-template in a text editor of your choice
+---
+`
+2. Set the default account's ether balance, [wallet-template/src/App.js#L55 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/6095b3cad3b3aff0628c17f52cba15c8f2171ece/src/App.js#L55)
+>---`_
+---
 this.web3.eth.getBalance(defaultAccount, (err, ethBalance) => {
   this.setState({ ethBalance })
 })
-```
 
-`__3. Set the default account's token balance, [wallet-template/src/App.js#L74 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L74)__>`_
-```
+
+`
+3. Set the default account's token balance, [wallet-template/src/App.js#L74 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L74)
+>---`_
+---
 token.balanceOf(defaultAccount, (err, tokenBalance) => {
   this.setState({ tokenBalance })
 })
-```
 
-`__4. Set the token's symbol, [wallet-template/src/App.js#L81 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L81)__>`_
-```
+
+`
+4. Set the token's symbol, [wallet-template/src/App.js#L81 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L81)
+>---`_
+---
 token.symbol((err, tokenSymbol) => {
   this.setState({ tokenSymbol })
 })
-```
 
-`__5. Set the token's decimal places, [wallet-template/src/App.js#L88 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L88)__>`_
-```
+
+`
+5. Set the token's decimal places, [wallet-template/src/App.js#L88 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L88)
+>---`_
+---
 token.decimals((err, tokenDecimals) => {
   this.setState({ tokenDecimals })
 })
-```
 
-__6. View the default account balances and token information in your browser!__
 
+
+6. View the default account balances and token information in your browser!
+---
 ### END Stage 3: Token Interaction - GET
 ---
 ### Stage 4: Token Interaction - Mint Tokens
@@ -329,8 +381,10 @@ __6. View the default account balances and token information in your browser!__
 
 `#### [Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-4-01.mp4?raw=true>`_
 
-`__1. Add a method to mint tokens, sending a transaction to the token contract. [wallet-template/src/App.js#L155 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L170)__>`_
-```
+`
+1. Add a method to mint tokens, sending a transaction to the token contract. [wallet-template/src/App.js#L155 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L170)
+>---`_
+---
 this.state.token.mint(
   user,
   amount*10**this.state.tokenDecimals, // Convert to correct decimal places
@@ -340,19 +394,21 @@ this.state.token.mint(
     else console.log(res)
   }
 )
-```
 
-__2. In the GUI mint tokens to available accounts.__
 
+
+2. In the GUI mint tokens to available accounts.
+---
 *Note transaction hash in develop console*
 *Note the transaction is sent from the current default account and only the contract owner, account 0, has permission to do so.*
 - *Example output:*
-```
+
 0x4b396191e87c31a02e80160cb6a2661da6086c073f6e91e9bd1f796e29b0c983
-```
 
-__3. Refresh chrome and view the account's balance of shiny new tokens!__
 
+
+3. Refresh chrome and view the account's balance of shiny new tokens!
+---
 ### END Stage 4: Token Interaction - Mint Tokens
 ---
 ### Stage 5: Events
@@ -361,46 +417,57 @@ __3. Refresh chrome and view the account's balance of shiny new tokens!__
 
 `#### [Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-5-01.mp4?raw=true>`_
 
-`__1. Add an event to listen for when tokens are minted, [wallet-template/src/App.js#L131 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L135)__>`_
-```
+`
+1. Add an event to listen for when tokens are minted, [wallet-template/src/App.js#L131 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L135)
+>---`_
+---
 this.state.token.LogTokensMinted({ fromBlock: 'latest', toBlock: 'latest' })
 .watch((err, res) => {
   console.log(`Tokens Minted! TxHash: https://kovan.etherscan.io/tx/${res.transactionHash}`)
   this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
 })
-```
 
-__2. Update the default account's token balance when the event is fired.
-`[wallet-template/src/App.js#L115 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L115)__>`_
-```
+
+
+2. Update the default account's token balance when the event is fired.
+---`[wallet-template/src/App.js#L115 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L115)
+>`_
+---
 this.state.token.balanceOf(account, (err, tokenBalance) => {
   this.setState({ tokenBalance })
 })
-```
 
-__3. Update the default account's ETH balance when the event is fired.
-`[wallet-template/src/App.js#L122 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L122)__>`_
-```
+
+
+3. Update the default account's ETH balance when the event is fired.
+---`[wallet-template/src/App.js#L122 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L122)
+>`_
+---
 this.web3.eth.getBalance(account, (err, ethBalance) => {
   this.setState({ ethBalance })
 })
-```
 
-`__4. Load the contract events, [wallet-template/src/App.js#L95 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L95)__>`_
-```
+
+`
+4. Load the contract events, [wallet-template/src/App.js#L95 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L95)
+>---`_
+---
 this.loadEventListeners()
-```
 
-`__5. Add another event listener to watch for errors, [wallet-template/src/App.js#L149 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L153)__>`_
-```
+
+`
+5. Add another event listener to watch for errors, [wallet-template/src/App.js#L149 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L153)
+>---`_
+---
 this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
 .watch((err, res) => {
   console.error(res.args.errorString)
 })
-```
 
-__6. Mint tokens and view the log confirmation in the developer console and token and ETH balance updated!  Also mint tokens from an account that is not the owner and view the error message.__
 
+
+6. Mint tokens and view the log confirmation in the developer console and token and ETH balance updated!  Also mint tokens from an account that is not the owner and view the error message.
+---
 *Note testrpc known bug where it will re-broadcast the latest event every time a new connection is made.  For example every time the browser refreshes in our case the event log will appear.*
 
 ### END Stage 5: Events
@@ -426,49 +493,56 @@ _Finally transfer tokens between accounts and review balances._
 ### END Stage 6: Transfer Tokens
 ---
 ### Bonus: Extend Your Wallet
-__1. Metamask Integration__
-`- [Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-bonus-metamask-integration.mp4?raw=true>`_
+
+1. Metamask Integration
+---
+`- [Download Video Tuto---rial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-bonus-metamask-integration.mp4?raw=true>`_
 - Ensure Metamask is installed, unlocked and connected to the local client(localhost:8545).
 - Fund your metamask account!
-```
+
 truffle console
 truffle(development> web3.eth.sendTransaction({ from: web3.eth.accounts[0], to: 'METAMASK_ADDRESS', value: 1e18 })
-```
+
 - Transfer tokens to your metamask account(from within the application).
 `- Add a conditional to use the Metamask web3 provider if present, [wallet-template/src/App.js#L35 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L49>`_
-```
+
 if (window.web3)
     this.web3 = new Web3(window.web3.currentProvider)
 else
-```
+
 - Refresh the browser and connect to your Metamask account. View your Metamask account now available within the application.
-__2. Interact with your token that was deployed to Kovan__
-__3. Interact with another participant's token on Kovan__
-__4. Enable the wallet to support multiple ERC20 tokens__
+
+2. Interact with your token that was deployed to Kovan
+---
+3. Interact with another participant's token on Kovan
+---
+4. Enable the wallet to support multiple ERC20 tokens
 ---
 ### Clean up
 
 `#### [Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-cleanup-01.mp4?raw=true>`_
 
-__1. Detach from your tmux session__
 
+1. Detach from your tmux session
+---
 *ctrl AND b THEN d*
-```
+
 ctrl+b d
-```
 
-__2. Detach from the container__
-```
+
+
+2. Detach from the container
+---
 ctrl+d
-```
 
-__3. Stop the container__
-```
+
+
+3. Stop the container
+---
 docker stop blg-env
-```
+
 - *Example output:*
-```
+
 adam@adam:~/$ docker stop blg-env
 blg-env
 adam@adam:~/$
-```
