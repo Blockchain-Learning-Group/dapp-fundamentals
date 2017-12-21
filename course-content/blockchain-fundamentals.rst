@@ -1,4 +1,6 @@
-# Blockchain Fundamentals
+Blockchain Fundamentals
+========
+
 1. [https://ethstats.net/](https://ethstats.net/)
 2. [https://etherscan.io/](https://etherscan.io/)
     * [Augur](https://etherscan.io/token/REP#readContract)
