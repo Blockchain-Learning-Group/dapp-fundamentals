@@ -1,10 +1,16 @@
+=======================
 Blockchain Fundamentals
-========
+=======================
 
-1. [https://ethstats.net/](https://ethstats.net/)
-2. [https://etherscan.io/](https://etherscan.io/)
-    * [Augur](https://etherscan.io/token/REP#readContract)
-3. [https://www.ethernodes.org/](https://www.ethernodes.org/network/1)
+1. `https://ethstats.net/ <https://ethstats.net/>`
+==================================================
+
+2. `https://etherscan.io/ <https://etherscan.io/>`
+==================================================
+    * `Augur <https://etherscan.io/token/REP#readContract>`
+
+3. `https://www.ethernodes.org/ <https://www.ethernodes.org/network/1>`
+=======================================================================
 
 4. Hash Function
 - Run and attach into the container
@@ -120,7 +126,7 @@ __10.7__ Complete the transferFrom method.
   Transfer(_from, _to, _amount);
   ```
 
-__10.8__ Compile and deploy and confirm transfer and transferFrom working.  
+__10.8__ Compile and deploy and confirm transfer and transferFrom working.
 __10.9__ Note error logging if insufficient allowance and other errors correct.
 
 Usage:

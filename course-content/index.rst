@@ -16,4 +16,3 @@ Contents
    :maxdepth: 2
 
    blockchain-fundamentals
-   test
