@@ -15,4 +15,5 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   blockchain-fundamentals.rst
+   blockchain-fundamentals
+   test
