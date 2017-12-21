@@ -389,7 +389,7 @@ Stage 3: Token Interaction - GET
 2. Set the default account's ether balance, `wallet-template/src/App.js#L55 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/6095b3cad3b3aff0628c17f52cba15c8f2171ece/src/App.js#L55>`_
 ---------------------------------------------------------------------------
 
-.. code-block:: javascript
+::
 
   this.web3.eth.getBalance(defaultAccount, (err, ethBalance) => {
     this.setState({ ethBalance })
