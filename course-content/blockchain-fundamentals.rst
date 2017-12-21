@@ -7,24 +7,27 @@ Blockchain Fundamentals
 
 2. `etherscan.io <https://etherscan.io/>`_
 ==================================================
-    * `Augur <https://etherscan.io/token/REP#readContract>`
+    * `Augur <https://etherscan.io/token/REP#readContract>`_
 
 3. `ethernodes.org <https://www.ethernodes.org/network/1>`_
 =======================================================================
 
 4. Hash Function
-- Run and attach into the container
-```
-$ docker run -dit --name=blg-env blockchainlg/dapp-dev-env
-$ docker exec -it blg-env bash
-# python3
->>> from sha3 import keccak_256
->>> keccak_256(bytes(1)).hexdigest()
-bc36789e7a1e281436464229828f817d6612f7b477d66591ff96a9e064bcc98a
+================
+.. role:: bash(code)
+   :language: bash
 
->>> keccak_256(bytes(2)).hexdigest()
-54a8c0ab653c15bfb48b47fd011ba2b9617af01cb45cab344acd57c924d56798
-```
+- Run and attach into the container
+:bash:
+  $ docker run -dit --name=blg-env blockchainlg/dapp-dev-env
+  $ docker exec -it blg-env bash
+  # python3
+  >>> from sha3 import keccak_256
+  >>> keccak_256(bytes(1)).hexdigest()
+  bc36789e7a1e281436464229828f817d6612f7b477d66591ff96a9e064bcc98a
+
+  >>> keccak_256(bytes(2)).hexdigest()
+  54a8c0ab653c15bfb48b47fd011ba2b9617af01cb45cab344acd57c924d56798
 
 5. [Mining Script](https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/proof_of_work_mining.py)
 - From within the docker container
