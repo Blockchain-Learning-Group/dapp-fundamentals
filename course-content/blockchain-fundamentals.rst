@@ -20,6 +20,7 @@ Blockchain Fundamentals
 - Run and attach into the container
 
 .. code:: bash
+
   $ docker run -dit --name=blg-env blockchainlg/dapp-dev-env
   $ docker exec -it blg-env bash
   # python3
