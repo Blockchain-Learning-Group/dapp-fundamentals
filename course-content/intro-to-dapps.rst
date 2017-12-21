@@ -394,7 +394,7 @@ Stage 3: Token Interaction - GET
     this.setState({ ethBalance })
   })
 
-3. Set the default account's token balance, `wallet-template/src/App.js#L74 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L74`_
+3. Set the default account's token balance, `wallet-template/src/App.js#L74 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L74>`_
 ---------------------------------------------------------------------------
 
 .. code-block:: javascript
@@ -403,7 +403,7 @@ Stage 3: Token Interaction - GET
     this.setState({ tokenBalance })
   })
 
-4. Set the token's symbol, `wallet-template/src/App.js#L81 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L81`_
+4. Set the token's symbol, `wallet-template/src/App.js#L81 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L81>`_
 ----------------------------------------------------------
 
 .. code-block:: javascript
@@ -412,7 +412,7 @@ Stage 3: Token Interaction - GET
     this.setState({ tokenSymbol })
   })
 
-5. Set the token's decimal places, `wallet-template/src/App.js#L88 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L88)`_
+5. Set the token's decimal places, `wallet-template/src/App.js#L88 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L88>`_
 ------------------------------------------------------------------
 
 .. code-block:: javascript
@@ -437,7 +437,7 @@ Stage 4: Token Interaction - Mint Tokens
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-4-01.mp4?raw=true>`_
 ------------------------
 
-1. Add a method to mint tokens, sending a transaction to the token contract. `wallet-template/src/App.js#L155 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L170)`_
+1. Add a method to mint tokens, sending a transaction to the token contract. `wallet-template/src/App.js#L155 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L170>`_
 ---------------------------------------------------------------------------
 
 .. code-block:: javascript
@@ -458,7 +458,8 @@ Stage 4: Token Interaction - Mint Tokens
 .. note::
   Note transaction hash in develop console
   Note the transaction is sent from the current default account and only the contract owner, account 0, has permission to do so.
-  *Example trasnaction hash:* ``0x4b396191e87c31a02e80160cb6a2661da6086c073f6e91e9bd1f796e29b0c983``
+  
+  *Example transaction hash:* ``0x4b396191e87c31a02e80160cb6a2661da6086c073f6e91e9bd1f796e29b0c983``
 
 3. Refresh chrome and view the account's balance of shiny new tokens!
 ---------------------------------------------------------------------
@@ -479,7 +480,7 @@ Stage 5: Events
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-5-01.mp4?raw=true>`_
 ------------------------
 
-1. Add an event to listen for when tokens are minted, `wallet-template/src/App.js#L131 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L135)`_
+1. Add an event to listen for when tokens are minted, `wallet-template/src/App.js#L131 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L135>`_
 --------------------------------------------------------------------------------------
 
 .. code-block:: javascript
