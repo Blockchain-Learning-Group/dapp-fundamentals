@@ -1,12 +1,11 @@
 ====================================
-# Decentralized Exchange Development
+Decentralized Exchange Development
 ====================================
 
 Stage 1: Restart Your Dev Environment and App
----------------------------------------------
+=============================================
 
 *Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.*
------------------------------------------------
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-1.mp4?raw=true>`_
 
