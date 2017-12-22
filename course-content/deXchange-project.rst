@@ -10,7 +10,9 @@ Stage 1: Restart Your Dev Environment and App
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-1.mp4?raw=true>`_
 
 *Docker Machine ONLY - if Docker shell exited*
+
 - Double-click the `Docker QuickStart` icon on your Desktop to restart docker machine.
+
 - Execute everything following from within the Docker shell.
 
 1. Start your container back up
@@ -177,7 +179,9 @@ Stage 1: Restart Your Dev Environment and App
   :target: index.html
 
 **END Stage 1: Restart Your Dev Environment and App**
+
 ----
+
 Stage 2: Create the Exchange Contract
 =====================================
 
@@ -249,8 +253,10 @@ Stage 3: Write the submitOrder Method
   LogOrderSubmitted(orderId, msg.sender, _bidToken,_bidAmount, _askToken, _askAmount);
 
 
-**Stage 3: Write the submitOrder Method**
+**END Stage 3: Write the submitOrder Method**
+
 ----
+
 Stage 4: Test the submitOrder Method
 =========================================
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-4.mp4?raw=true>`_
@@ -360,7 +366,9 @@ Stage 4: Test the submitOrder Method
     #
 
 **Stage 4: Test the submitOrder method**
+
 ----
+
 Stage 5: Write the executeOrder Method
 =========================================
 
@@ -412,7 +420,9 @@ Stage 5: Write the executeOrder Method
   LogOrderExecuted(_orderId, order.maker, msg.sender, order.bidToken, order.bidAmount, order.askToken, order.askAmount);
 
 **Stage 5: Write the executeOrder Method**
+
 ----
+
 Stage 6: Test the executeOrder Method
 =========================================
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true>`_
@@ -507,7 +517,9 @@ Stage 6: Test the executeOrder Method
     Success, The exchange contract is complete!
 
 **Stage 6: Test the executeOrder Method**
+
 ----
+
 Stage 7: Add Basic Routing to the DApp
 =========================================
 
@@ -544,7 +556,9 @@ Stage 7: Add Basic Routing to the DApp
 -----------------------------------------------
 
 **Stage 7: Add Basic Routing to the DApp**
+
 ----
+
 Stage 8: Deploy the Exchange
 =========================================
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-8.mp4?raw=true>`_
@@ -602,7 +616,9 @@ Stage 8: Deploy the Exchange
   #
 
 **Stage 8: Deploy the Exchange**
+
 ----
+
 Stage 9: Create the Reference Exchange Object
 =========================================
 
@@ -642,7 +658,9 @@ Stage 9: Create the Reference Exchange Object
 -----------------------------------------------
 
 **Stage 9: Create the Reference Exchange Object**
+
 ----
+
 Stage 10: Create the UI Component to Submit an Order
 =========================================
 
@@ -744,7 +762,9 @@ Stage 10: Create the UI Component to Submit an Order
 -----------------------------------------------
 
 **Stage 10: Create the UI Component to Submit an Order**
+
 ----
+
 Stage 11: Listen for Submitted Order Events
 =========================================
 
@@ -771,7 +791,9 @@ Stage 11: Listen for Submitted Order Events
 -----------------------------------------------
 
 **Stage 11: Listen for Submitted Order Events**
+
 ----
+
 Stage 12: Create the Order Book Table
 =========================================
 
@@ -828,7 +850,9 @@ Stage 12: Create the Order Book Table
 -----------------------------------------------
 
 **Stage 12: Create the Order Book Table**
+
 ----
+
 Stage 13: Add an Order Element to the Table When Submitted
 =========================================
 
@@ -879,7 +903,9 @@ Stage 13: Add an Order Element to the Table When Submitted
 -----------------------------------------------
 
 **Stage 13: Add an Order Element to the Table When Submitted**
+
 ----
+
 Stage 14: Select and Execute an Order
 =========================================
 
@@ -956,7 +982,9 @@ Stage 14: Select and Execute an Order
 -----------------------------------------------
 
 **Stage 14: Select and Execute an Order**
+
 ----
+
 Stage 15: Load the Order Book
 =========================================
 
@@ -999,7 +1027,9 @@ Stage 15: Load the Order Book
 Success your exchange running locally is complete! Try it out!
 
 **Stage 15: Load the Order Book**
+
 ----
+
 Bonus: Extend Your Exchange
 ===========================
 1. Pre-condition checks!  amounts > 0, etc.
