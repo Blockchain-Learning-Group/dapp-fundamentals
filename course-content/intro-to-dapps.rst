@@ -90,15 +90,24 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 ----------------------------
 
 .. important::
-  Make sure that the path immediately following the ``-v`` flag is correct! ie. ``/home/adam/Desktop/blg``
-  This path must exist on your host and the ``blg`` directory must contain the ``wallet-template`` repo.
-  Also, take extra care and ensure that the path is correct for your OS.
+  - Make sure that the path immediately following the ``-v`` flag is correct! ie. ``/home/adam/Desktop/blg``
+  - This path must exist on your host and the ``blg`` directory must contain the ``wallet-template`` repo.
+  - Also, take extra care and ensure that the path is correct for your OS.
 
-- First stop and remove the test container run at the end of the prerequisites
+  - If you previously ran the container to confirm the prerequisites were completed then first stop and remove this test container.
 
-.. code-block:: bash
+  .. code-block:: bash
 
-  docker stop blg-env && docker rm blg-env
+    docker stop blg-env && docker rm blg-env
+
+  - *Example output:*
+  
+  .. code-block:: console
+
+    adam@adam:~/Desktop/blg$ docker stop blg-env && docker rm blg-env
+    blg-env
+    blg-env
+    adam@adam:~/Desktop/blg$
 
 *Linux*
 
@@ -113,7 +122,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   docker run -dit -p 3000:3000 -p 8545:8545 -v /Users/<USERNAME>/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
 
 *Windows*
-- Follow the steps `here <https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c>`_ to share your C drive with docker.
+- If you have not already, follow the steps `here <https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c>`_ to share your C drive with docker.
 
 .. code-block:: bash
 
