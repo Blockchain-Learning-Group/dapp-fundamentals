@@ -86,6 +86,10 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
 1. Install the chrome plugin, Metamask from: `Metamask <https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en>`_
 2. Once installed, create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
 
+.. attention::
+  - The Kovan network has proven to be unreliable.
+  - Please also navigate the the Rinkeby faucet here: `Rinkeby Crypto Faucet <https://www.rinkeby.io/#faucet>`_ to receive some ether of your own!
+
 3.4 Video Player
 ----------------
 - In order to view the video tutorials a sufficient multi-media player is required:
