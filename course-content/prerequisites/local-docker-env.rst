@@ -76,9 +76,8 @@ Setup Guide
   Windows 10 Home requires a different nstallation process versus Windows 10 Pro for example.
 
 .. important::
-  `Windows Installation Instructions <https://www.docker.com/docker-windows>`_
-
-  **Quick Start**
+  First confirm exactly which OS version you are running.
+    - Process to check OS for 7, 8 and 10 `here <https://support.microsoft.com/en-ca/help/13443/windows-which-operating-system>`_
 
   - Check which OS version you are running, ``ver``
 
@@ -88,6 +87,8 @@ Setup Guide
     Microsoft Windows [Version 10.0.15063]
     C:\Users\adamj>
 
+  **Please follow the OS specific instructions below but for refererence the complete docker for Windows install instructions can be found here:** `Complete Windows Installation Instructions <https://www.docker.com/docker-windows>`_
+
 .. important::
   **Windows 7+ Home(8, 10)**
 
@@ -95,6 +96,7 @@ Setup Guide
 
   - Install docker toolbox: `DockerToolbox.exe <https://download.docker.com/win/stable/DockerToolbox.exe>`_
   - Ensure virtualization is enabled on your machine, `Process to check <https://docs.docker.com/toolbox/toolbox_install_windows/#step-1-check-your-version>`_
+
     - If it is disabled, check with the manufacturer to define the exact process, example below.
     - Process on HP pavilion: `Solution <https://h30434.www3.hp.com/t5/Desktop-Hardware-and-Upgrade-Questions/How-to-Enable-Intel-Virtualization-Technology-vt-x-on-HP/td-p/3198063>`_
     - Boot into bios: restart and rapidly tap esc
@@ -116,17 +118,22 @@ Setup Guide
   - Select the `default` vm, created for docker-machine
   - ``Open Settings -> Network -> Advanced -> Port Forward``
   - Forward 3000 and 8545 from VM to host:
-  ======== =======   ========= ======== =========
+
+  ======== ========= ========= ======== =========
   Protocol Host IP   Host Port Guest IP Guest Port
-  ======== =======   ========= ======== ==========
+  ======== ========= ========= ======== ==========
   TCP      127.0.0.1 3000               3000
   TCP      127.0.0.1 8545               8545
+  ======== ========= ========= ======== ==========
+
   - Select ok
   - Find the Docker QuickStart Terminal icon, also on your desktop
   - Double click to run it
   - May take a few minutes to complete
   - Resulting with a docker enabled shell for your use.  Note it is this shell that you are now required to use to interact with docker. All linux commands may be executed within as well and you are required to follow the `Docker Machine` commands in the subsequent documentation.
+
   .. code-block:: console
+
                             ##         .
                       ## ## ##        ==
                   ## ## ## ## ##    ===
@@ -146,6 +153,7 @@ Setup Guide
 
 .. important::
   **Windows 10 Professional or Enterprise 64-bit with Hyper-V Available**
+  
   - Download from: `https://store.docker.com/editions/community/docker-ce-desktop-windows <https://store.docker.com/editions/community/docker-ce-desktop-windows>`_
   - Follow the few install steps and you will be required to log out
   - Upon login docker should start automatically
