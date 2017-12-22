@@ -17,9 +17,9 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 .. important::
   Replace ``<USERNAME>`` in ALL instructions below with your username. This is your machine's active user and can likely be found here:
-    - Linux: ``adam@ubuntu-box:~$``, username == ``adam``
-    - Mac: ``mac-box:~ adam1$``, username == ``adam1``
-    - windows: ``c:\users\adam2>``, username == ``adamj2``
+    - Linux: ``adam@ubuntu-box:~$``, <USERNAME> == ``adam``
+    - Mac: ``mac-box:~ adam1$``, <USERNAME> == ``adam1``
+    - windows: ``c:\users\adam2>``, <USERNAME> == ``adamj2``
 
 1. Make a blg directory on your desktop
 ---------------------------------------
@@ -39,7 +39,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
   .. code-block:: bash
 
-    cd c:\Users\USERNAME\desktop && MD blg
+    cd c:\Users\<USERNAME>\desktop && MD blg
 
   - *Example output:*
 
@@ -60,7 +60,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 .. code-block:: bash
 
-  cd c:\Users\USERNAME\desktop\blg
+  cd c:\Users\<USERNAME>\desktop\blg
 
 
 2. Clone the wallet template
