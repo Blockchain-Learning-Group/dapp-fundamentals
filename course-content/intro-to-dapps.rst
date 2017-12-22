@@ -66,6 +66,9 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 2. Clone the wallet template
 ----------------------------
 
+.. important::
+  Make **SURE** you are within the ``blg`` directory before cloning the repo!
+
 .. code-block:: bash
 
   git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
@@ -85,6 +88,12 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 3. Run your docker container
 ----------------------------
+
+.. important::
+  Make sure that the path immediately following the ``-v`` flag is correct! ie. ``/home/adam/Desktop/blg``
+  This path must exist on your host and the ``blg`` directory must contain the ``wallet-template`` repo.
+  Also, take extra care and ensure that the path is correct for your OS.
+
 - First stop and remove the test container run at the end of the prerequisites
 
 .. code-block:: bash
@@ -124,28 +133,29 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   1bb232a56e6868e2bc4dbeaf86405ec3ed892090809fcab1823cab38e8337dc1
   adam@adam:~$
 
-- *Common Error:*
+.. attention::
+  **Common Error:**
 
-.. code-block:: console
+  .. code-block:: console
 
-  adam@adam:~/Desktop/blg$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
-  docker: Error response from daemon: Conflict. The container name "/blg-env" is already in use by container "9c52f3787e28c64b197e22ec509fb2a73cd5066543ec6345956e11b6e69ba41c". You have to remove (or rename) that container to be able to reuse that name.
-  See 'docker run --help'.
+    adam@adam:~/Desktop/blg$ docker run -dit -p 3000:3000 -p 8545:8545 -v /home/adam/Desktop/blg:/blg --name=blg-env blockchainlg/dapp-dev-env
+    docker: Error response from daemon: Conflict. The container name "/blg-env" is already in use by container "9c52f3787e28c64b197e22ec509fb2a73cd5066543ec6345956e11b6e69ba41c". You have to remove (or rename) that container to be able to reuse that name.
+    See 'docker run --help'.
 
-- Solution:
+  **Solution:**
 
-.. code-block:: bash
+  .. code-block:: bash
 
-  docker stop blg-env && docker rm blg-env
+    docker stop blg-env && docker rm blg-env
 
-- *Examle Output*
+  - *Examle Output*
 
-.. code-block:: console
+  .. code-block:: console
 
-  adam@adam:~/Desktop/blg$ docker stop blg-env && docker rm blg-env
-  blg-env
-  blg-env
-  adam@adam:~/Desktop/blg$
+    adam@adam:~/Desktop/blg$ docker stop blg-env && docker rm blg-env
+    blg-env
+    blg-env
+    adam@adam:~/Desktop/blg$
 
 4. Attach into the container
 ----------------------------
