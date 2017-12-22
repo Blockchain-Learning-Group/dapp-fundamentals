@@ -53,11 +53,12 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
 2. Install Sublime Package Control
 
 - Open the editor
-- `ctrl+shift+p` or `cmd+shift+p` (Mac)
+- ``ctrl+shift+p`` or ``cmd+shift+p`` (Mac)
 - Select install package control
 
 3. Install the Ethereum package
-- `ctrl+shift+p` or `cmd+shift+p` (Mac)
+
+- ``ctrl+shift+p`` or ``cmd+shift+p`` (Mac)
 - Select install package
 - Search for and selct Ethereum
 
@@ -67,10 +68,12 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
   Atom will be used through-out and but not required. A text editor with solidity support is advised however.
 
 1. Install the atom editor from: `Atom <https://flight-manual.atom.io/getting-started/sections/installing-atom/>`_
+
 - Other options: `Available Solidity Integrations <http://solidity.readthedocs.io/en/latest/index.html#available-solidity-integrations>`_
 
 2. Install atom's solidity plug-in `Etheratom <https://atom.io/packages/etheratom>`_
-- Within atom along the top bar select Packages => Settings View => Manage Packages
+
+- Within atom along the top bar select ``Packages => Settings View => Manage Packages``
 - Select install in the left naviation bar and search for etheratom
 - The correct package should have ~3k downloads
 - Select install
@@ -91,7 +94,9 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
 3.4 Video Player
 ----------------
 - In order to view the video tutorials a sufficient multi-media player is required:
+
 1. VLC
+
 - `Mac <https://www.videolan.org/vlc/download-macosx.html>`_
 - `Windows <https://www.videolan.org/vlc/download-windows.html>`_
 - `Linux <https://www.videolan.org/vlc/download-ubuntu.html>`_
@@ -99,13 +104,15 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
 3.5 Development Dependencies
 ----------------------------
 1. Local Dockerized Environment
+
 - Follow the instructions here: `local-docker-env <http://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/prerequisites/local-docker-env.html>`_ to configure your environment
 
 [Windows users ONLY]
 ------------------------------------------
 1. Git client
+
 - Install git for windows `here <https://git-for-windows.github.io/>`_
-- And to enable usage within windows command prompt execute the following within a prompt: `set PATH=%PATH%;"C:\Program Files\Git\cmd`
+- And to enable usage within windows command prompt execute the following within a prompt: ``set PATH=%PATH%;"C:\Program Files\Git\cmd``
 - Confirm git is configured correctly simply run: ``git``
 
 ----
