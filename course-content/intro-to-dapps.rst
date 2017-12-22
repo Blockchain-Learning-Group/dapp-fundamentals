@@ -101,7 +101,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
     docker stop blg-env && docker rm blg-env
 
   - *Example output:*
-  
+
   .. code-block:: console
 
     adam@adam:~/Desktop/blg$ docker stop blg-env && docker rm blg-env
@@ -334,8 +334,9 @@ Stage 2: Token Interface
 
 4. Test Your Token contract
 ---------------------------
-*contracts/Token.sol has been provided or do update it with the Token that was completed at the end of Day 1.*
-*Also one test file has been provided to confirm the mint method was implemented correctly.*
+.. note::
+  - contracts/Token.sol has been provided or do update it with the Token that was completed at the end of Day 1.
+  - Also one test file has been provided to confirm the mint method was implemented correctly.
 
 .. code-block:: bash
 
