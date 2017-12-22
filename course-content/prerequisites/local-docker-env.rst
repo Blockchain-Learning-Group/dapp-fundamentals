@@ -12,7 +12,7 @@ Setup Guide
 1. Install Docker
 -----------------
 
-1.1 Ubuntu installation
+1.1 Ubuntu Installation
 ***********************
 
 .. note::
@@ -55,7 +55,7 @@ Setup Guide
     sudo usermod -aG docker $USER
     newgrp docker
 
-1.2 Mac installation
+1.2 Mac Installation
 ***********************
 
 .. important::
@@ -68,12 +68,12 @@ Setup Guide
   - Double-click the application to run it
   - Check to see if it works by running ``docker version``, confirm you have the latest release installed.
 
-1.3 Windows installation
+1.3 Windows Installation
 ------------------------
 
 .. attention::
   Be sure to follow the correct instructions for you exact OS version!
-  Windows 10 Home requires a different installation process versus Windows 10 Pro for example.
+  Windows 10 Home requires a different nstallation process versus Windows 10 Pro for example.
 
 .. important::
   `Windows Installation Instructions <https://www.docker.com/docker-windows>`_
@@ -144,43 +144,73 @@ Setup Guide
     adamj@DESKTOP-B2ADN05 MINGW64 ~
     $
 
-
-__Windows 10 Professional or Enterprise 64-bit with Hyper-V Available__
-- Download from: [https://store.docker.com/editions/community/docker-ce-desktop-windows <https://store.docker.com/editions/community/docker-ce-desktop-windows)
-- Follow the few install steps and you will be required to log out
-- Upon login docker should start automatically
-- Within a command prompt simply enter: `docker version` to confirm docker has been installed correctly.
-
-- Follow the steps `here <https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c>`_ to share your C drive with docker.
+.. important::
+  **Windows 10 Professional or Enterprise 64-bit with Hyper-V Available**
+  - Download from: `https://store.docker.com/editions/community/docker-ce-desktop-windows <https://store.docker.com/editions/community/docker-ce-desktop-windows>`_
+  - Follow the few install steps and you will be required to log out
+  - Upon login docker should start automatically
+  - Within a command prompt simply enter: ``docker version`` to confirm docker has been installed correctly.
+  - Follow the steps `here <https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c>`_ to share your C drive with docker.
 
 2. Pull the Dev Environment Image
 =================================
-docker pull blockchainlg/dapp-dev-env
+
+.. code-block:: bash
+
+  docker pull blockchainlg/dapp-dev-env
+
 - *Example output: [may take a few minutes]*
-adam@adam:~$ docker pull blockchainlg/dapp-dev-env
-Using default tag: latest
-[...]
-27dbc59e6374: Pull complete
-Digest: sha256:dd092aac455c2c3fccf017c26fe14c40a13a2bbdf69cf67d1bd0adf66a708ec4
-Status: Downloaded newer image for blockchainlg/dapp-dev-env:latest
-adam@adam:~$
+
+.. code-block:: console
+
+  adam@adam:~$ docker pull blockchainlg/dapp-dev-env
+  Using default tag: latest
+  [...]
+  27dbc59e6374: Pull complete
+  Digest: sha256:dd092aac455c2c3fccf017c26fe14c40a13a2bbdf69cf67d1bd0adf66a708ec4
+  Status: Downloaded newer image for blockchainlg/dapp-dev-env:latest
+  adam@adam:~$
+
 - Run the container to confirm install and image working correctly
-docker run -dit --name=blg-env blockchainlg/dapp-dev-env
+
+.. code-block:: bash
+
+  docker run -dit --name=blg-env blockchainlg/dapp-dev-env
+
 - *Example output:*
-adam@adam:~$ docker run -dit --name=blg-env blockchainlg/dapp-dev-env
-c404fde9605f3c27a927161c6d9c809cb3215e58ea33b25ae28acc7ad0cd32cd
-adam@adam:~$
+
+.. code-block:: console
+
+  adam@adam:~$ docker run -dit --name=blg-env blockchainlg/dapp-dev-env
+  c404fde9605f3c27a927161c6d9c809cb3215e58ea33b25ae28acc7ad0cd32cd
+  adam@adam:~$
+
 - Confirm the container is running
-docker ps
+
+.. code-block:: bash
+
+  docker ps
+
 - *Example output:*
-adam@adam:~$ docker ps
-CONTAINER ID        IMAGE                       COMMAND             CREATED              STATUS              PORTS               NAMES
-c404fde9605f        blockchainlg/dapp-dev-env   "node"              About a minute ago   Up About a minute                       blg-env
-adam@adam:~$
+
+.. code-block:: console
+
+  adam@adam:~$ docker ps
+  CONTAINER ID        IMAGE                       COMMAND             CREATED              STATUS              PORTS               NAMES
+  c404fde9605f        blockchainlg/dapp-dev-env   "node"              About a minute ago   Up About a minute                       blg-env
+  adam@adam:~$
+
 - Stop and remove the container for now
-docker stop blg-env && docker rm blg-env
+
+.. code-block:: bash
+
+  docker stop blg-env && docker rm blg-env
+
 - *Example output:*
-adam@adam:~$ docker stop blg-env && docker rm blg-env
-blg-env
-blg-env
-adam@adam:~$
+
+.. code-block:: console
+
+  adam@adam:~$ docker stop blg-env && docker rm blg-env
+  blg-env
+  blg-env
+  adam@adam:~$
