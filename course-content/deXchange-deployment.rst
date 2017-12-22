@@ -271,7 +271,8 @@ Stage 3: Deploy to the Kovan Public Testnet
   root@37709e3ee3e7:/blg/wallet-template/src#
 
 .. warning::
-  Common Error - Simply run the migration again
+  Common Error
+
   .. code-block:: console
     root@37709e3ee3e7:/blg/wallet-template/src# truffle migrate
     Using network 'development'.
@@ -291,6 +292,8 @@ Stage 3: Deploy to the Kovan Public Testnet
         at XMLHttpRequest._setReadyState (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73359:12)
         at XMLHttpRequest._onHttpResponseEnd (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73514:12)
         at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73474:24)
+
+    **Solution: Simply run the migration again**
 
 3. View the contracts deployed to kovan @ https://kovan.etherscan.io/address/ ``TOKEN OR EXCHANGE ADDRESS``
 ---------------------------------------------------------------------------------------------------------
