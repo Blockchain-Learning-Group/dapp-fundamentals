@@ -12,6 +12,9 @@ Setup Guide
 1. Install Docker
 -----------------
 
+1.1 Ubuntu installation
+***********************
+
 .. note::
   If running Ubuntu 17.10 please follow the instructions here: `17.10 QuickStart <https://gist.github.com/levsthings/0a49bfe20b25eeadd61ff0e204f50088>`_
 
@@ -52,71 +55,95 @@ Setup Guide
     sudo usermod -aG docker $USER
     newgrp docker
 
-`Mac Installation Instructions <https://www.docker.com/docker-mac>`_
+1.2 Mac installation
+***********************
 
-  __Quick Start__
-  - Download Docker from: [https://store.docker.com/editions/community/docker-ce-desktop-mac <https://store.docker.com/editions/community/docker-ce-desktop-mac)
+.. important::
+  `Mac Installation Instructions <https://www.docker.com/docker-mac>`_
+
+  **Quick Start**
+
+  - Download Docker from: `https://store.docker.com/editions/community/docker-ce-desktop-mac <https://store.docker.com/editions/community/docker-ce-desktop-mac>`_
   - Double-click Docker.dmg to start the install process.
   - Double-click the application to run it
-  - Check to see if it works by running `docker version`, confirm you have the latest release installed.
+  - Check to see if it works by running ``docker version``, confirm you have the latest release installed.
 
-`Windows Installation Instructions <https://www.docker.com/docker-windows>`_
+1.3 Windows installation
+------------------------
 
-__Quick Start__
-- Check which OS version you are running, `ver`
-C:\Users\adamj>ver
-Microsoft Windows [Version 10.0.15063]
-C:\Users\adamj>
+.. attention::
+  Be sure to follow the correct instructions for you exact OS version!
+  Windows 10 Home requires a different installation process versus Windows 10 Pro for example.
 
-__Windows 7+ Home(8, 10)__
+.. important::
+  `Windows Installation Instructions <https://www.docker.com/docker-windows>`_
 
-*64-bit operating system running Windows 7+ required, if you do not meet this specification please contact BLG asap to provide an environment.*
+  **Quick Start**
 
-- Install docker toolbox: [DockerToolbox.exe <https://download.docker.com/win/stable/DockerToolbox.exe)
-- Ensure virtualization is enabled on your machine, [Process to check <https://docs.docker.com/toolbox/toolbox_install_windows/#step-1-check-your-version)
-  - If it is disabled, check with the manufacturer to define the exact process, example below.
-  - __Process on HP pavilion: [Solution <https://h30434.www3.hp.com/t5/Desktop-Hardware-and-Upgrade-Questions/How-to-Enable-Intel-Virtualization-Technology-vt-x-on-HP/td-p/3198063)__
-  - Boot into bios: restart and rapidly tap esc
-  - Select BIOS setup
-  - Under system configuration
-  - Select virtualization
-  - Toggle to Enabled
-  - Hit F10 to save and exit
-  - If you have a previous version of VirtualBox installed, do not reinstall it with the Docker Toolbox installer. When prompted, uncheck it. If you have Virtual Box running, you must shut it down before running the installer.
+  - Check which OS version you are running, ``ver``
 
-__Virtualization must be enabled to continue!__
-- Once downloaded Double click the downloaded .exe file
-- Select next through all defaults and finally install
-- Once installation completes...
-- Forward the ports of the virtual machine to the host: [(Further Reference) <https://stackoverflow.com/questions/36286305/how-do-i-forward-a-docker-machine-port-to-my-host-port-on-osx)
-- Open virtualbox manager, icon on desktop
-- Select the `default` vm, created for docker-machine
-- Open Settings -> Network -> Advanced -> Port Forward
-- Forward 3000 and 8545 from VM to host:
-  - Protocol    Host IP    Host Port    Guest IP    Guest Port
-  - TCP         127.0.0.1  3000                     3000
-  - TCP         127.0.0.1  8545                     8545
-- Select ok
-- Find the Docker QuickStart Terminal icon, also on your desktop
-- Double click to run it
-- May take a few minutes to complete
-- Resulting with a docker enabled shell for your use.  Note it is this shell that you are now required to use to interact with docker. All linux commands may be executed within as well and you are required to follow the `Docker Machine` commands in the subsequent documentation.
-                        ##         .
-                  ## ## ##        ==
-              ## ## ## ## ##    ===
-          /"""""""""""""""""\___/ ===
-    ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
-        \______ o           __/
-          \    \         __/
-           \____\_______/
+  .. code-block:: console
 
-docker is configured to use the default machine with IP 192.168.99.100
-For help getting started, check out the docs at https://docs.docker.com
+    C:\Users\adamj>ver
+    Microsoft Windows [Version 10.0.15063]
+    C:\Users\adamj>
 
-Start interactive shell
+.. important::
+  **Windows 7+ Home(8, 10)**
 
-adamj@DESKTOP-B2ADN05 MINGW64 ~
-$
+  *64-bit operating system running Windows 7+ required, if you do not meet this specification please contact BLG asap to provide an environment.*
+
+  - Install docker toolbox: `DockerToolbox.exe <https://download.docker.com/win/stable/DockerToolbox.exe>`_
+  - Ensure virtualization is enabled on your machine, `Process to check <https://docs.docker.com/toolbox/toolbox_install_windows/#step-1-check-your-version>`_
+    - If it is disabled, check with the manufacturer to define the exact process, example below.
+    - Process on HP pavilion: `Solution <https://h30434.www3.hp.com/t5/Desktop-Hardware-and-Upgrade-Questions/How-to-Enable-Intel-Virtualization-Technology-vt-x-on-HP/td-p/3198063>`_
+    - Boot into bios: restart and rapidly tap esc
+    - Select BIOS setup
+    - Under system configuration
+    - Select virtualization
+    - Toggle to Enabled
+    - Hit F10 to save and exit
+    - If you have a previous version of VirtualBox installed, do not reinstall it with the Docker Toolbox installer. When prompted, uncheck it. If you have Virtual Box running, you must shut it down before running the installer.
+
+  .. warning::
+      Virtualization must be enabled to continue!
+
+  - Once downloaded Double click the downloaded .exe file
+  - Select next through all defaults and finally install
+  - Once installation completes...
+  - Forward the ports of the virtual machine to the host: `(Further Reference) <https://stackoverflow.com/questions/36286305/how-do-i-forward-a-docker-machine-port-to-my-host-port-on-osx>`_
+  - Open virtualbox manager, icon on desktop
+  - Select the `default` vm, created for docker-machine
+  - ``Open Settings -> Network -> Advanced -> Port Forward``
+  - Forward 3000 and 8545 from VM to host:
+  ======== =======   ========= ======== =========
+  Protocol Host IP   Host Port Guest IP Guest Port
+  ======== =======   ========= ======== ==========
+  TCP      127.0.0.1 3000               3000
+  TCP      127.0.0.1 8545               8545
+  - Select ok
+  - Find the Docker QuickStart Terminal icon, also on your desktop
+  - Double click to run it
+  - May take a few minutes to complete
+  - Resulting with a docker enabled shell for your use.  Note it is this shell that you are now required to use to interact with docker. All linux commands may be executed within as well and you are required to follow the `Docker Machine` commands in the subsequent documentation.
+  .. code-block:: console
+                            ##         .
+                      ## ## ##        ==
+                  ## ## ## ## ##    ===
+              /"""""""""""""""""\___/ ===
+        ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
+            \______ o           __/
+              \    \         __/
+               \____\_______/
+
+    docker is configured to use the default machine with IP 192.168.99.100
+    For help getting started, check out the docs at https://docs.docker.com
+
+    Start interactive shell
+
+    adamj@DESKTOP-B2ADN05 MINGW64 ~
+    $
+
 
 __Windows 10 Professional or Enterprise 64-bit with Hyper-V Available__
 - Download from: [https://store.docker.com/editions/community/docker-ce-desktop-windows <https://store.docker.com/editions/community/docker-ce-desktop-windows)
