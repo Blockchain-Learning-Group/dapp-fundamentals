@@ -206,7 +206,7 @@ Stage 2: Connect to a "Real" Ethereum Client
 
   ssh -g -4 -NL 8545:127.0.0.1:8545 user@52.235.46.203
 
-*A secondary node exists as well: user@52.242.24.198*
+*A secondary node exists as well:* ``user@52.242.24.198``
 
 - *Example output:*
 
@@ -218,6 +218,9 @@ Stage 2: Connect to a "Real" Ethereum Client
   Are you sure you want to continue connecting (yes/no)? yes
   Warning: Permanently added '52.242.37.231' (ECDSA) to the list of known hosts.
   user@52.235.46.203's password:
+
+.. note::
+  There is no output if the above command is successful. It will simply hang as you are not actually ssh'ing into the machine, simply forwarding ports.
 
 4. View accounts from the node now available in the ui.
 -------------------------------------------------------
@@ -244,7 +247,7 @@ Stage 3: Deploy to the Kovan Public Testnet
 ------------------------
 
 .. note::
-  Note 3 unlocked accounts have been provided on the remote BLG node. But the ether will go fast so mind your deployments and transactions!
+  Note unlocked accounts have been provided on the remote BLG node. But the ether will go fast so mind your deployments and transactions!
 
 .. code-block:: bash
 
@@ -269,7 +272,6 @@ Stage 3: Deploy to the Kovan Public Testnet
 
 .. warning::
   Common Error - Simply run the migration again
-
   .. code-block:: console
     root@37709e3ee3e7:/blg/wallet-template/src# truffle migrate
     Using network 'development'.
