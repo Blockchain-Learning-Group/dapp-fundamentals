@@ -50,16 +50,14 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
   - Complete the installer steps
 
 2. Install Sublime Package Control
-
-- Open the editor
-- ``ctrl+shift+p`` or ``cmd+shift+p`` (Mac)
-- Select install package control
+  - Open the editor
+  - ``ctrl+shift+p`` or ``cmd+shift+p`` (Mac)
+  - Select install package control
 
 3. Install the Ethereum package
-
-- ``ctrl+shift+p`` or ``cmd+shift+p`` (Mac)
-- Select install package
-- Search for and selct Ethereum
+  - ``ctrl+shift+p`` or ``cmd+shift+p`` (Mac)
+  - Select install package
+  - Search for and selct Ethereum
 
 **Atom**
 
@@ -67,15 +65,13 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
   Atom will be used through-out and but not required. A text editor with solidity support is advised however.
 
 1. Install the atom editor from: `Atom <https://flight-manual.atom.io/getting-started/sections/installing-atom/>`_
-
-- Other options: `Available Solidity Integrations <http://solidity.readthedocs.io/en/latest/index.html#available-solidity-integrations>`_
+  - Other options: `Available Solidity Integrations <http://solidity.readthedocs.io/en/latest/index.html#available-solidity-integrations>`_
 
 2. Install atom's solidity plug-in `Etheratom <https://atom.io/packages/etheratom>`_
-
-- Within atom along the top bar select ``Packages => Settings View => Manage Packages``
-- Select install in the left naviation bar and search for etheratom
-- The correct package should have ~3k downloads
-- Select install
+  - Within atom along the top bar select ``Packages => Settings View => Manage Packages``
+  - Select install in the left naviation bar and search for etheratom
+  - The correct package should have ~3k downloads
+  - Select install
 
 .. attention::
   If an error is encountered when installing etheratom, as has been experienced on Windows 10, then please proceed to install Sublime above.
@@ -83,7 +79,7 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
 3.2 Google Chrome
 ------------------------------------------
 1. Install the Google Chrome browser from: `Google Chrome <https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB>`_
-- Version > 55.0.0.  Check in address bar: ``chrome://version/``
+  - Version > 55.0.0.  Check in address bar: ``chrome://version/``
 
 3.3 Metamask
 ------------
@@ -95,28 +91,25 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
 - In order to view the video tutorials a sufficient multi-media player is required:
 
 1. VLC
-
-- `Mac <https://www.videolan.org/vlc/download-macosx.html>`_
-- `Windows <https://www.videolan.org/vlc/download-windows.html>`_
-- `Linux <https://www.videolan.org/vlc/download-ubuntu.html>`_
+  - `Mac <https://www.videolan.org/vlc/download-macosx.html>`_
+  - `Windows <https://www.videolan.org/vlc/download-windows.html>`_
+  - `Linux <https://www.videolan.org/vlc/download-ubuntu.html>`_
 
 3.5 Development Dependencies
 ----------------------------
 1. Local Dockerized Environment
-
-- Follow the instructions here: `local-docker-env <http://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/prerequisites/local-docker-env.html>`_ to configure your environment
+  - Follow the instructions here: `local-docker-env <http://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/prerequisites/local-docker-env.html>`_ to configure your environment
 
 [Windows users ONLY]
 ------------------------------------------
 1. Git client
-
-- Install git for windows `here <https://git-for-windows.github.io/>`_
-- And to enable usage within windows command prompt execute the following within a prompt: ``set PATH=%PATH%;"C:\Program Files\Git\cmd``
-- Confirm git is configured correctly simply run: ``git``
+  - Install git for windows `here <https://git-for-windows.github.io/>`_
+  - And to enable usage within windows command prompt execute the following within a prompt: ``set PATH=%PATH%;"C:\Program Files\Git\cmd``
+  - Confirm git is configured correctly simply run: ``git``
 
 ----
 
-4.0 Project Submission and Accreditation
+4.0 Project Submission
 ================================================
 - In order to submit your final project and have it accredited you must create a github account.  Please do so at `github.com <https://github.com/>`_
 - Submission process details to follow.
