@@ -118,15 +118,6 @@ Setup Guide
   - ``Open Settings -> Network -> Advanced -> Port Forward``
   - Forward 3000 and 8545 from VM to host:
 
-  =====  =====  =======
-    A      B    A and B
-  =====  =====  =======
-  False  False  False
-  True   False  False
-  False  True   False
-  True   True   True
-  =====  =====  =======
-
   ========  =========  =========  ========  ==========
   Protocol  Host IP    Host Port  Guest IP  Guest Port
   ========  =========  =========  ========  ==========
