@@ -12,11 +12,10 @@ Stage 1: Restart Your Dev Environment and App
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-1.mp4?raw=true>`_
 
-**Docker Machine ONLY - if Docker shell exited**
-
-- Double-click the `Docker QuickStart` icon on your Desktop to restart docker machine.
-
-- Execute everything following from within the Docker shell.
+.. attention::
+  Docker Machine ONLY - if Docker shell exited
+    - Double-click the `Docker QuickStart` icon on your Desktop to restart docker machine.
+    - Execute everything following from within the Docker shell.
 
 1. Start your container back up
 -------------------------------
@@ -133,7 +132,8 @@ Stage 2: Connect to a "Real" Ethereum Client
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-16.mp4?raw=true>`_
 
-*If testrpc is still active in your container otherwise proceed to #3*
+.. note::
+  If testrpc is still active in your container otherwise proceed to #3
 
 1. Switch to your ethereum client window, ``ctrl AND b THEN 1``
 -----------------------------------------------------------
