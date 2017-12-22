@@ -356,16 +356,13 @@ Stage 4: Test the submitOrder Method
   [...]
   Contract: Exchange.submitOrder() && executeOrder()
     � submitOrder(), should succeed by adding a new order to the orderBook on-chain. (648ms)
-    -----------------------------------------------
     � executeOrder(), should succeed by trading the tokens. Maker bids ether.
-    -----------------------------------------------
-
 
     2 passing (694ms)
 
     #
 
-**Stage 4: Test the submitOrder method**
+**END Stage 4: Test the submitOrder method**
 
 ----
 
@@ -419,7 +416,7 @@ Stage 5: Write the executeOrder Method
 
   LogOrderExecuted(_orderId, order.maker, msg.sender, order.bidToken, order.bidAmount, order.askToken, order.askAmount);
 
-**Stage 5: Write the executeOrder Method**
+**END Stage 5: Write the executeOrder Method**
 
 ----
 
@@ -516,15 +513,12 @@ Stage 6: Test the executeOrder Method
   .. success::
     Success, The exchange contract is complete!
 
-**Stage 6: Test the executeOrder Method**
+**END Stage 6: Test the executeOrder Method**
 
 ----
 
 Stage 7: Add Basic Routing to the DApp
 =========================================
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-7-blank-exchange.png
-  :target: index.html
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-7.mp4?raw=true>`_
 
@@ -555,7 +549,10 @@ Stage 7: Add Basic Routing to the DApp
 2. Confirm the routing is working, open `localhost:3000/#exchange <http://localhost:3000/#exchange>`_
 -----------------------------------------------
 
-**Stage 7: Add Basic Routing to the DApp**
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-7-blank-exchange.png
+  :target: index.html
+
+**END Stage 7: Add Basic Routing to the DApp**
 
 ----
 
@@ -615,15 +612,12 @@ Stage 8: Deploy the Exchange
   Saving artifacts...
   #
 
-**Stage 8: Deploy the Exchange**
+**END Stage 8: Deploy the Exchange**
 
 ----
 
 Stage 9: Create the Reference Exchange Object
 =========================================
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-9.png
-  :target: index.html
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-9.mp4?raw=true>`_
 
@@ -657,15 +651,15 @@ Stage 9: Create the Reference Exchange Object
 4. View the exchange object in the browser developer console.
 -----------------------------------------------
 
-**Stage 9: Create the Reference Exchange Object**
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-9.png
+  :target: index.html
+
+**END Stage 9: Create the Reference Exchange Object**
 
 ----
 
 Stage 10: Create the UI Component to Submit an Order
 =========================================
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-10.png
-  :target: index.html
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-10.mp4?raw=true>`_
 
@@ -761,15 +755,15 @@ Stage 10: Create the UI Component to Submit an Order
 7. Submit an order and view the transaction hashes(approve and submitOrder) in the browser developer console.
 -----------------------------------------------
 
-**Stage 10: Create the UI Component to Submit an Order**
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-10.png
+  :target: index.html
+
+**END Stage 10: Create the UI Component to Submit an Order**
 
 ----
 
 Stage 11: Listen for Submitted Order Events
 =========================================
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-11.png
-  :target: index.html
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-11.mp4?raw=true>`_
 
@@ -790,15 +784,15 @@ Stage 11: Listen for Submitted Order Events
 3. Submit a duplicate order and view the error response.
 -----------------------------------------------
 
-**Stage 11: Listen for Submitted Order Events**
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-11.png
+  :target: index.html
+
+**END Stage 11: Listen for Submitted Order Events**
 
 ----
 
 Stage 12: Create the Order Book Table
 =========================================
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-12.png
-  :target: index.html
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-12.mp4?raw=true>`_
 
@@ -849,15 +843,15 @@ Stage 12: Create the Order Book Table
 4. View new order book table in the ui.
 -----------------------------------------------
 
-**Stage 12: Create the Order Book Table**
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-12.png
+  :target: index.html
+
+**END Stage 12: Create the Order Book Table**
 
 ----
 
 Stage 13: Add an Order Element to the Table When Submitted
 =========================================
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-13.png
-  :target: index.html
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-13.mp4?raw=true>`_
 
@@ -902,15 +896,15 @@ Stage 13: Add an Order Element to the Table When Submitted
 3. Submit an order and view it added to the order book.
 -----------------------------------------------
 
-**Stage 13: Add an Order Element to the Table When Submitted**
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-13.png
+  :target: index.html
+
+**END Stage 13: Add an Order Element to the Table When Submitted**
 
 ----
 
 Stage 14: Select and Execute an Order
 =========================================
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-14.png
-  :target: index.html
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-14.mp4?raw=true>`_
 
@@ -981,15 +975,15 @@ Stage 14: Select and Execute an Order
 5. Execute an order and see that it has been removed from the table.
 -----------------------------------------------
 
-**Stage 14: Select and Execute an Order**
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-14.png
+  :target: index.html
+
+**END Stage 14: Select and Execute an Order**
 
 ----
 
 Stage 15: Load the Order Book
 =========================================
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-15.png
-  :target: index.html
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-15.mp4?raw=true>`_
 
@@ -1026,7 +1020,10 @@ Stage 15: Load the Order Book
 
 Success your exchange running locally is complete! Try it out!
 
-**Stage 15: Load the Order Book**
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-15.png
+  :target: index.html
+
+**END Stage 15: Load the Order Book**
 
 ----
 
