@@ -74,6 +74,7 @@ Setup Guide
 .. attention::
   Be sure to follow the correct instructions for you exact OS version!
   Windows 10 Home requires a different nstallation process versus Windows 10 Pro for example.
+  64-bit operating system running Windows 7+ required, if you do not meet this specification please contact BLG asap to provide an environment.
 
 .. important::
   First confirm exactly which OS version you are running.
@@ -91,8 +92,6 @@ Setup Guide
 
 .. important::
   **Windows 7+ Home(8, 10)**
-
-  *64-bit operating system running Windows 7+ required, if you do not meet this specification please contact BLG asap to provide an environment.*
 
   - Install docker toolbox: `DockerToolbox.exe <https://download.docker.com/win/stable/DockerToolbox.exe>`_
   - Ensure virtualization is enabled on your machine, `Process to check <https://docs.docker.com/toolbox/toolbox_install_windows/#step-1-check-your-version>`_
@@ -119,12 +118,12 @@ Setup Guide
   - ``Open Settings -> Network -> Advanced -> Port Forward``
   - Forward 3000 and 8545 from VM to host:
 
-  ======== ========= ========= ======== =========
-  Protocol Host IP   Host Port Guest IP Guest Port
-  ======== ========= ========= ======== ==========
-  TCP      127.0.0.1 3000               3000
-  TCP      127.0.0.1 8545               8545
-  ======== ========= ========= ======== ==========
+  ========  =========  =========  ========  =========
+  Protocol  Host IP    Host Port  Guest IP  Guest Port
+  ========  =========  =========  ========  ==========
+  TCP       127.0.0.1  3000                 3000
+  TCP       127.0.0.1  8545                 8545
+  ========  =========  =========  ========  ==========
 
   - Select ok
   - Find the Docker QuickStart Terminal icon, also on your desktop
@@ -153,7 +152,7 @@ Setup Guide
 
 .. important::
   **Windows 10 Professional or Enterprise 64-bit with Hyper-V Available**
-  
+
   - Download from: `https://store.docker.com/editions/community/docker-ce-desktop-windows <https://store.docker.com/editions/community/docker-ce-desktop-windows>`_
   - Follow the few install steps and you will be required to log out
   - Upon login docker should start automatically
