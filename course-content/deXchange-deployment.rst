@@ -270,7 +270,6 @@ Stage 3: Deploy to the Kovan Public Testnet
 .. warning::
   Common Error - Simply run the migration again
 
-
   .. code-block:: console
     root@37709e3ee3e7:/blg/wallet-template/src# truffle migrate
     Using network 'development'.
