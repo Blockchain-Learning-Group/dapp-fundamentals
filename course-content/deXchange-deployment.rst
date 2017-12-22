@@ -1,6 +1,6 @@
-=================================
-Decentralized Exchange Deployment
-=================================
+====================
+DeXchange Deployment
+====================
 
 Stage 1: Restart Your Dev Environment and App
 =============================================

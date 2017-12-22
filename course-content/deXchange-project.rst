@@ -1,6 +1,6 @@
-====================================
-Decentralized Exchange Development
-====================================
+=============================
+DeXchange Development Project
+=============================
 
 Stage 1: Restart Your Dev Environment and App
 =============================================
