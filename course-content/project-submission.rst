@@ -39,14 +39,14 @@ If you have not already please create a github account.  Please do so at `github
 .. note::
   This may be done with any file browser as well, below are linux commands to do so.
 
-.. code-block:: console
+.. code-block:: bash
 
   mkdir projects/submissions/USERNAME
   cp -a wallet-template/* projects/submissions/USERNAME/
 
 5. Push your changes to your fork
 
-.. code-block:: console
+.. code-block:: bash
 
   cd projects
   git add .

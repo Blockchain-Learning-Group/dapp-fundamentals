@@ -15,30 +15,51 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 1. Make a blg directory on your desktop
 ---------------------------------------
-*Linux and Mac*
+
+.. Important::
+  This can be done by simply right-clicking on your desktop and creating a new folder named ``blg``.
+
+  If you wish to do so from the command line the commands are as follows:
+
+  *Linux and Mac*
+
+  .. code-block:: bash
+
+    cd ~/Desktop && mkdir blg
+
+  *Windows*
+
+  .. code-block:: bash
+
+    cd c:\Users\USERNAME\desktop && MD blg
+
+  *Docker Machine*
+
+  .. code-block:: bash
+
+    cd ~/Desktop && mkdir blg
+
+  - *Example output:*
+
+  .. code-block:: bash
+
+    adam@adam:/$ cd ~/Desktop && mkdir blg
+    adam@adam:~/Desktop$
+
+- Now change into this directory from the command line
+
+*Linux, Mac and Docker Machine*
 
 .. code-block:: bash
 
-  cd ~/Desktop && mkdir blg && cd blg
+  cd ~/Desktop/blg
 
 *Windows*
 
 .. code-block:: bash
 
-  cd c:\Users\USERNAME\desktop && MD blg && cd blg
+  cd c:\Users\USERNAME\desktop\blg
 
-*Docker Machine*
-
-.. code-block:: bash
-
-  cd ~/Desktop && mkdir blg && cd blg
-
-- *Example output:*
-
-.. code-block:: bash
-
-  adam@adam:/$ cd ~/Desktop && mkdir blg && cd blg
-  adam@adam:~/Desktop/blg$
 
 2. Clone the wallet template
 ----------------------------
