@@ -294,7 +294,7 @@ Stage 3: Deploy to the Kovan Public Testnet
         at XMLHttpRequest._onHttpResponseEnd (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73514:12)
         at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73474:24)
 
-    **Solution: Simply run the migration again**
+  **Solution: Simply run the migration again**
 
 3. View the contracts deployed to kovan @ https://kovan.etherscan.io/address/ ``TOKEN OR EXCHANGE ADDRESS``
 ---------------------------------------------------------------------------------------------------------
