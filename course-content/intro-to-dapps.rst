@@ -8,10 +8,18 @@ Introduction to DApp Development
 
 Stage 1: Dev Enviroment Setup and Application Bootstrap
 =======================================================
-*Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.*
+
+.. note::
+  Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-1-01.mp4?raw=true>`_
 ------------------------
+
+.. important::
+  Replace ``<USERNAME>`` in ALL instructions below with your username. This is your machine's active user and can likely be found here:
+    - Linux: ``adam@ubuntu-box:~$``, username == ``adam``
+    - Mac: ``mac-box:~ adam1$``, username == ``adam1``
+    - windows: ``c:\users\adam2>``, username == ``adamj2``
 
 1. Make a blg directory on your desktop
 ---------------------------------------
@@ -21,7 +29,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
   If you wish to do so from the command line the commands are as follows:
 
-  *Linux and Mac*
+  *Linux, Mac and Docker Machine*
 
   .. code-block:: bash
 
@@ -32,12 +40,6 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   .. code-block:: bash
 
     cd c:\Users\USERNAME\desktop && MD blg
-
-  *Docker Machine*
-
-  .. code-block:: bash
-
-    cd ~/Desktop && mkdir blg
 
   - *Example output:*
 
@@ -88,14 +90,6 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 .. code-block:: bash
 
   docker stop blg-env && docker rm blg-env
-
-*Replace* ``<USERNAME>`` *with your username. This is your machine's active user and can likely be found here:*
-
-- Linux: ``adam@ubuntu-box:~$``, username == ``adam``
-
-- Mac: ``mac-box:~ adam1$``, username == ``adam1``
-
-- Windows: ``C:\Users\adam2>``, username == ``adamj2``
 
 *Linux*
 
