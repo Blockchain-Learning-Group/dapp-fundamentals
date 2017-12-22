@@ -1,5 +1,5 @@
 ========================================
-DApp Fundamentals Course Prerequisites
+Course Prerequisites
 ========================================
 
 Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockchainlearning/shared_invite/enQtMjIyMzIyODMxMjE3LWM4MTA5YWUwNWI0YmMyMTI5OTY1ODhlYjU3NGJiYWYzYzliMDZlMzM4OGUyZjg0Njk0NzQ0NmI5NGYzZDJlNWY>`_
@@ -41,15 +41,17 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
 ---------------
 
 .. warning::
-  Windows user may have problems installing Ethereatom for the Atom editor and therefore Sublime is advised.
+  Windows users may have problems installing Ethereatom for the Atom editor and therefore Sublime is advised.
 
 **Sublime**
 
 1. Install the Sublime text editor
+
 - Download the editor here: `https://www.sublimetext.com/3 <https://www.sublimetext.com/3>`_
 - Complete the installer steps
 
 2. Install Sublime Package Control
+
 - Open the editor
 - `ctrl+shift+p` or `cmd+shift+p` (Mac)
 - Select install package control
