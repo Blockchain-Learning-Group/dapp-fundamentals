@@ -46,9 +46,8 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
 **Sublime**
 
 1. Install the Sublime text editor
-
-- Download the editor here: `https://www.sublimetext.com/3 <https://www.sublimetext.com/3>`_
-- Complete the installer steps
+  - Download the editor here: `https://www.sublimetext.com/3 <https://www.sublimetext.com/3>`_
+  - Complete the installer steps
 
 2. Install Sublime Package Control
 
