@@ -17,9 +17,9 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 .. important::
   Replace ``<USERNAME>`` in ALL instructions below with your username. This is your machine's active user and can likely be found here:
-    - Linux: ``adam@ubuntu-box:~$``, <USERNAME> == ``adam``
-    - Mac: ``mac-box:~ adam1$``, <USERNAME> == ``adam1``
-    - windows: ``c:\users\adam2>``, <USERNAME> == ``adamj2``
+    - Linux: ``adam@ubuntu-box:~$``, ``<USERNAME>`` == ``adam``
+    - Mac: ``mac-box:~ adam1$``, ``<USERNAME>`` == ``adam1``
+    - windows: ``c:\users\adam2>``, ``<USERNAME>`` == ``adamj2``
 
 1. Make a blg directory on your desktop
 ---------------------------------------
