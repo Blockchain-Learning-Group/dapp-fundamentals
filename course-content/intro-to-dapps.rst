@@ -655,8 +655,8 @@ Bonus: Extend Your Wallet
 - Sync a Geth node to Rinkeby
 
   - Instructions `here <https://gist.github.com/cryptogoth/10a98e8078cfd69f7ca892ddbdcf26bc>`_
-  - `Geth Homepage <https://github.com/ethereum/go-ethereum>`
-  
+  - `Geth Homepage <https://github.com/ethereum/go-ethereum>`_
+
 3. Interact with your token that was deployed to Kovan
 ------------------------------------------------------
 
