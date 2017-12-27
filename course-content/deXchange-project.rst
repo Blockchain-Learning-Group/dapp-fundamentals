@@ -1031,23 +1031,27 @@ Bonus: Extend Your Exchange
 ===========================
 1. Pre-condition checks!  amounts > 0, etc.
 -----------------------------------------------
-2. Integrate error logging pattern in place of requires
+2. Sync a node of your own! Instructions can be found `here <http://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/blockchain-fundamentals.html#sync-an-ethereum-node-of-your-own>`_
+------------------------------------------------------------
+3. Integrate error logging pattern in place of requires
 -----------------------------------------------
-3. Add other ERC20 / ETH pairings
+4. Add other ERC20 / ETH pairings
 -----------------------------------------------
-4. Enable ERC20 / ERC20 pairings
+5. Enable ERC20 / ERC20 pairings
 -----------------------------------------------
-5. Automated order matching, partial fills, matched by ratio not user selected.
+6. Automated order matching, partial fills, matched by ratio not user selected.
 -----------------------------------------------
-6. Write tests for the exchange
+7. Write tests for the exchange
 -----------------------------------------------
-7. Update gas amounts sent with each transaction.  Leverage web3's gas estimation!
+8. Update gas amounts sent with each transaction.  Leverage web3's gas estimation!
 -----------------------------------------------
-8. Slean up the allowance if the order submission transaction fails
+9. Slean up the allowance if the order submission transaction fails
 -----------------------------------------------
-9. Sort the orders in the order book table
+10. Sort the orders in the order book table
 -----------------------------------------------
+
 ----
+
 Clean up
 ========
 
