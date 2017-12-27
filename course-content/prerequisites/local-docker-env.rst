@@ -192,6 +192,19 @@ Setup Guide
   c404fde9605f3c27a927161c6d9c809cb3215e58ea33b25ae28acc7ad0cd32cd
   adam@adam:~$
 
+.. attention::
+  If the following error is experienced:
+
+  .. code-block:: console
+
+    WARNING: Error loading config file: /home/ajl/.docker/config.json - open /home/ajl/.docker/config.json: permission denied
+
+  Grant permission to the active user
+
+  .. code-block:: bash
+
+    sudo chown $USER /home/$USER/.docker/config.json
+
 - Confirm the container is running
 
 .. code-block:: bash
