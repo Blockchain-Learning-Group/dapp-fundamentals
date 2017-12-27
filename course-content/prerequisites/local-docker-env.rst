@@ -199,7 +199,7 @@ Setup Guide
 
     WARNING: Error loading config file: /home/ajl/.docker/config.json - open /home/ajl/.docker/config.json: permission denied
 
-  Grant permission to the active user
+  Grant permission to the active user:
 
   .. code-block:: bash
 
