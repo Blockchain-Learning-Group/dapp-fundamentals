@@ -179,8 +179,10 @@ Bonus
 - Within remix under the ``run`` tab switch from ``Javascript VM`` to ``injected web3``
 - Refresh the browser
 - Now re-deploy and the contract will be sent from your Metamask account.
-  - *NOTE a Metamask window will pop-up for you to confirm the transaction*
-  - Also **SAVE** the address the token was deployed at! You may need it later :)
+
+  .. note::
+    - A Metamask window will pop-up for you to confirm the transaction
+    - Also **SAVE** the address the token was deployed at! You may need it later :)
 
 2. Sync an Ethereum node of your own
 ------------------------------------
@@ -191,9 +193,11 @@ Bonus
 - `Getting Started With Azure <https://azure.microsoft.com/en-us/get-started/?v=17.39>`_
 
 - Sync a Parity node to Kovan
+
   - Instructions to deploy to Azure `here <https://medium.com/@attores/creating-a-free-kovan-testnet-node-on-azure-step-by-step-guide-8f10127985e4>`_
   - `Parity Homepage <https://www.parity.io/>`_
 
 - Sync a Geth node to Rinkeby
+
   - Instructions `here <https://gist.github.com/cryptogoth/10a98e8078cfd69f7ca892ddbdcf26bc>`_
   - `Geth Homepage <https://github.com/ethereum/go-ethereum>`_
