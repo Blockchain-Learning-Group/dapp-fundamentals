@@ -35,9 +35,10 @@ Blockchain Fundamentals
 .. code-block:: console
 
   # cd /blg
-  blg# python3 proof_of_work_mining.py 0066d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
-  blg# python3 proof_of_work_mining.py 0006d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
-  blg# python3 proof_of_work_mining.py 0000d6a68c353ec7c7726ffa7389725b6215e463baf2baf1d4f9d97b514659
+  blg# python3 proof_of_work_mining.py 1
+  blg# python3 proof_of_work_mining.py 10
+  blg# python3 proof_of_work_mining.py 1000
+  blg# python3 proof_of_work_mining.py 100000
 
 6. `Bitcoin 51% Attack Cost <https://gobitcoin.io/tools/cost-51-attack/)>`_
 ===========================================================================

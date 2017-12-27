@@ -7,7 +7,7 @@ def mine_block(difficulty):
     target = 2**256 // difficulty
 
     # Randomly guess numbers
-    for i in range(1000000):
+    for i in range(100000000):
         print('Trying: ', i)
 
         # Generate the hash and see if you have found the answer
