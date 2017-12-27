@@ -40,6 +40,9 @@ Blockchain Fundamentals
   blg# python3 proof_of_work_mining.py 1000
   blg# python3 proof_of_work_mining.py 100000
 
+.. note::
+  Mainnet difficulty as of block ``4808548`` was ``1,847,715,572,699,157``
+
 6. `Bitcoin 51% Attack Cost <https://gobitcoin.io/tools/cost-51-attack/)>`_
 ===========================================================================
 7. `Remix <https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js)>`_
@@ -164,7 +167,8 @@ Blockchain Fundamentals
 3. Approvals
 4. TransferFrom
 
-*Save this contract to disk. We will be using it again!*
+.. Important::
+    Save this contract to disk if you wish to use it again! However a completed token will be provided for you as well.
 
 Bonus
 =====
@@ -177,3 +181,19 @@ Bonus
 - Now re-deploy and the contract will be sent from your Metamask account.
   - *NOTE a Metamask window will pop-up for you to confirm the transaction*
   - Also **SAVE** the address the token was deployed at! You may need it later :)
+
+2. Sync an Ethereum node of your own
+------------------------------------
+
+.. note::
+  Look to setup a node locally or via Azure.  Azure is a nice option to begin with as a node locally can be quite heavy and resource intensive.
+
+- `Getting Started With Azure <https://azure.microsoft.com/en-us/get-started/?v=17.39>`_
+
+- Sync a Parity node to Kovan
+  - Instructions to deploy to Azure `here <https://medium.com/@attores/creating-a-free-kovan-testnet-node-on-azure-step-by-step-guide-8f10127985e4>`_
+  - `Parity Homepage <https://www.parity.io/>`_
+
+- Sync a Geth node to Rinkeby
+  - Instructions `here <https://gist.github.com/cryptogoth/10a98e8078cfd69f7ca892ddbdcf26bc>`_
+  - `Geth Homepage <https://github.com/ethereum/go-ethereum>`_

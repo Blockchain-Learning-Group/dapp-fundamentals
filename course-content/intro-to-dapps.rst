@@ -639,13 +639,29 @@ Bonus: Extend Your Wallet
 
 - Refresh the browser and connect to your Metamask account. View your Metamask account now available within the application.
 
-2. Interact with your token that was deployed to Kovan
+2. Sync an Ethereum node of your own
+------------------------------------
+
+.. note::
+  Look to setup a node locally or via Azure.  Azure is a nice option to begin with as a node locally can be quite heavy and resource intensive.
+
+- `Getting Started With Azure <https://azure.microsoft.com/en-us/get-started/?v=17.39>`_
+
+- Sync a Parity node to Kovan
+  - Instructions to deploy to Azure `here <https://medium.com/@attores/creating-a-free-kovan-testnet-node-on-azure-step-by-step-guide-8f10127985e4>`_
+  - `Parity Homepage <https://www.parity.io/>`_
+
+- Sync a Geth node to Rinkeby
+  - Instructions `here <https://gist.github.com/cryptogoth/10a98e8078cfd69f7ca892ddbdcf26bc>`_
+  - `Geth Homepage <https://github.com/ethereum/go-ethereum>`_
+
+3. Interact with your token that was deployed to Kovan
 ------------------------------------------------------
 
-3. Interact with another participant's token on Kovan
+4. Interact with another participant's token on Kovan
 -----------------------------------------------------
 
-4. Enable the wallet to support multiple ERC20 tokens
+5. Enable the wallet to support multiple ERC20 tokens
 -----------------------------------------------------
 
 ----
