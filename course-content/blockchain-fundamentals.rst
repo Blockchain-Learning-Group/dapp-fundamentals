@@ -43,11 +43,11 @@ Blockchain Fundamentals
 .. note::
   Mainnet difficulty as of block ``4808548`` was ``1,847,715,572,699,157``
 
-6. `Bitcoin 51% Attack Cost <https://gobitcoin.io/tools/cost-51-attack/)>`_
+6. `Bitcoin 51% Attack Cost <https://gobitcoin.io/tools/cost-51-attack/>`_
 ===========================================================================
-7. `Remix <https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js)>`_
+7. `Remix <https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js>`_
 ======================================================================================================
-8. `DappDeveloper.sol <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/DappDeveloper.sol)>`_
+8. `DappDeveloper.sol <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/DappDeveloper.sol>`_
 =================================================================================================================================
 9. Exceed Block Gas Limit
 =========================
