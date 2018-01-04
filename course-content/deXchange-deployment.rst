@@ -390,6 +390,8 @@ Bonus: Extend Your Exchange
 11. Sort the orders in the order book table
 ----------------------------------------------------------------------------------------------------
 
+----
+
 Submit Your Project!
 ====================
 
