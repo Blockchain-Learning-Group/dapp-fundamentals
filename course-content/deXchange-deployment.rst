@@ -390,6 +390,11 @@ Bonus: Extend Your Exchange
 11. Sort the orders in the order book table
 ----------------------------------------------------------------------------------------------------
 
+Submit Your Project!
+====================
+
+Instructions can be found here: `here <http://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/project-submission.html>`_
+
 ----
 
 Clean up
