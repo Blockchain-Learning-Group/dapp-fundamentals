@@ -204,9 +204,9 @@ Stage 2: Connect to a "Real" Ethereum Client
 
 .. code-block:: bash
 
-  ssh -g -4 -NL 8545:127.0.0.1:8545 user@52.235.46.203
+  ssh -g -4 -NL 8545:127.0.0.1:8545 user@52.235.46.171
 
-*A secondary node exists as well:* ``user@52.242.24.198``
+*A secondary node exists as well:* ``user@52.235.45.190``
 
 - *Example output:*
 
