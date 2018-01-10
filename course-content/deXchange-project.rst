@@ -268,7 +268,7 @@ Stage 4: Test the submitOrder Method
 
   test_submit_executeOrder.js
 
-2. Copy the `test template <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/test_submit_executeOrder-template.js) into wallet-template/src/test/test_submit_executeOrder.j>`_
+2. Copy the `test template <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/test_submit_executeOrder-template.js>`_ into wallet-template/src/test/test_submit_executeOrder.js
 -----------------------------------------------
 
 **Test Setup**
