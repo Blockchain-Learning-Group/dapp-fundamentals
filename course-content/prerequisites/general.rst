@@ -111,6 +111,11 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
   - And to enable usage within windows command prompt execute the following within a prompt: ``set PATH=%PATH%;"C:\Program Files\Git\cmd``
   - Confirm git is configured correctly simply run: ``git``
 
+[MAC users ONLY]
+------------------------------------------
+1. Xcode
+  - You can find Xcode in the App Store: `Xcode <https://itunes.apple.com/us/app/xcode/id497799835?mt=12>`_
+
 ----
 
 4.0 Project Submission
