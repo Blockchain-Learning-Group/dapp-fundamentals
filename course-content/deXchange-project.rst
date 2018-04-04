@@ -46,33 +46,18 @@ Stage 1: Restart Your Dev Environment and App
   adam@adam:~$ docker exec -it blg-env bash
   root@9c52f3787e28:/blg/wallet-template#
 
-
-3. Start up your window manager, tmux
+3. Start the app
 -----------------------------------------------
 
 .. code-block:: bash
 
-  tmux
-
-- *Example output:*
-
-.. code-block:: bash
-
-  root@a75baed9ceba:/blg/wallet-template#
-
-
-4. Start the app
------------------------------------------------
-
-.. code-block:: bash
-
-  yarn start
+  CHOKIDAR_USEPOLLING=true yarn start
 
 - *Example output:*
 
 .. code-block:: console
 
-  # yarn start
+  # CHOKIDAR_USEPOLLING=true yarn start
   yarn run v1.2.0
   $ react-scripts start
   Starting the development server...
@@ -87,22 +72,36 @@ Stage 1: Restart Your Dev Environment and App
   Note that the development build is not optimized.
   To create a production build, use yarn build.
 
+4. Create a new tab in your terminal window or a new terminal window for our Ethereum client
+--------------------------------------------------------------------------------------------
 
-5. Create a new window, Ethereum client
------------------------------------------------
+.. note::
+  While within the terminal window select File -> Open Terminal to create a new window.
 
-*ctrl AND b THEN c*
+  To create a new tab from within a terminal window:
 
+  .. code-block:: bash
+
+    ctrl+shft+t
+
+- *Example output: Result is a new empty terminal, in the same directory you were when you initially entered your container. This will push you out of the container.*
+
+.. code-block:: console
+
+  adam@adam:~/Desktop/blg$
+
+5. Attach back into the container in the Etheruem client tab
+------------------------------------------------------------
 .. code-block:: bash
 
-  ctrl+b c
+  docker exec -it blg-env bash
 
-- *Example output: Result in new empty window, in same directory.*
+- *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
-  #
-
+  adam@adam:~/Desktop/blg$ docker exec -it blg-env bash
+  root@182d123ec039:/blg/wallet-template#
 
 6. Start up your Ethereum client, testrpc
 -----------------------------------------------
@@ -120,24 +119,39 @@ Stage 1: Restart Your Dev Environment and App
   [...]
   Listening on localhost:8545
 
+7. Create a new window or tab for our Truffle commands
+------------------------------------------------------
 
-7. Create a new window, Truffle
------------------------------------------------
+.. note::
+  While within the terminal window select File -> Open Terminal to create a new window.
 
-*ctrl AND b THEN c*
+  To create a new tab from within a terminal window:
 
+  .. code-block:: bash
+
+    ctrl+shft+t
+
+- *Example output: Result is a new empty terminal, in the same directory you were when you initially entered your container. This will push you out of the container.*
+
+.. code-block:: console
+
+  adam@adam:~/Desktop/blg$
+
+8. Attach back into the container in the Truffle tab
+----------------------------------------------------
 .. code-block:: bash
 
-  ctrl+b c
+  docker exec -it blg-env bash
 
-- *Example output: Result in new empty window, in same directory.*
+- *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
-  #
+  adam@adam:~/Desktop/blg$ docker exec -it blg-env bash
+  root@182d123ec039:/blg/wallet-template#
 
 
-8. Deploy your Token
+9. Deploy your Token
 -----------------------------------------------
 
 .. code-block:: bash
@@ -172,7 +186,7 @@ Stage 1: Restart Your Dev Environment and App
   #
 
 
-9. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
+10. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
 -----------------------------------------------
 
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-1.png

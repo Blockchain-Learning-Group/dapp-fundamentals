@@ -381,8 +381,6 @@ This can be accomplished by right-clicking anywhere in the chrome browser and in
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/inspect.JPG
   :target: index.html
 
-``right click => inspect``
-
 .. note::
   Error should be present: ``Token has not been deployed to the detected network.`` within the developer console in the chrome browser.
 
@@ -698,23 +696,14 @@ Clean up
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-cleanup-01.mp4?raw=true>`_
 ------------------------
 
-1. Detach from your tmux session
---------------------------------
-
-*ctrl AND b THEN d*
-
-.. code-block:: bash
-
-  ctrl+b d
-
-2. Detach from the container
+1. Detach from the container
 ----------------------------
 
 .. code-block:: bash
 
   ctrl+d
 
-3. Stop the container
+2. Stop the container
 ---------------------
 
 .. code-block:: bash
