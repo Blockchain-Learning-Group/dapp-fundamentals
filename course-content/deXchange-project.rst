@@ -1071,23 +1071,14 @@ Clean up
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/03-stage-cleanup.mp4?raw=true>`_
 
-1. Detach from your tmux session
------------------------------------------------
-
-*ctrl AND b THEN d*
-
-.. code-block:: bash
-
-  ctrl+b d
-
-2. Detach from the container
+1. Detach from the container
 -----------------------------------------------
 
 .. code-block:: bash
 
   ctrl+d
 
-3. Stop the container
+2. Stop the container
 -----------------------------------------------
 
 .. code-block:: bash
