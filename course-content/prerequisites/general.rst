@@ -20,8 +20,6 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
 8. `TestRPC <https://github.com/ethereumjs/testrpc>`_
 9. `Parity <https://parity.io/>`_
 10. `Material UI <http://www.material-ui.com/>`_
-11. `tmux cheatsheet <https://gist.github.com/MohamedAlaa/2961058>`_, `manpage <http://manpages.ubuntu.com/manpages/zesty/man1/tmux.1.html>`_
-
 ----
 
 2.0 Machine Specs
