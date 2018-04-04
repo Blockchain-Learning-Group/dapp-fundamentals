@@ -187,15 +187,17 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 5. Install dependencies
 -----------------------
 
-*Docker Machine*
+.. attention::
 
-.. code-block:: bash
+  *ONLY Docker Machine*
 
-  yarn --no-bin-links
-  yarn global add react-scripts
+  .. code-block:: bash
+
+    yarn --no-bin-links
+    yarn global add react-scripts
 
 
-*Mac, Linux, Windows*
+*Mac, Linux, Windows NOT Docker Machine*
 
 .. code-block:: bash
 
@@ -230,29 +232,11 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
   root@2e9e0eda980d:~/blg/wallet-template/src#
 
-7. Start up your window manager, tmux
--------------------------------------
-
-.. code-block:: bash
-
-  tmux
-
-- *Example output:*
-
-.. code-block:: bash
-
-  root@a75baed9ceba:/blg/wallet-template#
-
-8. Start the app
+7. Start the app
 ----------------
 
-*Mac and Linux*
-
-.. code-block:: bash
-
-  yarn start
-
-*Windows and Docker Machine*
+.. note::
+  The videos will demonstrate a window manager being used, screen, and if preferred you may do so at this time as well, however the following instructions will assume this is not the case and will simply create multiple tabs within your terminal window.
 
 .. code-block:: bash
 
