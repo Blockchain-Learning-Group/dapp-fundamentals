@@ -246,7 +246,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 .. code-block:: console
 
-  # yarn start
+  # CHOKIDAR_USEPOLLING=true yarn start
   yarn run v1.2.0
   $ react-scripts start
   Starting the development server...
@@ -258,7 +258,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   Search for the keywords to learn more about each warning.
   To ignore, add // eslint-disable-next-line to the line before.
 
-9. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
+8. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
 -------------------------------------------------------------------
 
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png
@@ -274,22 +274,38 @@ Stage 2: Token Interface
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-2-01.mp4?raw=true>`_
 ------------------------
 
-1. Create a new window, Ethereum client
----------------------------------------
+1. Create a new tab in your terminal window or a new terminal window for our Ethereum client
+--------------------------------------------------------------------------------------------
 
-*ctrl AND b THEN c*
+.. note::
+  While within the terminal window select File -> Open Terminal to create a new window.
 
-.. code-block:: bash
+  To create a new tab from within a terminal window:
 
-  ctrl+b c
+  .. code-block:: bash
 
-- *Example output: Result in new empty window, in same directory.*
+    ctrl+shft+t
+
+- *Example output: Result is a new empty terminal, in the same directory you were when you initially entered your container. This will push you out of the container.*
 
 .. code-block:: console
 
-  #
+  adam@adam:~/Desktop/blg$
 
-2. Start up your Ethereum client, testrpc
+2. Attach back into the container in the Etheruem client tab
+------------------------------------------------------------
+.. code-block:: bash
+
+  docker exec -it blg-env bash
+
+- *Example output:*
+
+.. code-block:: console
+
+  adam@adam:~/Desktop/blg$ docker exec -it blg-env bash
+  root@182d123ec039:/blg/wallet-template#
+
+3. Start up your Ethereum client, testrpc
 -----------------------------------------
 
 .. code-block:: bash
@@ -304,21 +320,38 @@ Stage 2: Token Interface
   [...]
   Listening on localhost:8545
 
-3. Create a new window, Truffle
--------------------------------
-*ctrl AND b THEN c*
+4. Create a new window or tab for our Truffle commands
+------------------------------------------------------
 
-.. code-block:: bash
+.. note::
+  While within the terminal window select File -> Open Terminal to create a new window.
 
-  ctrl+b c
+  To create a new tab from within a terminal window:
 
-- *Example output: Result in new empty window, in same directory.*
+  .. code-block:: bash
+
+    ctrl+shft+t
+
+- *Example output: Result is a new empty terminal, in the same directory you were when you initially entered your container. This will push you out of the container.*
 
 .. code-block:: console
 
-  #
+  adam@adam:~/Desktop/blg$
 
-4. Test Your Token contract
+5. Attach back into the container in the Truffle tab
+----------------------------------------------------
+.. code-block:: bash
+
+  docker exec -it blg-env bash
+
+- *Example output:*
+
+.. code-block:: console
+
+  adam@adam:~/Desktop/blg$ docker exec -it blg-env bash
+  root@182d123ec039:/blg/wallet-template#
+
+6. Test Your Token contract
 ---------------------------
 .. note::
   - contracts/Token.sol has been provided or do update it with the Token that was completed at the end of Day 1.
@@ -326,13 +359,13 @@ Stage 2: Token Interface
 
 .. code-block:: bash
 
-  truffle test
+  cr src && truffle test
 
 - *Example output:*
 
 .. code-block:: console
 
-  # truffle test
+  # cr src && truffle test
   Using network 'development'.
     Contract: Token.mint()
       � should mint new tokens and allocate to user. (416ms)
@@ -341,14 +374,19 @@ Stage 2: Token Interface
     3 passing (1s)
   #
 
-5. Refresh your chrome browser and open up the developer console
+7. Refresh your chrome browser and open up the developer console
 ----------------------------------------------------------------
+This can be accomplished by right-clicking anywhere in the chrome browser and in the dropdown selecting ``inspect`` as seen in the image below.
+
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/inspect.JPG
+  :target: index.html
+
 ``right click => inspect``
 
 .. note::
-  Error should be present: ``Token has not been deployed to the detected network.``
+  Error should be present: ``Token has not been deployed to the detected network.`` within the developer console in the chrome browser.
 
-6. Deploy your Token
+8. Deploy your Token
 --------------------
 
 .. code-block:: bash
@@ -378,7 +416,7 @@ Stage 2: Token Interface
   Saving artifacts...
   #
 
-7. Refresh chrome, server may already have done so.
+9. Refresh chrome, server may already have done so.
 ---------------------------------------------------
 *View in the developer console the token instance is now present*
 
