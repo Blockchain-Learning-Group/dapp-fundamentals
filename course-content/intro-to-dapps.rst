@@ -95,6 +95,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   - This path must exist on your host and the ``blg`` directory must contain the ``wallet-template`` repo.
   - Also, take extra care and ensure that the path is correct for your OS.
 
+.. warning::
   - If you previously ran the container to confirm the prerequisites were completed then first stop and remove this test container.
 
   .. code-block:: bash
