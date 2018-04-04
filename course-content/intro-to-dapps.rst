@@ -20,6 +20,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
     - Linux: ``adam@ubuntu-box:~$``, ``<USERNAME>`` == ``adam``
     - Mac: ``mac-box:~ adam1$``, ``<USERNAME>`` == ``adam1``
     - windows: ``c:\users\adam2>``, ``<USERNAME>`` == ``adam2``
+    - docker-machine: ``adam3@DESKTOP-109 MINGW64``, ``<USERNAME>`` == ``adam3``
 
 1. Make a blg directory on your desktop
 ---------------------------------------
