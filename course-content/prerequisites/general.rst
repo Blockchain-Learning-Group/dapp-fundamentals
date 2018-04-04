@@ -115,10 +115,3 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
 ------------------------------------------
 1. Xcode
   - You can find Xcode in the App Store: `Xcode <https://itunes.apple.com/us/app/xcode/id497799835?mt=12>`_
-
-----
-
-4.0 Project Submission
-================================================
-- In order to submit your final project and have it accredited you must create a github account.  Please do so at `github.com <https://github.com/>`_
-- Submission process details to follow.
