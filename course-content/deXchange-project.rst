@@ -150,7 +150,6 @@ Stage 1: Restart Your Dev Environment and App
   adam@adam:~/Desktop/blg$ docker exec -it blg-env bash
   root@182d123ec039:/blg/wallet-template#
 
-
 9. Deploy your Token
 -----------------------------------------------
 
@@ -184,7 +183,6 @@ Stage 1: Restart Your Dev Environment and App
     -----------------------------------------------
   Saving artifacts...
   #
-
 
 10. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
 -----------------------------------------------

@@ -48,31 +48,18 @@ Stage 1: Restart Your Dev Environment and App
   adam@adam:~$ docker exec -it blg-env bash
   root@9c52f3787e28:/blg/wallet-template#
 
-3. Start up your window manager, tmux
--------------------------------------
-
-.. code-block:: bash
-
-  tmux
-
-- *Example output:*
-
-.. code-block:: bash
-
-  root@a75baed9ceba:/blg/wallet-template#
-
-4. Start the app
+3. Start the app
 ----------------
 
 .. code-block:: bash
 
-  yarn start
+  CHOKIDAR_USEPOLLING=true yarn start
 
 - *Example output:*
 
 .. code-block:: console
 
-  # yarn start
+  # CHOKIDAR_USEPOLLING=true yarn start
   yarn run v1.2.0
   $ react-scripts start
   Starting the development server...
@@ -87,37 +74,38 @@ Stage 1: Restart Your Dev Environment and App
   Note that the development build is not optimized.
   To create a production build, use yarn build.
 
-5. Create a new window, Ethereum client
----------------------------------------
+4. Create a new tab in your terminal window or a new terminal window for our Ethereum client
+--------------------------------------------------------------------------------------------
 
-*ctrl AND b THEN c*
+.. note::
+  While within the terminal window select File -> Open Terminal to create a new window.
 
+  To create a new tab from within a terminal window:
+
+  .. code-block:: bash
+
+    ctrl+shft+t
+
+- *Example output: Result is a new empty terminal, in the same directory you were when you initially entered your container. This will push you out of the container.*
+
+.. code-block:: console
+
+  adam@adam:~/Desktop/blg$
+
+5. Attach back into the container in the Etheruem client tab
+------------------------------------------------------------
 .. code-block:: bash
 
-  ctrl+b c
+  docker exec -it blg-env bash
 
-- *Example output: Result in new empty window, in same directory.*
+- *Example output:*
 
-.. code-block:: bash
+.. code-block:: console
 
-  #
+  adam@adam:~/Desktop/blg$ docker exec -it blg-env bash
+  root@182d123ec039:/blg/wallet-template#
 
-6. Create a new window, Truffle
--------------------------------
-
-*ctrl AND b THEN c*
-
-.. code-block:: bash
-
-  ctrl+b c
-
-- *Example output: Result in new empty window, in same directory.*
-
-.. code-block:: bash
-
-  #
-
-9. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
+6. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
 ------------------------------------------------------------------------------------------------
 
 .. note::
@@ -135,15 +123,8 @@ Stage 2: Connect to a "Real" Ethereum Client
 .. note::
   If testrpc is still active in your container otherwise proceed to #3
 
-1. Switch to your ethereum client window, ``ctrl AND b THEN 1``
------------------------------------------------------------
-.. code-block:: bash
-
-  ctrl+b 1
-
-- *Example output:*
-
-
+1. Switch to your ethereum client tab
+-------------------------------------
 .. code-block:: console
 
   [...]
@@ -158,11 +139,7 @@ Stage 2: Connect to a "Real" Ethereum Client
   ctrl+c
 
 .. note::
-  If the process does not terminate: (in a separate window)
-
-  - Switch back to the truffle window
-
-  ``ctrl+b 2``
+  If the process does not terminate: (in a separate window inside the container)
 
   - Find the process id of testrpc
 
@@ -193,12 +170,9 @@ Stage 2: Connect to a "Real" Ethereum Client
     Terminated
     #
 
-3. Connect to your ``real`` Ethereum client, parity
----------------------------------------------------
-- Switch into your client window, 1.
-
-.. code-block:: bash
-  ctrl+b 1
+3. Connect to your ``real`` Ethereum client
+-------------------------------------------
+- Switch into your ethereum client tab.
 
 - Forward the container's ports to the remote server. Password to be provided via a secure channel.
 
@@ -237,13 +211,38 @@ Stage 3: Deploy to the Kovan Public Testnet
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-17.mp4?raw=true>`_
 
-1. Transition back to the truffle window.
------------------------------------------
+1. Create a new window or tab for our Truffle commands
+------------------------------------------------------
+
+.. note::
+  While within the terminal window select File -> Open Terminal to create a new window.
+
+  To create a new tab from within a terminal window:
+
+  .. code-block:: bash
+
+    ctrl+shft+t
+
+- *Example output: Result is a new empty terminal, in the same directory you were when you initially entered your container. This will push you out of the container.*
+
+.. code-block:: console
+
+  adam@adam:~/Desktop/blg$
+
+2. Attach back into the container in the Truffle tab
+----------------------------------------------------
 .. code-block:: bash
 
-  ctrl+b 2
+  docker exec -it blg-env bash
 
-2. Deploy the contracts.
+- *Example output:*
+
+.. code-block:: console
+
+  adam@adam:~/Desktop/blg$ docker exec -it blg-env bash
+  root@182d123ec039:/blg/wallet-template#
+
+3. Deploy the contracts.
 ------------------------
 
 .. note::
@@ -251,14 +250,13 @@ Stage 3: Deploy to the Kovan Public Testnet
 
 .. code-block:: bash
 
-  cd src
-  truffle migrate
+  cd src && truffle migrate
 
 - *Example output:*
 
 .. code-block:: bash
 
-  root@37709e3ee3e7:/blg/wallet-template/src# truffle migrate
+  root@37709e3ee3e7:/blg/wallet-template# cd src && truffle migrate
   Using network 'development'.
 
   Running migration: 1_initial_migration.js
@@ -296,12 +294,12 @@ Stage 3: Deploy to the Kovan Public Testnet
 
   **Solution: Simply run the migration again**
 
-3. View the contracts deployed to kovan @ https://kovan.etherscan.io/address/ ``TOKEN OR EXCHANGE ADDRESS``
+4. View the contracts deployed to kovan @ https://kovan.etherscan.io/address/ ``TOKEN OR EXCHANGE ADDRESS``
 ---------------------------------------------------------------------------------------------------------
 - Token Example: `https://kovan.etherscan.io/address/0xf37825e75d9e597bfc55aa4e048a6ec6c0c6b5be <https://kovan.etherscan.io/address/0xf37825e75d9e597bfc55aa4e048a6ec6c0c6b5be>`_
 - Exchange Example: `https://kovan.etherscan.io/address/0xadeadaf68eff9d6a633c30cddd6989b6e931f4ca <https://kovan.etherscan.io/address/0xadeadaf68eff9d6a633c30cddd6989b6e931f4ca>`_
 
-4. View the contract reference objects in the browser.
+5. View the contract reference objects in the browser.
 ------------------------------------------------------
 
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-17.png
@@ -403,23 +401,14 @@ Clean up
 ========
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/03-stage-cleanup.mp4?raw=true>`_
-
-1. Detach from your tmux session
----------------------------------
-*ctrl AND b THEN d*
-
-.. code-block:: bash
-
-  ctrl+b d
-
-2. Detach from the container
+1. Detach from the container
 ----------------------------
 
 .. code-block:: bash
 
   ctrl+d
 
-3. Stop the container
+2. Stop the container
 --------------------
 
 .. code-block:: bash
