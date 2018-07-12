@@ -4,26 +4,20 @@ contract Voting {
   /*************************************
    * Specify the duration of your vote *
    ************************************/
-
-
+  uint256 private constant VOTE_DURATION = 2 minutes;
   uint256 private startTime_;
   string[] public candidates_;
-
-  /**************************************************
-   * Create a storage variable for the final winner *
-   *************************************************/
-
+  string public winner_;
 
   mapping(uint8 => uint256) public candidateTotals_;
   mapping(uint8 => string) private candidateIds_; // so we can get strings
 
-  event VoteCast(address voter, string votedFor);
+  /*******************************************
+   * Create an event for when a vote is cast *
+   ******************************************/
+
   event VoteStillActive(uint256 remainingTime);
-
-  /**************************************************
-   * Create an event for when the vote is completed *
-   *************************************************/
-
+  event VoteComplete(string winner);
 
   constructor() public {
     startTime_ = block.timestamp;

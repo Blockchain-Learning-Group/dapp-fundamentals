@@ -17,38 +17,31 @@ Solidity Exercises
 
   uint256 public constant VOTE_DURATION = 2 minutes;
 
-1.3 Complete the castVote method, beginnign on Line 42
+1.3 Complete the castVote method, beginning on Line 36
 -----------------------------------------------------
 
-  - 1.3a When a vote has been cast increment that candidates total, Line 47
+  - 1.3a When a vote has been cast increment that candidates total, Line 41
   ::
 
     candidateTotals_[_candidate] += 1;
 
-  - 1.3b Emit an event that a new vote has been cast, Line 51
+  - 1.3b Create an event for when a vote is cast, Line 18
+  -----------------------------
+  ::
+
+    event VoteCast(address voter, string votedFor);
+
+  - 1.3c Emit an event that a new vote has been cast, Line 46
   ::
 
     emit VoteCast(msg.sender, candidateIds_[_candidate])
 
-  - 1.3c ``Run`` the contract, deploying within remix and test the castVote method.
+  - 1.3d ``Run`` the contract, deploying within remix and test the castVote method.
 
-
-1.4 Create a storage variable to set the final winner, Line 15
------------------------------
-::
-
-  string public winner_;
-
-1.5 Create an event for when the vote is completed, Line 26
------------------------------
-::
-
-  event VoteComplete(string winner);
-
-1.6 Complete the tallVote method, starting at Line 59
+1.4 Complete the tallyVote method, starting at Line 59
 -----------------------------
 
-  - 1.6a Add a for loop to find the winner of the vote, Lines 67 - 71
+  - 1.4a Add a for loop to find the winner of the vote, Lines 61 - 65
   ::
 
     for (uint8 i; i < candidates_.length; i++) {
@@ -57,24 +50,24 @@ Solidity Exercises
       }
     }
 
-  - 1.6b Set the winner, Line 76
+  - 1.4b Set the winner, Line 70
   ::
 
     winner_ = candidateIds_[currentWinner];
 
-  - 1.6c Emit an evnet that the vote has completed, Line 81
+  - 1.4c Emit an evnet that the vote has completed, Line 75
   ::
 
     emit VoteComplete(winner_);
 
-1.7 Add other candidates to the vote, Line 38
+1.5 Add other candidates to the vote, Line 32
 --------------------------------------------
 ::
 
   candidates_.push("YOUR NAME");
   candidateIds_[1] = "YOUR NAME";
 
-1.8 ``Run`` the contract, deploying within remix and test the castVote method and tallyVote methods
+1.6 ``Run`` the contract, deploying within remix and test the castVote method and tallyVote methods
 
 ===
 
