@@ -6,7 +6,7 @@ Solidity Exercises
 =====================================================================================================================
 - `Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Voting_02.sol>`_
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/voting-development.mp4>`_
+`Download Video Tutorial[1.1 - 1.3] <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/voting-development.mp4>`_
 
 1.1 Copy the exercise over to `remix <https://remix.ethereum.org/#optimize=false&version=soljson-v0.4.24+commit.e67f0147.js>`_.
 ------------------------------------
@@ -34,9 +34,11 @@ Solidity Exercises
   - 1.3c Emit an event that a new vote has been cast, Line 46
   ::
 
-    emit VoteCast(msg.sender, candidateIds_[_candidate])
+    emit VoteCast(msg.sender, candidateIds_[_candidate]);
 
   - 1.3d ``Run`` the contract, deploying within remix and test the castVote method.
+
+`Download Video Tutorial[1.4 - 1.6] <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/voting-development.mp4>`_
 
 1.4 Complete the tallyVote method, starting at Line 59
 -----------------------------
@@ -68,8 +70,13 @@ Solidity Exercises
   candidateIds_[1] = "YOUR NAME";
 
 1.6 ``Run`` the contract, deploying within remix and test the castVote method and tallyVote methods
+- Confirm candidates
+- Cast several votes and after each confirm the total for the candidate has increased
+- Tally the vote before the duration has elapsed
+- Tally the vote after the duration has and view the winner
+- Attempt to cast votes after the duration has elapsed
 
-===
+====
 
 2. `Token Exercise <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol>`_
 =====================================================================================================================
