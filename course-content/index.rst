@@ -21,3 +21,4 @@ Contents
    deXchange-project
    deXchange-deployment
    project-submission
+   exercises
