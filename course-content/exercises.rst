@@ -1,4 +1,6 @@
-# A Collection of Solidity Exercises
+==================
+Solidity Exercises
+==================
 
 1. `Voting Exercise <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Voting_02.sol>`_
 =====================================================================================================================
