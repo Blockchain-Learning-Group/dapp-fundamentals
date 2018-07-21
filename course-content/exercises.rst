@@ -100,7 +100,7 @@ Solidity Exercises
 ---------------------------------------------------
 ::
 
-  uint public constant rate_ = 1;  // rate of wei / token for purchase
+  uint public constant rate_ = 2;  // rate of wei / token for purchase
 
 2.5 Complete the buy method.
 ------------------------------
