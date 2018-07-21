@@ -79,106 +79,82 @@ Solidity Exercises
 
 ====
 
-2. `Token Exercise <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token.sol>`_
+2. `Token Exercise <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token_02.sol>`_
 =====================================================================================================================
-- `Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Token.sol>`_
+- `Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Token_02.sol>`_
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/token-development.mp4>`_
 
 2.1 Copy the exercise over to remix.
--------------------------------------
-2.2 Note LoggingErrors pattern contract inherited and SafeMath library utilized.
 ---------------------------------------------------------------------------------
-2.3 Compile and deploy the contract. Confirm variables and methods are available.
+2.2 Compile and deploy the contract. Confirm variables and methods are available.
 ----------------------------------------------------------------------------------
-2.4 Update the contract metadata to be your own! Line 55 - 56.
+2.3 Update the contract metadata to be your own! Line 8 & 9.
 ---------------------------------------------------------------
 ::
 
-  string public constant symbol = 'BLG';
-  string public constant name = 'Blockchain Learning Group Community Token';
+  string public constant symbol = 'YOUR NAME';
+  string public constant name = 'YOUR NAME Token';
 
-2.5 Complete the mint method.
+2.4 Specify the rate for the purchase of your token
+---------------------------------------------------
+::
+
+  uint public constant rate_ = 1;  // rate of wei / token for purchase
+
+2.5 Complete the buy method.
 ------------------------------
-  - Only allow the owner to mint tokens, line 94
+  - May purchase only with > 0 ETH, line 46
   ::
 
-    if (msg.sender != owner_)
-      return error('msg.sender != owner, Token.mint()');
+    require(msg.value > 0, 'Cannot buy with a value of <= 0, Token.buy()');
 
-  - Confirm the value to be mint is greater than zero, line 98
+  - Compute the amount of tokens to mint, line 49
   ::
 
-    if (_value <= 0)
-      return error('Cannot mint a value of <= 0, Token.mint()');
+    uint256 tokenAmount = msg.value * rate_;
 
-  - Confirm you are not trying to mint to address 0, line 102
+  - Update the total supply and the user's balance, line 52 & 53
   ::
 
-    if (_to == address(0))
-      return error('Cannot mint tokens to address(0), Token.mint()');
+    totalSupply_ += tokenAmount;   // NOTE overflow
+    balances_[msg.sender] += tokenAmount; // NOTE overflow
 
-  - Update the total supply and the user's balance, line 108
+  - Finally emit events to notify the outside world, line 55 & 56
   ::
 
-    totalSupply_ = totalSupply_.add(_value);
-    balances_[_to] = balances_[_to].add(_value);
+    emit TokensMinted(msg.sender, msg.value, totalSupply_);
+    emit Transfer(address(0), msg.sender, msg.value);
 
-  - Finally emit events to notify the outside world, 112
-  ::
-
-    LogTokensMinted(_to, _value, totalSupply_);
-    Transfer(address(0), _to, _value);
-
-2.6 Compile, deploy and confirm you can mint to an address. Confirm balance updated in ``balances`` mapping.
+2.6 Compile, deploy and confirm you can purchase your token. Confirm balance updated in ``balances`` mapping.
 ----------------------------------------------------------------------------------------------------------
 
-2.7 Complete the transferFrom method.
+2.7 Complete the transfer method.
 -------------------------------------
-  - Confirm not transferring an amount of 0, line 142
+  - Ensure from address has a sufficient balance, line 69
   ::
 
-    if (_amount <= 0)
-      return error('Cannot transfer amount <= 0, Token.transferFrom()');
+    require(balances_[msg.sender] >= _value, 'Sender balance is insufficient, Token.transfer()');
 
-  - Confirm the owner has a sufficient balance to transfer from, line 146
+  - Update the from and to balances, line 72 & 73
   ::
 
-    if (_amount > balances_[_from])
-      return error('From account has an insufficient balance, Token.transferFrom()');
+    balances_[msg.sender] -= _value;  // NOTE underflow
+    balances_[_to] += _value;  // NOTE overflow
 
-  - Confirm the spender has a sufficient allowance to transfer, line 150
+  - Finally emit an event of the transfer, line 76
   ::
 
-    if (_amount > allowed_[_from][msg.sender])
-      return error('msg.sender has insufficient allowance, Token.transferFrom()');
+    emit Transfer(msg.sender, _to, _value);
 
-  - Update the balances, subtracting from the from addressing and adding to the to, line 156
-  ::
-
-    balances_[_from] = balances_[_from].sub(_amount);
-    balances_[_to] = balances_[_to].add(_amount);
-
-  - Reduce the spender's allowance,  160
-  ::
-
-    allowed_[_from][msg.sender] = allowed_[_from][msg.sender].sub(_amount);
-
-  - Finally emit an event of the transfer, 163
-  ::
-
-    Transfer(_from, _to, _amount);
-
-2.8 Compile and deploy and confirm transfer and transferFrom working.
+2.8 Compile and deploy and confirm buy and transfer working.
 ----------------------------------------------------------------------
-2.9 Note error logging if insufficient allowance and other errors correct.
+2.9 Note error output if insufficient balance and other errors correct.
 ---------------------------------------------------------------------------
 2.10 Usage
 -----
-1. minting
+1. Purchase of tokens
 2. Transfers
-3. Approvals
-4. TransferFrom
 
 .. Important::
     Save this contract to disk if you wish to use it again! However a completed token will be provided for you as well.
