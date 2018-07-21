@@ -85,7 +85,7 @@ Solidity Exercises
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/token-development.mp4>`_
 
-2.1 Copy the exercise over to remix.
+2.1 Copy the exercise over to `remix <https://remix.ethereum.org/#optimize=false&version=soljson-v0.4.24+commit.e67f0147.js>`_.
 ---------------------------------------------------------------------------------
 2.2 Compile and deploy the contract. Confirm variables and methods are available.
 ----------------------------------------------------------------------------------
