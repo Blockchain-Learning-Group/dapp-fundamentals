@@ -44,15 +44,12 @@ contract Token {
   {
     // May not buy with a value of 0
 
-
     // Compute the amount of tokens to mint
-
 
     // Update the total supply and buyer's balance
 
 
     // Emit events
-
 
 
     return true;
@@ -67,10 +64,7 @@ contract Token {
   {
     // Ensure from address has a sufficient balance
 
-
     // Update the from and to balances
-
-
 
     // Emit events
 
