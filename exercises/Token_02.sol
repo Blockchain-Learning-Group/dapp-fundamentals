@@ -13,10 +13,10 @@ contract Token {
    **********************************************/
 
 
-  uint256 public totalSupply_;
-  mapping (address => uint256) public balances_;
-  mapping(address => mapping (address => uint256)) public allowed_;
-  address public owner_; // EOA
+  uint256 private totalSupply_;
+  mapping (address => uint256) private balances_;
+  mapping(address => mapping (address => uint256)) private allowed_;
+  address private owner_; // EOA
 
   event Approval(address indexed _owner, address indexed _spender, uint _value);
   event Transfer(address indexed _from, address indexed _to, uint _value);

@@ -131,18 +131,18 @@ Solidity Exercises
 
 2.7 Complete the transfer method.
 -------------------------------------
-  - Ensure from address has a sufficient balance, line 69
+  - Ensure from address has a sufficient balance, line 70
   ::
 
     require(balances_[msg.sender] >= _value, 'Sender balance is insufficient, Token.transfer()');
 
-  - Update the from and to balances, line 72 & 73
+  - Update the from and to balances, line 73 & 74
   ::
 
     balances_[msg.sender] -= _value;  // NOTE underflow
     balances_[_to] += _value;  // NOTE overflow
 
-  - Finally emit an event of the transfer, line 76
+  - Finally emit an event of the transfer, line 77
   ::
 
     emit Transfer(msg.sender, _to, _value);
