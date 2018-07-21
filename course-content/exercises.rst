@@ -83,7 +83,7 @@ Solidity Exercises
 =====================================================================================================================
 - `Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Token_02.sol>`_
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/token-development.mp4>`_
+`Download Video Tutorial [2.1-2.6] <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/solutions/token/token-02-buy-01.mp4>`_
 
 2.1 Copy the exercise over to `remix <https://remix.ethereum.org/#optimize=false&version=soljson-v0.4.24+commit.e67f0147.js>`_.
 ---------------------------------------------------------------------------------
@@ -120,7 +120,7 @@ Solidity Exercises
     totalSupply_ += tokenAmount;   // NOTE overflow
     balances_[msg.sender] += tokenAmount; // NOTE overflow
 
-  - Finally emit events to notify the outside world, line 55 & 56
+  - Finally emit events to notify the outside world, line 56 & 57
   ::
 
     emit TokensMinted(msg.sender, msg.value, totalSupply_);
@@ -128,6 +128,8 @@ Solidity Exercises
 
 2.6 Compile, deploy and confirm you can purchase your token. Confirm balance updated in ``balances`` mapping.
 ----------------------------------------------------------------------------------------------------------
+
+`Download Video Tutorial [2.7-2.10] <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/solutions/token/token-02-transfer-01_cropped.mp4>`_
 
 2.7 Complete the transfer method.
 -------------------------------------
