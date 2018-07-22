@@ -2,7 +2,7 @@
 Introduction to DApp Development
 =======================
 
-`Download Completed Wallet Demo <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/wallet.mp4>`_
+`Download Completed Wallet Demo <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/wallet-v2-demo-072218.mp4>`_
 
 ----
 

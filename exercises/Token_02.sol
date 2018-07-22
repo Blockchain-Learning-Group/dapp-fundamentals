@@ -9,7 +9,7 @@ contract Token {
   string public constant name = 'Blockchain Learning Group Community Token';
   uint public constant decimals = 18;
   /***********************************************
-   * Specify the rate for your token wei / token *
+   * Specify the rate for your token token / wei *
    **********************************************/
 
 

@@ -8,7 +8,7 @@ contract Token {
   string public constant symbol = 'BLG';
   string public constant name = 'Blockchain Learning Group Community Token';
   uint public constant decimals = 18;
-  uint public constant rate_ = 1;  // rate of wei / token for purchase
+  uint public constant rate_ = 1;  // rate of token / wei for purchase
   uint256 private totalSupply_;
   mapping (address => uint256) private balances_;
   mapping(address => mapping (address => uint256)) private allowed_;
