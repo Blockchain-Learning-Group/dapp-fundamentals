@@ -22,4 +22,4 @@ Contents
    deXchange-deployment
    project-submission
    exercises
-   v2-dapps
+   intro-to-dapps-v2

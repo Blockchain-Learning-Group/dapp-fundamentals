@@ -1,5 +1,5 @@
 =======================
-Introduction to DApp Development
+V2 Introduction to DApp Development
 =======================
 
 `Download Completed Wallet Demo <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/wallet-v2-demo-072218.mp4>`_
@@ -673,7 +673,7 @@ Stage 6: Token Interaction - GET
 
 ----
 
-Stage 6: Load Account Balances
+Stage 7: Load Account Balances
 ==============================
 
 1. Load the default account's ETH and Token balances, completing the ``loadAccountBalances`` method
@@ -733,11 +733,11 @@ Stage 6: Load Account Balances
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-3.png
   :target: index.html
 
-**END Stage 6: Load Available Accounts**
+**END Stage 7: Load Available Account Balances**
 
 ----
 
-Stage 7: Token Interaction - Buy Tokens
+Stage 8: Token Interaction - Buy Tokens
 ========================================
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-4-01.mp4?raw=true>`_
@@ -775,11 +775,11 @@ Stage 7: Token Interaction - Buy Tokens
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4-2.png
   :target: index.html
 
-**END Stage 7: Token Interaction - Buy Tokens**
+**END Stage 8: Token Interaction - Buy Tokens**
 
 ----
 
-Stage 8: Events
+Stage 9: Events
 ===============
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-5-01.mp4?raw=true>`_
@@ -813,11 +813,11 @@ Stage 8: Events
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-5-2.png
   :target: index.html
 
-**END Stage 8: Events**
+**END Stage 9: Events**
 
 ----
 
-Stage 9: Transfer Tokens
+Stage 10: Transfer Tokens
 ========================
 
 **Try this portion on your own! [Solution noted at the bottom]**
@@ -839,7 +839,7 @@ The required components included:
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6-2.png
   :target: index.html
 
-**END Stage 9: Transfer Tokens**
+**END Stage 10: Transfer Tokens**
 
 ----
 
