@@ -70,7 +70,8 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 .. code-block:: bash
 
   git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
-  git checkout tags/2.0
+  cd wallet-template
+  git checkout tags/2.1
 
 - *Example output:*
 
@@ -78,16 +79,17 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
   adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
   Cloning into 'wallet-template'...
-  remote: Counting objects: 30, done.
-  remote: Compressing objects: 100% (28/28), done.
-  remote: Total 30 (delta 0), reused 30 (delta 0), pack-reused 0
+  [..]
   Unpacking objects: 100% (30/30), done.
   Checking connectivity... done.
-  adam@adam:~/Desktop/blg$ git checkout tags/1.0
-  Note: checking out 'tags/1.0'.
+
+  adam@adam:~/Desktop/blg$ cd wallet-template
+
+  adam@adam:~/Desktop/blg/wallet-template$ git checkout tags/2.1
+  Note: checking out 'tags/2.1'.
   [...]
-  HEAD is now at 906bc3d... added allowance
-  adam@adam:~/Desktop/blg$
+  HEAD is now at 16aa5a3...
+  adam@adam:~/Desktop/blg/wallet-template$
 
 3. Run your docker container
 
