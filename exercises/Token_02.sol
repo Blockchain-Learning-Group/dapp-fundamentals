@@ -22,7 +22,7 @@ contract Token {
   event Transfer(address indexed _from, address indexed _to, uint _value);
   event TokensMinted(address indexed _to, uint256 value, uint256 totalSupply);
 
-  constructor() {
+  constructor() public {
     owner_ = msg.sender;
   }
 

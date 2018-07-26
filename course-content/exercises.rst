@@ -5,6 +5,7 @@ Solidity Exercises
 1. `Voting Exercise <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Voting_02.sol>`_
 =====================================================================================================================
 - `Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Voting_02.sol>`_
+- `Download Final Solution Demo <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/vote_02_comlplete_e2e_cropped.mp4>`_
 
 `Download Video Tutorial[1.1 - 1.3] <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/solutions/voting/video-tutorials/voting_02_11-13_1_cropped.mp4>`_
 
@@ -79,7 +80,7 @@ Solidity Exercises
 
 ====
 
-2. `Token Exercise <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token_02.sol>`_
+2. `Token Exercise <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Token_02.sol>`_
 =====================================================================================================================
 - `Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Token_02.sol>`_
 
