@@ -434,7 +434,7 @@ Stage 2: Testing Your Token
 Stage 3: Token Deployment
 =========================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=1sdLtnunj3crUAMX6Q_qqYOITJ0Z94Ee0>`_
 -----------------------------------------------------------------
 
 .. note::
@@ -502,6 +502,9 @@ Stage 3: Token Deployment
 Stage 4: Token Interface
 ========================
 
+`Video Tutorial <https://drive.google.com/open?id=18bU8mbWN1p6GrPnTLck7k14ByhngvBMg>`_
+------------------------------------------------
+
 1. Import the web3 library, app.js#line 5
 
 .. code-block:: javascript
@@ -555,10 +558,7 @@ Stage 4: Token Interface
 
 8. Refresh your chrome browser and open up the developer console
 
-This can be accomplished by right-clicking anywhere in the chrome browser and in the dropdown selecting ``inspect`` as seen in the image below.
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/inspect.JPG
-  :target: index.html
+This can be accomplished by right-clicking anywhere in the chrome browser and in the dropdown selecting ``inspect`` or ``inspect element`` or by utilizing the shortcut: ``ctrl+shift_i``.
 
 *View in the developer console the token instance is now present*
 
@@ -568,7 +568,7 @@ This can be accomplished by right-clicking anywhere in the chrome browser and in
 
   Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a370045968c0bc762a7", abi: Array[20]}
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-2.png
+.. image:: https://drive.google.com/open?id=1maV5rw_yYYYyHxGOBpGiRXPbFyoDsJXe
   :target: index.html
 
 **END Stage 4: Token Interface**
@@ -578,7 +578,10 @@ This can be accomplished by right-clicking anywhere in the chrome browser and in
 Stage 5: Load Available On-chain Accounts
 =========================================
 
-1. Get the available accounts from the web3 connection, this is two wrap the existing token interface code, line 29 & 39
+`Video Tutorial <>`_
+------------------------------------------------
+
+1. Get the available accounts from the web3 connection, this is to wrap the existing token interface code, line 29 & 39
 
 .. code-block:: javascript
 
@@ -640,7 +643,8 @@ Stage 5: Load Available On-chain Accounts
 Stage 6: Token Interaction - GET
 ================================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-3-01.mp4?raw=true>`_
+`Video Tutorial <>`_
+------------------------------------------------
 
 1. Load the token metadata from the contract
 
@@ -680,6 +684,9 @@ Stage 6: Token Interaction - GET
 
 Stage 7: Load Account Balances
 ==============================
+
+`Video Tutorial <>`_
+------------------------------------------------
 
 1. Load the default account's ETH and Token balances, completing the ``loadAccountBalances`` method
 
@@ -745,8 +752,8 @@ Stage 7: Load Account Balances
 Stage 8: Purchasing Tokens
 ========================================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-4-01.mp4?raw=true>`_
-------------------------
+`Video Tutorial <>`_
+------------------------------------------------
 
 1. Add token amount to the state, line 21.
 
@@ -787,8 +794,8 @@ Stage 8: Purchasing Tokens
 Stage 9: Events
 ===============
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-5-01.mp4?raw=true>`_
-------------------------
+`Video Tutorial <>`_
+------------------------------------------------
 
 1. Add an event to listen for when tokens are transferred and reload the account's balances, line 95-100
 
@@ -826,9 +833,6 @@ Stage 10: Transfer Tokens
 ========================
 
 **Try this portion on your own! [Solution noted at the bottom]**
-
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-6-01.mp4?raw=true>`_
-------------------------
 
 The required components included:
 
@@ -936,8 +940,11 @@ Clean up
 SOLUTIONS
 =========
 
-Stage 9: Transfer Tokens
+Stage 10: Transfer Tokens
 ------------------------
+
+`Video Tutorial <>`_
+------------------------------------------------
 
 1. Add the transferAmount and transferUser to the app's state, line 28 & 29.
 
