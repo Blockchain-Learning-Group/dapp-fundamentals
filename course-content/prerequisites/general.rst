@@ -20,6 +20,7 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
 8. `TestRPC <https://github.com/ethereumjs/testrpc>`_
 9. `Parity <https://parity.io/>`_
 10. `Material UI <http://www.material-ui.com/>`_
+
 ----
 
 2.0 Machine Specs
@@ -74,14 +75,18 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
 .. attention::
   If an error is encountered when installing etheratom, as has been experienced on Windows 10, then please proceed to install Sublime above.
 
-3.2 Google Chrome
+3.2 Browser
 ------------------------------------------
-1. Install the Google Chrome browser from: `Google Chrome <https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB>`_
+1. Google Chrome
+  - Install the Google Chrome browser `here. <https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB>`_
   - Version > 55.0.0.  Check in address bar: ``chrome://version/``
+
+2. Brave
+  - Install the browser `here <https://brave.com/>`_
 
 3.3 Metamask
 ------------
-1. Install the chrome plugin, Metamask from: `Metamask <https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en>`_
+1. Install the chrome plugin, Metamask `here <https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en>`_
 2. Once installed, create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
 
 .. attention::

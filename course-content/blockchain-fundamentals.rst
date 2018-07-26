@@ -41,11 +41,11 @@ Blockchain Fundamentals
   blg# python3 proof_of_work_mining.py 100000
 
 .. note::
-  Mainnet difficulty as of block ``4808548`` was ``1,847,715,572,699,157``
+  Mainnet difficulty as of block ``6035113`` was ``3,550,379,886,051,685`` seen `here <https://etherscan.io/block/6035113>`_
 
 6. `Bitcoin 51% Attack Cost <https://gobitcoin.io/tools/cost-51-attack/>`_
 ===========================================================================
-7. `Remix <https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js>`_
+7. `Remix <https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.24+commit.e67f0147.js&optimize=false>`_
 ======================================================================================================
 8. `DappDeveloper.sol <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/DappDeveloper.sol>`_
 =================================================================================================================================
