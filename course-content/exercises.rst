@@ -2,7 +2,7 @@
 Solidity Exercises
 ==================
 
-1. `Voting Exercise <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Voting_02.sol>`_
+1. `Voting Exercise <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Voting_02.sol>`_
 =====================================================================================================================
 - `Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Voting_02.sol>`_
 
@@ -79,7 +79,7 @@ Solidity Exercises
 
 ====
 
-2. `Token Exercise <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token_02.sol>`_
+2. `Token Exercise <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/Token_02.sol>`_
 =====================================================================================================================
 - `Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Token_02.sol>`_
 
