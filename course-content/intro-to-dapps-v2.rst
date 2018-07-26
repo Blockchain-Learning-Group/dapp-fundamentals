@@ -12,7 +12,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 .. note::
   Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-1-01.mp4?raw=true>`_
+`Video Tutorial <https://drive.google.com/open?id=1IvYodLeMF929k9hJg7M08_864Qxukecd>`_
 ------------------------
 
 .. important::
@@ -242,7 +242,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 7. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png
+.. image:: https://drive.google.com/open?id=1JPpBG49IInc-YFGpE6BPH11X1Edj3BXl
    :target: index.html
 
 **END Stage 1: Dev Enviroment Set up and Application Bootstrapped!**
@@ -252,7 +252,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 Stage 2: Testing Your Token
 ===========================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-2-01.mp4?raw=true>`_
+`Video Tutorial <https://drive.google.com/open?id=17TlqJ0571ElgB9yimc4WnAWCRNKFq6dz>`_
 ------------------------
 
 1. Create a new tab in your terminal window or a new terminal window for our Ethereum node
@@ -343,7 +343,7 @@ Stage 2: Testing Your Token
 
   const Token = artifacts.require("./Token.sol")
 
-- Define the owner account, line 6
+  - Define the owner account, note ``truffle test`` exposes the accounts array for us, line 6
 
 .. code-block:: javascript
 
@@ -355,37 +355,37 @@ Stage 2: Testing Your Token
 
   const token = await Token.new({ from: owner })
 
-- Specify the wei value of tokens you wish to purchase, line 12
+- Specify the wei value of tokens you wish to purchase, line 13
 
 .. code-block:: javascript
 
   const value = 100
 
-- Send the transaction to the token's buy method, line 15
+- Send the transaction to the token's buy method, line 16
 
 .. code-block:: javascript
 
   const txResponse = await token.buy({ from: owner, value })
 
-- Pull the rate from the token, line 18
+- Pull the rate from the token, line 19
 
 .. code-block:: javascript
 
   const rate = await token.rate()
 
-- Compute the token amount to be minted to the buyer, line 21
+- Compute the token amount to be minted to the buyer, line 22
 
 .. code-block:: javascript
 
   const tokenAmount = value * rate
 
-- Access the event object from the transaction receipt, line 24
+- Access the event object from the transaction receipt, line 25
 
 .. code-block:: javascript
 
   const event = txResponse.logs[0]
 
-- Assert the correct values were emitted, line 27-30
+- Assert the correct values were emitted, line 28-31
 
 .. code-block:: javascript
 
@@ -396,14 +396,14 @@ Stage 2: Testing Your Token
 
 **Ensure the state of the contract is updated correctly**
 
-- Assert the buyer's balance is correct, line 33-34
+- Assert the buyer's balance is correct, line 34-35
 
 .. code-block:: javascript
 
   const balance = await token.balanceOf(owner)
   assert.equal(balance.toNumber(), tokenAmount, 'Incorrect token balance.')
 
-- Assert the total supply is correct, line 37-38
+- Assert the total supply is correct, line 38-39
 
 .. code-block:: javascript
 
@@ -449,7 +449,7 @@ Stage 3: Token Deployment
 
   const Token = artifacts.require("./Token.sol");
 
-- Define the owner account, note ``truffle test`` exposes the web3 object, line 2
+- Define the owner account, note ``truffle migrate`` exposes the web3 object, line 2
 
 .. code-block:: javascript
 
