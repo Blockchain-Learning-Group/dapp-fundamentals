@@ -4,7 +4,6 @@ Solidity Exercises
 
 1. `Voting Exercise <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Voting_02.sol>`_
 =====================================================================================================================
-- `Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Voting_02.sol>`_
 - `View Final Solution Demo <https://drive.google.com/open?id=1HUlqRB62Y57RXIbGmp4ckmHuc2cpHqkb.mp4>`_
 
 `Video Tutorial[1.1 - 1.3] <https://drive.google.com/open?id=13DBLIclqpJ9iNtRWzSvJ8NGzBM-LTbdD>`_
@@ -39,7 +38,7 @@ Solidity Exercises
 
   - 1.3d ``Run`` the contract, deploying within remix and test the castVote method.
 
-`Download Video Tutorial[1.4 - 1.6] <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/solutions/voting/video-tutorials/voting_02_14-16_1_cropped.mp4>`_
+`Video Tutorial[1.4 - 1.6] <https://drive.google.com/open?id=1WIsYlRKbakgdCNZ6BmQjNORnT7GFycd1>`_
 
 1.4 Complete the tallyVote method, starting at Line 59
 -----------------------------
@@ -82,10 +81,9 @@ Solidity Exercises
 
 2. `Token Exercise <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Token_02.sol>`_
 =====================================================================================================================
-- `Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Token_02.sol>`_
 - `View Final Solution Demo <https://drive.google.com/open?id=1cjCdlIaPVxwzxKry6tpSOm9Cz-qDepZO>`_
 
-`Download Video Tutorial [2.1-2.6] <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/solutions/token/token-02-buy-01_cropped.mp4>`_
+`Video Tutorial [2.1-2.6] <https://drive.google.com/open?id=1yUxNOfeLR3Ifg7Eo23Vh0SkgYRfAKeG2>`_
 
 2.1 Copy the exercise over to `remix <https://remix.ethereum.org/#optimize=false&version=soljson-v0.4.24+commit.e67f0147.js>`_.
 ---------------------------------------------------------------------------------
@@ -131,7 +129,7 @@ Solidity Exercises
 2.6 Compile, deploy and confirm you can purchase your token. Confirm balance updated in ``balances`` mapping.
 ----------------------------------------------------------------------------------------------------------
 
-`Download Video Tutorial [2.7-2.10] <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/solutions/token/token-02-transfer-01_cropped.mp4>`_
+`Video Tutorial [2.7-2.10] <https://drive.google.com/open?id=1kAPTCbLndTMaOslYo0lx4bN3eE7-zQQs>`_
 
 2.7 Complete the transfer method.
 -------------------------------------
@@ -174,6 +172,9 @@ Solidity Exercises
 
 SOLUTIONS
 =========
+1. `Voting Exercise Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Voting_02.sol>`_
+
+2. `Token Exercise Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Token_02.sol>`_
 
 2.11 Token Withdraw method
 --------------------------
