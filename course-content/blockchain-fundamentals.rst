@@ -47,7 +47,7 @@ Blockchain Fundamentals
 ===========================================================================
 7. `Remix <https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js>`_
 ======================================================================================================
-8. `DappDeveloper.sol <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/DappDeveloper.sol>`_
+8. `DappDeveloper.sol <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/DappDeveloper.sol>`_
 =================================================================================================================================
 9. Exceed Block Gas Limit
 =========================
