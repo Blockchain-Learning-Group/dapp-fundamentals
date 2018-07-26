@@ -434,6 +434,9 @@ Stage 2: Testing Your Token
 Stage 3: Token Deployment
 =========================
 
+`Video Tutorial <>`_
+-----------------------------------------------------------------
+
 .. note::
   - A default, and required, initial migration script(src/migrations/1_initial_migration.js), has been included. Do *not* remove this script.
 
