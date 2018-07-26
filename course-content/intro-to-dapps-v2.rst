@@ -737,7 +737,7 @@ Stage 7: Load Account Balances
 
 ----
 
-Stage 8: Token Interaction - Buy Tokens
+Stage 8: Purchasing Tokens
 ========================================
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-4-01.mp4?raw=true>`_
@@ -775,7 +775,7 @@ Stage 8: Token Interaction - Buy Tokens
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4-2.png
   :target: index.html
 
-**END Stage 8: Token Interaction - Buy Tokens**
+**END Stage 8: Purchasing Tokens**
 
 ----
 
