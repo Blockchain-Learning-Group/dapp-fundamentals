@@ -4,7 +4,7 @@ Solidity Exercises
 
 1. `Voting Exercise <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Voting_02.sol>`_
 =====================================================================================================================
-- `View Final Solution Demo <https://drive.google.com/open?id=1HUlqRB62Y57RXIbGmp4ckmHuc2cpHqkb.mp4>`_
+- `View Final Solution Demo <https://drive.google.com/open?id=1HUlqRB62Y57RXIbGmp4ckmHuc2cpHqkb>`_
 
 `Video Tutorial[1.1 - 1.3] <https://drive.google.com/open?id=13DBLIclqpJ9iNtRWzSvJ8NGzBM-LTbdD>`_
 
@@ -177,7 +177,7 @@ SOLUTIONS
 2. `Token Exercise Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Token_02.sol>`_
 
 2.11 Token Withdraw method
---------------------------
+
 - Confirm only the owner may withdraw, line 104
 
 ::
