@@ -5,9 +5,9 @@ Solidity Exercises
 1. `Voting Exercise <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Voting_02.sol>`_
 =====================================================================================================================
 - `Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Voting_02.sol>`_
-- `Download Final Solution Demo <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/vote_02_comlplete_e2e_cropped.mp4>`_
+- `View Final Solution Demo <https://drive.google.com/open?id=1HUlqRB62Y57RXIbGmp4ckmHuc2cpHqkb.mp4>`_
 
-`Download Video Tutorial[1.1 - 1.3] <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/solutions/voting/video-tutorials/voting_02_11-13_1_cropped.mp4>`_
+`Video Tutorial[1.1 - 1.3] <https://drive.google.com/open?id=13DBLIclqpJ9iNtRWzSvJ8NGzBM-LTbdD>`_
 
 1.1 Copy the exercise over to `remix <https://remix.ethereum.org/#optimize=false&version=soljson-v0.4.24+commit.e67f0147.js>`_.
 ------------------------------------
@@ -83,7 +83,7 @@ Solidity Exercises
 2. `Token Exercise <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Token_02.sol>`_
 =====================================================================================================================
 - `Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Token_02.sol>`_
-- `Download Final Solution Demo <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/token_02_complete_e2e_cropped.mp4>`_
+- `View Final Solution Demo <https://drive.google.com/open?id=1cjCdlIaPVxwzxKry6tpSOm9Cz-qDepZO>`_
 
 `Download Video Tutorial [2.1-2.6] <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/solutions/token/token-02-buy-01_cropped.mp4>`_
 
@@ -98,11 +98,11 @@ Solidity Exercises
   string public constant symbol = 'YOUR NAME';
   string public constant name = 'YOUR NAME Token';
 
-2.4 Specify the rate for the purchase of your token
+2.4 Specify the rate for the purchase of your token, line 14
 ---------------------------------------------------
 ::
 
-  uint public constant rate_ = 2;  // rate of wei / token for purchase
+  uint public constant rate_ = 2;  // rate of token / wei for purchase
 
 2.5 Complete the buy method.
 ------------------------------
@@ -160,5 +160,31 @@ Solidity Exercises
 1. Purchase of tokens
 2. Transfers
 
+.. important::
+
+  But how can you get your hard earned ETH out of the contract that has been accumulating as tokens have been sold?!
+
+2.11 Add a withdraw method, and claim the ETH sent to the contract! Line 102
+-----------------------------------------------------
+- Solution below...
+
+
 .. Important::
-    Save this contract to disk if you wish to use it again! However a completed token will be provided for you as well.
+    Save this contract to disk if you wish to use it again! However a completed token will be made available should you wish.
+
+SOLUTIONS
+=========
+
+2.11 Token Withdraw method
+--------------------------
+- Confirm only the owner may withdraw, line 104
+
+::
+
+  require(msg.sender == owner_, "only the owner may withdraw");
+
+- Transfer the balance of the contract(this) to the wallet, line 107
+
+::
+
+  _wallet.transfer(address(this).balance);

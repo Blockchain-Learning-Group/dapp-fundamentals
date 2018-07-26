@@ -91,6 +91,15 @@ contract Token {
     return true;
   }
 
+  // withdraw the ETH held by this contract
+  function withdraw(address _wallet) external returns(bool) {
+    // Confirm only the owner may withdraw
+
+    // Transfer the balance of the contract, this, to the wallet
+
+    return true;
+  }
+
   // @return the allowance the owner gave the spender
   function allowance(address _owner, address _spender)
     external

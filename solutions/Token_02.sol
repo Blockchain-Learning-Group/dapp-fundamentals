@@ -87,6 +87,15 @@ contract Token {
     return true;
   }
 
+  // withdraw the ETH held by this contract
+  function withdraw(address _wallet) external returns(bool) {
+    require(msg.sender == owner_, "Only the owner may withdraw, Token.withdraw()");
+
+    _wallet.transfer(address(this).balance);
+
+    return true;
+  }
+
   // @return the allowance the owner gave the spender
   function allowance(address _owner, address _spender)
     external
