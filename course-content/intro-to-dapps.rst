@@ -1,5 +1,5 @@
 =======================
-V2 Introduction to DApp Development
+Introduction to DApp Development
 =======================
 
 `View Completed Wallet Demo <https://drive.google.com/open?id=1RRzH5HyAZcdq6d4mCXJ6FRmP1mks179l>`_
@@ -240,9 +240,6 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   To create a production build, use yarn build.
 
 7. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
-
-.. image:: https://drive.google.com/open?id=1JPpBG49IInc-YFGpE6BPH11X1Edj3BXl
-   :target: index.html
 
 **END Stage 1: Dev Enviroment Set up and Application Bootstrapped!**
 
@@ -563,9 +560,6 @@ This can be accomplished by right-clicking anywhere in the chrome browser and in
 .. code-block:: bash
 
   Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a370045968c0bc762a7", abi: Array[20]}
-
-.. image:: https://drive.google.com/open?id=1maV5rw_yYYYyHxGOBpGiRXPbFyoDsJXe
-  :target: index.html
 
 **END Stage 4: Token Interface**
 
