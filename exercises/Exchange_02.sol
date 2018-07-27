@@ -60,9 +60,9 @@ contract Exchange {
     require(Token(order.bidToken).transferFrom(order.maker, msg.sender, order.bidAmount), "transferFrom failed.");
 
     // Remove the order
-
+    delete orderBook_[_orderId];
 
     // Emit Event
-
+    emit OrderExecuted(_orderId, order.maker, msg.sender, order.bidToken, order.bidAmount, order.askToken, order.askAmount);
   }
 }

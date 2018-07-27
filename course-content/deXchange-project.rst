@@ -205,7 +205,7 @@ Stage 2: Create the Exchange Contract
 
 `Video Tutorial <>`_
 
-1. Create a new file ``wallet-template/src/contracts/Exchange.sol``
+1. Create a new file `line
 ---------------------------------------------------------------
 ::
 
@@ -540,7 +540,7 @@ Stage 7: Add Basic Routing to the DApp
 
 `Video Tutorial <>`_
 
-1. Add # based routing to render the exchange component, `wallet-template/src/App.js#L215 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L363>`_
+1. Add # based routing to render the exchange component, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -567,18 +567,16 @@ Stage 7: Add Basic Routing to the DApp
 2. Confirm the routing is working, open `localhost:3000/#exchange <http://localhost:3000/#exchange>`_
 -----------------------------------------------
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-7-blank-exchange.png
-  :target: index.html
-
 **END Stage 7: Add Basic Routing to the DApp**
 
 ----
 
 Stage 8: Deploy the Exchange
 =========================================
+
 `Video Tutorial <>`_
 
-1. Add the exchange to the deployment script, `wallet-template/master/src/migrations/2_deploy_contracts.js <https://raw.githubusercontent.com/Blockchain-Learning-Group/exchange-eod3/master/src/migrations/2_deploy_contracts.js>`_
+1. Add the exchange to the deployment script, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -639,21 +637,21 @@ Stage 9: Create the Reference Exchange Object
 
 `Video Tutorial <>`_
 
-1. Import the exchange build artifacts, `wallet-template/src/App.js#L15 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L23>`_
+1. Import the exchange build artifacts, line
 -----------------------------------------------
 
 .. code-block:: javascript
 
   import exchangeArtiacts from './build/contracts/Exchange.json'
 
-2. Add the exchange to the state, `wallet-template/src/App.js#L32 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L42>`_
+2. Add the exchange to the state, line
 -----------------------------------------------
 
 .. code-block:: javascript
 
   exchange: null, // exchange contract
 
-3. Create the reference object to the deployed exchange, `wallet-template/src/App.js#L73 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L89>`_
+3. Create the reference object to the deployed exchange, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -669,9 +667,6 @@ Stage 9: Create the Reference Exchange Object
 4. View the exchange object in the browser developer console.
 -----------------------------------------------
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-9.png
-  :target: index.html
-
 **END Stage 9: Create the Reference Exchange Object**
 
 ----
@@ -681,7 +676,7 @@ Stage 10: Create the UI Component to Submit an Order
 
 `Video Tutorial <>`_
 
-1. Create the container div, `wallet-template/src/App.js#226 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L364>`_
+1. Create the container div, line
 -----------------------------------------------
 
 .. code-block:: html
@@ -689,7 +684,7 @@ Stage 10: Create the UI Component to Submit an Order
   component = <div>
     </div>
 
-2. Add the components to load the active accounts, `wallet-template/src/App.js#L227 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L365>`_
+2. Add the components to load the active accounts, line
 -----------------------------------------------
 
 .. code-block:: html
@@ -704,7 +699,7 @@ Stage 10: Create the UI Component to Submit an Order
   <br />
 
 
-3. Add the form to submit an order, `wallet-template/src/App.js#L235 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L373>`_
+3. Add the form to submit an order, line
 -----------------------------------------------
 
 .. code-block:: html
@@ -724,7 +719,7 @@ Stage 10: Create the UI Component to Submit an Order
   <br />
   <br />
 
-4. Add the bid and ask amounts to the state, `wallet-template/src/App.js#L31 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L39>`_
+4. Add the bid and ask amounts to the state, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -732,7 +727,7 @@ Stage 10: Create the UI Component to Submit an Order
   bidAmount: 10,
   askAmount: 1,
 
-5. Write the method to submit an order, `wallet-template/src/App.js#L194 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L303>`_
+5. Write the method to submit an order, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -773,9 +768,6 @@ Stage 10: Create the UI Component to Submit an Order
 7. Submit an order and view the transaction hashes(approve and submitOrder) in the browser developer console.
 -----------------------------------------------
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-10.png
-  :target: index.html
-
 **END Stage 10: Create the UI Component to Submit an Order**
 
 ----
@@ -785,7 +777,7 @@ Stage 11: Listen for Submitted Order Events
 
 `Video Tutorial <>`_
 
-1. Create an event listener for the order submitted event, `wallet-template/src/App.js#L170 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L230>`_
+1. Create an event listener for the order submitted event, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -802,9 +794,6 @@ Stage 11: Listen for Submitted Order Events
 3. Submit a duplicate order and view the error response.
 -----------------------------------------------
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-11.png
-  :target: index.html
-
 **END Stage 11: Listen for Submitted Order Events**
 
 ----
@@ -814,7 +803,7 @@ Stage 12: Create the Order Book Table
 
 `Video Tutorial <>`_
 
-1. Import Material UI table components, `wallet-template/src/App.js#L12 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L12>`_
+1. Import Material UI table components, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -828,14 +817,14 @@ Stage 12: Create the Order Book Table
     TableRowColumn,
   } from 'material-ui/Table';
 
-2. Add the order book to the state, `wallet-template/src/App.js#L43 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L43>`_
+2. Add the order book to the state, line
 -----------------------------------------------
 
 .. code-block:: javascript
 
   orderBook: [],
 
-3. Add the order book component, `wallet-template/src/App.js#L296 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/5423f063a28d13328297a9eda0b274ff2e506159/src/App.js#L387>`_
+3. Add the order book component, line
 -----------------------------------------------
 
 .. code-block:: html
@@ -861,9 +850,6 @@ Stage 12: Create the Order Book Table
 4. View new order book table in the ui.
 -----------------------------------------------
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-12.png
-  :target: index.html
-
 **END Stage 12: Create the Order Book Table**
 
 ----
@@ -873,7 +859,7 @@ Stage 13: Add an Order Element to the Table When Submitted
 
 `Video Tutorial <>`_
 
-1. Create an addOrder method, `wallet-template/src/App.js#L127 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/5423f063a28d13328297a9eda0b274ff2e506159/src/App.js#L138>`_
+1. Create an addOrder method, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -904,7 +890,7 @@ Stage 13: Add an Order Element to the Table When Submitted
     })
   }
 
-2. Add the order to the order book when the order submitted event fired, `wallet-template/src/App.js#208 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L233>`_
+2. Add the order to the order book when the order submitted event fired, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -913,9 +899,6 @@ Stage 13: Add an Order Element to the Table When Submitted
 
 3. Submit an order and view it added to the order book.
 -----------------------------------------------
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-13.png
-  :target: index.html
 
 **END Stage 13: Add an Order Element to the Table When Submitted**
 
@@ -926,14 +909,14 @@ Stage 14: Select and Execute an Order
 
 `Video Tutorial <>`_
 
-1. Add a selectedOrder to the state, `wallet-template/src/App.js#L44 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L44>`_
+1. Add a selectedOrder to the state, line
 -----------------------------------------------
 
 .. code-block:: javascript
 
   selectedOrder: null
 
-2. Add a method to execute the selected order, `wallet-template/src/App.js#L154 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L164>`_
+2. Add a method to execute the selected order, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -956,7 +939,7 @@ Stage 14: Select and Execute an Order
     })
   }
 
-3. Add an event to listen for executed orders, `wallet-template/src/App.js#L231 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L237>`_
+3. Add an event to listen for executed orders, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -969,7 +952,7 @@ Stage 14: Select and Execute an Order
   })
 
 
-4. Add the method to remove the order from the order book table, `wallet-template/src/App.js#L262 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L288>`_
+4. Add the method to remove the order from the order book table, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -993,9 +976,6 @@ Stage 14: Select and Execute an Order
 5. Execute an order and see that it has been removed from the table.
 -----------------------------------------------
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-14.png
-  :target: index.html
-
 **END Stage 14: Select and Execute an Order**
 
 ----
@@ -1005,7 +985,7 @@ Stage 15: Load the Order Book
 
 `Video Tutorial <>`_
 
-1. Add a method to load the order book, `wallet-template/src/App.js#L239 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L248>`_
+1. Add a method to load the order book, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -1026,7 +1006,7 @@ Stage 15: Load the Order Book
     })
   }
 
-2. Load the order book when the page renders, `wallet-template/src/App.js#L119 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L123>`_
+2. Load the order book when the page renders, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -1037,9 +1017,6 @@ Stage 15: Load the Order Book
 -----------------------------------------------
 
 Success your exchange running locally is complete! Try it out!
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-15.png
-  :target: index.html
 
 **END Stage 15: Load the Order Book**
 
