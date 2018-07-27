@@ -203,7 +203,7 @@ Stage 1: Restart Your Dev Environment and App
 Stage 2: Create the Exchange Contract
 =====================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=1AF3ivpmyaWRlVbcFTrkyeF4EdoyTMqzt>`_
 
 1. Create a new file `line
 ---------------------------------------------------------------
@@ -224,7 +224,7 @@ Stage 2: Create the Exchange Contract
 Stage 3: Write the submitOrder Method
 =====================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=17tk8rhkojU7mgxl2xbvIZLBf0ZvgJ5Ca>`_
 
 1. Ensure the exchange has been given a sufficient token allowance, line 31
 -----------------------------------------------
@@ -275,7 +275,7 @@ Stage 3: Write the submitOrder Method
 Stage 4: Test the submitOrder Method
 =========================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=1q8o3AwNVX7KFkx2ge5hF9rqHAmFGxnaN>`_
 
 1. Create a new file wallet-template/src/test/test_submit_executeOrder.js
 -----------------------------------------------
@@ -389,7 +389,7 @@ Stage 4: Test the submitOrder Method
 Stage 5: Write the executeOrder Method
 =========================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=18WgT4mDWW5EcMUM_BbPACRhZ1gwQYgh9>`_
 
 1. Load the order struct into memory(will save gas cost for subsequent reads), line 53
 -----------------------------------------------
@@ -441,7 +441,7 @@ Stage 5: Write the executeOrder Method
 
 Stage 6: Test the executeOrder Method
 =========================================
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=10tTq0j0antqHE-N9YjS9RYpM3oK34HrW>`_
 
 **Test Setup**
 
