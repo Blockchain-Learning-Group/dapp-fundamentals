@@ -540,32 +540,73 @@ Stage 7: Add Basic Routing to the DApp
 
 `Video Tutorial <>`_
 
-1. Add # based routing to render the exchange component, line
+1. Add basic routing to render navigate  between the exchange and wallet components
 -----------------------------------------------
+
+- Add the ``react-router-dom`` package to the project
+
+.. code-block:: console
+
+  yarn add react-router-dom
+
+- *Example output:*
+
+.. code-block:: console
+
+  root@0121f7449409:/blg# yarn add react-router-dom
+  yarn add v1.2.0
+  [1/4] Resolving packages...
+  [..]
+  Done in 5.34s.
+  root@0121f7449409:/blg#
+
+- Import the router components into the app, line 2
 
 .. code-block:: javascript
 
-  if (window.location.hash === '#exchange') {
+  import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-  } else {
+- Wrap components with the router, line 173 & line 180
 
-  }
+  .. code-block:: javascript
 
-- *Example:*
+    <BrowserRouter>  line 173
+    <BrowserRouter/> line 180
+
+- Add a button to navigate to the exchange route, line 137-139
 
 .. code-block:: javascript
 
-  215:  if (window.location.hash === '#exchange') {
+  <Link to={'exchange'}>
+    <RaisedButton label=">>> Exchange" secondary={true} fullWidth={true}/>
+  </Link>
 
-  217:  } else {
-          component = <div>
-          [...]
-          </div>
-  253:  }
+- Confirm selection of the new button will change the route in the url to ``/exchange``
 
-
-2. Confirm the routing is working, open `localhost:3000/#exchange <http://localhost:3000/#exchange>`_
+2. Create the exchange component and the routes
 -----------------------------------------------
+
+- Add a template exchange component with a link back to the wallet, line 174-178
+
+  .. code-block:: javascript
+
+    const exchange = <div>
+      <Link to={'/'}>
+        <RaisedButton label="Wallet <<<" primary={true} fullWidth={true}/>
+      </Link>
+    </div>
+
+- Add a default route, line 187
+
+.. code-block:: javascript
+
+    <Route exact={true} path="/" render={() => component}/>
+
+- And an exchange route, line 188
+
+.. code-block:: javascript
+
+    <Route exact={true} path="/exchange" render={() => exchange}></Route>
 
 **END Stage 7: Add Basic Routing to the DApp**
 
