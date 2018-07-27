@@ -73,7 +73,7 @@ contract Token {
     external
     returns (bool)
   {
-    require(_amount <= 0, 'Cannot transfer amount <= 0, Token.transferFrom()');
+    require(_amount > 0, 'Cannot transfer amount <= 0, Token.transferFrom()');
     require(_amount <= balances_[_from], 'From account has an insufficient balance, Token.transferFrom()');
     require(_amount <= allowed_[_from][msg.sender], 'msg.sender has insufficient allowance, Token.transferFrom()');
 

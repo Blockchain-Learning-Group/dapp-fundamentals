@@ -277,6 +277,7 @@ Stage 3: Write the submitOrder Method
 
 Stage 4: Test the submitOrder Method
 =========================================
+
 `Video Tutorial <>`_
 
 1. Create a new file wallet-template/src/test/test_submit_executeOrder.js
@@ -307,25 +308,26 @@ Stage 4: Test the submitOrder Method
   exchange = await Exchange.new()
   token = await Token.new({ from: maker })
 
-5. Define the order parameters, line 25-28
+5. Define the order parameters, line 25-29
 -----------------------------------------------
 
 .. code-block:: javascript
 
+  const rate = await token.rate()
   const bidToken = token.address
-  const bidAmount = 1
+  const bidAmount = 100
   const askToken = 0
   const askAmount = 100
 
-6. Setup the transaction by minting tokens to the maker and giving allowance to the exchange, line 33-34
+6. Setup the transaction by minting tokens to the maker and giving allowance to the exchange, line 34-35
 -----------------------------------------------
 
 .. code-block:: javascript
 
-  await token.buy({ from: maker, value: bidAmount });
+  await token.buy({ from: maker, value: bidAmount / rate });
   await token.approve(exchange.address, bidAmount, { from: maker })
 
-7. Send the transaction submitting the order, line 39-43
+7. Send the transaction submitting the order, line 40-44
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -338,7 +340,7 @@ Stage 4: Test the submitOrder Method
 
 **Assertions**
 
-8. Confirm the correct event emitted, line 48-39
+8. Confirm the correct event emitted, line 49-50
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -346,7 +348,7 @@ Stage 4: Test the submitOrder Method
   const log = tx.logs[0]
   assert.equal(log.event, 'OrderSubmitted', 'Event not emitted')
 
-9. Confirm the order stored on-chain is correct, line 54-60
+9. Confirm the order stored on-chain is correct, line 55-61
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -371,12 +373,15 @@ Stage 4: Test the submitOrder Method
 .. code-block:: console
 
   # truffle test test/test_submit_executeOrder.js
-  [...]
-  Contract: Exchange.submitOrder() && executeOrder()
-    � submitOrder(), should succeed by adding a new order to the orderBook on-chain. (648ms)
-    � executeOrder(), should succeed by trading the tokens. Maker bids ether.
+  Contract: Token.buy()
+  ✓ should buy new tokens. (131ms)
 
-    2 passing (694ms)
+  Contract: Exchange.submitOrder() && executeOrder()
+  ✓ submitOrder(), should succeed by adding a new order to the orderBook on-chain. (183ms)
+  ✓ executeOrder(), should succeed by trading the tokens. Maker bids ether.
+
+
+  3 passing (365ms)
 
     #
 
@@ -387,7 +392,7 @@ Stage 4: Test the submitOrder Method
 Stage 5: Write the executeOrder Method
 =========================================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-5.mp4?raw=true>`_
+`Video Tutorial <>`_
 
 1. Load the order struct into memory(will save gas cost for subsequent reads), `wallet-template/src/contracts/Exchange.sol#L98 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L98>`_
 -----------------------------------------------
@@ -440,11 +445,11 @@ Stage 5: Write the executeOrder Method
 
 Stage 6: Test the executeOrder Method
 =========================================
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-6.mp4?raw=true>`_
+`Video Tutorial <>`_
 
 **Test Setup**
 
-1. Get the initial ether balances for both accounts, `wallet-template/src/test/test_submit_executeOrder.js#L67 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L67>`_
+1. Get the initial ether balances for both accounts, line 68-69
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -452,7 +457,7 @@ Stage 6: Test the executeOrder Method
   const makerBalanceBefore = web3.eth.getBalance(maker).toNumber()
   const takerBalanceBefore = web3.eth.getBalance(taker).toNumber()
 
-2. Submit the transaction to execute the order, `wallet-template/src/test/test_submit_executeOrder.js#L73 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L73>`_
+2. Submit the transaction to execute the order, line 74-79
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -464,18 +469,17 @@ Stage 6: Test the executeOrder Method
     }
   )
 
-
 **Assertions**
 
-3. Confirm the execute order event emitted, `wallet-template/src/test/test_submit_executeOrder.js#L83 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L83>`_
+3. Confirm the execute order event emitted, line 84-85
 -----------------------------------------------
 
 .. code-block:: javascript
 
   const log = tx.logs[0]
-  assert.equal(log.event, 'LogOrderExecuted', 'Event not emitted')
+  assert.equal(log.event, 'OrderExecuted', 'Event not emitted')
 
-4. Confirm the token balances updated correctly, `wallet-template/src/test/test_submit_executeOrder.js#L89 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L89>`_
+4. Confirm the token balances updated correctly, line 90-93
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -483,9 +487,9 @@ Stage 6: Test the executeOrder Method
   const makerTokenBalance = (await token.balanceOf(maker)).toNumber()
   const takerTokenBalance = (await token.balanceOf(taker)).toNumber()
   assert.equal(makerTokenBalance, 0, 'Maker token balance incorrect.')
-  assert.equal(takerTokenBalance, 1, 'Taker token balance incorrect.')
+  assert.equal(takerTokenBalance, 100, 'Taker token balance incorrect.')
 
-5. Confirm the ether balances updated correctly, `wallet-template/src/test/test_submit_executeOrder.js#L97 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L97>`_
+5. Confirm the ether balances updated correctly, line 98-102
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -496,7 +500,7 @@ Stage 6: Test the executeOrder Method
   // Note taker also had to pay for the executeOrder tx
   assert.isBelow(takerBalanceAfter, takerBalanceBefore - 100, 'Taker eth balance incorrect')
 
-6. Confirm the order was removed from the order book, `wallet-template/src/test/test_submit_executeOrder.js#L106 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L106>`_
+6. Confirm the order was removed from the order book, line 107-108
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -516,15 +520,15 @@ Stage 6: Test the executeOrder Method
 .. code-block:: console
 
   # truffle test test/test_submit_executeOrder.js
-  [...]
+  Contract: Token.buy()
+  ✓ should buy new tokens. (116ms)
+
   Contract: Exchange.submitOrder() && executeOrder()
-    � submitOrder(), should succeed by adding a new order to the orderBook on-chain. (648ms)
-    -----------------------------------------------
-    � executeOrder(), should succeed by trading the tokens. Maker bids ether.
-    -----------------------------------------------
+    ✓ submitOrder(), should succeed by adding a new order to the orderBook on-chain. (298ms)
+    ✓ executeOrder(), should succeed by trading the tokens. Maker bids ether. (493ms)
 
 
-  2 passing (994ms)
+  3 passing (951ms)
 
   #
 
@@ -538,7 +542,7 @@ Stage 6: Test the executeOrder Method
 Stage 7: Add Basic Routing to the DApp
 =========================================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-7.mp4?raw=true>`_
+`Video Tutorial <>`_
 
 1. Add # based routing to render the exchange component, `wallet-template/src/App.js#L215 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L363>`_
 -----------------------------------------------
@@ -576,7 +580,7 @@ Stage 7: Add Basic Routing to the DApp
 
 Stage 8: Deploy the Exchange
 =========================================
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-8.mp4?raw=true>`_
+`Video Tutorial <>`_
 
 1. Add the exchange to the deployment script, `wallet-template/master/src/migrations/2_deploy_contracts.js <https://raw.githubusercontent.com/Blockchain-Learning-Group/exchange-eod3/master/src/migrations/2_deploy_contracts.js>`_
 -----------------------------------------------
@@ -637,7 +641,7 @@ Stage 8: Deploy the Exchange
 Stage 9: Create the Reference Exchange Object
 =========================================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-9.mp4?raw=true>`_
+`Video Tutorial <>`_
 
 1. Import the exchange build artifacts, `wallet-template/src/App.js#L15 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L23>`_
 -----------------------------------------------
@@ -679,7 +683,7 @@ Stage 9: Create the Reference Exchange Object
 Stage 10: Create the UI Component to Submit an Order
 =========================================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-10.mp4?raw=true>`_
+`Video Tutorial <>`_
 
 1. Create the container div, `wallet-template/src/App.js#226 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L364>`_
 -----------------------------------------------
@@ -783,7 +787,7 @@ Stage 10: Create the UI Component to Submit an Order
 Stage 11: Listen for Submitted Order Events
 =========================================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-11.mp4?raw=true>`_
+`Video Tutorial <>`_
 
 1. Create an event listener for the order submitted event, `wallet-template/src/App.js#L170 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L230>`_
 -----------------------------------------------
@@ -812,7 +816,7 @@ Stage 11: Listen for Submitted Order Events
 Stage 12: Create the Order Book Table
 =========================================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-12.mp4?raw=true>`_
+`Video Tutorial <>`_
 
 1. Import Material UI table components, `wallet-template/src/App.js#L12 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/App.js#L12>`_
 -----------------------------------------------
@@ -871,7 +875,7 @@ Stage 12: Create the Order Book Table
 Stage 13: Add an Order Element to the Table When Submitted
 =========================================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-13.mp4?raw=true>`_
+`Video Tutorial <>`_
 
 1. Create an addOrder method, `wallet-template/src/App.js#L127 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/5423f063a28d13328297a9eda0b274ff2e506159/src/App.js#L138>`_
 -----------------------------------------------
@@ -924,7 +928,7 @@ Stage 13: Add an Order Element to the Table When Submitted
 Stage 14: Select and Execute an Order
 =========================================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-14.mp4?raw=true>`_
+`Video Tutorial <>`_
 
 1. Add a selectedOrder to the state, `wallet-template/src/App.js#L44 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L44>`_
 -----------------------------------------------
@@ -1003,7 +1007,7 @@ Stage 14: Select and Execute an Order
 Stage 15: Load the Order Book
 =========================================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-15.mp4?raw=true>`_
+`Video Tutorial <>`_
 
 1. Add a method to load the order book, `wallet-template/src/App.js#L239 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/0779b46516bc5c697c5fb986cad1080b8c8121af/src/App.js#L248>`_
 -----------------------------------------------
@@ -1073,7 +1077,7 @@ Bonus: Extend Your Exchange
 Clean up
 ========
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/03-stage-cleanup.mp4?raw=true>`_
+`Video Tutorial <>`_
 
 1. Detach from the container
 -----------------------------------------------
