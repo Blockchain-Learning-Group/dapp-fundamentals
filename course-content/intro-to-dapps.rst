@@ -13,7 +13,6 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.
 
 `Video Tutorial <https://drive.google.com/open?id=1IvYodLeMF929k9hJg7M08_864Qxukecd>`_
-------------------------
 
 .. important::
   Replace ``<USERNAME>`` in ALL instructions below with your username. This is your machine's active user and can likely be found here:
@@ -253,7 +252,6 @@ Stage 2: Testing Your Token
 ===========================
 
 `Video Tutorial <https://drive.google.com/open?id=17TlqJ0571ElgB9yimc4WnAWCRNKFq6dz>`_
-------------------------
 
 1. Create a new tab in your terminal window or a new terminal window for our Ethereum node
 
@@ -435,7 +433,6 @@ Stage 3: Token Deployment
 =========================
 
 `Video Tutorial <https://drive.google.com/open?id=1sdLtnunj3crUAMX6Q_qqYOITJ0Z94Ee0>`_
------------------------------------------------------------------
 
 .. note::
   - A default, and required, initial migration script(src/migrations/1_initial_migration.js), has been included. Do *not* remove this script.
@@ -503,7 +500,6 @@ Stage 4: Token Interface
 ========================
 
 `Video Tutorial <https://drive.google.com/open?id=18bU8mbWN1p6GrPnTLck7k14ByhngvBMg>`_
-------------------------------------------------
 
 1. Import the web3 library, app.js#line 5
 
@@ -579,7 +575,6 @@ Stage 5: Load Available On-chain Accounts
 =========================================
 
 `Video Tutorial <https://drive.google.com/open?id=1hqqMw2Fv7wtqgRKl6TLoAb5go3BOqBkR>`_
-------------------------------------------------
 
 1. Get the available accounts from the web3 connection, this is to wrap the existing token interface code, line 29 & 39
 
@@ -644,7 +639,6 @@ Stage 6: Token Interaction - GET
 ================================
 
 `Video Tutorial <https://drive.google.com/open?id=11WaCAk_sc2S4W-az-zV-TD6Le3tGqx5q>`_
-------------------------------------------------
 
 1. Load the token metadata from the contract
 
@@ -686,7 +680,6 @@ Stage 7: Load Account Balances
 ==============================
 
 `Video Tutorial <https://drive.google.com/open?id=1FH7__0b1pwuLT32Ay9efkKV81KPmHEeu>`_
-------------------------------------------------
 
 1. Load the default account's ETH and Token balances, completing the ``loadAccountBalances`` method
 
@@ -749,8 +742,7 @@ Stage 7: Load Account Balances
 Stage 8: Purchasing Tokens
 ========================================
 
-`Video Tutorial <>`_
-------------------------------------------------
+`Video Tutorial <https://drive.google.com/open?id=1qa87ghBevvIpNdYNohVfTiY8TXJjXLsV>`_
 
 1. Add token amount to the state, line 21.
 
@@ -786,7 +778,6 @@ Stage 9: Events
 ===============
 
 `Video Tutorial <https://drive.google.com/open?id=1gSHTciut91F17sU_E7DYhpZJE4LoH-Lu>`_
-------------------------------------------------
 
 1. Add an event to listen for when tokens are transferred and reload the account's balances, line 94-99
 
@@ -887,7 +878,6 @@ Clean up
 ========
 
 `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-cleanup-01.mp4?raw=true>`_
-------------------------
 
 1. Detach from the container
 ----------------------------
@@ -920,7 +910,6 @@ Stage 10: Transfer Tokens
 ------------------------
 
 `Video Tutorial <https://drive.google.com/open?id=1JPno5OLKUPTMdXO2O4YeXch1SZFyG297>`_
-------------------------------------------------
 
 1. Add the transferAmount and transferUser to the app's state, line 28 & 29.
 
@@ -959,3 +948,9 @@ Stage 10: Transfer Tokens
       err ? console.error(err) : console.log(res)
     })
   }
+
+`Complete Wallet Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2>`_
+------------------------------
+- ``git clone https://github.com/Blockchain-Learning-Group/wallet-eod2.git``
+- ``cd wallet-eod2``
+- ``git checkout tags/2.0``
