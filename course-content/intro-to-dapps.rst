@@ -1,8 +1,8 @@
 =======================
-Introduction to DApp Development
+V2 Introduction to DApp Development
 =======================
 
-`Download Completed Wallet Demo <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/raw/master/course-content/video-tutorials/wallet.mp4>`_
+`View Completed Wallet Demo <https://drive.google.com/open?id=1RRzH5HyAZcdq6d4mCXJ6FRmP1mks179l>`_
 
 ----
 
@@ -12,7 +12,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 .. note::
   Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-1-01.mp4?raw=true>`_
+`Video Tutorial <https://drive.google.com/open?id=1IvYodLeMF929k9hJg7M08_864Qxukecd>`_
 ------------------------
 
 .. important::
@@ -23,7 +23,6 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
     - docker-machine: ``adam3@DESKTOP-109 MINGW64``, ``<USERNAME>`` == ``adam3``
 
 1. Make a blg directory on your desktop
----------------------------------------
 
 .. Important::
   This can be done by simply right-clicking on your desktop and creating a new folder named ``blg``.
@@ -63,9 +62,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
   cd c:\Users\<USERNAME>\desktop\blg
 
-
 2. Clone the wallet template
-----------------------------
 
 .. important::
   Make **SURE** you are within the ``blg`` directory before cloning the repo!
@@ -73,7 +70,8 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 .. code-block:: bash
 
   git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
-  git checkout tags/1.0
+  cd wallet-template
+  git checkout tags/2.0
 
 - *Example output:*
 
@@ -81,19 +79,19 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
   adam@adam:~/Desktop/blg$ git clone https://github.com/Blockchain-Learning-Group/wallet-template.git
   Cloning into 'wallet-template'...
-  remote: Counting objects: 30, done.
-  remote: Compressing objects: 100% (28/28), done.
-  remote: Total 30 (delta 0), reused 30 (delta 0), pack-reused 0
+  [..]
   Unpacking objects: 100% (30/30), done.
   Checking connectivity... done.
-  adam@adam:~/Desktop/blg$ git checkout tags/1.0
-  Note: checking out 'tags/1.0'.
+
+  adam@adam:~/Desktop/blg$ cd wallet-template
+
+  adam@adam:~/Desktop/blg/wallet-template$ git checkout tags/2.0
+  Note: checking out 'tags/2.0'.
   [...]
-  HEAD is now at 906bc3d... added allowance
-  adam@adam:~/Desktop/blg$ 
+  HEAD is now at 16aa5a3...
+  adam@adam:~/Desktop/blg/wallet-template$
 
 3. Run your docker container
-----------------------------
 
 .. important::
   - Make sure that the path immediately following the ``-v`` flag is correct! ie. ``/home/adam/Desktop/blg``
@@ -174,7 +172,6 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
     adam@adam:~/Desktop/blg$
 
 4. Attach into the container
-----------------------------
 
 *Container will serve as your virtual environment.*
 
@@ -190,7 +187,6 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   root@182d123ec039:/blg/wallet-template#
 
 5. Install dependencies
------------------------
 
 .. attention::
 
@@ -200,7 +196,6 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
     yarn --no-bin-links
     yarn global add react-scripts
-
 
 *Mac, Linux, Windows NOT Docker Machine*
 
@@ -219,26 +214,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   Done in 42.65s.
   root@2e9e0eda980d:~/blg/wallet-template#
 
-6. Compile the contracts
-------------------------
-
-.. code-block:: bash
-
-  cd src && truffle compile
-
-- *Example output:*
-
-.. code-block:: console
-
-  root@2e9e0eda980d:~/blg/wallet-template# cd src && truffle compile
-  Compiling ./contracts/token/ERC20.sol...
-  [...]
-  Writing artifacts to ./build/contracts
-
-  root@2e9e0eda980d:~/blg/wallet-template/src#
-
-7. Start the app
-----------------
+6. Start the app
 
 .. note::
   The videos will demonstrate a window manager being used, screen, and if preferred you may do so at this time as well, however the following instructions will assume this is not the case and will simply create multiple tabs within your terminal window.
@@ -252,35 +228,34 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 .. code-block:: console
 
   # CHOKIDAR_USEPOLLING=true yarn start
-  yarn run v1.2.0
-  $ react-scripts start
   Starting the development server...
-  Compiled with warnings.
 
-  ./src/App.js
-    Line 41:  'defaultAccount' is assigned a value but never used  no-unused-vars
+  Compiled successfully!
 
-  Search for the keywords to learn more about each warning.
-  To ignore, add // eslint-disable-next-line to the line before.
+  You can now view my-app in the browser.
 
-8. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
--------------------------------------------------------------------
+    Local:            http://localhost:3000/
+    On Your Network:  http://172.17.0.2:3000/
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-1.png
+  Note that the development build is not optimized.
+  To create a production build, use yarn build.
+
+7. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
+
+.. image:: https://drive.google.com/open?id=1JPpBG49IInc-YFGpE6BPH11X1Edj3BXl
    :target: index.html
 
 **END Stage 1: Dev Enviroment Set up and Application Bootstrapped!**
 
 ----
 
-Stage 2: Token Interface
-==============================
+Stage 2: Testing Your Token
+===========================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-2-01.mp4?raw=true>`_
+`Video Tutorial <https://drive.google.com/open?id=17TlqJ0571ElgB9yimc4WnAWCRNKFq6dz>`_
 ------------------------
 
-1. Create a new tab in your terminal window or a new terminal window for our Ethereum client
---------------------------------------------------------------------------------------------
+1. Create a new tab in your terminal window or a new terminal window for our Ethereum node
 
 .. note::
   While within the terminal window select File -> Open Terminal to create a new window.
@@ -297,8 +272,8 @@ Stage 2: Token Interface
 
   adam@adam:~/Desktop/blg$
 
-2. Attach back into the container in the Etheruem client tab
-------------------------------------------------------------
+2. Attach back into the container in the Etheruem node tab
+
 .. code-block:: bash
 
   docker exec -it blg-env bash
@@ -310,23 +285,21 @@ Stage 2: Token Interface
   adam@adam:~/Desktop/blg$ docker exec -it blg-env bash
   root@182d123ec039:/blg/wallet-template#
 
-3. Start up your Ethereum client, testrpc
------------------------------------------
+3. Start up your Ethereum node, ganache-cli
 
 .. code-block:: bash
 
-  testrpc
+  ganache-cli
 
 - *Example output:*
 .. code-block:: console
 
-  # testrpc
-  EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
+  # ganache-cli
+  Ganache CLI v6.0.3 (ganache-core: 2.0.2)
   [...]
   Listening on localhost:8545
 
 4. Create a new window or tab for our Truffle commands
-------------------------------------------------------
 
 .. note::
   While within the terminal window select File -> Open Terminal to create a new window.
@@ -344,7 +317,7 @@ Stage 2: Token Interface
   adam@adam:~/Desktop/blg$
 
 5. Attach back into the container in the Truffle tab
-----------------------------------------------------
+
 .. code-block:: bash
 
   docker exec -it blg-env bash
@@ -356,11 +329,88 @@ Stage 2: Token Interface
   adam@adam:~/Desktop/blg$ docker exec -it blg-env bash
   root@182d123ec039:/blg/wallet-template#
 
-6. Test Your Token contract
----------------------------
+6. Create the Test Case
+
 .. note::
-  - contracts/Token.sol has been provided or do update it with the Token that was completed at the end of Day 1.
-  - Also one test file has been provided to confirm the mint method was implemented correctly.
+  - contracts/Token.sol has been provided or do update it with the Token that was completed previously.
+  - Also one test file template has been provided in order to test the buy method was implemented correctly.
+
+- Open the repo, ``~/Desktop/blg/wallet-template``, in your text editor, atom, sublime or the like and we can get to coding!
+
+- Import the token's build artifacts, line 2
+
+.. code-block:: javascript
+
+  const Token = artifacts.require("./Token.sol")
+
+  - Define the owner account, note ``truffle test`` exposes the accounts array for us, line 6
+
+.. code-block:: javascript
+
+  const owner = accounts[0]
+
+- Create a new instance of the token contract, line 10
+
+.. code-block:: javascript
+
+  const token = await Token.new({ from: owner })
+
+- Specify the wei value of tokens you wish to purchase, line 13
+
+.. code-block:: javascript
+
+  const value = 100
+
+- Send the transaction to the token's buy method, line 16
+
+.. code-block:: javascript
+
+  const txResponse = await token.buy({ from: owner, value })
+
+- Pull the rate from the token, line 19
+
+.. code-block:: javascript
+
+  const rate = await token.rate()
+
+- Compute the token amount to be minted to the buyer, line 22
+
+.. code-block:: javascript
+
+  const tokenAmount = value * rate
+
+- Access the event object from the transaction receipt, line 25
+
+.. code-block:: javascript
+
+  const event = txResponse.logs[0]
+
+- Assert the correct values were emitted, line 28-31
+
+.. code-block:: javascript
+
+  assert.equal(event.event, 'TokensMinted', 'TokensMinted event was not emitted.')
+  assert.equal(event.args.to, owner, 'Incorrect to was emitted.')
+  assert.equal(event.args.value, value, 'Incorrect value was emitted.')
+  assert.equal(event.args.totalSupply.toNumber(), tokenAmount, 'Incorrect totalSupply was emitted.')
+
+**Ensure the state of the contract is updated correctly**
+
+- Assert the buyer's balance is correct, line 34-35
+
+.. code-block:: javascript
+
+  const balance = await token.balanceOf(owner)
+  assert.equal(balance.toNumber(), tokenAmount, 'Incorrect token balance.')
+
+- Assert the total supply is correct, line 38-39
+
+.. code-block:: javascript
+
+  const supply = await token.totalSupply()
+  assert.equal(supply.toNumber(), tokenAmount, 'Incorrect total supply balance.')
+
+7. Execute the Test Case
 
 .. code-block:: bash
 
@@ -372,25 +422,51 @@ Stage 2: Token Interface
 
   # cr src && truffle test
   Using network 'development'.
-    Contract: Token.mint()
-      � should mint new tokens and allocate to user. (416ms)
-      � should return false and LogErrorString when not from owner. (379ms)
-      � should return false and LogErrorString when minting a value of 0. (318ms)
-    3 passing (1s)
+  Contract: Token.buy()
+    ✓ should buy new tokens. (133ms)
+  1 passing (148ms)
   #
 
-7. Refresh your chrome browser and open up the developer console
-----------------------------------------------------------------
-This can be accomplished by right-clicking anywhere in the chrome browser and in the dropdown selecting ``inspect`` as seen in the image below.
+**END Stage 2: Testing Your Token**
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/inspect.JPG
-  :target: index.html
+----
+
+Stage 3: Token Deployment
+=========================
+
+`Video Tutorial <https://drive.google.com/open?id=1sdLtnunj3crUAMX6Q_qqYOITJ0Z94Ee0>`_
+-----------------------------------------------------------------
 
 .. note::
-  Error should be present: ``Token has not been deployed to the detected network.`` within the developer console in the chrome browser.
+  - A default, and required, initial migration script(src/migrations/1_initial_migration.js), has been included. Do *not* remove this script.
 
-8. Deploy your Token
---------------------
+1. Write the Deployment Script
+
+- Create a new file in order to deploy the token, src/migrations/2_deploy_contracts.js
+
+  - Simply right-click on the migrations directory and create the new file.
+
+- Import the token's artifacts, line 1
+
+.. code-block:: javascript
+
+  const Token = artifacts.require("./Token.sol");
+
+- Define the owner account, note ``truffle migrate`` exposes the web3 object, line 2
+
+.. code-block:: javascript
+
+  const owner = web3.eth.accounts[0]
+
+- Utilize truffle's deployer object in order to deploy an instance of the token, line 4-6
+
+.. code-block:: javascript
+
+  module.exports = deployer => {
+    deployer.deploy(Token, { from: owner })
+  }
+
+2. Deploy your Token
 
 .. code-block:: bash
 
@@ -419,8 +495,71 @@ This can be accomplished by right-clicking anywhere in the chrome browser and in
   Saving artifacts...
   #
 
-9. Refresh chrome, server may already have done so.
----------------------------------------------------
+**END Stage 3: Token Deployment**
+
+----
+
+Stage 4: Token Interface
+========================
+
+`Video Tutorial <https://drive.google.com/open?id=18bU8mbWN1p6GrPnTLck7k14ByhngvBMg>`_
+------------------------------------------------
+
+1. Import the web3 library, app.js#line 5
+
+.. code-block:: javascript
+
+  import Web3 from 'web3'
+
+2. Import the token build artifacts into the application, app.js#line 14
+
+.. code-block:: javascript
+
+  import tokenArtifacts from './build/contracts/Token.json'
+
+3. Create a web3 connection to the local Ethereum node(ganache-cli), app.js#line 26
+
+.. code-block:: javascript
+
+  this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+
+4. Check if the connection was successful, app.js#line 28-30
+
+.. code-block:: javascript
+
+  if (this.web3.isConnected()) {
+
+  }
+
+5. Detect the current network id that is connected, app.js#line 29-31
+
+.. code-block:: javascript
+
+  this.web3.version.getNetwork(async (err, netId) => {
+
+  })
+
+6. Extract the recently deploy token address from the build artifacts, app.js#line 30-33
+
+.. code-block:: javascript
+
+  // Create a reference object to the deployed token contract
+  if (netId in tokenArtifacts.networks) {
+    const tokenAddress = tokenArtifacts.networks[netId].address
+  }
+
+7. Create a client side reference to the contract and save it in state, app.js#line 33-35
+
+.. code-block:: javascript
+
+  const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress)
+  this.setState({ token })
+  console.log(token)
+
+8. Refresh your chrome browser and open up the developer console
+
+This can be accomplished by right-clicking anywhere in the chrome browser and in the dropdown selecting ``inspect`` or ``inspect element`` or by utilizing the shortcut: ``ctrl+shift_i``.
+
 *View in the developer console the token instance is now present*
 
 - *Example output:*
@@ -429,214 +568,263 @@ This can be accomplished by right-clicking anywhere in the chrome browser and in
 
   Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a370045968c0bc762a7", abi: Array[20]}
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-2.png
+.. image:: https://drive.google.com/open?id=1maV5rw_yYYYyHxGOBpGiRXPbFyoDsJXe
   :target: index.html
 
-**END Stage 2: Token Interface**
+**END Stage 4: Token Interface**
 
 ----
 
-Stage 3: Token Interaction - GET
+Stage 5: Load Available On-chain Accounts
+=========================================
+
+`Video Tutorial <https://drive.google.com/open?id=1hqqMw2Fv7wtqgRKl6TLoAb5go3BOqBkR>`_
+------------------------------------------------
+
+1. Get the available accounts from the web3 connection, this is to wrap the existing token interface code, line 29 & 39
+
+.. code-block:: javascript
+
+  this.web3.eth.getAccounts((err, accounts) => {  // Line 29
+
+  })                                              // Line 39
+
+2. Set the default account to use, line 30
+
+.. code-block:: javascript
+
+  const defaultAccount = this.web3.eth.accounts[0]
+
+3. Load the available accounts into the user interface
+
+- Import the Material UI MenuItem, line 8
+
+.. code-block:: javascript
+
+  import MenuItem from 'material-ui/MenuItem';
+
+- Add an availableAccounts arrary into the app's state, line 21
+
+.. code-block:: javascript
+
+  availableAccounts: [],
+
+- Append all accounts into the UI dropdown menu, line 34-41
+
+.. code-block:: javascript
+
+  // Append all available accounts
+  for (let i = 0; i < accounts.length; i++) {
+    this.setState({
+      availableAccounts: this.state.availableAccounts.concat(
+        <MenuItem value={i} key={accounts[i]} primaryText={accounts[i]} />
+      )
+    })
+  }
+
+4. Set the default account
+
+- Add a defaultAccount variable to the state, line 22
+
+.. code-block:: javascript
+
+  defaultAccount: 0,
+
+- Set the defaultAccount in the state when the drowdown value changes, line 86
+
+.. code-block:: javascript
+
+  this.setState({ defaultAccount })
+
+**END Stage 5: Load Available Accounts**
+
+----
+
+Stage 6: Token Interaction - GET
 ================================
 
-**Time to start coding!**
+`Video Tutorial <https://drive.google.com/open?id=11WaCAk_sc2S4W-az-zV-TD6Le3tGqx5q>`_
+------------------------------------------------
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-3-01.mp4?raw=true>`_
-------------------------
+1. Load the token metadata from the contract
 
-1. Open up the repo ``~/Desktop/blg/wallet-template`` in a text editor of your choice
----------------------------------------------------------------------------------
-
-2. Set the default account's ether balance, `wallet-template/src/App.js#L55 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/6095b3cad3b3aff0628c17f52cba15c8f2171ece/src/App.js#L55>`_
----------------------------------------------------------------------------
+- Add the token's symbol to the state, line 23
 
 .. code-block:: javascript
 
-  this.web3.eth.getBalance(defaultAccount, (err, ethBalance) => {
-    this.setState({ ethBalance })
-  })
+  tokenSymbol: 0,
 
-3. Set the default account's token balance, `wallet-template/src/App.js#L74 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L74>`_
----------------------------------------------------------------------------
+- Load the token's symbol, line 52-55
 
 .. code-block:: javascript
 
-  token.balanceOf(defaultAccount, (err, tokenBalance) => {
-    this.setState({ tokenBalance })
-  })
-
-4. Set the token's symbol, `wallet-template/src/App.js#L81 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L81>`_
-----------------------------------------------------------
-
-.. code-block:: javascript
-
+  // Set token symbol below
   token.symbol((err, tokenSymbol) => {
     this.setState({ tokenSymbol })
   })
 
-5. Set the token's decimal places, `wallet-template/src/App.js#L88 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L88>`_
-------------------------------------------------------------------
+- Add the token's rate to the state, line 23
 
 .. code-block:: javascript
 
-  token.decimals((err, tokenDecimals) => {
-    this.setState({ tokenDecimals })
+  rate: 1,
+
+- Load the token's rate, line 58-61
+
+.. code-block:: javascript
+
+  // Set wei / token rate below
+  token.rate((err, rate) => {
+    this.setState({ rate: rate.toNumber() })
   })
 
-6. View the default account balances and token information in your browser!
----------------------------------------------------------------------------
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-3.png
-  :target: index.html
-
-**END Stage 3: Token Interaction - GET**
+**END Stage 6: Token Interaction - GET**
 
 ----
 
-Stage 4: Token Interaction - Mint Tokens
+Stage 7: Load Account Balances
 ==============================
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-4-01.mp4?raw=true>`_
-------------------------
-
-1. Add a method to mint tokens, sending a transaction to the token contract. `wallet-template/src/App.js#L155 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L170>`_
----------------------------------------------------------------------------
-
-.. code-block:: javascript
-
-  this.state.token.mint(
-    user,
-    amount*10**this.state.tokenDecimals, // Convert to correct decimal places
-    { from: this.web3.eth.accounts[this.state.defaultAccount] },
-    (err, res) => {
-      if (err) console.error(err)
-      else console.log(res)
-    }
-  )
-
-2. In the GUI mint tokens to available accounts.
+`Video Tutorial <https://drive.google.com/open?id=1FH7__0b1pwuLT32Ay9efkKV81KPmHEeu>`_
 ------------------------------------------------
 
-.. note::
-  Note transaction hash in develop console
-  Note the transaction is sent from the current default account and only the contract owner, account 0, has permission to do so.
+1. Load the default account's ETH and Token balances, completing the ``loadAccountBalances`` method
 
-  *Example transaction hash:* ``0x4b396191e87c31a02e80160cb6a2661da6086c073f6e91e9bd1f796e29b0c983``
-
-3. Refresh chrome and view the account's balance of shiny new tokens!
----------------------------------------------------------------------
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4.png
-  :target: index.html
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-4-2.png
-  :target: index.html
-
-**END Stage 4: Token Interaction - Mint Tokens**
-
-----
-
-Stage 5: Events
-==============================
-
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-5-01.mp4?raw=true>`_
-------------------------
-
-1. Add an event to listen for when tokens are minted, `wallet-template/src/App.js#L131 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L135>`_
---------------------------------------------------------------------------------------
+- Confirm the token has been loaded, line 73-75
 
 .. code-block:: javascript
 
-  this.state.token.LogTokensMinted({ fromBlock: 'latest', toBlock: 'latest' })
-  .watch((err, res) => {
-    console.log(`Tokens Minted! TxHash: https://kovan.etherscan.io/tx/${res.transactionHash}`)
-    this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
+  if (this.state.token) {
+
+  }
+
+- Add tokenBalance to the state, line 24
+
+.. code-block:: javascript
+
+  tokenBalance: 0,
+
+- Set the token balance, line 75-78
+
+.. code-block:: javascript
+
+  // Set token balance below
+  this.state.token.balanceOf(account, (err, balance) => {
+    this.setState({ tokenBalance: balance.toNumber() })
   })
 
-2. Update the default account's token balance when the event is fired. `wallet-template/src/App.js#L115 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L115>`_
--------------------------------------------------------------------------------------------------------
+- Add ethBalance to the state, line 23
 
 .. code-block:: javascript
 
-  this.state.token.balanceOf(account, (err, tokenBalance) => {
-    this.setState({ tokenBalance })
-  })
+  ethBalance: 0,
 
-3. Update the default account's ETH balance when the event is fired. `wallet-template/src/App.js#L122 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L122>`_
------------------------------------------------------------------------------------------------------
+- Set the eth balance, line 81-84
 
 .. code-block:: javascript
 
+  // Set ETH balance below
   this.web3.eth.getBalance(account, (err, ethBalance) => {
     this.setState({ ethBalance })
   })
 
+- Call the ``loadAccountBalances`` method on load, line 67
 
-4. Load the contract events, `wallet-template/src/App.js#L95 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/274116cb3b1d335282b3b9058067b34d758605e5/src/App.js#L95>`_
-------------------------------------------------------------
+.. code-block:: javascript
+
+  this.loadAccountBalances(defaultAccount)
+
+- Also load the balances whenever a new account is selected in the dropdown, line 111
+
+.. code-block:: javascript
+
+  this.loadAccountBalances(this.state.availableAccounts[index].key)
+
+2. View the default account balances and token information in your browser!
+
+**END Stage 7: Load Available Account Balances**
+
+----
+
+Stage 8: Purchasing Tokens
+========================================
+
+`Video Tutorial <>`_
+------------------------------------------------
+
+1. Add token amount to the state, line 21.
+
+.. code-block:: javascript
+
+  amount: 0,
+
+2. Complete the method to buy tokens, sending a transaction to the token contract, line 99-104.
+
+.. code-block:: javascript
+
+  this.state.token.buy({
+    from: this.web3.eth.accounts[this.state.defaultAccount],
+    value: amount
+  }, (err, res) => {
+    err ? console.error(err) : console.log(res)
+  })
+
+3. In the GUI buy tokens with several available accounts.
+
+.. note::
+  Note transaction hash in the developer console
+
+  *Example transaction hash:* ``0x4b396191e87c31a02e80160cb6a2661da6086c073f6e91e9bd1f796e29b0c983``
+
+4. Refresh the browser or select a different account and come back, and view the account's balance of shiny new tokens!
+
+**END Stage 8: Purchasing Tokens**
+
+----
+
+Stage 9: Events
+===============
+
+`Video Tutorial <https://drive.google.com/open?id=1gSHTciut91F17sU_E7DYhpZJE4LoH-Lu>`_
+------------------------------------------------
+
+1. Add an event to listen for when tokens are transferred and reload the account's balances, line 94-99
+
+.. code-block:: javascript
+
+  // Watch tokens transfer event below
+  this.state.token.Transfer({ fromBlock: 'latest', toBlock: 'latest' })
+  .watch((err, res) => {
+    console.log(`Tokens Transferred! TxHash: https://kovan.etherscan.io/tx/${res.transactionHash}`)
+    this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
+  })
+
+2. Load the contract events, line 66
 
 .. code-block:: javascript
 
   this.loadEventListeners()
 
-5. Add another event listener to watch for errors, `wallet-template/src/App.js#L149 <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L153>`_
------------------------------------------------------------------------------------
+3. Buy tokens and view the log confirmation in the developer console and token and ETH balance updated dynamically!
 
-.. code-block:: javascript
-
-  this.state.token.LogErrorString({ fromBlock: 'latest', toBlock: 'latest' })
-  .watch((err, res) => {
-    console.error(res.args.errorString)
-  })
-
-6. Mint tokens and view the log confirmation in the developer console and token and ETH balance updated!
---------------------------------------------------------------------------------------------------------
-- Also mint tokens from an account that is not the owner and view the error message.
-
-.. note::
-  Note testrpc known bug where it will re-broadcast the latest event every time a new connection is made.  For example every time the browser refreshes in our case the event log will appear.
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-5.png
-  :target: index.html
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-5-2.png
-  :target: index.html
-
-**END Stage 5: Events**
+**END Stage 9: Events**
 
 ----
 
-Stage 6: Transfer Tokens
+Stage 10: Transfer Tokens
 ========================
 
-**Try this portion on your own!**
-
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-6-01.mp4?raw=true>`_
-------------------------
+**Try this portion on your own! [Solution noted at the bottom]**
 
 The required components included:
 
-1. Add the React transfer tokens form component.
----------------------------------------------------------
-- `Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L238>`_
-
-2. Complete the transfer method to send the transfer transaction.
----------------------------------------------------------------------------
-- `Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L193>`_
-
-3. Add an event listener to watch for token transfers.
-----------------------------------------------------------------
-- `Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2/blob/734732d713514efcdb125e27d1cb3409757c1a93/src/App.js#L144>`_
+1. Add the transferAmount and transferUser to the app's state.
+2. Add the React transfer tokens form component.
+3. Complete the transfer method to send the transfer transaction.
 
 **Finally transfer tokens between accounts and review balances.**
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6.png
-  :target: index.html
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Wallet/02-stage-6-2.png
-  :target: index.html
-
-**END Stage 6: Transfer Tokens**
+**END Stage 10: Transfer Tokens**
 
 ----
 
@@ -722,3 +910,52 @@ Clean up
   adam@adam:~/$ docker stop blg-env
   blg-env
   adam@adam:~/$
+
+----
+
+SOLUTIONS
+=========
+
+Stage 10: Transfer Tokens
+------------------------
+
+`Video Tutorial <https://drive.google.com/open?id=1JPno5OLKUPTMdXO2O4YeXch1SZFyG297>`_
+------------------------------------------------
+
+1. Add the transferAmount and transferUser to the app's state, line 28 & 29.
+
+.. code-block:: javascript
+
+  transferAmount: '',
+  transferUser: '',
+
+2. Add the React transfer tokens form component, line 150-161.
+
+.. code-block:: javascript
+
+  <div>
+    <h3>Transfer Tokens</h3>
+    <TextField floatingLabelText="User to transfer tokens to." style={{width: 400}} value={this.state.transferUser}
+      onChange={(e, transferUser) => { this.setState({ transferUser }) }}
+    />
+    <TextField floatingLabelText="Amount." style={{width: 100}} value={this.state.transferAmount}
+      onChange={(e, transferAmount) => { this.setState({ transferAmount })}}
+    />
+    <RaisedButton label="Transfer" labelPosition="before" primary={true}
+      onClick={() => this.transfer(this.state.transferUser, this.state.transferAmount)}
+    />
+  </div>
+
+
+3. Complete the transfer method to send the transfer transaction, line 117-124.
+
+.. code-block:: javascript
+
+  if (amount > 0) {
+    // Execute token transfer below
+    this.state.token.transfer(user, amount, {
+      from: this.web3.eth.accounts[this.state.defaultAccount]
+    }, (err, res) => {
+      err ? console.error(err) : console.log(res)
+    })
+  }
