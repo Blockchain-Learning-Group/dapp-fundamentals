@@ -303,7 +303,7 @@ Stage 4: Test the submitOrder Method
 .. code-block:: javascript
 
   exchange = await Exchange.new()
-  token = await Token.new({ from: maker })
+  token = await Token.new()
 
 5. Define the order parameters, line 25-29
 -----------------------------------------------
