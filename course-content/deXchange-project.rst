@@ -211,7 +211,7 @@ Stage 2: Create the Exchange Contract
 
   Exchange.sol
 
-2. Copy `Exchange Template <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/ExchangeTemplate.sol>`_ into the new file, wallet-template/src/contracts/Exchange.sol
+2. Copy `Exchange Template <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Exchange_02.sol>`_ into the new file, wallet-template/src/contracts/Exchange.sol
 -----------------------------------------------
 
 3. Review the contents of the provided template.
@@ -226,30 +226,28 @@ Stage 3: Write the submitOrder Method
 
 `Video Tutorial <>`_
 
-1. Ensure the exchange has been given a sufficient token allowance `wallet-template/src/contracts/Exchange.sol#L61 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L61)>`_
+1. Ensure the exchange has been given a sufficient token allowance, line 31
 -----------------------------------------------
 
 ::
 
-  require(ERC20(_bidToken).allowance(msg.sender, this) >= _bidAmount);
+  require(Token(_bidToken).allowance(msg.sender, this) >= _bidAmount, "Insufficient allowance given.");
 
-
-2. Compute a ``unique`` id for the order, `wallet-template/src/contracts/Exchange.sol#L66 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/5423f063a28d13328297a9eda0b274ff2e506159/src/contracts/Exchange.sol#L66>`_
+2. Compute a ``unique`` id for the order, line 34
 -----------------------------------------------
 
 ::
 
   bytes32 orderId = keccak256(msg.sender, _bidToken, _bidAmount, _askToken, _askAmount);
 
-
-3. Confirm this order does not already exist, `wallet-template/src/contracts/Exchange.sol#L67 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L67>`_
+3. Confirm this order does not already exist, line 35
 -----------------------------------------------
 
 ::
 
-  require(orderBook_[orderId].askAmount == 0); // check for existence, default to 0, assume no one is giving tokens away for free
+  require(orderBook_[orderId].askAmount == 0, "Order already exists."); // check for existence, default to 0, assume no one is giving tokens away for free
 
-4. Add the order to the order book, `wallet-template/src/contracts/Exchange.sol#L72 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L72>`_
+4. Add the order to the order book, line 38-44
 -----------------------------------------------
 
 ::
@@ -263,13 +261,12 @@ Stage 3: Write the submitOrder Method
   });
 
 
-5. Emit the order submitted event, `wallet-template/src/contracts/Exchange.sol#L83 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L83>`_
+5. Emit the order submitted event, line 47
 -----------------------------------------------
 
 ::
 
-  LogOrderSubmitted(orderId, msg.sender, _bidToken,_bidAmount, _askToken, _askAmount);
-
+  emit OrderSubmitted(orderId, msg.sender, _bidToken,_bidAmount, _askToken, _askAmount);
 
 **END Stage 3: Write the submitOrder Method**
 
@@ -394,7 +391,7 @@ Stage 5: Write the executeOrder Method
 
 `Video Tutorial <>`_
 
-1. Load the order struct into memory(will save gas cost for subsequent reads), `wallet-template/src/contracts/Exchange.sol#L98 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L98>`_
+1. Load the order struct into memory(will save gas cost for subsequent reads), line 53
 -----------------------------------------------
 
 ::
@@ -402,7 +399,7 @@ Stage 5: Write the executeOrder Method
   Order memory order = orderBook_[_orderId];
 
 
-2. Confirm enough ether was sent with the transaction to fill the order, `wallet-template/src/contracts/Exchange.sol#L103 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L103>`_
+2. Confirm enough ether was sent with the transaction to fill the order, line 56
 -----------------------------------------------
 
 ::
@@ -412,32 +409,31 @@ Stage 5: Write the executeOrder Method
 
 3. Execute the trade.
 -----------------------------------------------
-  - Moving ether to the maker, `wallet-template/src/contracts/Exchange.sol#L108 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L108>`_
+  - Moving ether to the maker, line 59
 
 ::
 
-  order.maker.transfer(order.askAmount);
+  order.maker.transfer(order.askAmount);  // safe and will throw on failure
 
-- AND tokens to the taker, `wallet-template/src/contracts/Exchange.sol#L109 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L109>`_
+- AND tokens to the taker, line 60
 
 ::
 
-  require(ERC20(order.bidToken).transferFrom(order.maker, msg.sender, order.bidAmount));
+  require(Token(order.bidToken).transferFrom(order.maker, msg.sender, order.bidAmount), "transferFrom failed.");
 
-
-4.  Remove the filled order from the order book, `wallet-template/src/contracts/Exchange.sol#L114 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L114>`_
+4.  Remove the filled order from the order book, line 63
 -----------------------------------------------
 
 ::
 
   delete orderBook_[_orderId];
 
-5. Emit the order executed event, `wallet-template/src/contracts/Exchange.sol#L119 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/contracts/Exchange.sol#L119>`_
+5. Emit the order executed event, line 66
 -----------------------------------------------
 
 ::
 
-  LogOrderExecuted(_orderId, order.maker, msg.sender, order.bidToken, order.bidAmount, order.askToken, order.askAmount);
+  emit OrderExecuted(_orderId, order.maker, msg.sender, order.bidToken, order.bidAmount, order.askToken, order.askAmount);
 
 **END Stage 5: Write the executeOrder Method**
 
