@@ -22,6 +22,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
     - docker-machine: ``adam3@DESKTOP-109 MINGW64``, ``<USERNAME>`` == ``adam3``
 
 1. Make a blg directory on your desktop
+---------------------------------------
 
 .. Important::
   This can be done by simply right-clicking on your desktop and creating a new folder named ``blg``.
@@ -62,6 +63,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   cd c:\Users\<USERNAME>\desktop\blg
 
 2. Clone the wallet template
+---------------------------------------
 
 .. important::
   Make **SURE** you are within the ``blg`` directory before cloning the repo!
@@ -91,6 +93,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   adam@adam:~/Desktop/blg/wallet-template$
 
 3. Run your docker container
+---------------------------------------
 
 .. important::
   - Make sure that the path immediately following the ``-v`` flag is correct! ie. ``/home/adam/Desktop/blg``
@@ -171,6 +174,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
     adam@adam:~/Desktop/blg$
 
 4. Attach into the container
+---------------------------------------
 
 *Container will serve as your virtual environment.*
 
@@ -186,6 +190,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   root@182d123ec039:/blg/wallet-template#
 
 5. Install dependencies
+---------------------------------------
 
 .. attention::
 
@@ -214,6 +219,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
   root@2e9e0eda980d:~/blg/wallet-template#
 
 6. Start the app
+---------------------------------------
 
 .. note::
   The videos will demonstrate a window manager being used, screen, and if preferred you may do so at this time as well, however the following instructions will assume this is not the case and will simply create multiple tabs within your terminal window.
@@ -251,6 +257,7 @@ Stage 2: Testing Your Token
 `Video Tutorial <https://drive.google.com/open?id=17TlqJ0571ElgB9yimc4WnAWCRNKFq6dz>`_
 
 1. Create a new tab in your terminal window or a new terminal window for our Ethereum node
+---------------------------------------
 
 .. note::
   While within the terminal window select File -> Open Terminal to create a new window.
@@ -268,6 +275,7 @@ Stage 2: Testing Your Token
   adam@adam:~/Desktop/blg$
 
 2. Attach back into the container in the Etheruem node tab
+---------------------------------------
 
 .. code-block:: bash
 
@@ -281,6 +289,7 @@ Stage 2: Testing Your Token
   root@182d123ec039:/blg/wallet-template#
 
 3. Start up your Ethereum node, ganache-cli
+---------------------------------------
 
 .. code-block:: bash
 
@@ -295,6 +304,7 @@ Stage 2: Testing Your Token
   Listening on localhost:8545
 
 4. Create a new window or tab for our Truffle commands
+---------------------------------------
 
 .. note::
   While within the terminal window select File -> Open Terminal to create a new window.
@@ -312,6 +322,7 @@ Stage 2: Testing Your Token
   adam@adam:~/Desktop/blg$
 
 5. Attach back into the container in the Truffle tab
+---------------------------------------
 
 .. code-block:: bash
 
@@ -325,6 +336,7 @@ Stage 2: Testing Your Token
   root@182d123ec039:/blg/wallet-template#
 
 6. Create the Test Case
+---------------------------------------
 
 .. note::
   - contracts/Token.sol has been provided or do update it with the Token that was completed previously.
@@ -406,6 +418,7 @@ Stage 2: Testing Your Token
   assert.equal(supply.toNumber(), tokenAmount, 'Incorrect total supply balance.')
 
 7. Execute the Test Case
+---------------------------------------
 
 .. code-block:: bash
 
@@ -435,6 +448,7 @@ Stage 3: Token Deployment
   - A default, and required, initial migration script(src/migrations/1_initial_migration.js), has been included. Do *not* remove this script.
 
 1. Write the Deployment Script
+---------------------------------------
 
 - Create a new file in order to deploy the token, src/migrations/2_deploy_contracts.js
 
@@ -461,6 +475,7 @@ Stage 3: Token Deployment
   }
 
 2. Deploy your Token
+---------------------------------------
 
 .. code-block:: bash
 
@@ -499,24 +514,28 @@ Stage 4: Token Interface
 `Video Tutorial <https://drive.google.com/open?id=18bU8mbWN1p6GrPnTLck7k14ByhngvBMg>`_
 
 1. Import the web3 library, app.js#line 5
+---------------------------------------
 
 .. code-block:: javascript
 
   import Web3 from 'web3'
 
 2. Import the token build artifacts into the application, app.js#line 14
+---------------------------------------
 
 .. code-block:: javascript
 
   import tokenArtifacts from './build/contracts/Token.json'
 
 3. Create a web3 connection to the local Ethereum node(ganache-cli), app.js#line 26
+---------------------------------------
 
 .. code-block:: javascript
 
   this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
 4. Check if the connection was successful, app.js#line 28-30
+---------------------------------------
 
 .. code-block:: javascript
 
@@ -525,6 +544,7 @@ Stage 4: Token Interface
   }
 
 5. Detect the current network id that is connected, app.js#line 29-31
+---------------------------------------
 
 .. code-block:: javascript
 
@@ -533,6 +553,7 @@ Stage 4: Token Interface
   })
 
 6. Extract the recently deploy token address from the build artifacts, app.js#line 30-33
+---------------------------------------
 
 .. code-block:: javascript
 
@@ -542,6 +563,7 @@ Stage 4: Token Interface
   }
 
 7. Create a client side reference to the contract and save it in state, app.js#line 33-35
+---------------------------------------
 
 .. code-block:: javascript
 
@@ -550,6 +572,7 @@ Stage 4: Token Interface
   console.log(token)
 
 8. Refresh your chrome browser and open up the developer console
+---------------------------------------
 
 This can be accomplished by right-clicking anywhere in the chrome browser and in the dropdown selecting ``inspect`` or ``inspect element`` or by utilizing the shortcut: ``ctrl+shift_i``.
 
@@ -571,6 +594,7 @@ Stage 5: Load Available On-chain Accounts
 `Video Tutorial <https://drive.google.com/open?id=1hqqMw2Fv7wtqgRKl6TLoAb5go3BOqBkR>`_
 
 1. Get the available accounts from the web3 connection, this is to wrap the existing token interface code, line 29 & 39
+---------------------------------------
 
 .. code-block:: javascript
 
@@ -579,12 +603,14 @@ Stage 5: Load Available On-chain Accounts
   })                                              // Line 39
 
 2. Set the default account to use, line 30
+---------------------------------------
 
 .. code-block:: javascript
 
   const defaultAccount = this.web3.eth.accounts[0]
 
 3. Load the available accounts into the user interface
+---------------------------------------
 
 - Import the Material UI MenuItem, line 8
 
@@ -612,6 +638,7 @@ Stage 5: Load Available On-chain Accounts
   }
 
 4. Set the default account
+---------------------------------------
 
 - Add a defaultAccount variable to the state, line 22
 
@@ -635,6 +662,7 @@ Stage 6: Token Interaction - GET
 `Video Tutorial <https://drive.google.com/open?id=11WaCAk_sc2S4W-az-zV-TD6Le3tGqx5q>`_
 
 1. Load the token metadata from the contract
+---------------------------------------
 
 - Add the token's symbol to the state, line 23
 
@@ -676,6 +704,7 @@ Stage 7: Load Account Balances
 `Video Tutorial <https://drive.google.com/open?id=1FH7__0b1pwuLT32Ay9efkKV81KPmHEeu>`_
 
 1. Load the default account's ETH and Token balances, completing the ``loadAccountBalances`` method
+---------------------------------------
 
 - Confirm the token has been loaded, line 73-75
 
@@ -728,6 +757,7 @@ Stage 7: Load Account Balances
   this.loadAccountBalances(this.state.availableAccounts[index].key)
 
 2. View the default account balances and token information in your browser!
+---------------------------------------
 
 **END Stage 7: Load Available Account Balances**
 
@@ -739,12 +769,14 @@ Stage 8: Purchasing Tokens
 `Video Tutorial <https://drive.google.com/open?id=1qa87ghBevvIpNdYNohVfTiY8TXJjXLsV>`_
 
 1. Add token amount to the state, line 21.
+---------------------------------------
 
 .. code-block:: javascript
 
   amount: 0,
 
 2. Complete the method to buy tokens, sending a transaction to the token contract, line 99-104.
+---------------------------------------
 
 .. code-block:: javascript
 
@@ -756,6 +788,7 @@ Stage 8: Purchasing Tokens
   })
 
 3. In the GUI buy tokens with several available accounts.
+---------------------------------------
 
 .. note::
   Note transaction hash in the developer console
@@ -763,6 +796,7 @@ Stage 8: Purchasing Tokens
   *Example transaction hash:* ``0x4b396191e87c31a02e80160cb6a2661da6086c073f6e91e9bd1f796e29b0c983``
 
 4. Refresh the browser or select a different account and come back, and view the account's balance of shiny new tokens!
+---------------------------------------
 
 **END Stage 8: Purchasing Tokens**
 
@@ -774,6 +808,7 @@ Stage 9: Events
 `Video Tutorial <https://drive.google.com/open?id=1gSHTciut91F17sU_E7DYhpZJE4LoH-Lu>`_
 
 1. Add an event to listen for when tokens are transferred and reload the account's balances, line 94-99
+---------------------------------------
 
 .. code-block:: javascript
 
@@ -785,12 +820,14 @@ Stage 9: Events
   })
 
 2. Load the contract events, line 66
+---------------------------------------
 
 .. code-block:: javascript
 
   this.loadEventListeners()
 
 3. Buy tokens and view the log confirmation in the developer console and token and ETH balance updated dynamically!
+---------------------------------------
 
 **END Stage 9: Events**
 

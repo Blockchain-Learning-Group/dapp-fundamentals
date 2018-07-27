@@ -8,7 +8,7 @@ Stage 1: Restart Your Dev Environment and App
 .. note::
   Begin instructions in a fresh terminal instance.  Not within any existing window manager, ie. screen or tmux.
 
-`Video Tutorial <https://drive.google.com/open?id=1OAUN_EmUnCAD0ZSjx5Q7_5R-7ZKd4O5n>`_
+`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-1.mp4?raw=true>`_
 
 .. attention::
   Docker Machine ONLY - if Docker shell exited
@@ -16,28 +16,7 @@ Stage 1: Restart Your Dev Environment and App
     - Execute everything following from within the Docker shell.
 
 1. Start your container back up
--------------------------------
-
-- Confirm container is not already running
-
-.. code-block:: bash
-
-  docker ps
-
-- *Example output: Container IS running*
-
-.. code-block:: bash
-
-  CONTAINER ID        IMAGE                       COMMAND             CREATED             STATUS              PORTS                                            NAMES
-  fabb387d8088        blockchainlg/dapp-dev-env   "node"              15 hours ago        Up 15 hours         0.0.0.0:3000->3000/tcp, 0.0.0.0:8545->8545/tcp   blg-env
-
-- *Example output: Container is NOT running*
-
-.. code-block:: bash
-
-  CONTAINER ID        IMAGE                       COMMAND             CREATED             STATUS              PORTS                                            NAMES
-
-**If the conainter is NOT running continue, else move to step 2**
+-----------------------------------------------
 
 .. code-block:: bash
 
@@ -111,8 +90,8 @@ Stage 1: Restart Your Dev Environment and App
 
   adam@adam:~/Desktop/blg$
 
-5. Attach back into the container and start Etheruem node
----------------------------------------------------------
+5. Attach back into the container in the Etheruem client tab
+------------------------------------------------------------
 .. code-block:: bash
 
   docker exec -it blg-env bash
@@ -124,22 +103,23 @@ Stage 1: Restart Your Dev Environment and App
   adam@adam:~/Desktop/blg$ docker exec -it blg-env bash
   root@182d123ec039:/blg/wallet-template#
 
-- start the node(emulator)
+6. Start up your Ethereum client, testrpc
+-----------------------------------------------
 
 .. code-block:: bash
 
-  ganache-cli
+  testrpc
 
 - *Example output:*
 
 .. code-block:: console
 
-  root@182d123ec039:/blg/wallet-template# ganache-cli
-  Ganache CLI v6.0.3 (ganache-core: 2.0.2)
+  # testrpc
+  EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
   [...]
   Listening on localhost:8545
 
-6. Create a new window or tab for our Truffle commands
+7. Create a new window or tab for our Truffle commands
 ------------------------------------------------------
 
 .. note::
@@ -157,8 +137,8 @@ Stage 1: Restart Your Dev Environment and App
 
   adam@adam:~/Desktop/blg$
 
-- Attach back into the container
-
+8. Attach back into the container in the Truffle tab
+----------------------------------------------------
 .. code-block:: bash
 
   docker exec -it blg-env bash
@@ -170,7 +150,7 @@ Stage 1: Restart Your Dev Environment and App
   adam@adam:~/Desktop/blg$ docker exec -it blg-env bash
   root@182d123ec039:/blg/wallet-template#
 
-7. Deploy your Token
+9. Deploy your Token
 -----------------------------------------------
 
 .. code-block:: bash
@@ -181,20 +161,34 @@ Stage 1: Restart Your Dev Environment and App
 
 .. code-block:: console
 
-  root@182d123ec039:/blg/wallet-template# cd src && truffle migrate
+  # cd src && truffle migrate
   Using network 'development'.
 
   Running migration: 1_initial_migration.js
     Deploying Migrations...
-    [..]
+    ... 0x26ff3f480502a228f34363e938289c3164edf8bc49c75f5d6d9623a05da92dbf
+    -----------------------------------------------
+    Migrations: 0x3e47fad1423cbf6bd97fee18ae2de546b0e9188a
+  Saving successful migration to network...
+    ... 0x19a7a819df452847f34815e2573765be8c26bac43b1c10d3b7528e6d952ac02c
+    -----------------------------------------------
+  Saving artifacts...
+  Running migration: 2_deploy_contracts.js
     Deploying Token...
+    ... 0x4a69e7840d0f96067964fb515ffea1a04a98fc5759849d3308584af4770c8f7b
+    -----------------------------------------------
     Token: 0xd58c6b5e848d70fd94693a370045968c0bc762a7
-    [..]
+  Saving successful migration to network...
+    ... 0xd1e9bef5f19bb37daa200d7e563f4fa438da60dbc349f408d1982f8626b3c202
+    -----------------------------------------------
   Saving artifacts...
   #
 
 10. Load the app in chrome, `localhost:3000 <http://localhost:3000/>`_
 -----------------------------------------------
+
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Exchange/03-stage-1.png
+  :target: index.html
 
 **END Stage 1: Restart Your Dev Environment and App**
 
@@ -203,7 +197,7 @@ Stage 1: Restart Your Dev Environment and App
 Stage 2: Create the Exchange Contract
 =====================================
 
-`Video Tutorial <>`_
+`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-2.mp4?raw=true>`_
 
 1. Create a new file ``wallet-template/src/contracts/Exchange.sol``
 ---------------------------------------------------------------
@@ -224,7 +218,7 @@ Stage 2: Create the Exchange Contract
 Stage 3: Write the submitOrder Method
 =====================================
 
-`Video Tutorial <>`_
+`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-3.mp4?raw=true>`_
 
 1. Ensure the exchange has been given a sufficient token allowance `wallet-template/src/contracts/Exchange.sol#L61 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/c40e4f3bf96f36c0adc5d0f26084192d568e1c8f/src/contracts/Exchange.sol#L61)>`_
 -----------------------------------------------
@@ -277,7 +271,7 @@ Stage 3: Write the submitOrder Method
 
 Stage 4: Test the submitOrder Method
 =========================================
-`Video Tutorial <>`_
+`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Exchange/03_video_tutorials/03-stage-4.mp4?raw=true>`_
 
 1. Create a new file wallet-template/src/test/test_submit_executeOrder.js
 -----------------------------------------------
@@ -291,7 +285,7 @@ Stage 4: Test the submitOrder Method
 
 **Test Setup**
 
-3. Define the accounts to be used, maker and taker, line 12-13
+3. Define the accounts to be used, maker and taker, `wallet-template/src/test/test_submit_executeOrder.js#L12 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L12>`_
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -299,7 +293,7 @@ Stage 4: Test the submitOrder Method
   const maker = accounts[0]
   const taker = accounts[1]
 
-4. Deploy a new exchange and token in the test case, line 19-20
+4. Deploy a new exchange and token in the test case, `wallet-template/src/test/test_submit_executeOrder.js#L19 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L19>`_
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -307,7 +301,7 @@ Stage 4: Test the submitOrder Method
   exchange = await Exchange.new()
   token = await Token.new({ from: maker })
 
-5. Define the order parameters, line 25-28
+5. Define the order parameters, `wallet-template/src/test/test_submit_executeOrder.js#L25 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L25>`_
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -317,15 +311,15 @@ Stage 4: Test the submitOrder Method
   const askToken = 0
   const askAmount = 100
 
-6. Setup the transaction by minting tokens to the maker and giving allowance to the exchange, line 33-34
+6. Setup the transaction by minting tokens to the maker and giving allowance to the exchange, `wallet-template/src/test/test_submit_executeOrder.js#L33 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L33>`_
 -----------------------------------------------
 
 .. code-block:: javascript
 
-  await token.buy({ from: maker, value: bidAmount });
+  await token.mint(maker, bidAmount, { from: maker });
   await token.approve(exchange.address, bidAmount, { from: maker })
 
-7. Send the transaction submitting the order, line 39-43
+7. Send the transaction submitting the order, `wallet-template/src/test/test_submit_executeOrder.js#L39 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L39>`_
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -338,15 +332,15 @@ Stage 4: Test the submitOrder Method
 
 **Assertions**
 
-8. Confirm the correct event emitted, line 48-39
+8. Confirm the correct event emitted, `wallet-template/src/test/test_submit_executeOrder.js#L48 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L48>`_
 -----------------------------------------------
 
 .. code-block:: javascript
 
   const log = tx.logs[0]
-  assert.equal(log.event, 'OrderSubmitted', 'Event not emitted')
+  assert.equal(log.event, 'LogOrderSubmitted', 'Event not emitted')
 
-9. Confirm the order stored on-chain is correct, line 54-60
+9. Confirm the order stored on-chain is correct, `wallet-template/src/test/test_submit_executeOrder.js#L54 <https://github.com/Blockchain-Learning-Group/exchange-eod3/blob/27b87d56d8d1ed6822728afe9b6d1eb157639135/src/test/test_submit_executeOrder.js#L54>`_
 -----------------------------------------------
 
 .. code-block:: javascript
