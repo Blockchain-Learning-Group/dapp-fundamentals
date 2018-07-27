@@ -211,7 +211,7 @@ Stage 2: Create the Exchange Contract
 
   Exchange.sol
 
-2. Copy `Exchange Template <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Exchange_02.sol>`_ into the new file, wallet-template/src/contracts/Exchange.sol
+2. Copy `Exchange Template <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Exchange.sol>`_ into the new file, wallet-template/src/contracts/Exchange.sol
 -----------------------------------------------
 
 3. Review the contents of the provided template.
