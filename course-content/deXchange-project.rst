@@ -535,7 +535,69 @@ Stage 6: Test the executeOrder Method
 
 ----
 
-Stage 7: Add Basic Routing to the DApp
+Stage 7: Deploy the Exchange
+=========================================
+
+`Video Tutorial <>`_
+
+1. Add the exchange to the deployment script(``src/migrations/2_deploy_contracts``), line
+-----------------------------------------------
+
+- Import the exchange artifacts, line 2
+
+.. code-block:: javascript
+
+  const Exchange = artifacts.require("./Exchange.sol");
+
+- Deploy the Exchange, line 6
+
+.. code-block:: javascript
+
+  deployer.deploy(Exchange, { from: owner })
+
+2. Deploy the exchange(a new token).
+-----------------------------------------------
+
+.. code-block:: bash
+
+  truffle migrate --reset
+
+- *Example output:*
+
+.. code-block:: console
+
+  # truffle migrate --reset
+  Using network 'development'.
+
+  Running migration: 1_initial_migration.js
+    Replacing Migrations...
+    ... 0xaf3df4616497a63d75879d900ee9bd580881e3d88b359942aa89beb12ff05416
+    -----------------------------------------------
+    Migrations: 0x4d52502c81f1b7119a59d7a69ca8b061d557e071
+  Saving successful migration to network...
+    ... 0xa57ed9864bf4a34835ad0f074083030011e9f36aae813b58182f7d8cde8d4571
+    -----------------------------------------------
+  Saving artifacts...
+  Running migration: 2_deploy_contracts.js
+    Replacing Token...
+    ... 0xfb84339717eebb27f7593d5419633086c6961a46736d9f730185f9584bbca671
+    -----------------------------------------------
+    Token: 0x1f8fbc989937346cbc923da292b1b6f9f958eafe
+    Deploying Exchange...
+    ... 0xd4566da630267b7f41a554b3773ea4c2880d98828275632e4c9e6fd7f8d26b03
+    -----------------------------------------------
+    Exchange: 0xb9d7ffb8c064384f167199025ef2ad0a130c49c6
+  Saving successful migration to network...
+    ... 0x97f51a0d5d97de1bf4d3f5028783349616fa25e0ddbadadecafe76fb1895189d
+    -----------------------------------------------
+  Saving artifacts...
+  #
+
+**END Stage 7: Deploy the Exchange**
+
+----
+
+Stage 8: Add Basic Routing to the DApp
 =========================================
 
 1. Add basic routing to render navigate  between the exchange and wallet components
@@ -610,69 +672,7 @@ Stage 7: Add Basic Routing to the DApp
 
     <Route exact={true} path="/exchange" render={() => exchange}></Route>
 
-**END Stage 7: Add Basic Routing to the DApp**
-
-----
-
-Stage 8: Deploy the Exchange
-=========================================
-
-`Video Tutorial <>`_
-
-1. Add the exchange to the deployment script(``src/migrations/2_deploy_contracts``), line
------------------------------------------------
-
-- Import the exchange artifacts, line 2
-
-.. code-block:: javascript
-
-  const Exchange = artifacts.require("./Exchange.sol");
-
-- Deploy the Exchange, line 6
-
-.. code-block:: javascript
-
-  deployer.deploy(Exchange, { from: owner })
-
-2. Deploy the exchange(a new token).
------------------------------------------------
-
-.. code-block:: bash
-
-  truffle migrate --reset
-
-- *Example output:*
-
-.. code-block:: console
-
-  # truffle migrate --reset
-  Using network 'development'.
-
-  Running migration: 1_initial_migration.js
-    Replacing Migrations...
-    ... 0xaf3df4616497a63d75879d900ee9bd580881e3d88b359942aa89beb12ff05416
-    -----------------------------------------------
-    Migrations: 0x4d52502c81f1b7119a59d7a69ca8b061d557e071
-  Saving successful migration to network...
-    ... 0xa57ed9864bf4a34835ad0f074083030011e9f36aae813b58182f7d8cde8d4571
-    -----------------------------------------------
-  Saving artifacts...
-  Running migration: 2_deploy_contracts.js
-    Replacing Token...
-    ... 0xfb84339717eebb27f7593d5419633086c6961a46736d9f730185f9584bbca671
-    -----------------------------------------------
-    Token: 0x1f8fbc989937346cbc923da292b1b6f9f958eafe
-    Deploying Exchange...
-    ... 0xd4566da630267b7f41a554b3773ea4c2880d98828275632e4c9e6fd7f8d26b03
-    -----------------------------------------------
-    Exchange: 0xb9d7ffb8c064384f167199025ef2ad0a130c49c6
-  Saving successful migration to network...
-    ... 0x97f51a0d5d97de1bf4d3f5028783349616fa25e0ddbadadecafe76fb1895189d
-    -----------------------------------------------
-  Saving artifacts...
-  #
-
-**END Stage 8: Deploy the Exchange**
+**END Stage 8: Add Basic Routing to the DApp**
 
 ----
 
