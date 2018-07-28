@@ -731,7 +731,7 @@ Stage 10: Create the UI Component to Submit an Order
   <p className="App-intro"> {this.state.tokenBalance} {this.state.tokenSymbol}</p>
   <br/>
 
-3. Add the form to submit an order, line
+3. Add the form to submit an order, line 192-207
 -----------------------------------------------
 
 .. code-block:: html
