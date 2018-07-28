@@ -717,7 +717,7 @@ Stage 10: Create the UI Component to Submit an Order
 
 `Video Tutorial <>`_
 
-2. Add the components to load the active accounts, line 184-191
+1. Add the components to load the active accounts, line 184-191
 -----------------------------------------------
 
 .. code-block:: html
@@ -731,7 +731,7 @@ Stage 10: Create the UI Component to Submit an Order
   <p className="App-intro"> {this.state.tokenBalance} {this.state.tokenSymbol}</p>
   <br/>
 
-3. Add the form to submit an order, line 192-207
+2. Add the form to submit an order, line 192-207
 -----------------------------------------------
 
 .. code-block:: html
@@ -762,7 +762,7 @@ Stage 11: Create the Functionality to Submit an Order
 
 `Video Tutorial <>`_
 
-4. Add the bid and ask amounts to the state, line
+1. Add the bid and ask amounts to the state, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -770,7 +770,7 @@ Stage 11: Create the Functionality to Submit an Order
   bidAmount: 10,
   askAmount: 1,
 
-5. Write the method to submit an order, line
+2. Write the method to submit an order, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -805,10 +805,10 @@ Stage 11: Create the Functionality to Submit an Order
     })
   }
 
-6. Mint tokens to ensure the account has a sufficient token balance.
+3. Buy tokens to ensure the account has a sufficient token balance.
 -----------------------------------------------
 
-7. Submit an order and view the transaction hashes(approve and submitOrder) in the browser developer console.
+4. Submit an order and view the transaction hashes(approve and submitOrder) in the browser developer console.
 -----------------------------------------------
 
 **END Stage 11: Create the Functionality to Submit an Order**
