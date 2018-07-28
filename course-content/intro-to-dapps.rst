@@ -2,7 +2,7 @@
 Introduction to DApp Development
 =======================
 
-`View Completed Wallet Demo <https://drive.google.com/open?id=1RRzH5HyAZcdq6d4mCXJ6FRmP1mks179l>`_
+`View Completed Wallet Demo <https://drive.google.com/open?id=1edaSVgMd-PbRYhXiWQlZV_K2ICiIVobJ>`_
 
 ----
 
