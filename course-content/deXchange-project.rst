@@ -856,7 +856,7 @@ Stage 13: Create the Order Book Table
 
   <h3>Order Book</h3>
   <p>Select an order to execute!</p>
-  <RaisedButton label="Execute Order" labelPosition="after" style={{width: 500}} secondary={true}
+  <RaisedButton label="Execute Order" labelPosition="after" style={{width: 300}} secondary={true}
     onClick={() => this.executeOrder(this.selectedOrder)}
   />
   <Table style={{ maxHeight: 500, overflow: "auto" }} fixedHeader={true} multiSelectable={false}
@@ -928,55 +928,65 @@ Stage 14: Add an Order to the Order Book When Submitted
 
 ----
 
-Stage 15: Select and Execute an Order
+Stage 15: Select and execute an Order
 =========================================
 
 `Video Tutorial <>`_
 
-1. Add a selectedOrder to the state, line
+1. Add a selectedOrder attribute to the state, line 33
 -----------------------------------------------
 
 .. code-block:: javascript
 
   selectedOrder: null
 
-2. Add a method to execute the selected order, line
+2. Add a method to execute the selected order, line 198-215
 -----------------------------------------------
 
 .. code-block:: javascript
 
-  /**
-   * Execute a selected order.
-   * @param {String} orderId The 32 byte hash of the order params representing its unique id.
-   */
+  // Execute a selected order
   executeOrder(orderId) {
-    // Get the ask amount of the order, ether to send along with the tx
-    this.state.exchange.orderBook_(orderId, (err, order) => {
-      this.state.exchange.executeOrder(orderId, {
-        from: this.web3.eth.accounts[this.state.defaultAccount],
-        gas: 4e6,
-        value: order[4] // askAmount of maker order
-      }, (err, res) => {
-        if (err) console.error(err)
-        else console.log(res)
+    if (orderId) {
+      const { exchange } = this.state
+      const from = this.web3.eth.accounts[this.state.defaultAccount]
+      const gas = 1e6
+
+      // Get the ask amount of the order from the contract, ether to send along with the tx
+      exchange.orderBook_(orderId, (err, order) => {
+        exchange.executeOrder(orderId, { from, gas, value: order[4] },
+        (err, res) => {
+          err ? console.error(err) : console.log(res)
+        })
       })
-    })
+    } else {
+      console.error(`Undefined orderId: ${orderId}`)
+    }
   }
 
-3. Add an event to listen for executed orders, line
+**END Stage 15: Select and execute an order
+
+----
+
+Stage 16: Listen for execute orders
+=========================================
+
+`Video Tutorial <>`_
+
+1. Add an event to listen for executed orders, line
 -----------------------------------------------
 
 .. code-block:: javascript
 
   this.state.exchange.LogOrderExecuted({ fromBlock: 'latest', toBlock: 'latest' })
   .watch((err, res) => {
-    console.log(`Order Executed! TxHash: https://kovan.etherscan.io/tx/${res.transactionHash}`)
+    console.log(`Order Executed! TxHash: ${res.transactionHash} \n ${JSON.stringify(res.args)}`)
     this.removeOrder(res.args.id)
     this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
   })
 
 
-4. Add the method to remove the order from the order book table, line
+2. Add the method to remove the order from the order book table, line
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -997,14 +1007,14 @@ Stage 15: Select and Execute an Order
     }
   }
 
-5. Execute an order and see that it has been removed from the table.
+3. Execute an order and see that it has been removed from the table.
 -----------------------------------------------
 
-**END Stage 15: Select and Execute an Order**
+**END Stage 16: Select and Execute an Order**
 
 ----
 
-Stage 16: Load the Order Book
+Stage 17: Load the Order Book
 =========================================
 
 `Video Tutorial <>`_
