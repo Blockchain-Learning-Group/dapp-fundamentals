@@ -681,21 +681,21 @@ Stage 9: Create the Reference Exchange Object
 
 `Video Tutorial <>`_
 
-1. Import the exchange build artifacts, line
+1. Import the exchange build artifacts, line 17
 -----------------------------------------------
 
 .. code-block:: javascript
 
   import exchangeArtiacts from './build/contracts/Exchange.json'
 
-2. Add the exchange to the state, line
+2. Add the exchange to the state, line 27
 -----------------------------------------------
 
 .. code-block:: javascript
 
   exchange: null, // exchange contract
 
-3. Create the reference object to the deployed exchange, line
+3. Create the reference object to the deployed exchange, line 61-64
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -704,9 +704,6 @@ Stage 9: Create the Reference Exchange Object
   const exchange = this.web3.eth.contract(exchangeArtiacts.abi).at(exchangeAddress)
   this.setState({ exchange })
   console.log(exchange)
-
-  // Bind to window for testing
-  window.exchange = exchange
 
 4. View the exchange object in the browser developer console.
 -----------------------------------------------
