@@ -762,46 +762,38 @@ Stage 11: Create the Functionality to Submit an Order
 
 `Video Tutorial <>`_
 
-1. Add the bid and ask amounts to the state, line
+1. Add the bid and ask amounts to the state, line 23-24
 -----------------------------------------------
 
 .. code-block:: javascript
 
-  bidAmount: 10,
   askAmount: 1,
+  bidAmount: 10,
 
-2. Write the method to submit an order, line
+2. Write the method to submit an order, line 142-162
 -----------------------------------------------
 
 .. code-block:: javascript
 
-  /**
-   * Submit a new order to the order book.
-   */
+  // Submit a new order to the order book.
   submitOrder() {
+    const { askAmount, bidAmount, defaultAccount, exchange, token  } = this.state
+    const from = this.web3.eth.accounts[defaultAccount]
+    const gas = 1e6
+
     // First give the exchange the appropriate allowance
-    // NOTE if the submitOrder fails the exchange still has the allowance
-    this.state.token.approve(
-      this.state.exchange.address,
-      this.state.bidAmount*10**this.state.tokenDecimals, {
-        from: this.web3.eth.accounts[this.state.defaultAccount],
-        gas: 1e6
-      }, (err, res) => {
-        if (err) console.error(err)
-        else console.log(res)
+    token.approve(exchange.address, bidAmount, { from, gas },
+    (err, res) => {
+      if (err) {
+        console.error(err)
+      } else {
+        console.log(res)
         // Submit the order to the exchange
-        this.state.exchange.submitOrder(
-          this.state.token.address,
-          this.state.bidAmount*10**this.state.tokenDecimals,
-          '0', // Ether address
-          this.state.askAmount*10**18 /* harcoded ETH decimal places */, {
-            from: this.web3.eth.accounts[this.state.defaultAccount],
-            gas: 1e6
-          }, (err, res) => {
-            if (err) console.error(err)
-            else console.log(res)
-          }
-        )
+        exchange.submitOrder(token.address, bidAmount, '0', askAmount*10**18, { from, gas },
+        (err, res) => {
+            err ? console.error(err) : console.log(res)
+        })
+      }
     })
   }
 
