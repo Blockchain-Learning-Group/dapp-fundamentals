@@ -538,10 +538,10 @@ Stage 6: Test the executeOrder Method
 Stage 7: Add Basic Routing to the DApp
 =========================================
 
-`Video Tutorial <>`_
-
 1. Add basic routing to render navigate  between the exchange and wallet components
 -----------------------------------------------
+
+`Video Tutorial <https://drive.google.com/open?id=1hcdKMRLm6w4Pyewqse3uaIFQeg-s4VcU>`_
 
 - Add the ``react-router-dom`` package to the project
 
@@ -586,7 +586,9 @@ Stage 7: Add Basic Routing to the DApp
 2. Create the exchange component and the routes
 -----------------------------------------------
 
-- Add a template exchange component with a link back to the wallet, line 174-178
+`Video Tutorial <https://drive.google.com/open?id=1qR09izk5ewS9_yFrnpzZARSXXqhNbZjb>`_
+
+- Add a template exchange component with a link back to the wallet, line 173-177
 
   .. code-block:: javascript
 
@@ -596,13 +598,13 @@ Stage 7: Add Basic Routing to the DApp
       </Link>
     </div>
 
-- Add a default route, line 187
+- Add a default route, line 186
 
 .. code-block:: javascript
 
     <Route exact={true} path="/" render={() => component}/>
 
-- And an exchange route, line 188
+- And an exchange route, line 187
 
 .. code-block:: javascript
 
@@ -617,21 +619,22 @@ Stage 8: Deploy the Exchange
 
 `Video Tutorial <>`_
 
-1. Add the exchange to the deployment script, line
+1. Add the exchange to the deployment script(``src/migrations/2_deploy_contracts``), line
 -----------------------------------------------
+
+- Import the exchange artifacts, line 2
 
 .. code-block:: javascript
 
-  const Token = artifacts.require("./Token.sol");
   const Exchange = artifacts.require("./Exchange.sol");
-  const owner = web3.eth.accounts[0]
 
-  module.exports = deployer => {
-    deployer.deploy(Token, { from: owner, gas: 4e6 })
-    deployer.deploy(Exchange, { from: owner, gas: 4e6 })
-  }
+- Deploy the Exchange, line 6
 
-2. Deploy the exchange and a new token.
+.. code-block:: javascript
+
+  deployer.deploy(Exchange, { from: owner })
+
+2. Deploy the exchange(a new token).
 -----------------------------------------------
 
 .. code-block:: bash
