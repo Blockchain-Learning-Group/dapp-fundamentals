@@ -880,43 +880,41 @@ Stage 13: Create the Order Book Table
 
 ----
 
-Stage 14: Add an Order Element to the Table When Submitted
+Stage 14: Add an Order to the Order Book When Submitted
 =========================================
 
 `Video Tutorial <>`_
 
-1. Create an addOrder method, line
+1. Create an addOrder method, line 172-194
 -----------------------------------------------
 
 .. code-block:: javascript
 
-  /**
-   * Add a new order to the oder book
-   * @param {Object} order The log object emitted by the exchange.
-   */
+   /// Add a new order to the oder book
   addOrder(order) {
+    const { orderBook, tokenSymbol } = this.state
+    const { id, maker, askAmount, bidAmount } = order;
+
     // Confirm this order is not already present
-    for (let i = 0; i < this.state.orderBook.length; i++) {
-      if (this.state.orderBook[i].key === order.id) {
+    for (let i = 0; i < orderBook.length; i++) {
+      if (orderBook[i].key === id) {
+        console.error(`Order already exists: ${JSON.stringify(order)}`)
         return
       }
     }
-    // NOTE eth only supported as ask token
-    // TODO support multiple tokens and pairings
-    this.setState({
-      orderBook: [
-      <TableRow key={order.id}>
-          <TableRowColumn>{order.maker}</TableRowColumn>
-          <TableRowColumn>{this.state.tokenSymbol}</TableRowColumn>
-          <TableRowColumn>{order.bidAmount.toNumber() / 10**this.state.tokenDecimals}</TableRowColumn>
-          <TableRowColumn>ETH</TableRowColumn>
-          <TableRowColumn>{order.askAmount.toNumber() / 10**18 }</TableRowColumn>
-        </TableRow>
-      ].concat(this.state.orderBook)
-    })
+
+    const row = <TableRow key={id}>
+      <TableRowColumn>{maker}</TableRowColumn>
+      <TableRowColumn>{tokenSymbol}</TableRowColumn>
+      <TableRowColumn>{bidAmount.toNumber()}</TableRowColumn>
+      <TableRowColumn>ETH</TableRowColumn>
+      <TableRowColumn>{askAmount.toNumber() / 10**18 }</TableRowColumn>
+    </TableRow>
+
+    this.setState({ orderBook: [row].concat(orderBook) })
   }
 
-2. Add the order to the order book when the order submitted event fired, line
+2. Add the order to the order book when the order submitted event is fired, line 119
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -926,11 +924,11 @@ Stage 14: Add an Order Element to the Table When Submitted
 3. Submit an order and view it added to the order book.
 -----------------------------------------------
 
-**END Stage 13: Add an Order Element to the Table When Submitted**
+**END Stage 14: Add an Order Element to the Table When Submitted**
 
 ----
 
-Stage 14: Select and Execute an Order
+Stage 15: Select and Execute an Order
 =========================================
 
 `Video Tutorial <>`_
@@ -1002,11 +1000,11 @@ Stage 14: Select and Execute an Order
 5. Execute an order and see that it has been removed from the table.
 -----------------------------------------------
 
-**END Stage 14: Select and Execute an Order**
+**END Stage 15: Select and Execute an Order**
 
 ----
 
-Stage 15: Load the Order Book
+Stage 16: Load the Order Book
 =========================================
 
 `Video Tutorial <>`_
