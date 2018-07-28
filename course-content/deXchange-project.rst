@@ -547,13 +547,13 @@ Stage 7: Add Basic Routing to the DApp
 
 .. code-block:: console
 
-  yarn add react-router-dom
+  yarn add react-router-dom@4.3.1
 
 - *Example output:*
 
 .. code-block:: console
 
-  root@0121f7449409:/blg# yarn add react-router-dom
+  root@0121f7449409:/blg# yarn add react-router-dom@4.3.1
   yarn add v1.2.0
   [1/4] Resolving packages...
   [..]
