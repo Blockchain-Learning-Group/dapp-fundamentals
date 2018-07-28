@@ -1020,17 +1020,18 @@ Stage 17: Load the Order Book
 
 .. code-block:: javascript
 
-  /**
-   * Load all orders into the order book via exchange events
-   */
+  // Load all orders into the order book via exchange events
   loadOrderBook() {
-    this.state.exchange.LogOrderSubmitted({}, {fromBlock: 0, toBlock: 'latest'})
+    const { exchange } = this.state
+
+    exchange.LogOrderSubmitted({}, {fromBlock: 0, toBlock: 'latest'})
     .get((err, orders) => {
       for (let i = 0; i < orders.length; i++) {
         // confirm the order still exists then append to table
-        this.state.exchange.orderBook_(orders[i].args.id, (err, order) => {
-          if (order[4].toNumber() !== 0)
+        exchange.orderBook_(orders[i].args.id, (err, order) => {
+          if (order[4].toNumber() !== 0) {
             this.addOrder(orders[i].args)
+          }
         })
       }
     })
@@ -1046,9 +1047,7 @@ Stage 17: Load the Order Book
 3. View the loaded orders in the order book table.
 -----------------------------------------------
 
-Success your exchange running locally is complete! Try it out!
-
-**END Stage 15: Load the Order Book**
+__**Success your exchange running locally is complete! Try it out!**__
 
 ----
 
