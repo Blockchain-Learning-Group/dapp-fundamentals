@@ -815,7 +815,7 @@ Stage 9: Events
   // Watch tokens transfer event below
   this.state.token.Transfer({ fromBlock: 'latest', toBlock: 'latest' })
   .watch((err, res) => {
-    console.log(`Tokens Transferred! TxHash: https://kovan.etherscan.io/tx/${res.transactionHash}`)
+    console.log(`Tokens Transferred! TxHash: ${res.transactionHash} \n ${JSON.stringify(res.args)}`)
     this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
   })
 

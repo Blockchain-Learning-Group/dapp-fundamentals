@@ -819,6 +819,7 @@ Stage 12: Listen for Submitted Order Events
 
   this.state.exchange.OrderSubmitted({ fromBlock: 'latest', toBlock: 'latest' })
   .watch((err, res) => {
+    console.log(`Order Submitted! TxHash: ${res.transactionHash} \n ${JSON.stringify(res.args)}`)
     this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
   })
 
