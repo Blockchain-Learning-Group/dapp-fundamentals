@@ -890,7 +890,7 @@ Stage 14: Add an Order to the Order Book When Submitted
 
 .. code-block:: javascript
 
-  // Add a new order to the oder book
+  // Add a new order to the order book
   addOrder(order) {
     const { orderBook, tokenSymbol } = this.state
     const { id, maker, askAmount, bidAmount } = order;
@@ -940,7 +940,7 @@ Stage 15: Select and execute an Order
 
   selectedOrder: null
 
-2. Add a method to execute the selected order, line 198-215
+2. Add a method to execute the selected order, line 199-216
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -964,53 +964,49 @@ Stage 15: Select and execute an Order
     }
   }
 
-**END Stage 15: Select and execute an order
+**END Stage 15: Select and execute an order**
 
 ----
 
-Stage 16: Listen for execute orders
+Stage 16: Listen for executed order events
 =========================================
 
 `Video Tutorial <>`_
 
-1. Add an event to listen for executed orders, line
+1. Add the method to remove the order from the order book table, line 218-230
 -----------------------------------------------
 
 .. code-block:: javascript
 
-  this.state.exchange.LogOrderExecuted({ fromBlock: 'latest', toBlock: 'latest' })
-  .watch((err, res) => {
-    console.log(`Order Executed! TxHash: ${res.transactionHash} \n ${JSON.stringify(res.args)}`)
-    this.removeOrder(res.args.id)
-    this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
-  })
-
-
-2. Add the method to remove the order from the order book table, line
------------------------------------------------
-
-.. code-block:: javascript
-
-  /**
-   * Remove an order from the orderBook.
-   * @param {String} orderId The 32 byte hash of the order params representing its unique id.
-   */
+  // Remove an order from the orderBook.
   removeOrder(orderId) {
-    for (let i = 0; i < this.state.orderBook.length; i++) {
-      if (this.state.orderBook[i].key === orderId) {
-        // Slice this index from the current order book and update
-        let updatedOrderBook = this.state.orderBook.slice();
+    const { orderBook } = this.state
+
+    for (let i = 0; i < orderBook.length; i++) {
+      if (orderBook[i].key === orderId) {
+        let updatedOrderBook = orderBook.slice();
         updatedOrderBook.splice(i, 1);
         this.setState({ orderBook: updatedOrderBook })
-        break
+        return
       }
     }
   }
 
+2. Add an event to listen for executed orders, line 123-127
+-----------------------------------------------
+
+.. code-block:: javascript
+
+  this.state.exchange.OrderExecuted({ fromBlock: 'latest', toBlock: 'latest' })
+  .watch((err, res) => {
+    console.log(`Order Executed! TxHash: ${res.transactionHash} \n ${JSON.stringify(res.args)}`)
+    this.removeOrder(res.args.id)
+  })
+
 3. Execute an order and see that it has been removed from the table.
 -----------------------------------------------
 
-**END Stage 16: Select and Execute an Order**
+**END Stage 16: Listen for executed order events**
 
 ----
 
