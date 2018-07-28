@@ -817,7 +817,7 @@ Stage 12: Listen for Submitted Order Events
 
 .. code-block:: javascript
 
-  this.state.exchange.LogOrderSubmitted({ fromBlock: 'latest', toBlock: 'latest' })
+  this.state.exchange.OrderSubmitted({ fromBlock: 'latest', toBlock: 'latest' })
   .watch((err, res) => {
     this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
   })
