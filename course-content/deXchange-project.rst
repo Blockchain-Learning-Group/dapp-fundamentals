@@ -812,7 +812,7 @@ Stage 12: Listen for Submitted Order Events
 
 `Video Tutorial <>`_
 
-1. Create an event listener for the order submitted event, line 113-116
+1. Create an event listener for the order submitted event, line 113-117
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -826,47 +826,41 @@ Stage 12: Listen for Submitted Order Events
 2. Submit an order and view the caught event.
 -----------------------------------------------
 
-**END Stage 11: Listen for Submitted Order Events**
+**END Stage 12: Listen for Submitted Order Events**
 
 ----
 
-Stage 12: Create the Order Book Table
+Stage 13: Create the Order Book Table
 =========================================
 
 `Video Tutorial <>`_
 
-1. Import Material UI table components, line
+1. Import Material UI table components, line 14
 -----------------------------------------------
 
 .. code-block:: javascript
 
-  import {
-    Table,
-    TableBody,
-    TableHeader,
-    TableHeaderColumn,
-    TableRow,
-    TableRowColumn,
-  } from 'material-ui/Table';
+  import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
-2. Add the order book to the state, line
+2. Add the order book to the state, line 31
 -----------------------------------------------
 
 .. code-block:: javascript
 
   orderBook: [],
 
-3. Add the order book component, line
+3. Add the order book component, line 240-257
 -----------------------------------------------
 
 .. code-block:: html
 
   <h3>Order Book</h3>
   <p>Select an order to execute!</p>
-  <RaisedButton label="Execute Order" labelPosition="after" style={{width: 500}} primary={true}
+  <RaisedButton label="Execute Order" labelPosition="after" style={{width: 500}} secondary={true}
     onClick={() => this.executeOrder(this.selectedOrder)}
   />
-  <Table style={{ maxHeight: 500, overflow: "auto" }} fixedHeader={true} multiSelectable={false} onRowSelection={r => { if (this.state.orderBook[r[0]]) this.selectedOrder = this.state.orderBook[r[0]].key}}>
+  <Table style={{ maxHeight: 500, overflow: "auto" }} fixedHeader={true} multiSelectable={false}
+    onRowSelection={r => { if (this.state.orderBook[r[0]]) this.selectedOrder = this.state.orderBook[r[0]].key}}>
     <TableHeader>
       <TableRow>
         <TableHeaderColumn>Maker</TableHeaderColumn>
@@ -882,11 +876,11 @@ Stage 12: Create the Order Book Table
 4. View new order book table in the ui.
 -----------------------------------------------
 
-**END Stage 12: Create the Order Book Table**
+**END Stage 13: Create the Order Book Table**
 
 ----
 
-Stage 13: Add an Order Element to the Table When Submitted
+Stage 14: Add an Order Element to the Table When Submitted
 =========================================
 
 `Video Tutorial <>`_
