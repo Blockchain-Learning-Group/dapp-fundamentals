@@ -566,12 +566,12 @@ Stage 7: Add Basic Routing to the DApp
 
   import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-- Wrap components with the router, line 173 & line 180
+- Wrap components with the router, line 172 & line 179
 
   .. code-block:: javascript
 
-    <BrowserRouter>  line 173
-    <BrowserRouter/> line 180
+    <BrowserRouter>
+    </BrowserRouter>
 
 - Add a button to navigate to the exchange route, line 137-139
 
