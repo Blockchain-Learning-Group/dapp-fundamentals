@@ -1015,7 +1015,7 @@ Stage 17: Load the Order Book
 
 `Video Tutorial <>`_
 
-1. Add a method to load the order book, line
+1. Add a method to load the order book, line 238-253
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -1024,7 +1024,7 @@ Stage 17: Load the Order Book
   loadOrderBook() {
     const { exchange } = this.state
 
-    exchange.LogOrderSubmitted({}, {fromBlock: 0, toBlock: 'latest'})
+    exchange.OrderSubmitted({}, {fromBlock: 0, toBlock: 'latest'})
     .get((err, orders) => {
       for (let i = 0; i < orders.length; i++) {
         // confirm the order still exists then append to table
@@ -1037,7 +1037,7 @@ Stage 17: Load the Order Book
     })
   }
 
-2. Load the order book when the page renders, line
+2. Load the order book when the page renders, line 81
 -----------------------------------------------
 
 .. code-block:: javascript
@@ -1047,7 +1047,7 @@ Stage 17: Load the Order Book
 3. View the loaded orders in the order book table.
 -----------------------------------------------
 
-__**Success your exchange running locally is complete! Try it out!**__
+**Success your exchange running locally is complete! Try it out!**
 
 ----
 
