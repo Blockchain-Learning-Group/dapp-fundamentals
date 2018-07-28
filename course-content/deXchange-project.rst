@@ -812,21 +812,17 @@ Stage 12: Listen for Submitted Order Events
 
 `Video Tutorial <>`_
 
-1. Create an event listener for the order submitted event, line
+1. Create an event listener for the order submitted event, line 113-116
 -----------------------------------------------
 
 .. code-block:: javascript
 
   this.state.exchange.LogOrderSubmitted({ fromBlock: 'latest', toBlock: 'latest' })
   .watch((err, res) => {
-    console.log(`Order submitted! TxHash: https://kovan.etherscan.io/tx/${res.transactionHash}`)
     this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
   })
 
 2. Submit an order and view the caught event.
------------------------------------------------
-
-3. Submit a duplicate order and view the error response.
 -----------------------------------------------
 
 **END Stage 11: Listen for Submitted Order Events**
