@@ -890,7 +890,7 @@ Stage 14: Add an Order to the Order Book When Submitted
 
 .. code-block:: javascript
 
-   /// Add a new order to the oder book
+  // Add a new order to the oder book
   addOrder(order) {
     const { orderBook, tokenSymbol } = this.state
     const { id, maker, askAmount, bidAmount } = order;
