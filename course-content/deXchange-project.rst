@@ -630,14 +630,14 @@ Stage 8: Add Basic Routing to the DApp
 
 - Wrap components with the router, line 172 & line 179
 
-  .. code-block:: javascript
+  .. code-block:: html
 
     <BrowserRouter>
     </BrowserRouter>
 
 - Add a button to navigate to the exchange route, line 137-139
 
-.. code-block:: javascript
+.. code-block:: html
 
   <Link to={'exchange'}>
     <RaisedButton label=">>> Exchange" secondary={true} fullWidth={true}/>
@@ -652,7 +652,7 @@ Stage 8: Add Basic Routing to the DApp
 
 - Add a template exchange component with a link back to the wallet, line 173-177
 
-  .. code-block:: javascript
+  .. code-block:: html
 
     const exchange = <div>
       <Link to={'/'}>
@@ -662,13 +662,13 @@ Stage 8: Add Basic Routing to the DApp
 
 - Add a default route, line 186
 
-.. code-block:: javascript
+.. code-block:: html
 
     <Route exact={true} path="/" render={() => component}/>
 
 - And an exchange route, line 187
 
-.. code-block:: javascript
+.. code-block:: html
 
     <Route exact={true} path="/exchange" render={() => exchange}></Route>
 
@@ -717,28 +717,19 @@ Stage 10: Create the UI Component to Submit an Order
 
 `Video Tutorial <>`_
 
-1. Create the container div, line
------------------------------------------------
-
-.. code-block:: html
-
-  component = <div>
-    </div>
-
-2. Add the components to load the active accounts, line
+2. Add the components to load the active accounts, line 184-191
 -----------------------------------------------
 
 .. code-block:: html
 
   <h3>Active Account</h3>
-  <DropDownMenu maxHeight={300} width={500} value={this.state.defaultAccount} onChange={this.handleDropDownChange} >
+  <DropDownMenu maxHeight={300} width={500} value={this.state.defaultAccount} onChange={this.handleDropDownChange}>
     {this.state.availableAccounts}
   </DropDownMenu>
   <h3>Account Balances</h3>
   <p className="App-intro">{this.state.ethBalance / 1e18} ETH</p>
-  <p className="App-intro"> {this.state.tokenBalance / 10**this.state.tokenDecimals} {this.state.tokenSymbol}</p>
-  <br />
-
+  <p className="App-intro"> {this.state.tokenBalance} {this.state.tokenSymbol}</p>
+  <br/>
 
 3. Add the form to submit an order, line
 -----------------------------------------------
@@ -755,10 +746,21 @@ Stage 10: Create the UI Component to Submit an Order
   <TextField floatingLabelText="Amount" style={{width: 75}} value={this.state.askAmount}
     onChange={(e, askAmount) => this.setState({ askAmount })}
   />
-  <br />
-  <RaisedButton label="Submit" labelPosition="after" style={{width: 300}} primary={true} onClick={() => this.submitOrder()}/>
-  <br />
-  <br />
+  <br/>
+  <RaisedButton label="Submit" labelPosition="after" style={{width: 300}} secondary={true}
+    onClick={() => this.submitOrder()}
+  />
+  <br/>
+  <br/>
+
+**END Stage 10: Create the UI Component to Submit an Order**
+
+----
+
+Stage 11: Create the Functionality to Submit an Order
+=========================================
+
+`Video Tutorial <>`_
 
 4. Add the bid and ask amounts to the state, line
 -----------------------------------------------
@@ -809,11 +811,11 @@ Stage 10: Create the UI Component to Submit an Order
 7. Submit an order and view the transaction hashes(approve and submitOrder) in the browser developer console.
 -----------------------------------------------
 
-**END Stage 10: Create the UI Component to Submit an Order**
+**END Stage 11: Create the Functionality to Submit an Order**
 
 ----
 
-Stage 11: Listen for Submitted Order Events
+Stage 12: Listen for Submitted Order Events
 =========================================
 
 `Video Tutorial <>`_
