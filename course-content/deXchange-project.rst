@@ -686,7 +686,7 @@ Stage 9: Create the Reference Exchange Object
 
 .. code-block:: javascript
 
-  import exchangeArtiacts from './build/contracts/Exchange.json'
+  import exchangeArtifacts from './build/contracts/Exchange.json'
 
 2. Add the exchange to the state, line 27
 -----------------------------------------------
