@@ -538,7 +538,7 @@ Stage 6: Test the executeOrder Method
 Stage 7: Deploy the Exchange
 =========================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=1FMZi0uE36mxj8yfwfl16tZCtjbIbiFsZ>`_
 
 1. Add the exchange to the deployment script(``src/migrations/2_deploy_contracts``), line
 -----------------------------------------------
@@ -679,7 +679,7 @@ Stage 8: Add Basic Routing to the DApp
 Stage 9: Create the Reference Exchange Object
 =========================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=1OI_jnes4r791f8sOlpaiDjkpnmL5-L2l>`_
 
 1. Import the exchange build artifacts, line 17
 -----------------------------------------------
@@ -715,7 +715,7 @@ Stage 9: Create the Reference Exchange Object
 Stage 10: Create the UI Component to Submit an Order
 =========================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=1eWsqfVTND5H7zRbH156I0iiG92H4482_>`_
 
 1. Add the components to load the active accounts, line 184-191
 -----------------------------------------------
@@ -760,7 +760,7 @@ Stage 10: Create the UI Component to Submit an Order
 Stage 11: Create the Functionality to Submit an Order
 =========================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=1ej57vtJulCG77b0esRE5v8QPdNLZik_B>`_
 
 1. Add the bid and ask amounts to the state, line 23-24
 -----------------------------------------------
@@ -810,7 +810,7 @@ Stage 11: Create the Functionality to Submit an Order
 Stage 12: Listen for Submitted Order Events
 =========================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=1KddwYbWGJOYCfv7fkIO9IaAbJvctC6nX>`_
 
 1. Create an event listener for the order submitted event, line 113-117
 -----------------------------------------------
@@ -833,7 +833,7 @@ Stage 12: Listen for Submitted Order Events
 Stage 13: Create the Order Book Table
 =========================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=1vapUmFyNjS3Sf6i63LXGei4LIfTVBlao>`_
 
 1. Import Material UI table components, line 14
 -----------------------------------------------
@@ -883,7 +883,7 @@ Stage 13: Create the Order Book Table
 Stage 14: Add an Order to the Order Book When Submitted
 =========================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=1JC5UHJ6jRdm3lK5aWP0re7y0o5ZDlWxj>`_
 
 1. Create an addOrder method, line 172-194
 -----------------------------------------------
@@ -931,7 +931,7 @@ Stage 14: Add an Order to the Order Book When Submitted
 Stage 15: Select and execute an Order
 =========================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=1tCON6wXLBd8LxkPVn-q8VFMpYd3kYz3W>`_
 
 1. Add a selectedOrder attribute to the state, line 33
 -----------------------------------------------
@@ -971,7 +971,7 @@ Stage 15: Select and execute an Order
 Stage 16: Listen for executed order events
 =========================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=1lxMdxz38VyC--tTRgd0de8mv66FM27hP>`_
 
 1. Add the method to remove the order from the order book table, line 218-230
 -----------------------------------------------
@@ -1013,7 +1013,7 @@ Stage 16: Listen for executed order events
 Stage 17: Load the Order Book
 =========================================
 
-`Video Tutorial <>`_
+`Video Tutorial <https://drive.google.com/open?id=1AV9j-g-MVTo22fvlLdROGN1vDKRA-6ws>`_
 
 1. Add a method to load the order book, line 238-253
 -----------------------------------------------
@@ -1053,33 +1053,25 @@ Stage 17: Load the Order Book
 
 Bonus: Extend Your Exchange
 ===========================
-1. Pre-condition checks!  amounts > 0, etc.
------------------------------------------------
-2. Sync a node of your own! Instructions can be found `here <http://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/blockchain-fundamentals.html#sync-an-ethereum-node-of-your-own>`_
+1. Sync a node of your own! Instructions can be found `here <http://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/blockchain-fundamentals.html#sync-an-ethereum-node-of-your-own>`_
 ------------------------------------------------------------
-3. Integrate error logging pattern in place of requires
+2. Add other ERC20 / ETH pairings
 -----------------------------------------------
-4. Add other ERC20 / ETH pairings
+3. Enable ERC20 / ERC20 pairings
 -----------------------------------------------
-5. Enable ERC20 / ERC20 pairings
+4. Automated order matching, partial fills, matched by ratio not user selected.
 -----------------------------------------------
-6. Automated order matching, partial fills, matched by ratio not user selected.
+5. Write tests for the exchange and token, failure cases
 -----------------------------------------------
-7. Write tests for the exchange
+6. Update gas amounts sent with each transaction.  Leverage web3's gas estimation!
 -----------------------------------------------
-8. Update gas amounts sent with each transaction.  Leverage web3's gas estimation!
------------------------------------------------
-9. Slean up the allowance if the order submission transaction fails
------------------------------------------------
-10. Sort the orders in the order book table
+7. Sort the orders in the order book table
 -----------------------------------------------
 
 ----
 
 Clean up
 ========
-
-`Video Tutorial <>`_
 
 1. Detach from the container
 -----------------------------------------------
