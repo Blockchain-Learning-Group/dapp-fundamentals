@@ -65,7 +65,7 @@ Course Prerequisites
 3.3 Metamask
 ------------
 1. Install the chrome plugin, Metamask `here <https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en>`_
-2. Once installed, create an account on Kovan and share your address via the BLG slack channel to receive some free ether!
+2. Once installed, share your address via the BLG slack channel.
 
 - Metamask extension for Brave Browser may also be enabled within their ``default shield settings >> extensions``
 
