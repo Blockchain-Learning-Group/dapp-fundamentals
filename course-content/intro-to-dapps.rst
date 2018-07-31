@@ -422,13 +422,13 @@ Stage 2: Testing Your Token
 
 .. code-block:: bash
 
-  cr src && truffle test
+  cd src && truffle test
 
 - *Example output:*
 
 .. code-block:: console
 
-  # cr src && truffle test
+  # cd src && truffle test
   Using network 'development'.
   Contract: Token.buy()
     ✓ should buy new tokens. (133ms)
