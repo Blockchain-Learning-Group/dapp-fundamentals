@@ -6,7 +6,7 @@ Solidity Exercises
 =====================================================================================================================
 - `View Final Solution Demo <https://drive.google.com/open?id=1HUlqRB62Y57RXIbGmp4ckmHuc2cpHqkb>`_
 
-`Video Tutorial[1.1 - 1.3] <https://drive.google.com/open?id=13DBLIclqpJ9iNtRWzSvJ8NGzBM-LTbdD>`_
+`Video Tutorial[1.1 - 1.3][no audio] <https://drive.google.com/open?id=13DBLIclqpJ9iNtRWzSvJ8NGzBM-LTbdD>`_
 
 1.1 Copy the exercise over to `remix <https://remix.ethereum.org/#optimize=false&version=soljson-v0.4.24+commit.e67f0147.js>`_.
 ------------------------------------
@@ -38,7 +38,7 @@ Solidity Exercises
 
   - 1.3d ``Run`` the contract, deploying within remix and test the castVote method.
 
-`Video Tutorial[1.4 - 1.6] <https://drive.google.com/open?id=1WIsYlRKbakgdCNZ6BmQjNORnT7GFycd1>`_
+`Video Tutorial[1.4 - 1.6][no audio] <https://drive.google.com/open?id=1WIsYlRKbakgdCNZ6BmQjNORnT7GFycd1>`_
 
 1.4 Complete the tallyVote method, starting at Line 59
 -----------------------------
@@ -83,7 +83,7 @@ Solidity Exercises
 =====================================================================================================================
 - `View Final Solution Demo <https://drive.google.com/open?id=1cjCdlIaPVxwzxKry6tpSOm9Cz-qDepZO>`_
 
-`Video Tutorial [2.1-2.6] <https://drive.google.com/open?id=1yUxNOfeLR3Ifg7Eo23Vh0SkgYRfAKeG2>`_
+`Video Tutorial [2.1-2.6][no audio] <https://drive.google.com/open?id=1yUxNOfeLR3Ifg7Eo23Vh0SkgYRfAKeG2>`_
 
 2.1 Copy the exercise over to `remix <https://remix.ethereum.org/#optimize=false&version=soljson-v0.4.24+commit.e67f0147.js>`_.
 ---------------------------------------------------------------------------------
@@ -129,7 +129,7 @@ Solidity Exercises
 2.6 Compile, deploy and confirm you can purchase your token. Confirm balance updated in ``balances`` mapping.
 ----------------------------------------------------------------------------------------------------------
 
-`Video Tutorial [2.7-2.10] <https://drive.google.com/open?id=1kAPTCbLndTMaOslYo0lx4bN3eE7-zQQs>`_
+`Video Tutorial [2.7-2.10][no audio] <https://drive.google.com/open?id=1kAPTCbLndTMaOslYo0lx4bN3eE7-zQQs>`_
 
 2.7 Complete the transfer method.
 -------------------------------------
