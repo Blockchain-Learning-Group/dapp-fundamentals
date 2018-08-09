@@ -152,6 +152,7 @@ Solidity Exercises
 **How can you get the ETH earned out?**
 
 2.8 Look to implement the withdraw method!
+-----------------------------------------
 
 - `Solution <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/0ef2524b0fdb9fbd56d166a43afe71bce6ae1a3a/solutions/Token_02.sol#L91>`_
 
