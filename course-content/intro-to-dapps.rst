@@ -934,6 +934,12 @@ Clean up
 
 ----
 
+BONUS
+======
+
+1. Add withdraw functionality!  Enable the token owner to withdraw the ETH put in to purchase tokens. 
+2. Complete the sections from `Blockchain Fundamentals <https://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/blockchain-fundamentals.html#bonus>`_
+
 SOLUTIONS
 =========
 
@@ -979,6 +985,7 @@ Stage 10: Transfer Tokens
       err ? console.error(err) : console.log(res)
     })
   }
+
 
 `Complete Wallet Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2>`_
 ------------------------------
