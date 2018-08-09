@@ -164,7 +164,7 @@ Solidity Exercises
 -----
 1. Purchase of tokens
 2. Transfers
-*3. Withdraw*
+3. Withdraw
 
 .. important::
 
