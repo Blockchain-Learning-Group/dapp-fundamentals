@@ -159,38 +159,25 @@ Setup Guide
   - Within a command prompt simply enter: ``docker version`` to confirm docker has been installed correctly.
   - Follow the steps `here <https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c>`_ to share your C drive with docker.
 
-2. Pull the Dev Environment Image
+2. Confirm installation successful by testing the dev container 
 =================================
 
 .. code-block:: bash
 
-  docker pull blockchainlg/dapp-dev-env
+  docker run -it --rm --name=blg-env blockchainlg/dapp-dev-env bash
 
-- *Example output: [may take a few minutes]*
+- *Example output: [may take a few minutes to pull the image]*
 
 .. code-block:: console
 
-  adam@adam:~$ docker pull blockchainlg/dapp-dev-env
+  ajl@x1c:~$ docker run -it --rm --name=blg-env blockchainlg/dapp-dev-env bash
   Using default tag: latest
   [...]
   27dbc59e6374: Pull complete
   Digest: sha256:dd092aac455c2c3fccf017c26fe14c40a13a2bbdf69cf67d1bd0adf66a708ec4
   Status: Downloaded newer image for blockchainlg/dapp-dev-env:latest
-  adam@adam:~$
-
-- Run the container to confirm install and image working correctly
-
-.. code-block:: bash
-
-  docker run -dit --name=blg-env blockchainlg/dapp-dev-env
-
-- *Example output:*
-
-.. code-block:: console
-
-  adam@adam:~$ docker run -dit --name=blg-env blockchainlg/dapp-dev-env
-  c404fde9605f3c27a927161c6d9c809cb3215e58ea33b25ae28acc7ad0cd32cd
-  adam@adam:~$
+  ajl@x1c:~/dev/blg/courses/docker/dapp-dev-env$ docker run -it --rm --name=blg-env blockchainlg/dapp-dev-env bash
+  root@fefc5cac6cdd:/blg/wallet-template# 
 
 .. attention::
   If the following error is experienced:
@@ -204,33 +191,5 @@ Setup Guide
   .. code-block:: bash
 
     sudo chown $USER /home/$USER/.docker/config.json
-
-- Confirm the container is running
-
-.. code-block:: bash
-
-  docker ps
-
-- *Example output:*
-
-.. code-block:: console
-
-  adam@adam:~$ docker ps
-  CONTAINER ID        IMAGE                       COMMAND             CREATED              STATUS              PORTS               NAMES
-  c404fde9605f        blockchainlg/dapp-dev-env   "node"              About a minute ago   Up About a minute                       blg-env
-  adam@adam:~$
-
-- Stop and remove the container for now
-
-.. code-block:: bash
-
-  docker stop blg-env && docker rm blg-env
-
-- *Example output:*
-
-.. code-block:: console
-
-  adam@adam:~$ docker stop blg-env && docker rm blg-env
-  blg-env
-  blg-env
-  adam@adam:~$
+    
+- You may detach from the container, removing it, via ``ctrl+d``, **are you done!**
