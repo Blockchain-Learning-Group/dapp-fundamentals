@@ -4,9 +4,9 @@ pragma solidity ^0.4.24;
 contract BatchSend {
     event BatchSent(address[] addresses);
 
-//create a function here with following
-//properties: external, payable and which returns a boolean
-//params array of addresses called _addresses and array of uint256 called _values
+// create a function here with following
+// properties: external, payable and which returns a boolean
+// params array of addresses called _addresses and array of uint256 called _values
 
     function batchSend(
         address[] _addresses, 
@@ -24,7 +24,7 @@ contract BatchSend {
 
         // create a loop that will use the .transfer method to send the value
             // require that the remainingValue in contract is greated that value remaining
-            //decrement the value in the in the remaining value variable
+            // decrement the value in the in the remaining value variable
         for (uint8 i = 0; i < _addresses.length; i++) {
             require(remainingValue >= _values[i], "Insufficient ether sent to fill the batch");
             _addresses[i].transfer(_values[i]);
@@ -36,7 +36,7 @@ contract BatchSend {
             msg.sender.transfer(remainingValue);
         }   
 
-        //emit an event which sends the addresses that have been paid out
+        // emit an event which sends the addresses that have been paid out
         emit BatchSent(_addresses);
         return true;
     }
