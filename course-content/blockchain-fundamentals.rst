@@ -27,7 +27,7 @@ Blockchain Fundamentals
   >>> keccak_256(bytes(2)).hexdigest()
   54a8c0ab653c15bfb48b47fd011ba2b9617af01cb45cab344acd57c924d56798
 
-5. `Mining Script <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/exercises/proof_of_work_mining.py>`_
+5. `Mining Script <https://github.com/Blockchain-Learning-Group/docker/blob/master/dapp-dev-env/proof_of_work_mining.py>`_
 ===================================================================================================================================
 - From within the docker container
 
