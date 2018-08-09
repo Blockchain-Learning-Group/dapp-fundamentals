@@ -191,5 +191,7 @@ Setup Guide
   .. code-block:: bash
 
     sudo chown $USER /home/$USER/.docker/config.json
-    
-- You may detach from the container, removing it, via ``ctrl+d``, **are you done!**
+
+- You may detach from the container, removing it, via ``ctrl+d``
+
+**You are done!**
