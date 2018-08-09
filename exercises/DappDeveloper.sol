@@ -2,8 +2,8 @@ pragma solidity ^0.4.24;
 
 contract DappDeveloper {
   // Storage variables
-  string name_;
-  string currentLocation_;
+  string public name_;
+  string public currentLocation_;
 
   // Set your name, @param _name Your name.
   constructor(string _name) {
