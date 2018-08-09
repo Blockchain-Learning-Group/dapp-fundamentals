@@ -15,10 +15,11 @@ Join our Slack Team: `Blockchain-Learning-Group <https://join.slack.com/t/blockc
 3. `Truffle Framework <http://truffleframework.com/>`_
 4. `Web3JS <https://github.com/ethereum/wiki/wiki/JavaScript-API>`_
 5. `Solidity <https://solidity.readthedocs.io/en/develop/>`_
-6. `Metamask <https://metamask.io/>`_
-7. `TestRPC <https://github.com/ethereumjs/testrpc>`_
-8. `Parity <https://parity.io/>`_
-9. `Material UI <http://www.material-ui.com/>`_
+6. `Remix <https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.15+commit.bbb8e64f.js>`_
+7. `Metamask <https://metamask.io/>`_
+8. `TestRPC <https://github.com/ethereumjs/testrpc>`_
+9. `Parity <https://parity.io/>`_
+10. `Material UI <http://www.material-ui.com/>`_
 
 ----
 

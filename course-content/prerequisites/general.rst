@@ -15,7 +15,7 @@ Course Prerequisites
 5. `Web3JS <https://github.com/ethereum/wiki/wiki/JavaScript-API>`_
 6. `Ganache-cli <https://github.com/trufflesuite/ganache-cli>`_
 7. `Material UI <http://www.material-ui.com/>`_
-8. `Remix <x.ethereum.org/#optimize=true&version=soljson-v0.4.24+commit.e67f0147.js>`_
+8. `Remix <https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.24+commit.e67f0147.js&optimize=false>`_
 9. `Metamask <https://metamask.io/>`_
 
 ----
