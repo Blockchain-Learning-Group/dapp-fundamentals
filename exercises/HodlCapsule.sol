@@ -3,7 +3,7 @@ pragma solidity 0.4.24;
 
 contract Capsule {
 
-    //declare the following variables: owner_, amount_ and unlocktime_
+    //declared variables: owner_, amount_ and unlocktime_
     address public owner_;
     uint256 public amount_;
     uint public unlockTime_;

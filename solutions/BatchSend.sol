@@ -4,7 +4,7 @@ pragma solidity ^0.4.24;
 contract BatchSend {
     event BatchSent(address[] addresses);
 
-//create a constructor function here with following
+//create a function here with following
 //properties: external, payable and which returns a boolean
 //params array of addresses called _addresses and array of uint256 called _values
 
