@@ -7,7 +7,6 @@ Blockchain Fundamentals
 
 2. `etherscan.io <https://etherscan.io/>`_
 ==================================================
-    * `Augur <https://etherscan.io/token/REP#readContract>`_
 
 3. `ethernodes.org <https://www.ethernodes.org/network/1>`_
 =======================================================================
