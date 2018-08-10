@@ -388,152 +388,18 @@ Stage 4: Test the submitOrder Method
 
 ----
 
-Stage 5: Write the executeOrder Method
+Stage 5: Write the executeOrder method
 =========================================
 
-`Video Tutorial <https://drive.google.com/open?id=18WgT4mDWW5EcMUM_BbPACRhZ1gwQYgh9>`_
-
-1. Load the order struct into memory(will save gas cost for subsequent reads), line 53
------------------------------------------------
-
-::
-
-  Order memory order = orderBook_[_orderId];
-
-
-2. Confirm enough ether was sent with the transaction to fill the order, line 56
------------------------------------------------
-
-::
-
-  require(msg.value == order.askAmount);
-
-
-3. Execute the trade.
------------------------------------------------
-  - Moving ether to the maker, line 59
-
-::
-
-  order.maker.transfer(order.askAmount);  // safe and will throw on failure
-
-- AND tokens to the taker, line 60
-
-::
-
-  require(Token(order.bidToken).transferFrom(order.maker, msg.sender, order.bidAmount), "transferFrom failed.");
-
-4.  Remove the filled order from the order book, line 63
------------------------------------------------
-
-::
-
-  delete orderBook_[_orderId];
-
-5. Emit the order executed event, line 66
------------------------------------------------
-
-::
-
-  emit OrderExecuted(_orderId, order.maker, msg.sender, order.bidToken, order.bidAmount, order.askToken, order.askAmount);
-
-**END Stage 5: Write the executeOrder Method**
+**Try this part on you own!  Solutions at the bottom...**
 
 ----
 
-Stage 6: Test the executeOrder Method
+Stage 6: Test the executeOrder method
 =========================================
-`Video Tutorial <https://drive.google.com/open?id=10tTq0j0antqHE-N9YjS9RYpM3oK34HrW>`_
 
-**Test Setup**
+**Try this part on you own!  Solutions at the bottom...**
 
-1. Get the initial ether balances for both accounts, line 68-69
------------------------------------------------
-
-.. code-block:: javascript
-
-  const makerBalanceBefore = web3.eth.getBalance(maker).toNumber()
-  const takerBalanceBefore = web3.eth.getBalance(taker).toNumber()
-
-2. Submit the transaction to execute the order, line 74-79
------------------------------------------------
-
-.. code-block:: javascript
-
-  const tx = await exchange.executeOrder(orderId, {
-      from: taker,
-      gas : 4e6,
-      value: 100 // ask amount from previously submitted order
-    }
-  )
-
-**Assertions**
-
-3. Confirm the execute order event emitted, line 84-85
------------------------------------------------
-
-.. code-block:: javascript
-
-  const log = tx.logs[0]
-  assert.equal(log.event, 'OrderExecuted', 'Event not emitted')
-
-4. Confirm the token balances updated correctly, line 90-93
------------------------------------------------
-
-.. code-block:: javascript
-
-  const makerTokenBalance = (await token.balanceOf(maker)).toNumber()
-  const takerTokenBalance = (await token.balanceOf(taker)).toNumber()
-  assert.equal(makerTokenBalance, 0, 'Maker token balance incorrect.')
-  assert.equal(takerTokenBalance, 100, 'Taker token balance incorrect.')
-
-5. Confirm the ether balances updated correctly, line 98-102
------------------------------------------------
-
-.. code-block:: javascript
-
-  const makerBalanceAfter = web3.eth.getBalance(maker).toNumber()
-  const takerBalanceAfter = web3.eth.getBalance(taker).toNumber()
-  assert.equal(makerBalanceAfter, makerBalanceBefore + 100, 'Maker eth balance incorrect')
-  // Note taker also had to pay for the executeOrder tx
-  assert.isBelow(takerBalanceAfter, takerBalanceBefore - 100, 'Taker eth balance incorrect')
-
-6. Confirm the order was removed from the order book, line 107-108
------------------------------------------------
-
-.. code-block:: javascript
-
-  const order = await exchange.orderBook_(orderId)
-  assert.equal(order[4], 0)
-
-7. Execute the test and confirm it is passing!
------------------------------------------------
-
-.. code-block:: bash
-
-  truffle test test/test_submit_executeOrder.js
-
-- *Example output:*
-
-.. code-block:: console
-
-  # truffle test test/test_submit_executeOrder.js
-  Contract: Token.buy()
-  ✓ should buy new tokens. (116ms)
-
-  Contract: Exchange.submitOrder() && executeOrder()
-    ✓ submitOrder(), should succeed by adding a new order to the orderBook on-chain. (298ms)
-    ✓ executeOrder(), should succeed by trading the tokens. Maker bids ether. (493ms)
-
-
-  3 passing (951ms)
-
-  #
-
-  .. success::
-    Success, The exchange contract is complete!
-
-**END Stage 6: Test the executeOrder Method**
 
 ----
 
@@ -681,36 +547,18 @@ Stage 8: Add Basic Routing to the DApp
 Stage 9: Create the Reference Exchange Object
 =========================================
 
-`Video Tutorial <https://drive.google.com/open?id=1OI_jnes4r791f8sOlpaiDjkpnmL5-L2l>`_
+**Look to follow the exact same process used for the token.  Solutions at the bottom...**
 
-1. Import the exchange build artifacts, line 17
------------------------------------------------
+.. note:: 
 
-.. code-block:: javascript
+  Some hints...
 
-  import exchangeArtifacts from './build/contracts/Exchange.json'
-
-2. Add the exchange to the state, line 27
------------------------------------------------
-
-.. code-block:: javascript
-
-  exchange: null, // exchange contract
-
-3. Create the reference object to the deployed exchange, line 61-64
------------------------------------------------
-
-.. code-block:: javascript
-
-  const exchangeAddress = exchangeArtiacts.networks[netId].address
-  const exchange = this.web3.eth.contract(exchangeArtiacts.abi).at(exchangeAddress)
-  this.setState({ exchange })
-  console.log(exchange)
-
-4. View the exchange object in the browser developer console.
------------------------------------------------
-
-**END Stage 9: Create the Reference Exchange Object**
+  1. Build Artifacts
+  2. State attribute
+  3. Contract address
+  4. Contract interface 
+  5. Web3 to create reference object
+  6. Load the object into state 
 
 ----
 
@@ -933,40 +781,11 @@ Stage 14: Add an Order to the Order Book When Submitted
 Stage 15: Select and execute an Order
 =========================================
 
-`Video Tutorial <https://drive.google.com/open?id=1tCON6wXLBd8LxkPVn-q8VFMpYd3kYz3W>`_
+**Exactly as we sent a transaction to submit the order! Solutions at the bottom...**
 
-1. Add a selectedOrder attribute to the state, line 33
------------------------------------------------
+.. note::
 
-.. code-block:: javascript
-
-  selectedOrder: null
-
-2. Add a method to execute the selected order, line 199-216
------------------------------------------------
-
-.. code-block:: javascript
-
-  // Execute a selected order
-  executeOrder(orderId) {
-    if (orderId) {
-      const { exchange } = this.state
-      const from = this.web3.eth.accounts[this.state.defaultAccount]
-      const gas = 1e6
-
-      // Get the ask amount of the order from the contract, ether to send along with the tx
-      exchange.orderBook_(orderId, (err, order) => {
-        exchange.executeOrder(orderId, { from, gas, value: order[4] },
-        (err, res) => {
-          err ? console.error(err) : console.log(res)
-        })
-      })
-    } else {
-      console.error(`Undefined orderId: ${orderId}`)
-    }
-  }
-
-**END Stage 15: Select and execute an order**
+  Hint: first you will need to add an attribute to the state to hold the selected order!
 
 ----
 
@@ -1096,3 +915,216 @@ Clean up
   adam@adam:~/$ docker stop blg-env
   blg-env
   adam@adam:~/$
+
+----
+
+Solutions
+=========
+
+State 5: Write the executeOrder method
+--------------------------------------
+
+`Video Tutorial <https://drive.google.com/open?id=18WgT4mDWW5EcMUM_BbPACRhZ1gwQYgh9>`_
+
+1. Load the order struct into memory(will save gas cost for subsequent reads), line 53
+
+::
+
+  Order memory order = orderBook_[_orderId];
+
+
+2. Confirm enough ether was sent with the transaction to fill the order, line 56
+
+::
+
+  require(msg.value == order.askAmount);
+
+
+3. Execute the trade.
+
+  - Moving ether to the maker, line 59
+
+::
+
+  order.maker.transfer(order.askAmount);  // safe and will throw on failure
+
+- AND tokens to the taker, line 60
+
+::
+
+  require(Token(order.bidToken).transferFrom(order.maker, msg.sender, order.bidAmount), "transferFrom failed.");
+
+4.  Remove the filled order from the order book, line 63
+
+::
+
+  delete orderBook_[_orderId];
+
+5. Emit the order executed event, line 66
+
+::
+
+  emit OrderExecuted(_orderId, order.maker, msg.sender, order.bidToken, order.bidAmount, order.askToken, order.askAmount);
+
+**END Stage 5: Write the executeOrder method**
+
+----
+
+Stage 6: Test the executeOrder method
+------------------------------------
+
+`Video Tutorial <https://drive.google.com/open?id=10tTq0j0antqHE-N9YjS9RYpM3oK34HrW>`_
+
+**Test Setup**
+
+1. Get the initial ether balances for both accounts, line 68-69
+
+.. code-block:: javascript
+
+  const makerBalanceBefore = web3.eth.getBalance(maker).toNumber()
+  const takerBalanceBefore = web3.eth.getBalance(taker).toNumber()
+
+2. Submit the transaction to execute the order, line 74-79
+
+.. code-block:: javascript
+
+  const tx = await exchange.executeOrder(orderId, {
+      from: taker,
+      gas : 4e6,
+      value: 100 // ask amount from previously submitted order
+    }
+  )
+
+**Assertions**
+
+3. Confirm the execute order event emitted, line 84-85
+
+.. code-block:: javascript
+
+  const log = tx.logs[0]
+  assert.equal(log.event, 'OrderExecuted', 'Event not emitted')
+
+4. Confirm the token balances updated correctly, line 90-93
+
+.. code-block:: javascript
+
+  const makerTokenBalance = (await token.balanceOf(maker)).toNumber()
+  const takerTokenBalance = (await token.balanceOf(taker)).toNumber()
+  assert.equal(makerTokenBalance, 0, 'Maker token balance incorrect.')
+  assert.equal(takerTokenBalance, 100, 'Taker token balance incorrect.')
+
+5. Confirm the ether balances updated correctly, line 98-102
+
+.. code-block:: javascript
+
+  const makerBalanceAfter = web3.eth.getBalance(maker).toNumber()
+  const takerBalanceAfter = web3.eth.getBalance(taker).toNumber()
+  assert.equal(makerBalanceAfter, makerBalanceBefore + 100, 'Maker eth balance incorrect')
+  // Note taker also had to pay for the executeOrder tx
+  assert.isBelow(takerBalanceAfter, takerBalanceBefore - 100, 'Taker eth balance incorrect')
+
+6. Confirm the order was removed from the order book, line 107-108
+
+.. code-block:: javascript
+
+  const order = await exchange.orderBook_(orderId)
+  assert.equal(order[4], 0)
+
+7. Execute the test and confirm it is passing!
+
+.. code-block:: bash
+
+  truffle test test/test_submit_executeOrder.js
+
+- *Example output:*
+
+.. code-block:: console
+
+  # truffle test test/test_submit_executeOrder.js
+  Contract: Token.buy()
+  ✓ should buy new tokens. (116ms)
+
+  Contract: Exchange.submitOrder() && executeOrder()
+    ✓ submitOrder(), should succeed by adding a new order to the orderBook on-chain. (298ms)
+    ✓ executeOrder(), should succeed by trading the tokens. Maker bids ether. (493ms)
+
+
+  3 passing (951ms)
+
+  #
+
+  .. success::
+    Success, The exchange contract is complete!
+
+**END Stage 6: Test the executeOrder method**
+
+----
+
+Stage 9: Create the Reference Exchange Object
+--------------------------------------------
+
+`Video Tutorial <https://drive.google.com/open?id=1OI_jnes4r791f8sOlpaiDjkpnmL5-L2l>`_
+
+1. Import the exchange build artifacts, line 17
+
+.. code-block:: javascript
+
+  import exchangeArtifacts from './build/contracts/Exchange.json'
+
+2. Add the exchange to the state, line 27
+
+.. code-block:: javascript
+
+  exchange: null, // exchange contract
+
+3. Create the reference object to the deployed exchange, line 61-64
+
+.. code-block:: javascript
+
+  const exchangeAddress = exchangeArtiacts.networks[netId].address
+  const exchange = this.web3.eth.contract(exchangeArtiacts.abi).at(exchangeAddress)
+  this.setState({ exchange })
+  console.log(exchange)
+
+4. View the exchange object in the browser developer console.
+
+**END Stage 9: Create the Reference Exchange Object**
+
+----
+
+Stage 15: Select and execute an Order
+-----------------------------------------------
+
+`Video Tutorial <https://drive.google.com/open?id=1tCON6wXLBd8LxkPVn-q8VFMpYd3kYz3W>`_
+
+1. Add a selectedOrder attribute to the state, line 33
+
+.. code-block:: javascript
+
+  selectedOrder: null
+
+2. Add a method to execute the selected order, line 199-216
+
+.. code-block:: javascript
+
+  // Execute a selected order
+  executeOrder(orderId) {
+    if (orderId) {
+      const { exchange } = this.state
+      const from = this.web3.eth.accounts[this.state.defaultAccount]
+      const gas = 1e6
+
+      // Get the ask amount of the order from the contract, ether to send along with the tx
+      exchange.orderBook_(orderId, (err, order) => {
+        exchange.executeOrder(orderId, { from, gas, value: order[4] },
+        (err, res) => {
+          err ? console.error(err) : console.log(res)
+        })
+      })
+    } else {
+      console.error(`Undefined orderId: ${orderId}`)
+    }
+  }
+
+**END Stage 15: Select and execute an order**
+
