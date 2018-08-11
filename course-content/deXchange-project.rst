@@ -875,19 +875,12 @@ Stage 17: Load the Order Book
 Bonus: Extend Your Exchange
 ===========================
 1. Sync a node of your own! Instructions can be found `here <http://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/blockchain-fundamentals.html#sync-an-ethereum-node-of-your-own>`_
-------------------------------------------------------------
 2. Add other ERC20 / ETH pairings
------------------------------------------------
 3. Enable ERC20 / ERC20 pairings
------------------------------------------------
 4. Automated order matching, partial fills, matched by ratio not user selected.
------------------------------------------------
 5. Write tests for the exchange and token, failure cases
------------------------------------------------
 6. Update gas amounts sent with each transaction.  Leverage web3's gas estimation!
------------------------------------------------
 7. Sort the orders in the order book table
------------------------------------------------
 
 ----
 
