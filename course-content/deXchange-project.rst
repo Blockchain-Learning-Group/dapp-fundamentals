@@ -1,5 +1,5 @@
 =============================
-DeXchange Development Project
+DeXchange Project
 =============================
 
 `View Completed DeXchange Demo <https://drive.google.com/open?id=1w5MYl3yPMLOJJOiXr2woXcxqcusDP1B0>`_
