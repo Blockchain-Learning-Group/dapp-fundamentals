@@ -8,7 +8,7 @@ If you have not already please create a github account.  Please do so at `github
 
 2.0 Submit Your Project
 ========================
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/course-content/video-tutorials/project-submission.mp4?raw=true>`_
+`Video Tutorial <https://drive.google.com/open?id=1QLbeS_qGqY1KqPygl822RJqDsAffkNKO>`_
 
 .. note::
   Replace USERNAME with your username below, the example below will use blockchainLG.

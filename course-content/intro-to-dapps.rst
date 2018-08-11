@@ -856,7 +856,6 @@ Bonus: Extend Your Wallet
 1. Metamask Integration
 -----------------------
 
-- `Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-bonus-metamask-integration.mp4?raw=true>`_
 - Ensure Metamask is installed, unlocked and connected to the local client(localhost:8545).
 - Fund your metamask account!
 
@@ -908,8 +907,6 @@ Bonus: Extend Your Wallet
 Clean up
 ========
 
-`Download Video Tutorial <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/master/solutions/Wallet/02_video_tutorials/02-stage-cleanup-01.mp4?raw=true>`_
-
 1. Detach from the container
 ----------------------------
 
@@ -940,7 +937,7 @@ BONUS
 1. Add withdraw functionality!  Enable the token owner to withdraw the ETH put in to purchase tokens. 
 2. Complete the sections from `Blockchain Fundamentals <https://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/blockchain-fundamentals.html#bonus>`_
 
-SOLUTIONS
+Solutions
 =========
 
 Stage 10: Transfer Tokens

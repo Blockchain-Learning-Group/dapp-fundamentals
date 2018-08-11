@@ -19,6 +19,5 @@ Contents
    blockchain-fundamentals
    intro-to-dapps
    deXchange-project
-   deXchange-deployment
    project-submission
    exercises
