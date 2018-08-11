@@ -170,7 +170,7 @@ Solidity Exercises
 .. Important::
     Save this contract to disk if you wish to use it again! However a completed token will be made available should you wish.
 
-SOLUTIONS
+Solutions
 =========
 1. `Voting Exercise Solution <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/solutions/Voting_02.sol>`_
 
