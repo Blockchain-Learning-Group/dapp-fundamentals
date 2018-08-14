@@ -344,7 +344,7 @@ Stage 2: Testing Your Token
 
 - Open the repo, ``~/Desktop/blg/wallet-template``, in your text editor, atom, sublime or the like and we can get to coding!
 
-- Import the token's build artifacts, line 2
+- Import the token's build artifacts, ``src/tests/test_buy.js`` line 2
 
 .. code-block:: javascript
 
@@ -934,7 +934,7 @@ Clean up
 BONUS
 ======
 
-1. Add withdraw functionality!  Enable the token owner to withdraw the ETH put in to purchase tokens. 
+1. Add withdraw functionality!  Enable the token owner to withdraw the ETH put in to purchase tokens.
 2. Complete the sections from `Blockchain Fundamentals <https://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/blockchain-fundamentals.html#bonus>`_
 
 Solutions
