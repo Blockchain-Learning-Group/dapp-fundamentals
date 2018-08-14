@@ -513,7 +513,7 @@ Stage 4: Token Interface
 
 `Video Tutorial <https://drive.google.com/open?id=18bU8mbWN1p6GrPnTLck7k14ByhngvBMg>`_
 
-1. Import the web3 library, app.js#line 5
+1. Import the web3 library, ``src/app.js``#line 5
 ---------------------------------------
 
 .. code-block:: javascript
