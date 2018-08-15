@@ -1084,8 +1084,8 @@ Stage 9: Create the Reference Exchange Object
 
 .. code-block:: javascript
 
-  const exchangeAddress = exchangeArtiacts.networks[netId].address
-  const exchange = this.web3.eth.contract(exchangeArtiacts.abi).at(exchangeAddress)
+  const exchangeAddress = exchangeArtifacts.networks[netId].address
+  const exchange = this.web3.eth.contract(exchangeArtifacts.abi).at(exchangeAddress)
   this.setState({ exchange })
   console.log(exchange)
 
