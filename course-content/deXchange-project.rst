@@ -400,6 +400,10 @@ Stage 6: Test the executeOrder method
 
 **Try this part on you own!  Solutions at the bottom...**
 
+.. note::
+
+  This will fail at first and there is a bug located in ``Token.sol's transferfrom`` method for you(you are welcome!)
+  Take a close look at line 76: ``require(_amount <= 0, 'Cannot transfer amount <= 0, Token.transferFrom()');``
 
 ----
 
@@ -549,16 +553,16 @@ Stage 9: Create the Reference Exchange Object
 
 **Look to follow the exact same process used for the token.  Solutions at the bottom...**
 
-.. note:: 
+.. note::
 
   Some hints...
 
   1. Build Artifacts
   2. State attribute
   3. Contract address
-  4. Contract interface 
+  4. Contract interface
   5. Web3 to create reference object
-  6. Load the object into state 
+  6. Load the object into state
 
 ----
 
@@ -1023,7 +1027,13 @@ Stage 6: Test the executeOrder method
   const order = await exchange.orderBook_(orderId)
   assert.equal(order[4], 0)
 
-7. Execute the test and confirm it is passing!
+7. Fix the token's transferFrom method ``src/contracts/Token.sol`` line 76
+
+.. code-block:: javascript
+
+  require(_amount > 0, 'Cannot transfer amount <= 0, Token.transferFrom()');
+
+8. Execute the test and confirm it is passing!
 
 .. code-block:: bash
 
@@ -1074,8 +1084,8 @@ Stage 9: Create the Reference Exchange Object
 
 .. code-block:: javascript
 
-  const exchangeAddress = exchangeArtiacts.networks[netId].address
-  const exchange = this.web3.eth.contract(exchangeArtiacts.abi).at(exchangeAddress)
+  const exchangeAddress = exchangeArtifacts.networks[netId].address
+  const exchange = this.web3.eth.contract(exchangeArtifacts.abi).at(exchangeAddress)
   this.setState({ exchange })
   console.log(exchange)
 
@@ -1120,4 +1130,3 @@ Stage 15: Select and execute an Order
   }
 
 **END Stage 15: Select and execute an order**
-
