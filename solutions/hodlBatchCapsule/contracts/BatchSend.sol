@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity 0.4.24;
 
 
 contract BatchSend {
@@ -7,7 +7,7 @@ contract BatchSend {
     function batchSend(
         address[] _addresses, 
         uint256[] _values
-    )   external
+    )   external 
         payable
         returns(bool) 
     {
