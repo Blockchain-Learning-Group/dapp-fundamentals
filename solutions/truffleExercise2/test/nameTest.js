@@ -2,7 +2,7 @@
 // include the Demo.sol contract and pass it as an artifcat to the Demo variable
 var Demo = artifacts.require("./Demo.sol");
 // initialized the chai assertion library
-expect = require("chai").expect;
+assert = require("chai").assert;
 
 // use the contract object with to "Test the Demo contract" with a callback function with no params
 contract("Test the Demo contract", function(){
@@ -26,7 +26,7 @@ contract("Test the Demo contract", function(){
                 // console log the result
                 console.log(res.toString());
                 // expect the result to.be.equal to "shahrukh khan"
-                expect(res.toString()).to.be.equal("shahrukh khan")
+                assert.equal(res, "shahrukh khan", "The name variable is not correctly set")
             });
         });
     });
