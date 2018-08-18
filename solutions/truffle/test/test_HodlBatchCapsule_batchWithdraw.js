@@ -52,7 +52,7 @@ contract('hodl.withdrawBatch', (accounts) => {
         });
     });
 
-    describe('should fail when not unlocked and not from owner', () => {
+    describe('should fail when not unlocked', () => {
         before(async () => {
            hodl = await HodlBatchCapsule.new(1, { from: owner });
         });
