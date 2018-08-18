@@ -4,4 +4,7 @@ contract Demo{
     // adding a single variable in the contract
     string public name = "shahrukh khan";
 
+    function changeName(string newName)public {
+        name = newName;
+    }
 }

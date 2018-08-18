@@ -29,6 +29,18 @@ contract("Test the Demo contract", function(){
                 assert.equal(res, "shahrukh khan", "The name variable is not correctly set")
             });
         });
+
+        it("Should change the name as expected", async () => {
+            const newName = "John Doe";
+            const txreciept = await demoContract.changeName(newName);
+
+            return demoContract.name().then(function(res){
+                // console log the result
+                console.log(res.toString());
+                // expect the result to.be.equal to "shahrukh khan"
+                assert.equal(res, newName, "The name variable has not correctly changed")
+            });
+        })
     });
 
 })
