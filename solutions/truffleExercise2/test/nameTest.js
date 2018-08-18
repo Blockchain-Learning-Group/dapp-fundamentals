@@ -15,7 +15,7 @@ contract("Test the Demo contract", function() {
     // use the describe function to "Check the contract variable" with a callback function with no params
     describe("Check the contract variable", function() {
         // use the it function to ensure "The name variable is correct" with a callback function with no params
-        it("The name variable is correct", async () => {
+        it.only("The name variable is correct", async () => {
             const demo = await Demo.new();
             console.log(await demo.name());
             console.log(await demo.name());
