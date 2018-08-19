@@ -1,9 +1,12 @@
 pragma solidity 0.4.24;
 
-import "./BatchSend.sol";
+// importing the batch send functionalities from the contract
+// all of its functions are now available to use
+import "./BatchSendExtended.sol";
 
 
 contract HodlBatchCapsule {
+    // declare all the variables required for the capsule
     address public owner_;
     uint256 public amount_;
     uint256 public unlockTime_;
@@ -22,7 +25,7 @@ contract HodlBatchCapsule {
     // Contract instance to send batch through
     BatchSend public batchSend_;
 
-    /**
+    /*
      * @param _unlockTime how long before the capsule may be unlocked
      */
     constructor(uint256 _unlockTime) public payable {
@@ -41,7 +44,7 @@ contract HodlBatchCapsule {
         selfdestruct(owner_);
     }
 
-    /**
+    /*
      * Create a new capsule batch
      * @param _addresses  Who to send the batch to 
      * @param _values     How much to send to each address

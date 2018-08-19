@@ -1,4 +1,4 @@
-pragma solidity 0.4.24;
+pragma solidity ^0.4.24;
 
 
 contract BatchSend {
@@ -7,11 +7,11 @@ contract BatchSend {
     function batchSend(
         address[] _addresses, 
         uint256[] _values
-    )   external 
+    )   external
         payable
         returns(bool) 
     {
-
+        // ensures that each of th
         require(_addresses.length == _values.length, "Sanity check, array lengths do not match");
 
         // Counter to ensure no value from contract being used
