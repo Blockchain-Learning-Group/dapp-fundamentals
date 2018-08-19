@@ -1,6 +1,6 @@
 pragma solidity 0.4.24;
 
-contract SimpleStorage {
+contract SimpleStorageNoVisibility {
     uint256 storedData;
 
     function set(uint256 x) {
