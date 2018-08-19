@@ -1,3 +1,4 @@
+// Include the HodlBatchCapsule.sol contract and pass it as an artifact to the HodlBatchCapsule variable
 const HodlBatchCapsule = artifacts.require('./HodlBatchCapsule.sol');
 
 contract('hodl.withdrawBatch', (accounts) => {
@@ -11,13 +12,16 @@ contract('hodl.withdrawBatch', (accounts) => {
         let ownerBalanceBefore;
     
         before(async () => {
-           ownerBalanceBefore = (await web3.eth.getBalance(owner)).toNumber();
-           hodl = await HodlBatchCapsule.new(1, { from: owner });
+            // get owner's balance before
+            ownerBalanceBefore = (await web3.eth.getBalance(owner)).toNumber();
+            // create an instance of the new contract
+            hodl = await HodlBatchCapsule.new(1, { from: owner });
         });
 
         it('should create a batch', async () => {
             const unlockTime = 0;
             
+            // Call createBatch
             const txReceipt = await hodl.createBatch(addresses, values, unlockTime, { from: owner, value: totalValue});
 
             // Get the timestamp of the block this tx was included in, in order to compare unlock time
@@ -40,36 +44,41 @@ contract('hodl.withdrawBatch', (accounts) => {
             const internalEvent = txReceipt.receipt.logs[0];
             assert.isNotNull(internalEvent.address, await hodl.batchSend_(), 'internal event not emitted from BatchSend');
 
-            // Final balances
+            // Get final balances
             const addr1BalanceAfter = (await web3.eth.getBalance(addr1)).toNumber();
             const addr2BalanceAfter = (await web3.eth.getBalance(addr2)).toNumber();
             const ownerBalanceAfter = (await web3.eth.getBalance(owner)).toNumber();
 
-            // Below due to tx fee
+            // Create a test to ensure that the owner's balance is correct
             assert.isBelow(ownerBalanceAfter, ownerBalanceBefore - totalValue, 'owner balance after incorrect');
+
+            // create two tests to ensure that addr1/2 have the correct balances after running the contracts
             assert.equal(addr1BalanceAfter, addr1BalanceBefore + values[0], 'addr1 balance incorrect');
             assert.equal(addr2BalanceAfter, addr2BalanceBefore + values[1], 'addr2 balance incorrect');
         });
     });
 
+    
     describe('should fail when not unlocked', () => {
         before(async () => {
            hodl = await HodlBatchCapsule.new(1, { from: owner });
         });
 
-        it('should create a batch', async () => {
+        it('the unlock time on chain should be correct', async () => {
             const unlockTime = 1e18;
-            
+            // Call the createBatch function
             const txReceipt = await hodl.createBatch(addresses, values, unlockTime, { from: owner, value: totalValue});
 
             // Get the timestamp of the block this tx was included in, in order to compare unlock time
             const blockTimestamp = web3.eth.getBlock(txReceipt.receipt.blockNumber).timestamp;
 
-            // Confirm batch saved
+            // call the batchUnlockTime function to check the time
             const batchUnlockTime = (await hodl.batchUnlockTime()).toNumber();
+            // create a test to ensure that the time on chain is what is intended
             assert.strictEqual(batchUnlockTime, blockTimestamp + unlockTime, 'unlocktime on chain incorrect');
         });
 
+        // create an it function to ensure that the withdrawBatch fails if called by the wrong user
         it('should fail due to unlock time', async () => {
             try {
                 await hodl.withdrawBatch({ from: owner });

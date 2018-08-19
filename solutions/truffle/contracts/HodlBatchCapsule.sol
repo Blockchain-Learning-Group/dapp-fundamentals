@@ -1,7 +1,6 @@
 pragma solidity 0.4.24;
 
-// importing the batch send functionalities from the contract
-// all of its functions are now available to use
+// import the batch send functionalities from the contract to make all of its functions available to use
 import "./BatchSend.sol";
 
 
@@ -19,7 +18,7 @@ contract HodlBatchCapsule {
         uint256 totalValue;
     }
     
-    // Enable only single batch to be held per capsule
+    // Enable only single batch to be held per capsule by creating a private instance of the Batch struct
     Batch private batch_;
 
     // Contract instance to send batch through
@@ -58,7 +57,9 @@ contract HodlBatchCapsule {
         payable
     {
         require(msg.sender == owner_, "msg.sender != owner");
+        // ensure that no batch already exists
         require(batch_.addresses.length == 0, "batch already exists, try again later...");
+        // create a Batch struct with, filling all the variables 
         batch_ = Batch(_addresses, _values, now + _unlockTime, msg.value);
     }
 
@@ -69,11 +70,15 @@ contract HodlBatchCapsule {
         require(now >= batch_.unlockTime, "Capsule not unlocked yet.");
 
         // Execute the batch, sending the eth from this contract
+        // 1. call the .batchSend method of the batchSend_ contract instance
+        // 2. the .value() of the call should be the .totalValue stored in the batch_ struct
+        // 3. include the .addresses and .values from the batch_ struct
         batchSend_.batchSend.value(batch_.totalValue)(batch_.addresses, batch_.values);
     }   
 
     // Structs are private so creating a getter to read batch unlockTime
     function batchUnlockTime() external view returns(uint256) {
+        // return the unlockTime from the batch_ struct
         return batch_.unlockTime;
     }
 }
