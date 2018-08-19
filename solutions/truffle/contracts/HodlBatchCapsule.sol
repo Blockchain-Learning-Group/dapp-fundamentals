@@ -2,7 +2,7 @@ pragma solidity 0.4.24;
 
 // importing the batch send functionalities from the contract
 // all of its functions are now available to use
-import "./BatchSendExtended.sol";
+import "./BatchSend.sol";
 
 
 contract HodlBatchCapsule {
