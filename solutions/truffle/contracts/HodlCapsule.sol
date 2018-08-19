@@ -8,7 +8,7 @@ contract HodlCapsule {
     constructor(uint256 _unlockTime) public payable {
         owner_ = msg.sender;
         amount_ = msg.value;
-        unlockTime_ = _unlockTime;
+        unlockTime_ = now + _unlockTime;
     }
 
     function withdraw() external {
