@@ -20,7 +20,7 @@ contract HodlCapsule {
     function withdraw() external {
         // require that the user trying to access the value is the owner
         require(msg.sender == owner_, "msg.sender != owner");
-        // require that the enough time has passed before allowing the user to unlock the value
+        // require that enough time has passed before allowing the user to unlock the value
         require(now >= unlockTime_, "Capsule not unlocked yet.");
         // use the selfdestruct method to return the value of the contract to the user
         selfdestruct(owner_);

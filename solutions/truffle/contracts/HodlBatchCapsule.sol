@@ -10,7 +10,7 @@ contract HodlBatchCapsule {
     uint256 public amount_;
     uint256 public unlockTime_;
 
-    // Batch structure define independent capsule
+    // Batch structure to define independent capsule
     struct Batch {
         address[] addresses;
         uint256[] values;
@@ -19,6 +19,7 @@ contract HodlBatchCapsule {
     }
     
     // Enable only single batch to be held per capsule by creating a private instance of the Batch struct
+    // Structs may only be accessed internally and may not be defined as public
     Batch private batch_;
 
     // Contract instance to send batch through
@@ -59,7 +60,7 @@ contract HodlBatchCapsule {
         require(msg.sender == owner_, "msg.sender != owner");
         // ensure that no batch already exists
         require(batch_.addresses.length == 0, "batch already exists, try again later...");
-        // create a Batch struct with, filling all the variables 
+        // create a Batch struct with filling all the variables 
         batch_ = Batch(_addresses, _values, now + _unlockTime, msg.value);
     }
 
@@ -72,6 +73,7 @@ contract HodlBatchCapsule {
         // Execute the batch, sending the eth from this contract
         // 1. call the .batchSend method of the batchSend_ contract instance
         // 2. the .value() of the call should be the .totalValue stored in the batch_ struct
+        //    - this will send ether from this contract to the batchSend contract
         // 3. include the .addresses and .values from the batch_ struct
         batchSend_.batchSend.value(batch_.totalValue)(batch_.addresses, batch_.values);
     }   

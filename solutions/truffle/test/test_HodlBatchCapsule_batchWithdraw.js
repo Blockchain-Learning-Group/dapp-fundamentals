@@ -1,4 +1,4 @@
-// Include the HodlBatchCapsule.sol contract and pass it as an artifact to the HodlBatchCapsule variable
+// Include the HodlBatchCapsule.sol contract artifacts as the HodlBatchCapsule variable
 const HodlBatchCapsule = artifacts.require('./HodlBatchCapsule.sol');
 
 contract('hodl.withdrawBatch', (accounts) => {
@@ -74,11 +74,12 @@ contract('hodl.withdrawBatch', (accounts) => {
 
             // call the batchUnlockTime function to check the time
             const batchUnlockTime = (await hodl.batchUnlockTime()).toNumber();
+
             // Create a test to ensure that the time on chain is what is intended
             assert.strictEqual(batchUnlockTime, blockTimestamp + unlockTime, 'unlocktime on chain incorrect');
         });
 
-        // Create an it function to ensure that the withdrawBatch fails if called by the wrong user
+        // Create an test case to ensure that the withdrawBatch fails if called by the wrong user
         it('should fail due to unlock time', async () => {
             try {
                 await hodl.withdrawBatch({ from: owner });

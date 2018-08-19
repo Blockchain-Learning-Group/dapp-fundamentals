@@ -1,17 +1,19 @@
-// include the BatchSend.sol contract and pass it as an artifact to the BatchSend variable
+// include the BatchSend.sol contract artifacts in order to create an instance to test against
 const BatchSend = artifacts.require('./BatchSend.sol');
 
-// use the contract object  with a callback function with accounts as a param
-contract("batchSend.GetMessage", function(accounts) {
+// define a contract test suite, using truffle's contract object, anonymous callback function with available accounts as a param
+contract("BatchSend", (accounts) => {
     // define the owner and reciever
     const owner = accounts[0];
     const reciever = accounts[1];
 
     // use the describe function to "batchSend multiple transactions" with a callback function with no params
+    // describing a collection of tests for the above contract
     describe("batchSend multiple transactions", () => {
         // use the it function to "catch an instance of the contract" with an async callback function with no params
+        // defining a single test case
         it("call the batchSend function", async () => {
-            // create a .new() instance of BatchSend saving it to batchSend
+            // create a .new() instance of BatchSend, we will test against this 
             const batchSend = await BatchSend.new();
 
             // tx params
@@ -22,10 +24,10 @@ contract("batchSend.GetMessage", function(accounts) {
             const ownerBalanceBefore = (await web3.eth.getBalance(owner)).toNumber();
             const recieverBalanceBefore = (await web3.eth.getBalance(reciever)).toNumber();
             
-            // call the batchSend function passing it the appropriate params and transaction object
+            // call the batchSend function passing it the appropriate params and transaction options object
             const txReceipt = await batchSend.batchSend([reciever], [amountToBeSent], { from: owner, value: amountToBeSent});
             
-            // check that the correct event were emitted in the txReceipt.logs[0]
+            // get the 0th log of the emitted logs(events) within the transaction receipt
             const log = txReceipt.logs[0]; 
             // assert that the log.event was the BatchSent event - include error message
             assert.equal(log.event, 'BatchSent', 'Incorrect event emitted');

@@ -1,24 +1,25 @@
-// include the HodlCapsule.sol contract and pass it as an artifact to the HodlContract variable
+// include the HodlCapsule.sol contract artifacts that will serve as constructor to create an instance to test against
 const HodlContract = artifacts.require("./HodlCapsule.sol");
 
 // use the contract object to "Test the hodl contract" with a callback function with accounts as a param\
-contract("Test the hodl contract", function(accounts) {
-    // use the describe function to "deploy the hodl smart contract" with a callback function with no params
+contract("Test the hodl contract", (accounts) => {
+    // use the describe function to describe a collection of contract test cases, with a callback function with no params
     describe("deploy the hodl smart contract", () => {
-        // use the describe function to "deploy the hodl smart contract" with an async callback function with no params
+        // a single test case for the above contract
         it("catch an instance of the contract", async () => {
-            // create a .new() instance of HodlContract saving it to hodl
+            // create a .new() instance of HodlContract 
             const hodl = await HodlContract.new(0, {from: accounts[0]});
             // check that an instance of the contract was created -- include an error message
             assert.isNotNull(hodl, "contract not deployed");
         });
     });
 
-    // use the describe function - the withdraw function "should fail when not unlocked" with a callback function with no params
-    describe("should fail when not unlocked", () => {
-        // use the it function - the withdraw function "should fail if wrong user calls it" with an async callback function
+    // describe another collection of test cases
+    // the withdraw function "should fail when not unlocked" with a callback function with no params
+    describe("should fail when pre conditions not met", () => {
+        // use the it function to create a test case - the withdraw function "should fail if wrong user calls it" with an async callback function
         it("should fail if wrong user calls it", async () => {
-            //define the owner and other account
+            // define the owner and other account
             const owner = accounts[0];
             const other = accounts[1];
 
@@ -34,7 +35,7 @@ contract("Test the hodl contract", function(accounts) {
             }  
         });
 
-        // use the it function - the withdraw function "should fail before unlock time" with an async callback function
+        // use the it function to define a test case - the withdraw function "should fail before unlock time" with an async callback function
         it("should fail before unlock time", async () => {
             //define the owner
             const owner = accounts[0];
@@ -52,7 +53,8 @@ contract("Test the hodl contract", function(accounts) {
         });
     });
 
-    // use the describe function, the withdraw function "should return value once both conditions are met" with a callback function with no params
+    // use the describe function to describe a collection of tests
+    // the withdraw function "should return value once both conditions are met" with a callback function with no params
     describe("should return value once both conditions are met", () => {
         // use the it function - the "contract should collect appropriate value from wallet" with an async callback function
         it("contract should collect appropriate value from wallet", async () => {
@@ -64,10 +66,7 @@ contract("Test the hodl contract", function(accounts) {
             const hodl = await HodlContract.new(0, { from: owner, value: 1e18});
             // get the balance of the owner after calling the hodl contract
             const ownerBalanceHodl = (await web3.eth.getBalance(owner)).toNumber();
-            // console.log("balance before: ", ownerBalanceBefore);
-            // console.log("balance during: ", ownerBalanceHodl);
-            
-            // create a test to ensure that sufficient value is taken from the owner
+            // assert that sufficient value is taken from the owner
             assert.isBelow(ownerBalanceHodl, ownerBalanceBefore - 1e18);
         });
 
@@ -83,11 +82,8 @@ contract("Test the hodl contract", function(accounts) {
             const withdrawTx = await hodl.withdraw({from: owner});
             // get the owners balance after
             const ownerBalanceAfter = (await web3.eth.getBalance(owner)).toNumber();
-            // console.log("balance before: ", ownerBalanceBefore);
-            // console.log("balance after: ", ownerBalanceAfter);\
-
             // create a test to ensure that sufficient value is returned to the owner
-            assert.isBelow(ownerBalanceBefore-1e18, ownerBalanceAfter);
+            assert.isBelow(ownerBalanceBefore - 1e18, ownerBalanceAfter);
         });
     });
 })
