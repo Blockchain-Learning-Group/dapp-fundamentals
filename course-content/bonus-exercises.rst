@@ -87,16 +87,118 @@ Bonus Exercises
       return storedData;
   }
 
-1.12 Compile and deploy, test the set and get functions
+1.12 Compile and deploy, test the get function
 
-- get the initial value
+.. note::
+
+  Could you get the value of storedData?  
+  What did the get function return?
+  Was gas consumed?  Was a transaction sent?  Or a call?
+
+1.13 Update the get function's mutability 
+
+::
+
+  function get() view returns (uint256) {
+      return storedData;
+  }
+
+
+1.14 Compile and deploy, test the set and get functions
+
+- get the initial value, what was returned this time? a tx or a call?
 - set the value
 - view it has changed
 - investigate evm console transactional details along the way
 
 ====
 
+2. Payable functions and contract to contract communication
 
+2.1 Add an acceptEther function
+
+::
+    function acceptEther() public payable {
+        storedData = this.balance;
+    }
+
+2.2 Compile and run, test the acceptEther function
+
+- Call the function and send value 
+- get the value of stored data, was it updated?
+- note value has moved from the EOA to the contract
+
+2.3 Add a second contract that will interact with SimpleStorage
+
+:: 
+
+  contract TestContractValueTransfers {}
+
+2.4 Add a storage variable, an instance of a simple storage contract
+
+::
+
+  SimpleStorage simpleStorage = new SimpleStorage();
+
+2.5 Add a function to withdraw the ether from this contract into the simple storage contract 
+
+::
+
+  function withdraw() {
+      simpleStorage.transfer(this.balance);
+  }
+
+2.6 try this method?  
+
+- won't compile: Value transfer to a contract without a payable fallback function. simpleStorage.transfer(this.balance);
+
+2.7 add a fallback to the simple storage contract
+
+:: 
+
+  function () external payable {}
+
+Compiles now?
+
+
+2.8 Try the withdraw function now
+
+- not so useful without a way to read the balances eh?
+
+2.9 Add 2 functions to read the balance of the simple storage contract as well as the test contract
+
+::
+
+    function getSimpleStorageBalance() returns(uint256) {
+        return simpleStorage.balance;
+    }
+    
+    function getMyBalance() returns(uint256) {
+        return this.balance;
+    }
+
+.. important:: 
+
+  Forgetting something?  Don't forget these functions need to be marked ``view`` to return the value.
+  Go ahead and modifier both functions with the ``view`` mutability modifer.
+
+2.10 Add fallback to test in order to fund it
+
+::
+
+  function () external payable {}
+
+2.11 test the ability to withdraw into the simple storage contract
+
+- read balances along the way
+
+====
+
+
+Source Code
+===========
+
+pragma solidity 0.4.24;
 
 contract SimpleStorage {
     uint256 public storedData;
@@ -113,5 +215,24 @@ contract SimpleStorage {
 
     function get() returns (uint256) {
         return storedData;
+    }
+}
+
+
+contract TestContractValueTransfers {
+    SimpleStorage simpleStorage = new SimpleStorage();
+ 
+    function () external payable {}
+ 
+    function withdraw() {
+        simpleStorage.transfer(this.balance);
+    }
+    
+    function getSimpleStorageBalance() view returns(uint256) {
+        return simpleStorage.balance;
+    }
+    
+    function getMyBalance() view returns(uint256) {
+        return this.balance;
     }
 }
