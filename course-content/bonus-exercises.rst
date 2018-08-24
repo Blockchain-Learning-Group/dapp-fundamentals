@@ -438,6 +438,8 @@ SOLUTION: TicTacToe_01.sol
 
 **Try it out!! see if the winner is set if 3 in a row is found**
 
+**STOP RECORDING**
+
 .. important:: 
 
     Are we done?  
