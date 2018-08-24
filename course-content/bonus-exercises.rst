@@ -205,7 +205,7 @@ Compiles now?
 
 ====
 
-Units and globals
+3. Units and globals
 =================
 
 Solution: SimpleStorageTimeLock
@@ -237,13 +237,7 @@ Solution: SimpleStorageTimeLock
 
   require(block.timestamp > wasSetLast + delay, "Delay has not passed.");
 
-
-tx origin vs msg.sender
-=======================
-
-SOLUTION: TxOriginVsMsgSender.sol
----------------------------------
-
+====
 
 Tic Tac Toe v1
 ==============
@@ -314,6 +308,13 @@ SOLUTION: TicTacToe_01.sol
 
 7. Give it a shot!  Try starting a game and taking turns, watch as the game board's indexes are filled.
 
+- now take a look what problems do you notice?
+
+**STOP RECORDING**
+
+- did you have some time to play with the contract?
+- Any big issues come up?
+- what we noticed was:
 
 .. important::
 
@@ -324,6 +325,7 @@ SOLUTION: TicTacToe_01.sol
     - A player may take many turns in a row, now alternating enforcement
 
     Let's tackle these problems first!
+
 
 8. Require that only player1 or player 2 may take turns
 
@@ -540,3 +542,10 @@ v3 - extended tic tac toe
 
 SOLUTION: TicTacToe_02
 ======================
+
+
+tx origin vs msg.sender
+=======================
+
+SOLUTION: TxOriginVsMsgSender.sol
+---------------------------------
