@@ -99,8 +99,12 @@ contract TicTacToe {
      * Diagonals:
      * [0,4,8] || [6,7,8]
      */
-    function isWinner(uint256 identifier) private view returns(bool) {
-        uint8[3][8] memory winningFilters = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[6,7,8]];
+    function isWinner(uint256 _identifier) private view returns(bool) {
+        uint8[3][8] memory winningFilters = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],  // Rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],  // Cols
+            [0, 4, 8], [6, 7, 8]              // Diags
+        ];
         
         // See if either of the players have won
         for (uint8 i = 0; i < winningFilters.length; i++) {
@@ -108,9 +112,9 @@ contract TicTacToe {
             
             // Player was successful!
             if (
-                gameBoard_[filter[0]]==identifier && 
-                gameBoard_[filter[1]]==identifier && 
-                gameBoard_[filter[2]]==identifier
+                gameBoard_[filter[0]] == _identifier && 
+                gameBoard_[filter[1]] == _identifier && 
+                gameBoard_[filter[2]] == _identifier
             ) {
                 return true;
             }
