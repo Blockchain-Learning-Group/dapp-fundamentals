@@ -538,6 +538,310 @@ Homework!
 - How to allow this?  When to allow this?  Reset storage variables?
 
 
+Intro Token
+===========
+
+
+1. Create empty contract
+
+::
+
+    pragma solidity 0.4.24;
+
+    contract MyToken {}
+
+2. Add the contract metadata, identifying data
+
+::
+
+    string public symbol = 'BLG';
+    string public name = 'Blockchain Learning Group Community Token';
+
+pragma solidity 0.4.24;
+
+contract MyToken {
+  string public symbol = 'BLG';
+  string public name = 'Blockchain Learning Group Community Token';
+}
+
+
+3. Add the storage variables
+
+::
+    uint256 private totalSupply_;
+    mapping (address => uint256) private balances_;
+
+pragma solidity 0.4.24;
+
+contract MyToken {
+  string public symbol = 'BLG';
+  string public name = 'Blockchain Learning Group Community Token';
+  
+  uint256 private totalSupply_;
+  mapping (address => uint256) private balances_;
+}
+
+4. Define the rate
+
+::
+
+    // Rate of tokens to issue per unit of wei, 1 wei = 2 tokens
+    uint256 public rate = 2; 
+
+pragma solidity 0.4.24;
+
+contract MyToken {
+  string public symbol = 'BLG';
+  string public name = 'Blockchain Learning Group Community Token';
+  
+  uint256 private totalSupply_;
+  mapping (address => uint256) private balances_;
+  
+  // Rate of tokens to issue per unit of wei, 1 wei = 2 tokens
+  uint256 public rate = 2; 
+}
+
+5. Add the events
+
+::
+
+    event Transfer(address indexed from, address indexed to, uint value);
+    event TokensMinted(address indexed to, uint256 value, uint256 totalSupply);
+
+pragma solidity 0.4.24;
+
+contract MyToken {
+  string public symbol = 'BLG';
+  string public name = 'Blockchain Learning Group Community Token';
+  
+  uint256 private totalSupply_;
+  mapping (address => uint256) private balances_;
+  
+  // Rate of tokens to issue per unit of wei, 1 wei = 2 tokens
+  uint256 public rate = 2; 
+  
+  event Transfer(address indexed from, address indexed to, uint value);
+  event TokensMinted(address indexed to, uint256 value, uint256 totalSupply);
+}
+
+6. Add a buy method
+
+::
+
+    function buy() external payable {
+        uint256 tokenAmount = msg.value * rate;
+
+        totalSupply_ += tokenAmount;
+        balances_[msg.sender] += tokenAmount;
+
+        emit TokensMinted(msg.sender, msg.value, totalSupply_);
+        emit Transfer(address(0), msg.sender, msg.value);
+    }
+
+pragma solidity 0.4.24;
+
+contract MyToken {
+  string public symbol = 'BLG';
+  string public name = 'Blockchain Learning Group Community Token';
+  
+  uint256 private totalSupply_;
+  mapping (address => uint256) private balances_;
+  
+  // Rate of tokens to issue per unit of wei, 1 wei = 2 tokens
+  uint256 public rate = 2; 
+  
+  event Transfer(address indexed from, address indexed to, uint value);
+  event TokensMinted(address indexed to, uint256 value, uint256 totalSupply);
+  
+  function buy() external payable {
+    uint256 tokenAmount = msg.value * rate;
+
+    totalSupply_ += tokenAmount;
+    balances_[msg.sender] += tokenAmount;
+
+    emit TokensMinted(msg.sender, msg.value, totalSupply_);
+    emit Transfer(address(0), msg.sender, msg.value);
+  }
+}
+
+7. Add a getter to check the balance of the token contract
+
+::
+
+    function balance() external view returns(uint256) {
+      return address(this).balance;
+    }
+
+**buy some tokens and watch the balances mapping and eth balances, and monitor the balance of the contract**
+
+pragma solidity 0.4.24;
+
+contract MyToken {
+  string public symbol = 'BLG';
+  string public name = 'Blockchain Learning Group Community Token';
+  
+  uint256 private totalSupply_;
+  mapping (address => uint256) private balances_;
+  
+  // Rate of tokens to issue per unit of wei, 1 wei = 2 tokens
+  uint256 public rate = 2; 
+  
+  event Transfer(address indexed from, address indexed to, uint value);
+  event TokensMinted(address indexed to, uint256 value, uint256 totalSupply);
+  
+  function buy() external payable {
+    uint256 tokenAmount = msg.value * rate;
+
+    totalSupply_ += tokenAmount;
+    balances_[msg.sender] += tokenAmount;
+
+    emit TokensMinted(msg.sender, msg.value, totalSupply_);
+    emit Transfer(address(0), msg.sender, msg.value);
+  }
+
+  function balance() external view returns(uint256) {
+      return address(this).balance;
+  }
+}
+
+8. Add a transfer function
+
+::
+
+    function transfer (address _to, uint256 _value) external {
+        require(balances_[msg.sender] >= _value, 'Sender balance is insufficient');
+
+        balances_[msg.sender] -= _value;
+        balances_[_to] += _value;
+
+        emit Transfer(msg.sender, _to, _value);
+    }
+
+pragma solidity 0.4.24;
+
+contract MyToken {
+  string public symbol = 'BLG';
+  string public name = 'Blockchain Learning Group Community Token';
+  
+  uint256 private totalSupply_;
+  mapping (address => uint256) private balances_;
+  
+  // Rate of tokens to issue per unit of wei, 1 wei = 2 tokens
+  uint256 public rate = 2; 
+  
+  event Transfer(address indexed from, address indexed to, uint value);
+  event TokensMinted(address indexed to, uint256 value, uint256 totalSupply);
+  
+  function buy() external payable {
+    uint256 tokenAmount = msg.value * rate;
+
+    totalSupply_ += tokenAmount;
+    balances_[msg.sender] += tokenAmount;
+
+    emit TokensMinted(msg.sender, msg.value, totalSupply_);
+    emit Transfer(address(0), msg.sender, msg.value);
+  }
+  
+  function balance() external view returns(uint256) {
+      return address(this).balance;
+  }
+
+  function transfer (address _to, uint256 _value) external {
+    require(balances_[msg.sender] >= _value, 'Sender balance is insufficient');
+
+    balances_[msg.sender] -= _value;
+    balances_[_to] += _value;
+
+    emit Transfer(msg.sender, _to, _value);
+  }
+}
+
+**Buy and transfer some tokens!**
+
+9. Add a withdraw function
+
+::
+
+    function withdraw(address _wallet) external {
+        _wallet.transfer(address(this).balance);
+    }
+
+.. important::
+
+    Anyone can withdraw the balance!!
+
+10. Add a storage variable to define who the owner of the token is
+
+::
+
+    address public owner_;
+
+11. Add a constructor to set the sender of the contract creation transaction as the owner
+
+::
+
+    constructor() public {
+        owner_ = msg.sender;
+    }
+
+12. Permission withdraw to just the owner!
+
+::
+
+    require(msg.sender == owner_, "Only the owner may withdraw");
+
+**purchase from some diff accounts then withdraw an watch balances**
+
+pragma solidity 0.4.24;
+
+contract MyToken {
+  string public symbol = 'BLG';
+  string public name = 'Blockchain Learning Group Community Token';
+  
+  uint256 private totalSupply_;
+  mapping (address => uint256) private balances_;
+  
+  // Rate of tokens to issue per unit of wei, 1 wei = 2 tokens
+  uint256 public rate = 2; 
+  
+  address public owner_;
+  
+  event Transfer(address indexed from, address indexed to, uint value);
+  event TokensMinted(address indexed to, uint256 value, uint256 totalSupply);
+  
+  constructor() public {
+    owner_ = msg.sender;
+  }
+  
+  function buy() external payable {
+    uint256 tokenAmount = msg.value * rate;
+
+    totalSupply_ += tokenAmount;
+    balances_[msg.sender] += tokenAmount;
+
+    emit TokensMinted(msg.sender, msg.value, totalSupply_);
+    emit Transfer(address(0), msg.sender, msg.value);
+  }
+
+  function balance() external view returns(uint256) {
+      return address(this).balance;
+  }
+  
+  function transfer (address _to, uint256 _value) external {
+    require(balances_[msg.sender] >= _value, 'Sender balance is insufficient');
+
+    balances_[msg.sender] -= _value;
+    balances_[_to] += _value;
+
+    emit Transfer(msg.sender, _to, _value);
+  }
+  
+  function withdraw(address _wallet) external {
+    require(msg.sender == owner_, "Only the owner may withdraw");
+    _wallet.transfer(address(this).balance);
+  }
+}
+
 
 v3 - extended tic tac toe
 =====
@@ -551,3 +855,5 @@ tx origin vs msg.sender
 
 SOLUTION: TxOriginVsMsgSender.sol
 ---------------------------------
+
+
