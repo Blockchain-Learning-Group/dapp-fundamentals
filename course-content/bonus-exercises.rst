@@ -568,8 +568,10 @@ contract MyToken {
 3. Add the storage variables
 
 ::
-    uint256 private totalSupply_;
-    mapping (address => uint256) private balances_;
+
+    uint256 public totalSupply_;
+    mapping (address => uint256) public balances_;
+
 
 pragma solidity 0.4.24;
 
@@ -577,8 +579,8 @@ contract MyToken {
   string public symbol = 'BLG';
   string public name = 'Blockchain Learning Group Community Token';
   
-  uint256 private totalSupply_;
-  mapping (address => uint256) private balances_;
+  uint256 public totalSupply_;
+  mapping (address => uint256) public balances_;
 }
 
 4. Define the rate
@@ -594,8 +596,8 @@ contract MyToken {
   string public symbol = 'BLG';
   string public name = 'Blockchain Learning Group Community Token';
   
-  uint256 private totalSupply_;
-  mapping (address => uint256) private balances_;
+  uint256 public totalSupply_;
+  mapping (address => uint256) public balances_;
   
   // Rate of tokens to issue per unit of wei, 1 wei = 2 tokens
   uint256 public rate = 2; 
@@ -605,8 +607,8 @@ contract MyToken {
 
 ::
 
-    event Transfer(address indexed from, address indexed to, uint value);
-    event TokensMinted(address indexed to, uint256 value, uint256 totalSupply);
+    event Transfer(address from, address to, uint value);
+    event TokensMinted(address to, uint256 value, uint256 totalSupply);
 
 pragma solidity 0.4.24;
 
@@ -614,14 +616,14 @@ contract MyToken {
   string public symbol = 'BLG';
   string public name = 'Blockchain Learning Group Community Token';
   
-  uint256 private totalSupply_;
-  mapping (address => uint256) private balances_;
+  uint256 public totalSupply_;
+  mapping (address => uint256) public balances_;
   
   // Rate of tokens to issue per unit of wei, 1 wei = 2 tokens
   uint256 public rate = 2; 
   
-  event Transfer(address indexed from, address indexed to, uint value);
-  event TokensMinted(address indexed to, uint256 value, uint256 totalSupply);
+  event Transfer(address from, address to, uint value);
+  event TokensMinted(address to, uint256 value, uint256 totalSupply);
 }
 
 6. Add a buy method
@@ -644,14 +646,14 @@ contract MyToken {
   string public symbol = 'BLG';
   string public name = 'Blockchain Learning Group Community Token';
   
-  uint256 private totalSupply_;
-  mapping (address => uint256) private balances_;
+  uint256 public totalSupply_;
+  mapping (address => uint256) public balances_;
   
   // Rate of tokens to issue per unit of wei, 1 wei = 2 tokens
   uint256 public rate = 2; 
   
-  event Transfer(address indexed from, address indexed to, uint value);
-  event TokensMinted(address indexed to, uint256 value, uint256 totalSupply);
+  event Transfer(address from, address to, uint value);
+  event TokensMinted(address to, uint256 value, uint256 totalSupply);
   
   function buy() external payable {
     uint256 tokenAmount = msg.value * rate;
@@ -680,14 +682,14 @@ contract MyToken {
   string public symbol = 'BLG';
   string public name = 'Blockchain Learning Group Community Token';
   
-  uint256 private totalSupply_;
-  mapping (address => uint256) private balances_;
+  uint256 public totalSupply_;
+  mapping (address => uint256) public balances_;
   
   // Rate of tokens to issue per unit of wei, 1 wei = 2 tokens
   uint256 public rate = 2; 
   
-  event Transfer(address indexed from, address indexed to, uint value);
-  event TokensMinted(address indexed to, uint256 value, uint256 totalSupply);
+  event Transfer(address from, address to, uint value);
+  event TokensMinted(address to, uint256 value, uint256 totalSupply);
   
   function buy() external payable {
     uint256 tokenAmount = msg.value * rate;
@@ -723,14 +725,14 @@ contract MyToken {
   string public symbol = 'BLG';
   string public name = 'Blockchain Learning Group Community Token';
   
-  uint256 private totalSupply_;
-  mapping (address => uint256) private balances_;
+  uint256 public totalSupply_;
+  mapping (address => uint256) public balances_;
   
   // Rate of tokens to issue per unit of wei, 1 wei = 2 tokens
   uint256 public rate = 2; 
   
-  event Transfer(address indexed from, address indexed to, uint value);
-  event TokensMinted(address indexed to, uint256 value, uint256 totalSupply);
+  event Transfer(address from, address to, uint value);
+  event TokensMinted(address to, uint256 value, uint256 totalSupply);
   
   function buy() external payable {
     uint256 tokenAmount = msg.value * rate;
@@ -758,7 +760,7 @@ contract MyToken {
 
 **Buy and transfer some tokens!**
 
-9. Add a withdraw function
+9. add a withdraw function
 
 ::
 
@@ -768,15 +770,15 @@ contract MyToken {
 
 .. important::
 
-    Anyone can withdraw the balance!!
+    anyone can withdraw the balance!!
 
-10. Add a storage variable to define who the owner of the token is
+10. add a storage variable to define who the owner of the token is
 
 ::
 
     address public owner_;
 
-11. Add a constructor to set the sender of the contract creation transaction as the owner
+11. add a constructor to set the sender of the contract creation transaction as the owner
 
 ::
 
@@ -784,43 +786,43 @@ contract MyToken {
         owner_ = msg.sender;
     }
 
-12. Permission withdraw to just the owner!
+12. permission withdraw to just the owner!
 
 ::
 
-    require(msg.sender == owner_, "Only the owner may withdraw");
+    require(msg.sender == owner_, "only the owner may withdraw");
 
 **purchase from some diff accounts then withdraw an watch balances**
 
 pragma solidity 0.4.24;
 
-contract MyToken {
-  string public symbol = 'BLG';
-  string public name = 'Blockchain Learning Group Community Token';
+contract mytoken {
+  string public symbol = 'blg';
+  string public name = 'blockchain learning group community token';
   
-  uint256 private totalSupply_;
-  mapping (address => uint256) private balances_;
+  uint256 public totalsupply_;
+  mapping (address => uint256) public balances_;
   
-  // Rate of tokens to issue per unit of wei, 1 wei = 2 tokens
+  // rate of tokens to issue per unit of wei, 1 wei = 2 tokens
   uint256 public rate = 2; 
   
   address public owner_;
   
-  event Transfer(address indexed from, address indexed to, uint value);
-  event TokensMinted(address indexed to, uint256 value, uint256 totalSupply);
+  event transfer(address from, address to, uint value);
+  event tokensminted(address to, uint256 value, uint256 totalsupply);
   
   constructor() public {
     owner_ = msg.sender;
   }
   
   function buy() external payable {
-    uint256 tokenAmount = msg.value * rate;
+    uint256 tokenamount = msg.value * rate;
 
-    totalSupply_ += tokenAmount;
-    balances_[msg.sender] += tokenAmount;
+    totalsupply_ += tokenamount;
+    balances_[msg.sender] += tokenamount;
 
-    emit TokensMinted(msg.sender, msg.value, totalSupply_);
-    emit Transfer(address(0), msg.sender, msg.value);
+    emit tokensminted(msg.sender, msg.value, totalsupply_);
+    emit transfer(address(0), msg.sender, msg.value);
   }
 
   function balance() external view returns(uint256) {
@@ -828,16 +830,16 @@ contract MyToken {
   }
   
   function transfer (address _to, uint256 _value) external {
-    require(balances_[msg.sender] >= _value, 'Sender balance is insufficient');
+    require(balances_[msg.sender] >= _value, 'sender balance is insufficient');
 
     balances_[msg.sender] -= _value;
     balances_[_to] += _value;
 
-    emit Transfer(msg.sender, _to, _value);
+    emit transfer(msg.sender, _to, _value);
   }
   
   function withdraw(address _wallet) external {
-    require(msg.sender == owner_, "Only the owner may withdraw");
+    require(msg.sender == owner_, "only the owner may withdraw");
     _wallet.transfer(address(this).balance);
   }
 }

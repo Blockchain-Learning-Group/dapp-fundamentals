@@ -350,7 +350,7 @@ Stage 2: Testing Your Token
 
   const Token = artifacts.require("./Token.sol")
 
-  - Define the owner account, note ``truffle test`` exposes the accounts array for us, line 6
+- Define the owner account, note ``truffle test`` exposes the accounts array for us, line 6
 
 .. code-block:: javascript
 
