@@ -344,6 +344,8 @@ Stage 2: Testing Your Token
 
 - Open the repo, ``~/Desktop/blg/wallet-template``, in your text editor, atom, sublime or the like and we can get to coding!
 
+- Open the test file within Sublime, ``src/test/test_buy.js``
+
 - Import the token's build artifacts, ``src/test/test_buy.js`` line 2
 
 .. code-block:: javascript
