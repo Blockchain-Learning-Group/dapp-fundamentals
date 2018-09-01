@@ -16,8 +16,8 @@ Contents
    :maxdepth: 2
 
    prerequisites/general
-   blockchain-fundamentals
-   intro-to-dapps
-   deXchange-project
-   project-submission
-   exercises
+   1-blockchain-fundamentals
+   2-intro-to-dapps
+   3-deXchange-project
+   5-exercises
+   6-project-submission

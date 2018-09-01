@@ -417,7 +417,7 @@ Stage 2: Testing Your Token
 .. code-block:: javascript
 
   const supply = await token.totalSupply()
-  assert.equal(supply.toNumber(), tokenAmount, 'Incorrect total supply balance.')
+  assert.equal(supply.toNumber(), tokenAmount, 'Incorrect total supply.')
 
 7. Execute the Test Case
 ---------------------------------------
