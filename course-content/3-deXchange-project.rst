@@ -372,15 +372,12 @@ Stage 4: Test the submitOrder Method
 .. code-block:: console
 
   # truffle test test/test_submit_executeOrder.js
-  Contract: Token.buy()
-  ✓ should buy new tokens. (131ms)
-
   Contract: Exchange.submitOrder() && executeOrder()
   ✓ submitOrder(), should succeed by adding a new order to the orderBook on-chain. (183ms)
   ✓ executeOrder(), should succeed by trading the tokens. Maker bids ether.
 
 
-  3 passing (365ms)
+  2 passing (365ms)
 
     #
 
