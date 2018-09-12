@@ -40,6 +40,9 @@ Course Prerequisites
 
 A customized virtual machine has been provided for all students that is fully configured.
 
+.. note::
+    View tutorial video [1-2] `here <https://drive.google.com/open?id=1vtPL7J3hlZxzuBm5pb6q3efNo2QO7vFX>`_
+
 1. Please download the virtual machine(vm) by clicking `here <https://drive.google.com/uc?export=download&confirm=zQaE&id=1A9vHmnyhlyk26vQVMqlCCmCJj6tQrNn9>`_ 
 ------------------------------------------
     - The download will begin immediately. 
@@ -50,6 +53,9 @@ A customized virtual machine has been provided for all students that is fully co
     - **Mac** users may download directly from `here <https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-OSX.dmg>`_
     - **Windows** users may download directly from `here <https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe>`_
     - **Linux** users will need to find the correct package for their distribution `here <https://www.virtualbox.org/wiki/Linux_Downloads>`_
+
+.. note::
+    View tutorial video [3-5] `here <https://drive.google.com/open?id=1OS__-eel732JHGTRH6RUODKrHYQD6gUx>`_
 
 3. Once downloaded double-click on the package to open it and follow the simple steps to complete the installation
 ------------------------------------------
@@ -65,6 +71,9 @@ A customized virtual machine has been provided for all students that is fully co
     - In the dialog window, click the file icon beside the bottom text field to search for the location the vm was downloaded to, it will be named ``blg-vm-stable.ova`` by default, click on the vm to select it
     - Click the ``Import`` button in the bottom bar, this will take a few minutes
     - Once completed a new VM will be present within VirtualBox that is currently stopped
+
+.. note::
+    View tutorial video [6-7] `here <https://drive.google.com/open?id=1yAq4T3smp91JpzwIvSCkGfDGEha1mjdo>`_
 
 6. Start the vm! 
 ------------------------------------------
