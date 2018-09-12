@@ -34,6 +34,8 @@ Course Prerequisites
 3.0 Machine Setup
 =================
 
+- VirtualBox setup instructions `here <http://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/prerequisites/vbox-install.html>`_
+
 3.1 Text Editor
 ---------------
 
@@ -44,12 +46,12 @@ Course Prerequisites
 2. Install Sublime Package Control
   - Open the editor
   - ``ctrl+shift+p`` or ``cmd+shift+p`` (Mac)
-  - Select install package control
+  - Select ``Install Package Control``
 
 3. Install the Ethereum package
   - ``ctrl+shift+p`` or ``cmd+shift+p`` (Mac)
-  - Select install package
-  - Search for and selct Ethereum
+  - Select ``Package Control: Install Package``
+  - Search for and select ``Ethereum``
 
 3.2 Browser
 ------------------------------------------
