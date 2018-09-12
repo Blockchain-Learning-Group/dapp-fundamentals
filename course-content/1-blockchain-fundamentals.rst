@@ -44,7 +44,7 @@ Blockchain Fundamentals
 
 6. `Bitcoin 51% Attack Cost <https://gobitcoin.io/tools/cost-51-attack/>`_
 ===========================================================================
-7. `Remix <https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.24+commit.e67f0147.js&optimize=false>`_
+7. `Remix <https://remix.ethereum.org/#optimize=false&version=soljson-v0.4.24+commit.e67f0147.js>`_
 ======================================================================================================
 8. `DappDeveloper.sol <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/DappDeveloper.sol>`_
 =================================================================================================================================
