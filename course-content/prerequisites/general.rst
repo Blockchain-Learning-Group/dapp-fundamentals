@@ -14,7 +14,7 @@ Course Prerequisites
     b. `Arrow Functions <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions>`_ 
 
 2. `The Command Line <https://www.davidbaumgold.com/tutorials/command-line/>`_
-3. `ReactJS <https://reactjs.org/>`_
+3. `ReactJS <https://reactjs.org/tutorial/tutorial.html>`_
 
 .. note::
   Familiarity beforehand **nice to have**.
@@ -40,34 +40,29 @@ Course Prerequisites
 
 A customized virtual machine has been provided for all students that is fully configured.
 
-1. Please download the virtual machine(vm) that has been provided by clicking `here <https://drive.google.com/uc?export=download&confirm=zQaE&id=1A9vHmnyhlyk26vQVMqlCCmCJj6tQrNn9>`_ , the download will begin immediately.
-
-    - This vm runs the operating system Ubuntu 16.04 and has all development dependencies installed for you
+1. Please download the virtual machine(vm) by clicking `here <https://drive.google.com/uc?export=download&confirm=zQaE&id=1A9vHmnyhlyk26vQVMqlCCmCJj6tQrNn9>`_ 
+    - The download will begin immediately. 
+    - This vm runs the operating system Ubuntu 16.04
 
 2. Install VirtualBox-5.2 for your respective operating system, select the correct package for Mac, Windows and Linux distributins below
-
-    - Mac users may download directly from `here <https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-OSX.dmg>`_
-    - Windows users may download directly from `here <https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe>`_
-    - Linux users will need to find the correct package for their distribution `here <https://www.virtualbox.org/wiki/Linux_Downloads>`_
+    - **Mac** users may download directly from `here <https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-OSX.dmg>`_
+    - **Windows** users may download directly from `here <https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe>`_
+    - **Linux** users will need to find the correct package for their distribution `here <https://www.virtualbox.org/wiki/Linux_Downloads>`_
 
 3. Once downloaded double-click on the package to open it and follow the simple steps to complete the installation
 
 4. Once installed open VirtualBox
-
     - For Mac users VirtualBox will be located within the Applications folder and may be opened by clicking on the icon
 
 5.  Import the downloaded vm 
-
     - Within the VirtualBox application click on ``File`` in the top left corner
     - In the dropdown menu click "Import Appliance...", this will open a dialog window
     - In the dialog window, click the file icon beside the bottom text field to search for the location the vm was downloaded to, it will be named ``blg-vm-stable.ova`` by default, click on the vm to select it
-    - Review the contents of the vm and click the ``Import`` button in the bottom bar
-    - This will take a few minutes
+    - Click the ``Import`` button in the bottom bar, this will take a few minutes
     - Once completed a new VM will be present within VirtualBox that is currently stopped
 
 6. Start the vm! 
- 
-    - Click on the new vm and the click Start button
+    - Click on the new vm and then click the ``Start`` button
     - In the dropdown click ``Normal Start``
     - This will take a few minutes, your vm is starting!
 
@@ -77,7 +72,6 @@ Well done, you are all set!
 ==========================
 
 8. Stop the vm
-
     - Prior to the beginning of the course you may wish to stop the vm
     - Within VirtualBox right-click on the vm that is running
     - In the dropdown menu click "Stop", this will stop your vm which you can easily start back up when the course begins
