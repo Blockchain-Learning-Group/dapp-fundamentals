@@ -6,17 +6,21 @@ Course Prerequisites
 ================================================
 
 .. note::
-  Familiarity beforehand recommended.
+  Familiarity beforehand **recommended**.
 
-1. `Docker <https://www.docker.com/>`_
-2. `ReactJS <https://reactjs.org/>`_
-3. `Solidity <https://solidity.readthedocs.io/en/develop/>`_
+1. `JavaScript Basics <https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics>`_
+
+    a. `Object Destructuring <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring>`_
+    b. `Arrow Functions <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions>`_ 
+
+2. `The Command Line <https://www.davidbaumgold.com/tutorials/command-line/>`_
+3. `ReactJS <https://reactjs.org/>`_
+
+.. note::
+  Familiarity beforehand **nice to have**.
+
 4. `Truffle Framework <http://truffleframework.com/>`_
-5. `Web3JS <https://github.com/ethereum/wiki/wiki/JavaScript-API>`_
-6. `Ganache-cli <https://github.com/trufflesuite/ganache-cli>`_
-7. `Material UI <http://www.material-ui.com/>`_
-8. `Remix <https://remix.ethereum.org/#optimize=false&version=soljson-v0.4.24+commit.e67f0147.js>`_
-9. `Metamask <https://metamask.io/>`_
+5. `Material UI <http://www.material-ui.com/>`_
 
 ----
 
@@ -27,63 +31,56 @@ Course Prerequisites
   Participants are required to bring their own laptops.
 
 1. 4GB of memory and some disk space(4GB+) recommended.
-2. Operating System: Ubuntu 16.04+ preferred, Mac and Windows 7+ OK(Mac preferred).
+2. Operating System: Mac preferred, Ubuntu 16.04+ and Windows 7+ OK.
 
 ----
 
-3.0 Machine Setup
-=================
+3.0 Virtual Machine Setup
+=========================
 
-- VirtualBox setup instructions `here <http://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/prerequisites/vbox-install.html>`_
+A customized virtual machine has been provided for all students that is fully configured.
 
-3.1 Text Editor
----------------
+1. Please download the virtual machine(vm) that has been provided by clicking `here <https://drive.google.com/uc?export=download&confirm=zQaE&id=1A9vHmnyhlyk26vQVMqlCCmCJj6tQrNn9>`_ , the download will begin immediately.
 
-1. Install the Sublime text editor
-  - Download the editor here: `https://www.sublimetext.com/3 <https://www.sublimetext.com/3>`_
-  - Complete the installer steps
+    - This vm runs the operating system Ubuntu 16.04 and has all development dependencies installed for you
 
-2. Install Sublime Package Control
-  - Open the editor
-  - ``ctrl+shift+p`` or ``cmd+shift+p`` (Mac)
-  - Select ``Install Package Control``
+2. Install VirtualBox-5.2 for your respective operating system, select the correct package for Mac, Windows and Linux distributins below
 
-3. Install the Ethereum package
-  - ``ctrl+shift+p`` or ``cmd+shift+p`` (Mac)
-  - Select ``Package Control: Install Package``
-  - Search for and select ``Ethereum``
+    - Mac users may download directly from `here <https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-OSX.dmg>`_
+    - Windows users may download directly from `here <https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe>`_
+    - Linux users will need to find the correct package for their distribution `here <https://www.virtualbox.org/wiki/Linux_Downloads>`_
 
-3.2 Browser
-------------------------------------------
-1. Google Chrome
-  - Install the Google Chrome browser `here. <https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en-GB>`_
-  - Version > 55.0.0.  Check in address bar: ``chrome://version/``
+3. Once downloaded double-click on the package to open it and follow the simple steps to complete the installation
 
-**OR**
+4. Once installed open VirtualBox
 
-2. Brave
-  - Install the browser `here <https://brave.com/>`_
+    - For Mac users VirtualBox will be located within the Applications folder and may be opened by clicking on the icon
 
-3.3 Metamask
-------------
-1. Install the chrome plugin, Metamask `here <https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en>`_
-2. Once installed, share your address via the BLG slack channel.
+5.  Import the downloaded vm 
 
-- Metamask extension for Brave Browser may also be enabled within their ``default shield settings >> extensions``
+    - Within the VirtualBox application click on ``File`` in the top left corner
+    - In the dropdown menu click "Import Appliance...", this will open a dialog window
+    - In the dialog window, click the file icon beside the bottom text field to search for the location the vm was downloaded to, it will be named ``blg-vm-stable.ova`` by default, click on the vm to select it
+    - Review the contents of the vm and click the ``Import`` button in the bottom bar
+    - This will take a few minutes
+    - Once completed a new VM will be present within VirtualBox that is currently stopped
 
-3.4 Development Dependencies
-----------------------------
-1. Local Dockerized Environment
-  - Follow the instructions `here <http://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/prerequisites/local-docker-env.html>`_ to configure your environment
+6. Start the vm! 
+ 
+    - Click on the new vm and the click Start button
+    - In the dropdown click ``Normal Start``
+    - This will take a few minutes, your vm is starting!
 
-[Windows users ONLY]
-------------------------------------------
-1. Git client
-  - Install git for windows `here <https://git-for-windows.github.io/>`_
-  - And to enable usage within windows command prompt execute the following within a prompt: ``set PATH=%PATH%;"C:\Program Files\Git\cmd``
-  - Confirm git is configured correctly simply run: ``git``
+7. Finally you will have a brand new Ubuntu 16.04 virtual machine up and running with all the required dependecies
 
-[MAC users ONLY]
-------------------------------------------
-1. Xcode
-  - You can find Xcode in the App Store: `Xcode <https://itunes.apple.com/us/app/xcode/id497799835?mt=12>`_
+Well done, you are all set!
+==========================
+
+8. Stop the vm
+
+    - Prior to the beginning of the course you may wish to stop the vm
+    - Within VirtualBox right-click on the vm that is running
+    - In the dropdown menu click "Stop", this will stop your vm which you can easily start back up when the course begins
+
+.. note::
+    Note if the keyring dialog pops up and thepassword is asked for simply click the cancel button, it may ask several times...
