@@ -63,6 +63,7 @@ A customized virtual machine has been provided for all students that is fully co
 4. Once installed open VirtualBox
 ------------------------------------------
     - For Mac users VirtualBox will be located within the Applications folder and may be opened by clicking on the icon
+    - Otherwise you may search for ``VirtualBox`` on linux or Windows machines to locate the installed application  
 
 5.  Import the downloaded vm 
 ------------------------------------------
