@@ -81,6 +81,7 @@ A customized virtual machine has been provided for all students that is fully co
     - Click on the new vm and then click the ``Start`` button
     - In the dropdown click ``Normal Start``
     - This will take a few minutes, your vm is starting!
+    - If a dialog appears regarding 64-bit detection or the like simply select continue
 
 7. Finally you will have a brand new Ubuntu 16.04 virtual machine up and running with all the required dependecies
 ------------------------------------------
