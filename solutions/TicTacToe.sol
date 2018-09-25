@@ -97,13 +97,13 @@ contract TicTacToe {
      * [0,3,6] || [1,4,7] || [2,5,8] 
      * 
      * Diagonals:
-     * [0,4,8] || [6,7,8]
+     * [0,4,8] || [6,4,2]
      */
     function isWinner(uint256 _identifier) private view returns(bool) {
         uint8[3][8] memory winningFilters = [
             [0, 1, 2], [3, 4, 5], [6, 7, 8],  // Rows
             [0, 3, 6], [1, 4, 7], [2, 5, 8],  // Cols
-            [0, 4, 8], [6, 7, 8]              // Diags
+            [0, 4, 8], [6, 4, 2]              // Diags
         ];
         
         // See if either of the players have won
