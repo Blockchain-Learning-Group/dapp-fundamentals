@@ -65,10 +65,10 @@ Blockchain Fundamentals
     }
   }
 
-10. `Voting Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/exercises.html#id1>`_
+10. `Voting Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/5-exercises.html#id1>`_
 ========================================================================================================
 
-11. `Token Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/exercises.html#id2>`_
+11. `Token Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/5-exercises.html#id2>`_
 =====================================================================================================================
 
 Bonus
