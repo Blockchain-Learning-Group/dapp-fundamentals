@@ -1,5 +1,5 @@
 ==================
-Solidity Exercises
+Voting Exercises
 ==================
 
 `Voting Exercise <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Voting_02.sol>`_
