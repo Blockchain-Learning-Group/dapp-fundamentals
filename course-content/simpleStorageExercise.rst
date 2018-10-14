@@ -7,13 +7,9 @@ SimpleStorage Exercise
   The below exercises will be completed within REMIX.
   Navigate to: `https://remix.ethereum.org <https://remix.ethereum.org/#optimize=true&version=soljson-v0.4.24+commit.e67f0147.js>`_
 
-
-
-1. `SimpleStorage TODO <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Voting_02.sol>`_
+SimpleStorage 
 =====================================================================================================================
-- `TODO View Final Solution Demo <https://drive.google.com/open?id=1HUlqRB62Y57RXIbGmp4ckmHuc2cpHqkb>`_
-
-`Video Tutorial <https://drive.google.com/open?id=13DBLIclqpJ9iNtRWzSvJ8NGzBM-LTbdD>`_
+`Video Tutorial <https://drive.google.com/open?id=1oFj8STACT0u3fyjRC04PtyTDpMCjVwy0>`_
 
 1.1 Define the compiler verion
 
@@ -21,35 +17,35 @@ SimpleStorage Exercise
 
   pragma solidity 0.4.24;
 
-1.2 Create the SimpleStorage contract
+2 Create the SimpleStorage contract
 
 ::
 
   contract SimpleStorage {}
 
 
-1.3 Compile and deploy, view deloyed contract instance 
+3 Compile and deploy, view deloyed contract instance 
 
-1.4 Add a first storage variable, ``storedData``
+4 Add a first storage variable, ``storedData``
 
 ::
 
   uint256 storedData;
 
-1.5 Compile and deploy, view deloyed contract instance
+5 Compile and deploy, view deloyed contract instance
 
 .. note::
 
   Is the storage variable, ``storedData``, available in the interface?
 
-1.6 Update the storage variable's visibility to ``public``
+6 Update the storage variable's visibility to ``public``
 
 ::
 
   uint256 public storedData;
 
 
-1.7 Compile and deploy, view deloyed contract instance
+7 Compile and deploy, view deloyed contract instance
 
 .. note::
 
@@ -58,10 +54,10 @@ SimpleStorage Exercise
 
 .. important::
 
-  Note the changes made between 1.4 and 1.7 and the impact of the visibility modification.
+  Note the changes made between 4 and 7 and the impact of the visibility modification.
   - The difference between default(interal) visiblity and public.
 
-1.8 Create the SimpleStorage contract's first function to set the value of the storage variable
+8 Create the SimpleStorage contract's first function to set the value of the storage variable
 
 ::
 
@@ -69,14 +65,14 @@ SimpleStorage Exercise
       storedData = x;
   }    
 
-1.9 Compile and deploy, test the set function
+9 Compile and deploy, test the set function
 
 - Read ``storedData``
 - Call ``set`` to update the value of storedData, note default visibility
 - Read ``storedData``, did the value change successfully
 - Expand the transactional data within the evm console and investigate
 
-1.10 Change the visibility of storedData to private
+10 Change the visibility of storedData to private
 
 ::
 
@@ -86,7 +82,7 @@ SimpleStorage Exercise
 
   Storage variable is no longer accessible, let's right a function to fix that!
 
-1.11 Create a function to get the value of storedData 
+11 Create a function to get the value of storedData 
 
 ::
 
@@ -94,7 +90,7 @@ SimpleStorage Exercise
       return storedData;
   }
 
-1.12 Compile and deploy, test the get function
+12 Compile and deploy, test the get function
 
 .. note::
 
@@ -102,7 +98,7 @@ SimpleStorage Exercise
   What did the get function return?
   Was gas consumed?  Was a transaction sent?  Or a call?
 
-1.13 Update the get function's mutability 
+13 Update the get function's mutability 
 
 ::
 
@@ -111,7 +107,7 @@ SimpleStorage Exercise
   }
 
 
-1.14 Compile and deploy, test the set and get functions
+14 Compile and deploy, test the set and get functions
 
 - get the initial value, what was returned this time? a tx or a call?
 - set the value
