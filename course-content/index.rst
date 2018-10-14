@@ -16,7 +16,7 @@ Contents
    :maxdepth: 2
 
    prerequisites/general
-   1-blockchain-fundamentals
+   1-HS-blockchain-fundamentals
    2-intro-to-dapps
    3-deXchange-project
    5-exercises
