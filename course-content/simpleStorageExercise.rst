@@ -7,12 +7,10 @@ SimpleStorage Exercise
   The below exercises will be completed within REMIX.
   Navigate to: `https://remix.ethereum.org <https://remix.ethereum.org/#optimize=true&version=soljson-v0.4.24+commit.e67f0147.js>`_
 
-SimpleStorage 
-=====================================================================================================================
 `Video Tutorial <https://drive.google.com/open?id=1oFj8STACT0u3fyjRC04PtyTDpMCjVwy0>`_
 
 1 Define the compiler version
-
+-----------------------------
 ::
 
   pragma solidity 0.4.24;
@@ -57,7 +55,8 @@ SimpleStorage
 .. important::
 
   Note the changes made between 4 and 7 and the impact of the visibility modification.
-  - The difference between default(internal) visibility and public.
+
+    - The difference between default(internal) visibility and public visibility.
 
 8 Create the SimpleStorage contract's first function to set the value of the storage variable
     - `Video Tutorial <https://drive.google.com/open?id=1lfsitfRtTta_ZYSdLgOvIMifTdhZgUrs>`_
@@ -85,7 +84,7 @@ SimpleStorage
 
 .. note::
 
-  Storage variable is no longer accessible, let's right a function to fix that!
+  Storage variable is no longer accessible, let's write a function to fix that!
 
 11 Create a function to get the value of storedData 
     - `Video Tutorial <https://drive.google.com/open?id=1JDoKpSt2ZNSuMMlKHyozTErlvoWzFOPi>`_
