@@ -51,7 +51,7 @@ A customized virtual machine has been provided for all students that is fully co
     - The download will begin immediately. 
     - This vm runs the operating system Ubuntu 16.04
 
-2. Install VirtualBox-5.2 for your respective operating system, select the correct package for Mac, Windows and Linux distributins below
+2. Install VirtualBox-5.2 for your respective operating system, select the correct package for Mac, Windows and Linux distributions below
 ------------------------------------------
     - **Mac** users may download directly from `here <https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-OSX.dmg>`_
     - **Windows** users may download directly from `here <https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe>`_
