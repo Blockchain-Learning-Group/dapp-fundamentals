@@ -42,21 +42,15 @@ Blockchain Fundamentals
 
 6. `Bitcoin 51% Attack Cost <https://gobitcoin.io/tools/cost-51-attack/>`_
 ===========================================================================
+
 7. `Remix <https://remix.ethereum.org/#optimize=false&version=soljson-v0.4.24+commit.e67f0147.js>`_
 ======================================================================================================
 
-8. `SimpleStorage Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/simpleStorageExercise.html>`_
-========================================================================================================
-
-
-
-
-
-10. `Voting Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/exercises.html#id1>`_
-========================================================================================================
-
-11. `Token Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/exercises.html#id2>`_
-=====================================================================================================================
+8. Solidity Exercises
+=====================
+  - `SimpleStorage Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/simpleStorageExercise.html>`_
+  - `Voting Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/exercises.html#id1>`_
+  - `Token Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/latest/course-content/exercises.html#id2>`_
 
 Bonus
 =====
