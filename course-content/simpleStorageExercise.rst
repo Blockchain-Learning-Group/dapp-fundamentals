@@ -16,6 +16,7 @@ SimpleStorage Exercise
   pragma solidity 0.4.24;
 
 2 Create the SimpleStorage contract
+-----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1Y4iaCKOrLE9R4F-XGdQFOTokEXvX-9pg>`_
 
 ::
@@ -23,9 +24,11 @@ SimpleStorage Exercise
   contract SimpleStorage {}
 
 3 Compile and deploy, view the deloyed contract instance within Remix
+-----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1DNIrahMm9u14wXYlCGBeEgmFg2ukfyh7>`_
 
 4 Add a first storage variable, ``storedData``
+-----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1ok2sFnB2DHZ7hixrqty3I93aTtXyDRYN>`_
 
 ::
@@ -33,12 +36,14 @@ SimpleStorage Exercise
   uint256 storedData;
 
 5 Compile and deploy, view the deloyed contract instance
+-----------------------------
 
 .. note::
 
   Is the storage variable, ``storedData``, available in the interface?
 
 6 Update the storage variable's visibility to ``public``
+-----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=120qzZvG7XRb13v54YQjCMRAFAuHz8_4r>`_
 
 ::
@@ -47,6 +52,7 @@ SimpleStorage Exercise
 
 
 7 Compile and deploy, view deloyed contract instance
+-----------------------------
 
 .. note::
 
@@ -59,6 +65,7 @@ SimpleStorage Exercise
     - The difference between default(internal) visibility and public visibility.
 
 8 Create the SimpleStorage contract's first function to set the value of the storage variable
+-----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1lfsitfRtTta_ZYSdLgOvIMifTdhZgUrs>`_
 
 ::
@@ -68,6 +75,7 @@ SimpleStorage Exercise
   }    
 
 9 Compile and deploy the contract again, test the set function
+-----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1ThUvNoQ561rXdRLMM1AgQhjlyx3G7Od0>`_
 
 - Read ``storedData``
@@ -76,6 +84,7 @@ SimpleStorage Exercise
 - Expand the transactional data within the evm console and investigate
 
 10 Change the visibility of storedData to private
+-----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1WR5l3ypjU45Cfofti1Fix3XqctxtUo0j>`_
 
 ::
@@ -87,6 +96,7 @@ SimpleStorage Exercise
   Storage variable is no longer accessible, let's write a function to fix that!
 
 11 Create a function to get the value of storedData 
+-----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1JDoKpSt2ZNSuMMlKHyozTErlvoWzFOPi>`_
 
 ::
@@ -96,6 +106,7 @@ SimpleStorage Exercise
   }
 
 12 Compile and deploy, test the get function
+-----------------------------
 
 .. note::
 
@@ -104,6 +115,7 @@ SimpleStorage Exercise
   Was gas consumed?  Was a transaction sent?  Or a call?
 
 13 Update the get function's mutability 
+-----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1v-GGzg52eBXgR-qaaPd8iyYZ220Mns4V>`_
 
 ::
@@ -114,6 +126,7 @@ SimpleStorage Exercise
 
 
 14 Compile and deploy, test the set and get functions
+-----------------------------
 
 - get the initial value, what was returned this time? a tx or a call?
 - set the value
