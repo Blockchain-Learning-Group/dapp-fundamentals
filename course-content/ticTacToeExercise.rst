@@ -12,6 +12,8 @@ Tic Tac Toe
 
 1. Create the contract and initial storage variables
 --------------------------
+    - `Empty Contract Video Tutorial <https://drive.google.com/open?id=1c7Jbwcia3jew36q3Nb560H5StrgCohLu>`_
+    - `Storage Varibales Video Tutorial <https://drive.google.com/open?id=13rw1C4AhaDE22dEQcav4L5quzQqFSiqv>`_
 
 ::
 
@@ -33,6 +35,7 @@ Tic Tac Toe
 
 2. Create a function to allow a game to be started
 --------------------------
+    - `Video Tutorial <https://drive.google.com/open?id=1lXBmwrriapOrYWvFqMUbFXN2upJdSXIO>`_
 
 ::
 
@@ -41,7 +44,11 @@ Tic Tac Toe
         player2_ = _player2;
     }
 
-3. Now players need to be able to take a turn, specifying where they want to place their x or 0
+.. important::
+    
+    - `Video Tutorial [3-7] <https://drive.google.com/open?id=14PaxvZFIKm5EfscBF6OeMzsn3c5HwuFr>`_
+
+3. Now players need to be able to take a turn, specifying where they want to place their x or o 
 --------------------------
 - create a function to allow this
 
@@ -56,7 +63,6 @@ Tic Tac Toe
 
 4. We need to calculate the correpsonding index in the array based on the x and y passed in
 --------------------------
-- explain how this is computed
 
 ::
 
@@ -77,7 +83,7 @@ Tic Tac Toe
 
     gameBoard_[boardLocation] = identifier;
 
-7. Give it a shot!  Try starting a game and taking turns, watch as the game board's indexes are filled.
+7. Give it a shot!  Try starting a game and taking turns, watch as the game board's indexes are filled
 --------------------------
 
 - now take a look what problems do you notice?
@@ -95,7 +101,11 @@ Tic Tac Toe
 
     Let's tackle these problems first!
 
-- `Tic-Tac-Toe Part 2 of 2 Video Tutorial <https://drive.google.com/open?id=1tdJkcqsobL0_6-zJ5qEBHj9uscMTB9pJ>`_
+
+.. important::
+    
+    - `Tic-Tac-Toe Part 2 of 2 Video Tutorial <https://drive.google.com/open?id=1tdJkcqsobL0_6-zJ5qEBHj9uscMTB9pJ>`_
+    - `Video Tutorial [8-12] <https://drive.google.com/open?id=14PaxvZFIKm5EfscBF6OeMzsn3c5HwuFr>`_
 
 8. Require that only player1 or player 2 may take turns
 --------------------------
@@ -145,7 +155,11 @@ Tic Tac Toe
     Let's look into how we can compute a winner
 
 
-13. First define which combintations within the game board, which indexes, define a "win"
+.. important::
+    
+    - `Video Tutorial [13-17] <https://drive.google.com/open?id=1c7-UmionniBh9AV-VwOUgGn5xnk71I7K>`_
+
+13. First define which combinations within the game board, which indexes, define a "win"
 --------------------------
 
 ::
@@ -210,6 +224,7 @@ Tic Tac Toe
 
 18. After each turn is taken see if there is a winner, update storage with the winner
 --------------------------
+    - `Video Tutorial <https://drive.google.com/open?id=1c7-UmionniBh9AV-VwOUgGn5xnk71I7K>`_
 
 ::
 
@@ -227,6 +242,10 @@ Tic Tac Toe
 
     - Turns can still continue to be taken, no notification that the game has ended
     - What happens in the case of a draw?
+
+.. important::
+    
+    - `Video Tutorial [19-24] <https://drive.google.com/open?id=1c7-UmionniBh9AV-VwOUgGn5xnk71I7K>`_
 
 19. Add a storage variable to signify the game has ended
 --------------------------
@@ -275,16 +294,20 @@ Tic Tac Toe
 
 **Try it out!!**
 
-1. start game, account 1 and 2
-2. take turns back and forth, 0,1 0,2 0,3 => player to win
-    - view turns taken updating
+1. Start a game with account 1 and 2
+2. Take turns back and forth
+    - view turns taken are updating the game board
     - view no winner yet
     - view game has not ended
 3. View that the winner has been set
 4. view that game has ended
-5. Try and take another turn => view output
+5. Try and take another turn => view the output
 
 **OK how about a friendly wager!**
+
+.. important::
+
+    - `Video Tutorial [25-26] <https://drive.google.com/open?id=1Q5qrZDZWV7wmMnkMQNe3F8x7_nSqmgBF>`_
 
 25. Add a storage variable to hold the placed wagers
 --------------------------
@@ -302,6 +325,10 @@ Tic Tac Toe
         require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
         wagers_[msg.sender] = msg.value;
     }
+
+.. important::
+
+    - `Video Tutorial [27-28] <https://drive.google.com/open?id=1zd744cAsc6UhLZ-I7po8hG4sUMlcbPao>`_
 
 27. Update the logic if a winner is found to transfer all the value to them
 --------------------------
