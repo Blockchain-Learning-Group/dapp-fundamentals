@@ -1,5 +1,5 @@
 ==================
-SimpleStorage Exercise
+Tic Tac Toe
 ==================
 
 .. important:: 
@@ -7,13 +7,11 @@ SimpleStorage Exercise
   The below exercises will be completed within REMIX.
   Navigate to: `https://remix.ethereum.org <https://remix.ethereum.org/#optimize=true&version=soljson-v0.4.24+commit.e67f0147.js>`_
 
-Tic Tac Toe
-==============
+- `Solidity Types Video Tutorial <https://drive.google.com/open?id=1iKsHIm_Kj6XNn0tYflK2XMgEJRZB5J91>`_
+- `Tic-Tac-Toe Part 1 of 2 Video Tutorial <https://drive.google.com/open?id=1zSDWtgXvQNvjNYWQiX3yimU6sxuSEEhF>`_
 
-SOLUTION: TicTacToe_01.sol
+1. Create the contract and initial storage variables
 --------------------------
-
-1. create contract and initial storage vars
 
 ::
 
@@ -34,6 +32,7 @@ SOLUTION: TicTacToe_01.sol
     }
 
 2. Create a function to allow a game to be started
+--------------------------
 
 ::
 
@@ -43,6 +42,7 @@ SOLUTION: TicTacToe_01.sol
     }
 
 3. Now players need to be able to take a turn, specifying where they want to place their x or 0
+--------------------------
 - create a function to allow this
 
 ::
@@ -55,6 +55,7 @@ SOLUTION: TicTacToe_01.sol
     function takeTurn(uint256 _x, uint256 _y) external {}
 
 4. We need to calculate the correpsonding index in the array based on the x and y passed in
+--------------------------
 - explain how this is computed
 
 ::
@@ -62,6 +63,7 @@ SOLUTION: TicTacToe_01.sol
     uint256 boardLocation = _y*3 + _x;
 
 5. Determine the identifier to mark the board with
+--------------------------
 
 ::
 
@@ -69,12 +71,14 @@ SOLUTION: TicTacToe_01.sol
     msg.sender == player1_ ? identifier = 1 : identifier = 2; 
 
 6. Mark the board, update the array
+--------------------------
 
 ::
 
     gameBoard_[boardLocation] = identifier;
 
 7. Give it a shot!  Try starting a game and taking turns, watch as the game board's indexes are filled.
+--------------------------
 
 - now take a look what problems do you notice?
 - did you have some time to play with the contract?
@@ -91,31 +95,37 @@ SOLUTION: TicTacToe_01.sol
 
     Let's tackle these problems first!
 
+- `Tic-Tac-Toe Part 2 of 2 Video Tutorial <https://drive.google.com/open?id=1tdJkcqsobL0_6-zJ5qEBHj9uscMTB9pJ>`_
 
 8. Require that only player1 or player 2 may take turns
+--------------------------
 
 ::
 
     require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
 
 9. Add a pre condition check to confirm the spot on the board is not already taken 
+--------------------------
 
 ::
 
     require(gameBoard_[boardLocation] == 0, "Spot taken!");
 
 10. Add a storage variable to track who just took a turn
+--------------------------
 
 ::
     address public lastPlayed_;
 
 11. Following a turn being taken update the storage variable
+--------------------------
 
 ::
 
     lastPlayed_ = msg.sender;
 
 12. Check that the same player is not trying to take another turn
+--------------------------
 
 ::
     require(msg.sender != lastPlayed_, "Not your turn.");
@@ -136,6 +146,7 @@ SOLUTION: TicTacToe_01.sol
 
 
 13. First define which combintations within the game board, which indexes, define a "win"
+--------------------------
 
 ::
 
@@ -156,6 +167,7 @@ SOLUTION: TicTacToe_01.sol
      */
 
 14. Create a function to compute a winner and Implement these combintations as filters to filter the board with
+--------------------------
 
 ::
 
@@ -168,6 +180,7 @@ SOLUTION: TicTacToe_01.sol
     }
         
 15. Create a for loop to iterate over each filter
+--------------------------
 
 ::
 
@@ -176,12 +189,14 @@ SOLUTION: TicTacToe_01.sol
     }
 
 16. Add a storage variable to define the winner
+--------------------------
 
 ::
     
     address public winner_;
 
 17. Compare each filter against the game board and see if the player has won with their latest turn
+--------------------------
 
 ::
 
@@ -194,6 +209,7 @@ SOLUTION: TicTacToe_01.sol
     }
 
 18. After each turn is taken see if there is a winner, update storage with the winner
+--------------------------
 
 ::
 
@@ -213,30 +229,35 @@ SOLUTION: TicTacToe_01.sol
     - What happens in the case of a draw?
 
 19. Add a storage variable to signify the game has ended
+--------------------------
 
 ::
 
     bool public gameOver_;
 
 20. If a winner was found update that the game has ended
+--------------------------
 
 ::
 
     gameOver_ = true;
 
 21.  Add a storage variable to count how many turns have been taken, will use to define a draw
+--------------------------
 
 ::
 
     uint256 public turnsTaken_;
 
 22. After a turn is taken update the turns taken storage variable
+--------------------------
 
 ::
 
     turnsTaken_++;
 
 23.  Add a conditional that if 9 turns have been taken the game has ended with no winner
+--------------------------
 
 ::
 
@@ -245,6 +266,7 @@ SOLUTION: TicTacToe_01.sol
     }
 
 24. Add a last pre condition check that the game is still active
+--------------------------
 
 ::
 
@@ -265,12 +287,14 @@ SOLUTION: TicTacToe_01.sol
 **OK how about a friendly wager!**
 
 25. Add a storage variable to hold the placed wagers
+--------------------------
 
 ::
 
     mapping(address => uint256) public wagers_;
 
 26. Add a function to allow the players to place a wager
+--------------------------
 
 ::
 
@@ -280,12 +304,14 @@ SOLUTION: TicTacToe_01.sol
     }
 
 27. Update the logic if a winner is found to transfer all the value to them
+--------------------------
 
 ::
 
     msg.sender.transfer(address(this).balance);
 
 28. Update the logic to refund the value if a draw
+--------------------------
 
 ::
 

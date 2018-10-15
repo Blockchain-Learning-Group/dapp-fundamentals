@@ -7,5 +7,6 @@ Solidity Exercises
 
    simpleStorageExercise
    simpleStoragePayableExercise
+   ticTacToeExercise
    votingExercise
    tokenExercise

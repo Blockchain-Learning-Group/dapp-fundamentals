@@ -60,4 +60,4 @@ SimpleStorage Payable
 
 6. Test the ability to send and withdraw Ether from the simple storage contract
 ----------------------------------
-    - read balances along the way, by calling ``getMyBalance``
+    - read the contract's balance along the way, by calling ``getMyBalance``

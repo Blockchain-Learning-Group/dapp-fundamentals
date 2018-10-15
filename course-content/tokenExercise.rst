@@ -1,5 +1,5 @@
 ==================
-Token Exercise
+Token
 ==================
 
 `Token Exercise <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Token_02.sol>`_

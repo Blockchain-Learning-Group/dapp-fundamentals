@@ -1,5 +1,5 @@
 ==================
-Voting Exercise
+Voting
 ==================
 
 `Voting Exercise <https://raw.githubusercontent.com/Blockchain-Learning-Group/dapp-fundamentals/master/exercises/Voting_02.sol>`_
