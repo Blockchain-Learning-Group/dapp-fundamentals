@@ -1,5 +1,5 @@
 ==================
-SimpleStorage Payable Exercise
+SimpleStorage Payable
 ==================
 
 .. important:: 
@@ -8,21 +8,26 @@ SimpleStorage Payable Exercise
   Navigate to: `https://remix.ethereum.org <https://remix.ethereum.org/#optimize=true&version=soljson-v0.4.24+commit.e67f0147.js>`_
 
 
+- `Video Lecture <https://drive.google.com/open?id=1cfJ8VvP8_dEfeYkeueSCLQ5ub-ypYlHd>`_
+
 1 Add an acceptEther function
-    - `Video Tutorial <https://drive.google.com/open?id=119p0Uf0D3NC-Fd72OZb9wi4o9JLl0ZTD>`_
+----------------------------------
 
 ::
+
     function acceptEther() public payable {
         storedData = this.balance;
     }
 
 2 Compile and run, test the acceptEther function
+----------------------------------
 
     - Call the function and send value 
     - get the value of stored data, was it updated?
     - note value has moved from the EOA to the contract
 
 3 Add a function to withdraw the ether from this contract into the calling account 
+----------------------------------
 
 ::
 
@@ -31,6 +36,7 @@ SimpleStorage Payable Exercise
   }
 
 4 Add a function to read the balance of the simple storage contract
+----------------------------------
 
 ::
 
@@ -44,6 +50,7 @@ SimpleStorage Payable Exercise
   Go ahead and modify the function with the ``view`` mutability modifer.
 
 5. Add the ``view`` modifier to the ``getMyBalance`` function
+----------------------------------
 
 ::
 
@@ -52,4 +59,5 @@ SimpleStorage Payable Exercise
     }
 
 6. Test the ability to send and withdraw Ether from the simple storage contract
+----------------------------------
     - read balances along the way, by calling ``getMyBalance``

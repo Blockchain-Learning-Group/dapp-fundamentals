@@ -1,5 +1,5 @@
 ==================
-SimpleStorage Exercise
+SimpleStorage
 ==================
 
 .. important:: 
