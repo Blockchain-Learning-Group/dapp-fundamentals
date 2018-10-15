@@ -49,6 +49,7 @@ Blockchain Fundamentals
 8. Solidity Exercises
 =====================
   - `SimpleStorage Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/simpleStorageExercise.html>`_
+  - `SimpleStorage Payable Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/simpleStoragePayableExercise.html>`_
   - `Voting Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/votingExercise.html>`_
   - `Token Exercise <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/tokenExercise.html>`_
 

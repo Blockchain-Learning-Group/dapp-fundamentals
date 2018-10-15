@@ -6,5 +6,6 @@ Solidity Exercises
    :maxdepth: 1
 
    simpleStorageExercise
+   simpleStoragePayableExercise
    votingExercise
    tokenExercise
