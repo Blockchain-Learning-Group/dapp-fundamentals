@@ -125,6 +125,7 @@ Tic Tac Toe
 --------------------------
 
 ::
+
     address public lastPlayed_;
 
 11. Following a turn being taken update the storage variable
@@ -138,6 +139,7 @@ Tic Tac Toe
 --------------------------
 
 ::
+
     require(msg.sender != lastPlayed_, "Not your turn.");
 
 
