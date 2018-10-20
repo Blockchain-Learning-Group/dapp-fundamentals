@@ -17,7 +17,7 @@ Contents
 
    prerequisites/general
    1-HS-blockchain-fundamentals
-   2-intro-to-dapps
+   2-intro-to-dapps-HS
    3-deXchange-project
    5-exercises
    6-project-submission
