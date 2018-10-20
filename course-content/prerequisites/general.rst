@@ -72,7 +72,7 @@ A customized virtual machine has been provided for all students that is fully co
 ------------------------------------------
     - Within the VirtualBox application click on ``File`` in the top left corner
     - In the dropdown menu click "Import Appliance...", this will open a dialog window
-    - In the dialog window, click the file icon beside the bottom text field to search for the location the vm was downloaded to, it will be named ``blg-vm-stable.ova`` by default, click on the vm to select it
+    - In the dialog window, click the file icon beside the bottom text field to search for the location the vm was downloaded to, it will be named ``blg-vm-stable.ova`` by default and will be located in your ``Downloads`` folder, click on the vm to select it
     - Click the ``Import`` button in the bottom bar, this will take a few minutes
     - Once completed a new VM will be present within VirtualBox that is currently stopped
 
