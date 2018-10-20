@@ -11,7 +11,7 @@ Stage 1: Starting the Application
 
 .. note::
 
-  Begin instructions from with VirtualBox and the VM that was configured and run in `step 7 of the prerequisites <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/prerequisites/general.html#finally-you-will-have-a-brand-new-ubuntu-16-04-virtual-machine-up-and-running-with-all-the-required-dependecies>`_.
+  Begin instructions from with VirtualBox and the VM that was configured and run in `step 6 of the prerequisites <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/prerequisites/general.html#start-the-vm>`_.
 
 `Video Tutorial [1-2] <https://drive.google.com/open?id=1pXBs_GwPowDwa6EJ7U50XpANt6-Su3nJ>`_
 
