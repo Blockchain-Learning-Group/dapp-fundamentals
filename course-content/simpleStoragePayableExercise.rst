@@ -63,3 +63,5 @@ SimpleStorage Payable
 6. Test the ability to send and withdraw Ether from the simple storage contract
 ----------------------------------
     - read the contract's balance along the way, by calling ``getMyBalance``
+
+- The final solution may be found **`here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/SimpleStoragePayable.sol>`_**

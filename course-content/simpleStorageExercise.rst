@@ -132,3 +132,5 @@ SimpleStorage
 - set the value
 - view it has changed
 - investigate evm console transactional details along the way
+
+- **The final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/SimpleStorage.sol>`_**
