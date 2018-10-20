@@ -10,8 +10,10 @@ SimpleStorage Payable
 
 - `Video Lecture <https://drive.google.com/open?id=1cfJ8VvP8_dEfeYkeueSCLQ5ub-ypYlHd>`_
 
-1 Add an acceptEther function
+1 Add an acceptEther function, line 6-8
 ----------------------------------
+
+    - `Video tutorial <https://drive.google.com/open?id=119p0Uf0D3NC-Fd72OZb9wi4o9JLl0ZTD>`_
 
 ::
 
@@ -26,7 +28,7 @@ SimpleStorage Payable
     - get the value of stored data, was it updated?
     - note value has moved from the EOA to the contract
 
-3 Add a function to withdraw the ether from this contract into the calling account 
+3 Add a function to withdraw the ether from this contract into the calling account, line 18-20
 ----------------------------------
 
 ::
@@ -35,7 +37,7 @@ SimpleStorage Payable
       msg.sender.transfer(this.balance);
   }
 
-4 Add a function to read the balance of the simple storage contract
+4 Add a function to read the balance of the simple storage contract, line 22-24
 ----------------------------------
 
 ::
@@ -49,7 +51,7 @@ SimpleStorage Payable
   Forgetting something?  Don't forget these functions need to be marked ``view`` to return the value.
   Go ahead and modify the function with the ``view`` mutability modifer.
 
-5. Add the ``view`` modifier to the ``getMyBalance`` function
+5. Add the ``view`` modifier to the ``getMyBalance`` function, line 22
 ----------------------------------
 
 ::

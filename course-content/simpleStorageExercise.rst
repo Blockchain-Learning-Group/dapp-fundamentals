@@ -9,13 +9,13 @@ SimpleStorage
 
 `Video Tutorial <https://drive.google.com/open?id=1oFj8STACT0u3fyjRC04PtyTDpMCjVwy0>`_
 
-1 Define the compiler version
+1 Define the compiler version, line 1
 -----------------------------
 ::
 
   pragma solidity 0.4.24;
 
-2 Create the SimpleStorage contract
+2 Create the SimpleStorage contract, line 3
 -----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1Y4iaCKOrLE9R4F-XGdQFOTokEXvX-9pg>`_
 
@@ -27,7 +27,7 @@ SimpleStorage
 -----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1DNIrahMm9u14wXYlCGBeEgmFg2ukfyh7>`_
 
-4 Add a first storage variable, ``storedData``
+4 Add a first storage variable, ``storedData``, line 4
 -----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1ok2sFnB2DHZ7hixrqty3I93aTtXyDRYN>`_
 
@@ -42,7 +42,7 @@ SimpleStorage
 
   Is the storage variable, ``storedData``, available in the interface?
 
-6 Update the storage variable's visibility to ``public``
+6 Update the storage variable's visibility to ``public``, line 4
 -----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=120qzZvG7XRb13v54YQjCMRAFAuHz8_4r>`_
 
@@ -64,7 +64,7 @@ SimpleStorage
 
     - The difference between default(internal) visibility and public visibility.
 
-8 Create the SimpleStorage contract's first function to set the value of the storage variable
+8 Create the SimpleStorage contract's first function to set the value of the storage variable, line 6-8
 -----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1lfsitfRtTta_ZYSdLgOvIMifTdhZgUrs>`_
 
@@ -83,7 +83,7 @@ SimpleStorage
 - Read ``storedData``, did the value change successfully?
 - Expand the transactional data within the evm console and investigate
 
-10 Change the visibility of storedData to private
+10 Change the visibility of storedData to private, line 4
 -----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1WR5l3ypjU45Cfofti1Fix3XqctxtUo0j>`_
 
@@ -95,7 +95,7 @@ SimpleStorage
 
   Storage variable is no longer accessible, let's write a function to fix that!
 
-11 Create a function to get the value of storedData 
+11 Create a function to get the value of storedData, line 10-12
 -----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1JDoKpSt2ZNSuMMlKHyozTErlvoWzFOPi>`_
 
@@ -114,7 +114,7 @@ SimpleStorage
   What did the get function return?
   Was gas consumed?  Was a transaction sent?  Or a call?
 
-13 Update the get function's mutability 
+13 Update the get function's mutability, line 10
 -----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1v-GGzg52eBXgR-qaaPd8iyYZ220Mns4V>`_
 
