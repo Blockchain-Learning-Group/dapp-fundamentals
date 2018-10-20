@@ -46,7 +46,7 @@ A customized virtual machine has been provided for all students that is fully co
 .. note::
     View tutorial video [1-2] `here <https://drive.google.com/open?id=1vtPL7J3hlZxzuBm5pb6q3efNo2QO7vFX>`_
 
-1. Please download the virtual machine(vm) by clicking `here <https://drive.google.com/uc?export=download&confirm=zQaE&id=1A9vHmnyhlyk26vQVMqlCCmCJj6tQrNn9>`_ 
+1. Please download the virtual machine(vm) by clicking `here <https://drive.google.com/uc?export=download&confirm=Okh6&id=1JWOh3lS-VL2QxKJJteRJD25Wgjx0sP75>`_ 
 ------------------------------------------
     - The download will begin immediately. 
     - This vm runs the operating system Ubuntu 16.04
