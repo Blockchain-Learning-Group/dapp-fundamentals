@@ -13,7 +13,7 @@ Stage 1: Starting the Application
 
   Begin instructions from with VirtualBox and the VM that was configured and run in `step 7 of the prerequisites <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/prerequisites/general.html#finally-you-will-have-a-brand-new-ubuntu-16-04-virtual-machine-up-and-running-with-all-the-required-dependecies>`_.
 
-`Video Tutorial [1-2] <https://drive.google.com/open?id=17pBbRqWSB9jB65JnE0tckU6k0DmieGwe>`_
+`Video Tutorial [1-2] <https://drive.google.com/open?id=1pXBs_GwPowDwa6EJ7U50XpANt6-Su3nJ>`_
 
 1. Open a new terminal window
 -----------------------------
@@ -26,7 +26,7 @@ Stage 1: Starting the Application
   2.1 Change directory into the ``blg/wallet-template`` folder
     .. code-block:: bash
 
-      cd ~/Desktop/blg/wallet-template
+      cd Desktop/blg/wallet-template
 
   2.2 Start the server
     .. code-block:: bash
