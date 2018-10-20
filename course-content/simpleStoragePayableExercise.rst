@@ -64,4 +64,4 @@ SimpleStorage Payable
 ----------------------------------
     - read the contract's balance along the way, by calling ``getMyBalance``
 
-- The final solution may be found **`here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/SimpleStoragePayable.sol>`_**
+The final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/SimpleStoragePayable.sol>`_
