@@ -26,7 +26,16 @@ Homework
 
 Bonus
 =====
-1. Deploy your token to a public Test Net(Kovan, Rinkeby, Ropsten) via Metamask!
+1. Blockchain Fundamentals Video Series
+
+  a. `How it works: Hashes <https://drive.google.com/open?id=1LhZSWbeecr77KdcIuB75pVihs1-fR0Dv>`_
+  b. `Accounts and Digital Signatures <https://drive.google.com/open?id=1J-9OaUE0lHrRXc-yWPJKrtBabdrV6vsG>`_
+  c. `Consensus Algorithms <https://drive.google.com/open?id=1hFwROgiFl7YyvghrUzjpxzVi-UDz4tB4>`_
+  d. `Proof of Work <https://drive.google.com/open?id=1MERLufTdik01Zn_bB_Mtg0NCYFkLYPbC>`_
+  e. `Block Target <https://drive.google.com/open?id=1aWP9hkXtb3WbnjbPeKuMqPTqULvMsIAf>`_
+  f. `Decentralized Consensus <https://drive.google.com/open?id=1lj8lJdRRsiljLOe2hrssfOC7pR3axMnf>`_
+
+2. Deploy your token to a public Test Net(Kovan, Rinkeby, Ropsten) via Metamask!
 -------------------------------------
 - Ensure Metamask is installed, enabled and unlocked, you may install from `here <https://metamask.io/>`_
 - Ensure Metamask is connected to Kovan via the drop down in the top left corner
@@ -38,7 +47,7 @@ Bonus
     - A Metamask window will pop-up for you to confirm the transaction
     - Also **SAVE** the address the token was deployed at! You may need it later :)
 
-2. Sync an Ethereum node of your own
+3. Sync an Ethereum node of your own
 ------------------------------------
 
 .. note::
