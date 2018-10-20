@@ -59,6 +59,11 @@ Stage 1: Starting the Application
 Stage 2: Testing Your Token
 ===========================
 
+.. important::
+
+  The following videos may make note of the use of something called "Docker" and "containers", but do note that Docker has since been omitted.
+  The same commands that are mentioned may be run directly on the machine without entering into the noted container.
+
 `Video Tutorial <https://drive.google.com/open?id=17TlqJ0571ElgB9yimc4WnAWCRNKFq6dz>`_
 
 1. Create a new tab in your terminal window or a new terminal window for our Ethereum node
@@ -73,27 +78,13 @@ Stage 2: Testing Your Token
 
     ctrl+shft+t
 
-- *Example output: Result is a new empty terminal, in the same directory you were when you initially entered your container. This will push you out of the container.*
+- *Example output: Result is a new empty terminal, in the same directory you were in.*
 
 .. code-block:: console
 
   adam@adam:~/Desktop/blg$
 
-2. Attach back into the container in the Etheruem node tab
----------------------------------------
-
-.. code-block:: bash
-
-  docker exec -it blg-env bash
-
-- *Example output:*
-
-.. code-block:: console
-
-  adam@adam:~/Desktop/blg$ docker exec -it blg-env bash
-  root@182d123ec039:/blg/wallet-template#
-
-3. Start up your Ethereum node, ganache-cli
+2. Start up your Ethereum node, ganache-cli
 ---------------------------------------
 
 .. code-block:: bash
@@ -108,7 +99,7 @@ Stage 2: Testing Your Token
   [...]
   Listening on localhost:8545
 
-4. Create a new window or tab for our Truffle commands
+3. Create a new window or tab for our Truffle commands
 ---------------------------------------
 
 .. note::
@@ -120,34 +111,22 @@ Stage 2: Testing Your Token
 
     ctrl+shft+t
 
-- *Example output: Result is a new empty terminal, in the same directory you were when you initially entered your container. This will push you out of the container.*
+- *Example output: Result is a new empty terminal, in the same directory you were in.*
 
 .. code-block:: console
 
   adam@adam:~/Desktop/blg$
 
-5. Attach back into the container in the Truffle tab
----------------------------------------
-
-.. code-block:: bash
-
-  docker exec -it blg-env bash
-
-- *Example output:*
-
-.. code-block:: console
-
-  adam@adam:~/Desktop/blg$ docker exec -it blg-env bash
-  root@182d123ec039:/blg/wallet-template#
-
-6. Create the Test Case
+4. Create the Test Case
 ---------------------------------------
 
 .. note::
-  - contracts/Token.sol has been provided or do update it with the Token that was completed previously.
+  - contracts/Token.sol has been provided.
   - Also one test file template has been provided in order to test the buy method was implemented correctly.
 
-- Open the repo, ``~/Desktop/blg/wallet-template``, in your text editor, atom, sublime or the like and we can get to coding!
+- Open the Sublime text editor by clicking on the Sublime icon in the left dock.
+
+- From within Sublime open the folder, Click on File in the top left corner and select open in the menu.  Select ``Desktop/blg/wallet-template`` to open, and we can get to coding!
 
 - Open the test file within Sublime, ``src/test/test_buy.js``
 
@@ -224,7 +203,7 @@ Stage 2: Testing Your Token
   const supply = await token.totalSupply()
   assert.equal(supply.toNumber(), tokenAmount, 'Incorrect total supply.')
 
-7. Execute the Test Case
+5. Execute the Test Case
 ---------------------------------------
 
 .. code-block:: bash
