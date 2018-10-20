@@ -6,14 +6,14 @@ Introduction to DApp Development
 
 ----
 
-Stage 1: Dev Enviroment Setup and Application Bootstrap
+Stage 1: Starting the Application
 =======================================================
 
 .. note::
 
   Begin instructions from with VirtualBox and the VM that was configured and run in `step 7 of the prerequisites <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/prerequisites/general.html#finally-you-will-have-a-brand-new-ubuntu-16-04-virtual-machine-up-and-running-with-all-the-required-dependecies>`_.
 
-`Video Tutorial [1-2] <https://drive.google.com/open?id=1IvYodLeMF929k9hJg7M08_864Qxukecd>`_
+`Video Tutorial [1-2] <https://drive.google.com/open?id=17pBbRqWSB9jB65JnE0tckU6k0DmieGwe>`_
 
 1. Open a new terminal window
 -----------------------------
@@ -52,7 +52,7 @@ Stage 1: Dev Enviroment Setup and Application Bootstrap
 
 **- Chrome should automatically be opened and the application rendered!**
 
-**END Stage 1: Dev Enviroment Set up and Application Bootstrapped!**
+**END Stage 1: Starting the Application!**
 
 ----
 
