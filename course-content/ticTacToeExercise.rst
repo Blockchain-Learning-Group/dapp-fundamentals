@@ -10,7 +10,7 @@ Tic Tac Toe
 - `Solidity Types Video Tutorial <https://drive.google.com/open?id=1iKsHIm_Kj6XNn0tYflK2XMgEJRZB5J91>`_
 - `Tic-Tac-Toe Part 1 of 2 Video Tutorial <https://drive.google.com/open?id=1zSDWtgXvQNvjNYWQiX3yimU6sxuSEEhF>`_
 
-1. Create the contract and initial storage variables
+1. Create the contract and initial storage variables, line 1-15
 --------------------------
     - `Empty Contract Video Tutorial <https://drive.google.com/open?id=1c7Jbwcia3jew36q3Nb560H5StrgCohLu>`_
     - `Storage Varibales Video Tutorial <https://drive.google.com/open?id=13rw1C4AhaDE22dEQcav4L5quzQqFSiqv>`_
@@ -33,7 +33,7 @@ Tic Tac Toe
         uint256[9] public gameBoard_;
     }
 
-2. Create a function to allow a game to be started
+2. Create a function to allow a game to be started, line 16-19
 --------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1lXBmwrriapOrYWvFqMUbFXN2upJdSXIO>`_
 
@@ -48,7 +48,7 @@ Tic Tac Toe
     
     - `Video Tutorial [3-7] <https://drive.google.com/open?id=14PaxvZFIKm5EfscBF6OeMzsn3c5HwuFr>`_
 
-3. Now players need to be able to take a turn, specifying where they want to place their x or o 
+3. Now players need to be able to take a turn, specifying where they want to place their x or o, line 21-26
 --------------------------
 - create a function to allow this
 
@@ -61,14 +61,14 @@ Tic Tac Toe
      */
     function takeTurn(uint256 _x, uint256 _y) external {}
 
-4. We need to calculate the correpsonding index in the array based on the x and y passed in
+4. We need to calculate the correpsonding index in the array based on the x and y passed in, line 27
 --------------------------
 
 ::
 
     uint256 boardLocation = _y*3 + _x;
 
-5. Determine the identifier to mark the board with
+5. Determine the identifier to mark the board with, line 28-29
 --------------------------
 
 ::
@@ -76,7 +76,7 @@ Tic Tac Toe
     uint256 identifier;
     msg.sender == player1_ ? identifier = 1 : identifier = 2; 
 
-6. Mark the board, update the array
+6. Mark the board, update the array, line 30
 --------------------------
 
 ::
@@ -107,35 +107,35 @@ Tic Tac Toe
     - `Tic-Tac-Toe Part 2 of 2 Video Tutorial <https://drive.google.com/open?id=1tdJkcqsobL0_6-zJ5qEBHj9uscMTB9pJ>`_
     - `Video Tutorial [8-12] <https://drive.google.com/open?id=14PaxvZFIKm5EfscBF6OeMzsn3c5HwuFr>`_
 
-8. Require that only player1 or player 2 may take turns
+8. Require that only player1 or player 2 may take turns, line 27
 --------------------------
 
 ::
 
     require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
 
-9. Add a pre condition check to confirm the spot on the board is not already taken 
+9. Add a pre condition check to confirm the spot on the board is not already taken, line 28
 --------------------------
 
 ::
 
     require(gameBoard_[boardLocation] == 0, "Spot taken!");
 
-10. Add a storage variable to track who just took a turn
+10. Add a storage variable to track who just took a turn, line 8
 --------------------------
 
 ::
 
     address public lastPlayed_;
 
-11. Following a turn being taken update the storage variable
+11. Following a turn being taken update the storage variable, line 36
 --------------------------
 
 ::
 
     lastPlayed_ = msg.sender;
 
-12. Check that the same player is not trying to take another turn
+12. Check that the same player is not trying to take another turn, line 30
 --------------------------
 
 ::
@@ -161,7 +161,7 @@ Tic Tac Toe
     
     - `Video Tutorial [13-17] <https://drive.google.com/open?id=1c7-UmionniBh9AV-VwOUgGn5xnk71I7K>`_
 
-13. First define which combinations within the game board, which indexes, define a "win"
+13. First define which combinations within the game board, which indexes, define a "win", line 40-54
 --------------------------
 
 ::
@@ -182,7 +182,7 @@ Tic Tac Toe
      * [0,4,8] || [6,4,2]
      */
 
-14. Create a function to compute a winner and Implement these combintations as filters to filter the board with
+14. Create a function to compute a winner and implement these combintations as filters to filter the board with, line 55-61
 --------------------------
 
 ::
@@ -195,7 +195,7 @@ Tic Tac Toe
         ];
     }
         
-15. Create a for loop to iterate over each filter
+15. Create a for loop to iterate over each filter, line 62-64
 --------------------------
 
 ::
@@ -204,14 +204,14 @@ Tic Tac Toe
         uint8[3] memory filter = winningFilters[i];
     }
 
-16. Add a storage variable to define the winner
+16. Add a storage variable to define the winner, line 9
 --------------------------
 
 ::
     
     address public winner_;
 
-17. Compare each filter against the game board and see if the player has won with their latest turn
+17. Within the above ``for loop`` compare each filter against the game board and see if the player has won with their latest turn, line 66-72 
 --------------------------
 
 ::
@@ -224,7 +224,7 @@ Tic Tac Toe
         return true;
     }
 
-18. After each turn is taken see if there is a winner, update storage with the winner
+18. At the end of the ``takeTuen`` function, after each turn is taken see if there is a winner, update storage with the winner, line 40-42
 --------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1c7-UmionniBh9AV-VwOUgGn5xnk71I7K>`_
 
@@ -249,35 +249,35 @@ Tic Tac Toe
     
     - `Video Tutorial [19-24] <https://drive.google.com/open?id=1c7-UmionniBh9AV-VwOUgGn5xnk71I7K>`_
 
-19. Add a storage variable to signify the game has ended
+19. Add a storage variable to signify the game has ended, line 10
 --------------------------
 
 ::
 
     bool public gameOver_;
 
-20. If a winner was found update that the game has ended
+20. If a winner was found update that the game has ended, line 43
 --------------------------
 
 ::
 
     gameOver_ = true;
 
-21.  Add a storage variable to count how many turns have been taken, will use to define a draw
+21.  Add a storage variable to count how many turns have been taken, will use to define a draw, line 11
 --------------------------
 
 ::
 
     uint256 public turnsTaken_;
 
-22. After a turn is taken update the turns taken storage variable
+22. After a turn is taken update the turns taken storage variable, line 41
 --------------------------
 
 ::
 
     turnsTaken_++;
 
-23.  Add a conditional that if 9 turns have been taken the game has ended with no winner
+23.  Add a conditional that if 9 turns have been taken the game has ended with no winner, line 46-48
 --------------------------
 
 ::
@@ -286,7 +286,7 @@ Tic Tac Toe
         gameOver_ = true;
     }
 
-24. Add a last pre condition check that the game is still active
+24. Add a last pre condition check that the game is still active, line 34
 --------------------------
 
 ::
@@ -302,8 +302,8 @@ Tic Tac Toe
     - view no winner yet
     - view game has not ended
 3. View that the winner has been set
-4. view that game has ended
-5. Try and take another turn => view the output
+4. View that the game has ended
+5. Try and take another turn and view the output in Remix's console
 
 **OK how about a friendly wager!**
 
@@ -311,14 +311,14 @@ Tic Tac Toe
 
     - `Video Tutorial [25-26] <https://drive.google.com/open?id=1Q5qrZDZWV7wmMnkMQNe3F8x7_nSqmgBF>`_
 
-25. Add a storage variable to hold the placed wagers
+25. Add a storage variable to hold the placed wagers, line 12
 --------------------------
 
 ::
 
     mapping(address => uint256) public wagers_;
 
-26. Add a function to allow the players to place a wager
+26. Add a function to allow the players to place a wager, line 88-91
 --------------------------
 
 ::
@@ -332,14 +332,14 @@ Tic Tac Toe
 
     - `Video Tutorial [27-28] <https://drive.google.com/open?id=1zd744cAsc6UhLZ-I7po8hG4sUMlcbPao>`_
 
-27. Update the logic if a winner is found to transfer all the value to them
+27. Update the logic if a winner is found to transfer all the value to them, line 48
 --------------------------
 
 ::
 
     msg.sender.transfer(address(this).balance);
 
-28. Update the logic to refund the value if a draw
+28. Update the logic to refund the value if a draw has occured, line 51-52
 --------------------------
 
 ::
@@ -348,6 +348,9 @@ Tic Tac Toe
     player2_.transfer(wagers_[player2_]);
 
 **Go play!  Earn some ETH.**
+
+``As above`` Final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/TicTacToe.sol>`_
+``Commented`` Final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/TicTacToeCommented.sol>`_
 
 Homework!
 
