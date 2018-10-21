@@ -26,6 +26,7 @@ Homework
 
 Bonus
 =====
+
 1. Blockchain Fundamentals Video Series
 ----------------------------------------
 
