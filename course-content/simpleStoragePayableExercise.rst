@@ -10,7 +10,7 @@ SimpleStorage Payable
 
 - `Video Lecture <https://drive.google.com/open?id=1cfJ8VvP8_dEfeYkeueSCLQ5ub-ypYlHd>`_
 
-1 Add an acceptEther function, line 6-8
+1 Add an ``acceptEther`` function, line 6-8
 ----------------------------------
 
     - `Video tutorial <https://drive.google.com/open?id=119p0Uf0D3NC-Fd72OZb9wi4o9JLl0ZTD>`_
@@ -21,12 +21,12 @@ SimpleStorage Payable
         storedData = this.balance;
     }
 
-2 Compile and run, test the acceptEther function
+2 Compile and run, test the ``acceptEther`` function
 ----------------------------------
 
     - Call the function and send value 
-    - get the value of stored data, was it updated?
-    - note value has moved from the EOA to the contract
+    - Get the value of ``storedData``, was it updated?
+    - Note the value has moved from the EOA to the contract
 
 3 Add a function to withdraw the ether from this contract into the calling account, line 18-20
 ----------------------------------
@@ -62,6 +62,10 @@ SimpleStorage Payable
 
 6. Test the ability to send and withdraw Ether from the simple storage contract
 ----------------------------------
-    - read the contract's balance along the way, by calling ``getMyBalance``
+    - Read the contract's balance along the way, by calling ``getMyBalance``
 
 The final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/SimpleStoragePayable.sol>`_
+
+.. important::
+
+  All done?  We recommend reviewing the complementary video series found `here <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/1-HS-blockchain-fundamentals.html#blockchain-fundamentals-video-series>`_.

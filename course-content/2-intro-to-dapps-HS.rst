@@ -11,7 +11,7 @@ Stage 1: Starting the Application
 
 .. note::
 
-  Begin instructions from with VirtualBox and the VM that was configured and run in `step 6 of the prerequisites <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/prerequisites/general.html#start-the-vm>`_.
+  Begin instructions from within the VM(via VirtualBox) that was configured and run in `step 6 of the prerequisites <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/prerequisites/general.html#start-the-vm>`_.
 
 `Video Tutorial [1-2] <https://drive.google.com/open?id=1pXBs_GwPowDwa6EJ7U50XpANt6-Su3nJ>`_
 
@@ -51,6 +51,13 @@ Stage 1: Starting the Application
   To create a production build, use yarn build.
 
 **- Chrome should automatically be opened and the application rendered!**
+
+3. Open the application's code in the Sublime text editor
+---------------------------------------------------------
+- Open the Sublime text editor by clicking on the Sublime icon in the left dock.
+
+- From within Sublime open the `wallet-template` folder. Click on ``File`` in the top left corner and select ``Open Folder...`` in the menu.  Select ``Desktop/blg/wallet-template`` to open, and we can get to coding!
+
 
 **END Stage 1: Starting the Application!**
 
@@ -123,10 +130,6 @@ Stage 2: Testing Your Token
 .. note::
   - contracts/Token.sol has been provided.
   - Also one test file template has been provided in order to test the buy method was implemented correctly.
-
-- Open the Sublime text editor by clicking on the Sublime icon in the left dock.
-
-- From within Sublime open the folder, Click on File in the top left corner and select open in the menu.  Select ``Desktop/blg/wallet-template`` to open, and we can get to coding!
 
 - Open the test file within Sublime, ``src/test/test_buy.js``
 
@@ -244,7 +247,7 @@ Stage 3: Token Deployment
 1. Write the Deployment Script
 ---------------------------------------
 
-- Create a new file in order to deploy the token, src/migrations/2_deploy_contracts.js
+- Create a new file in order to deploy the token, ``src/migrations/2_deploy_contracts.js``
 
   - Simply right-click on the migrations directory and create the new file.
 
@@ -309,6 +312,7 @@ Stage 4: Token Interface
 
 1. Import the web3 library, ``src/app.js`` #line 5
 ---------------------------------------
+- Open ``src/app.js`` in the Sublime text editor
 
 .. code-block:: javascript
 
@@ -356,7 +360,7 @@ Stage 4: Token Interface
     const tokenAddress = tokenArtifacts.networks[netId].address
   }
 
-7. Create a client side reference to the contract and save it in state, app.js#line 33-35
+7. Create a client side reference to the contract and save it in the application's state, app.js#line 33-35
 ---------------------------------------
 
 .. code-block:: javascript
@@ -368,7 +372,7 @@ Stage 4: Token Interface
 8. Refresh your chrome browser and open up the developer console
 ---------------------------------------
 
-This can be accomplished by right-clicking anywhere in the chrome browser and in the dropdown selecting ``inspect`` or ``inspect element`` or by utilizing the shortcut: ``ctrl+shift_i``.
+This can be accomplished by right-clicking anywhere in the chrome browser and in the dropdown selecting ``inspect`` or ``inspect element`` or by utilizing the shortcut: ``ctrl+shift+i``.
 
 *View in the developer console the token instance is now present*
 
@@ -785,7 +789,9 @@ Bonus: Extend Your Wallet
 -----------------------
 
 - Ensure Metamask is installed, unlocked and connected to the local client(localhost:8545).
-- Fund your metamask account!
+  - Metamask may be insalled `here <https://metamask.io/>`_
+
+- Fund your Metamask account!
 
 .. code-block:: console
 

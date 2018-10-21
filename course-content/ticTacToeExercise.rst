@@ -13,7 +13,7 @@ Tic Tac Toe
 1. Create the contract and initial storage variables, line 1-15
 --------------------------
     - `Empty Contract Video Tutorial <https://drive.google.com/open?id=1c7Jbwcia3jew36q3Nb560H5StrgCohLu>`_
-    - `Storage Varibales Video Tutorial <https://drive.google.com/open?id=13rw1C4AhaDE22dEQcav4L5quzQqFSiqv>`_
+    - `Storage Variables Video Tutorial <https://drive.google.com/open?id=13rw1C4AhaDE22dEQcav4L5quzQqFSiqv>`_
 
 ::
 
@@ -26,10 +26,10 @@ Tic Tac Toe
         address public player2_;
         
         /** The game board itself 
-        * 0, 1, 2
-        * 3, 4, 5
-        * 6, 7, 8
-        */
+         * 0, 1, 2
+         * 3, 4, 5
+         * 6, 7, 8
+         */
         uint256[9] public gameBoard_;
     }
 
@@ -86,10 +86,9 @@ Tic Tac Toe
 7. Give it a shot!  Try starting a game and taking turns, watch as the game board's indexes are filled
 --------------------------
 
-- now take a look what problems do you notice?
-- did you have some time to play with the contract?
+- Now take a look, what problems do you notice?
+- Did you have some time to play with the contract?
 - Any big issues come up?
-- what we noticed was:
 
 .. important::
 
@@ -97,17 +96,16 @@ Tic Tac Toe
     
     - Anyone can take turns!
     - A player can overwrite a spot that has already been taken
-    - A player may take many turns in a row, now alternating enforcement
+    - A player may take many turns in a row, alternating must be enforced
 
     Let's tackle these problems first!
-
 
 .. important::
     
     - `Tic-Tac-Toe Part 2 of 2 Video Tutorial <https://drive.google.com/open?id=1tdJkcqsobL0_6-zJ5qEBHj9uscMTB9pJ>`_
     - `Video Tutorial [8-12] <https://drive.google.com/open?id=14PaxvZFIKm5EfscBF6OeMzsn3c5HwuFr>`_
 
-8. Require that only player1 or player 2 may take turns, line 27
+8. Require that only player 1 or player 2 may take turns, line 27
 --------------------------
 
 ::
@@ -224,7 +222,7 @@ Tic Tac Toe
         return true;
     }
 
-18. At the end of the ``takeTuen`` function, after each turn is taken see if there is a winner, update storage with the winner, line 40-42
+18. At the end of the ``takeTurn`` function, after each turn is taken see if there is a winner, update the storage variable if there is a winner, line 40-42
 --------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1c7-UmionniBh9AV-VwOUgGn5xnk71I7K>`_
 
@@ -234,7 +232,7 @@ Tic Tac Toe
         winner_ = msg.sender;
     }
 
-**Try it out!! see if the winner is set if 3 in a row is found**
+**Try it out! See if the winner is set if 3 in a row is found**
 
 .. important:: 
 
@@ -263,7 +261,7 @@ Tic Tac Toe
 
     gameOver_ = true;
 
-21.  Add a storage variable to count how many turns have been taken, will use to define a draw, line 11
+21.  Add a storage variable to count how many turns have been taken, will use this variable to define if a draw has occured, line 11
 --------------------------
 
 ::
@@ -349,8 +347,8 @@ Tic Tac Toe
 
 **Go play!  Earn some ETH.**
 
-``As above`` Final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/TicTacToe.sol>`_
-``Commented`` Final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/TicTacToeCommented.sol>`_
+- ``As above`` Final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/TicTacToe.sol>`_
+- ``Commented`` Final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/TicTacToeCommented.sol>`_
 
 Homework!
 

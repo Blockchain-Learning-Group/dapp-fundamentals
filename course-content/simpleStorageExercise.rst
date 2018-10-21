@@ -95,7 +95,7 @@ SimpleStorage
 
   Storage variable is no longer accessible, let's write a function to fix that!
 
-11 Create a function to get the value of storedData, line 10-12
+11 Create a function to get the value of ``storedData``, line 10-12
 -----------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1JDoKpSt2ZNSuMMlKHyozTErlvoWzFOPi>`_
 
@@ -128,10 +128,10 @@ SimpleStorage
 14 Compile and deploy, test the set and get functions
 -----------------------------
 
-- get the initial value, what was returned this time? a tx or a call?
-- set the value
-- view it has changed
-- investigate evm console transactional details along the way
+- Get the initial value, what was returned this time? a transaction or a call?
+- Set the value
+- View it has changed
+- Investigate the evm console transactional details along the way
 
 
 The final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/SimpleStorage.sol>`_
