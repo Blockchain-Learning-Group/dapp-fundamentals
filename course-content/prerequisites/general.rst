@@ -5,6 +5,8 @@ Course Prerequisites
 1.0 Course Resources
 ================================================
 
+- `A quick(3 minute video) primer on how software is made <https://youtu.be/bWdeGTJxMQc>`_
+
 .. note::
   Familiarity beforehand **recommended**.
 
