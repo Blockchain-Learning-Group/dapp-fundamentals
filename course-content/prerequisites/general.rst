@@ -86,7 +86,10 @@ A customized virtual machine has been provided for all students that is fully co
     - Click on the new vm and then click the ``Start`` button
     - In the dropdown click ``Normal Start``
     - This will take a few minutes, your vm is starting!
-    - **Note if the VM fails to start it is most likely due to virtualization not being enabled on your machine, this will need to be accomplished in the BIOS of your machine.  The process to boot into BIOS is highly dependent on your specific computer and instructions will need to be sourced online.  In many cases restarting the computer and holding the esc button may do so.**
+    - **Note ONLY if the VM fails to start** 
+    
+        .. note::
+            It is most likely due to virtualization not being enabled on your machine, this will need to be accomplished in the BIOS of your machine.  The process to boot into BIOS is highly dependent on your specific computer and instructions will need to be sourced online.  In many cases restarting the computer and holding the esc button may do so.
 
 7. Finally you will have a brand new Ubuntu 16.04 virtual machine up and running with all the required dependecies
 ------------------------------------------
