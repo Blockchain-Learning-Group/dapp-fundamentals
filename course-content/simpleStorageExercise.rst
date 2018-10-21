@@ -135,3 +135,7 @@ SimpleStorage
 
 
 The final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/SimpleStorage.sol>`_
+
+.. important::
+
+  All done?  We recommend reviewing the complementary video series found `here <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/1-HS-blockchain-fundamentals.html#bonus>`_.

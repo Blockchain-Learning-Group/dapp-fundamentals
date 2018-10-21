@@ -27,6 +27,7 @@ Homework
 Bonus
 =====
 1. Blockchain Fundamentals Video Series
+----------------------------------------
 
   a. `How it works: Hashes <https://drive.google.com/open?id=1LhZSWbeecr77KdcIuB75pVihs1-fR0Dv>`_
   b. `Accounts and Digital Signatures <https://drive.google.com/open?id=1J-9OaUE0lHrRXc-yWPJKrtBabdrV6vsG>`_
