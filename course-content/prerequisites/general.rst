@@ -51,7 +51,7 @@ A customized virtual machine has been provided for all students that is fully co
 1. Please download the virtual machine(vm) by clicking `here <https://drive.google.com/uc?export=download&confirm=Okh6&id=1JWOh3lS-VL2QxKJJteRJD25Wgjx0sP75>`_ 
 ------------------------------------------
     - The download will begin immediately or you may need to simply confirm to ``Download Anyway`` depending on your browser. Note the file is quite large ~2GB so it will take a few minutes to complete.
-    - By default the file will be named ``blg-vm-stable.ova`` and will be saved within your ``Downloads`` folder.
+    - By default the file will be named ``blg-vm-1.1.ova`` and will be saved within your ``Downloads`` folder.
 
 2. Install VirtualBox-5.2 for your respective operating system, select the correct package for Mac, Windows and Linux distributions below
 ------------------------------------------
@@ -74,7 +74,7 @@ A customized virtual machine has been provided for all students that is fully co
 ------------------------------------------
     - Within the VirtualBox application click on ``File`` in the top left corner
     - In the dropdown menu click "Import Appliance...", this will open a dialog window
-    - In the dialog window, click the file icon beside the bottom text field to search for the location the vm was downloaded to, it will be named ``blg-vm-stable.ova`` by default and will be located in your ``Downloads`` folder, click on the vm to select it
+    - In the dialog window, click the file icon beside the bottom text field to search for the location the vm was downloaded to, it will be named ``blg-vm-1.1.ova`` by default and will be located in your ``Downloads`` folder, click on the vm to select it
     - Click the ``Import`` button in the bottom bar, this will take a few minutes
     - Once completed a new VM will be present within VirtualBox that is currently stopped
 
