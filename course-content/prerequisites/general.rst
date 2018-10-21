@@ -33,7 +33,7 @@ Course Prerequisites
   Participants are required to bring their own laptops.
 
 1. 4GB of memory and some disk space(4GB+) recommended.
-2. Operating System: Mac preferred, Ubuntu 16.04+ and Windows 7+ OK.
+2. Operating System: Mac preferred, Ubuntu 16.04-17.04 and Windows 7+ OK.
 
 ----
 
@@ -46,12 +46,12 @@ A customized virtual machine has been provided for all students that is fully co
     Virtualization must be enabled!  If not by default, this will need to be updated in the computer's BIOS.
 
 .. note::
-    View tutorial video [1-2] `here <https://drive.google.com/open?id=1vtPL7J3hlZxzuBm5pb6q3efNo2QO7vFX>`_
+    `View tutorial video [1-2] <https://drive.google.com/open?id=1vtPL7J3hlZxzuBm5pb6q3efNo2QO7vFX>`_
 
 1. Please download the virtual machine(vm) by clicking `here <https://drive.google.com/uc?export=download&confirm=Okh6&id=1JWOh3lS-VL2QxKJJteRJD25Wgjx0sP75>`_ 
 ------------------------------------------
-    - The download will begin immediately. 
-    - This vm runs the operating system Ubuntu 16.04
+    - The download will begin immediately or you may need to simply confirm to ``Download Anyway`` depending on your browser. Note the file is quite large ~2GB so it will take a few minutes to complete.
+    - By default the file will be named ``blg-vm-stable.ova`` and will be saved within your ``Downloads`` folder.
 
 2. Install VirtualBox-5.2 for your respective operating system, select the correct package for Mac, Windows and Linux distributions below
 ------------------------------------------
@@ -60,7 +60,7 @@ A customized virtual machine has been provided for all students that is fully co
     - **Linux** users will need to find the correct package for their distribution `here <https://www.virtualbox.org/wiki/Linux_Downloads>`_
 
 .. note::
-    View tutorial video [3-5] `here <https://drive.google.com/open?id=1OS__-eel732JHGTRH6RUODKrHYQD6gUx>`_
+    `View tutorial video [3-5] <https://drive.google.com/open?id=1OS__-eel732JHGTRH6RUODKrHYQD6gUx>`_
 
 3. Once downloaded double-click on the package to open it and follow the simple steps to complete the installation
 ------------------------------------------
@@ -79,14 +79,14 @@ A customized virtual machine has been provided for all students that is fully co
     - Once completed a new VM will be present within VirtualBox that is currently stopped
 
 .. note::
-    View tutorial video [6-7] `here <https://drive.google.com/open?id=1yAq4T3smp91JpzwIvSCkGfDGEha1mjdo>`_
+    `View tutorial video [6-7] <https://drive.google.com/open?id=1yAq4T3smp91JpzwIvSCkGfDGEha1mjdo>`_
 
 6. Start the vm! 
 ------------------------------------------
     - Click on the new vm and then click the ``Start`` button
     - In the dropdown click ``Normal Start``
     - This will take a few minutes, your vm is starting!
-    - **Note if the VM fails to start it is most likely due to virtualization not being enabled on your machine, this will need to be accomplished in the BIOS of your machine.**
+    - **Note if the VM fails to start it is most likely due to virtualization not being enabled on your machine, this will need to be accomplished in the BIOS of your machine.  The process to boot into BIOS is highly dependent on your specific computer and instructions will need to be sourced online.  In many cases restarting the computer and holding the esc button may do so.**
 
 7. Finally you will have a brand new Ubuntu 16.04 virtual machine up and running with all the required dependecies
 ------------------------------------------
@@ -97,7 +97,7 @@ A customized virtual machine has been provided for all students that is fully co
 ------------------------------------------
     - Prior to the beginning of the course you may wish to stop the vm
     - Within VirtualBox right-click on the vm that is running
-    - In the dropdown menu click "Stop", this will stop your vm which you can easily start back up when the course begins
+    - In the dropdown menu click "Stop", this will stop your vm which you can easily start back up when the course begins by following step 6 above
 
 .. note::
     Note if the keyring dialog pops up and the password is asked for simply click the cancel button, it may ask several times...
