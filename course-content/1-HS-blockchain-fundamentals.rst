@@ -19,10 +19,10 @@ Blockchain Fundamentals
   - `Voting <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/votingExercise.html>`_
   - `Token <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/tokenExercise.html>`_
 
-Homework
+5. An Introduction to ReactJS
 ========
 
-1. ReactJS will be used extensivley for future DApp development.  Working through the ReactJS tutorial is recommended and may be found `here <https://reactjs.org/tutorial/tutorial.html>`_
+- `ReactJS tutorial <https://reactjs.org/tutorial/tutorial.html>`_
 
 Bonus
 =====
