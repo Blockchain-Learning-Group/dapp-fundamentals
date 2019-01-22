@@ -68,6 +68,7 @@ Tic Tac Toe
     gameBoard_[_boardLocation] = msg.sender;
 
 5. Add a function to return the contents of the game board, line 29-31
+----------------------------
 
 ::
 
@@ -340,7 +341,6 @@ Tic Tac Toe
 **Go play!  Earn some ETH.**
 
 - ``As above`` Final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/TicTacToe.sol>`_
-- ``Commented`` Final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/TicTacToeCommented.sol>`_
 
 Homework!
 
