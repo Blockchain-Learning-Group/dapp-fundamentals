@@ -30,7 +30,7 @@ Tic Tac Toe
          * 3, 4, 5
          * 6, 7, 8
          */
-        uint256[9] public gameBoard_;
+        address[9] private gameBoard_;
     }
 
 2. Create a function to allow a game to be started, line 16-19
@@ -48,42 +48,34 @@ Tic Tac Toe
     
     - `Video Tutorial [3-7] <https://drive.google.com/open?id=14PaxvZFIKm5EfscBF6OeMzsn3c5HwuFr>`_
 
-3. Now players need to be able to take a turn, specifying where they want to place their x or o, line 21-26
+3. Now players need to be able to take a turn, specifying where they want to place their x or o, line 21-25
 --------------------------
 - create a function to allow this
 
 ::
 
     /**
-     * @notice Take your turn placing your x or o
-     * @param _x X coordinate
-     * @param _y Y coordinate
+     * @notice Take your turn, selecting a board location
+     * @param _boardLocation Location of the board to take
      */
-    function takeTurn(uint256 _x, uint256 _y) external {}
+    function takeTurn(uint256 _boardLocation) external {}
 
-4. We need to calculate the correpsonding index in the array based on the x and y passed in, line 27
+4. Mark the board, within the ``takeTurn`` function update the ``gameBoard`` array, line 26 
 --------------------------
 
 ::
 
-    uint256 boardLocation = _y*3 + _x;
+    gameBoard_[_boardLocation] = msg.sender;
 
-5. Determine the identifier to mark the board with, line 28-29
---------------------------
-
-::
-
-    uint256 identifier;
-    msg.sender == player1_ ? identifier = 1 : identifier = 2; 
-
-6. Mark the board, update the array, line 30
---------------------------
+5. Add a function to return the contents of the game board, line 29-31
 
 ::
 
-    gameBoard_[boardLocation] = identifier;
+    function getBoard() external view returns(address[9]) {
+        return gameBoard_;
+    }
 
-7. Give it a shot!  Try starting a game and taking turns, watch as the game board's indexes are filled
+6. Give it a shot!  Try starting a game and taking turns, watch as the game board's indexes are filled
 --------------------------
 
 - Now take a look, what problems do you notice?
@@ -105,35 +97,35 @@ Tic Tac Toe
     - `Tic-Tac-Toe Part 2 of 2 Video Tutorial <https://drive.google.com/open?id=1tdJkcqsobL0_6-zJ5qEBHj9uscMTB9pJ>`_
     - `Video Tutorial [8-12] <https://drive.google.com/open?id=14PaxvZFIKm5EfscBF6OeMzsn3c5HwuFr>`_
 
-8. Require that only player 1 or player 2 may take turns, line 27
+7. Require that only player 1 or player 2 may take turns, within the ``takeTurn`` function line 26
 --------------------------
 
 ::
 
     require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
 
-9. Add a pre condition check to confirm the spot on the board is not already taken, line 28
+8. Add a pre condition check to confirm the spot on the board is not already taken, within the ``takeTurn`` function line 27
 --------------------------
 
 ::
 
-    require(gameBoard_[boardLocation] == 0, "Spot taken!");
+    require(gameBoard_[_boardLocation] == 0, "Spot taken!");
 
-10. Add a storage variable to track who just took a turn, line 8
+9. Add a storage variable to track who just took a turn, line 8
 --------------------------
 
 ::
 
     address public lastPlayed_;
 
-11. Following a turn being taken update the storage variable, line 36
+10. Following a turn being taken update the storage variable, within the ``takeTurn`` function line 31
 --------------------------
 
 ::
 
     lastPlayed_ = msg.sender;
 
-12. Check that the same player is not trying to take another turn, line 30
+11. Check that the same player is not trying to take another turn, within the ``takeTurn`` function line 29
 --------------------------
 
 ::
@@ -159,7 +151,7 @@ Tic Tac Toe
     
     - `Video Tutorial [13-17] <https://drive.google.com/open?id=1c7-UmionniBh9AV-VwOUgGn5xnk71I7K>`_
 
-13. First define which combinations within the game board, which indexes, define a "win", line 40-54
+12. First define which combinations within the game board, which indexes, define a "win", line 35-49
 --------------------------
 
 ::
@@ -180,12 +172,12 @@ Tic Tac Toe
      * [0,4,8] || [6,4,2]
      */
 
-14. Create a function to compute a winner and implement these combintations as filters to filter the board with, line 55-61
+13. Create a function to compute a winner and implement these combintations as filters to filter the board with, line 50-56
 --------------------------
 
 ::
 
-    function isWinner(uint256 identifier) private view returns(bool) {
+    function isWinner(address player) private view returns(bool) {
         uint8[3][8] memory winningFilters = [
             [0,1,2],[3,4,5],[6,7,8],  // rows
             [0,3,6],[1,4,7],[2,5,8],  // columns
@@ -193,7 +185,7 @@ Tic Tac Toe
         ];
     }
         
-15. Create a for loop to iterate over each filter, line 62-64
+14. Create a for loop to iterate over each filter, within the ``isWinner`` function line 57-59
 --------------------------
 
 ::
@@ -202,33 +194,33 @@ Tic Tac Toe
         uint8[3] memory filter = winningFilters[i];
     }
 
-16. Add a storage variable to define the winner, line 9
+15. Add a storage variable to define the winner, line 9
 --------------------------
 
 ::
     
     address public winner_;
 
-17. Within the above ``for loop`` compare each filter against the game board and see if the player has won with their latest turn, line 66-72 
+16. Within the above ``for loop`` compare each filter against the game board and see if the player has won with their latest turn, line 60-66 
 --------------------------
 
 ::
 
     if (
-        gameBoard_[filter[0]]==identifier && 
-        gameBoard_[filter[1]]==identifier && 
-        gameBoard_[filter[2]]==identifier
+        gameBoard_[filter[0]]==player && 
+        gameBoard_[filter[1]]==player && 
+        gameBoard_[filter[2]]==player
     ) {
         return true;
     }
 
-18. At the end of the ``takeTurn`` function, after each turn is taken see if there is a winner, update the storage variable if there is a winner, line 40-42
+17. At the end of the ``takeTurn`` function, after each turn is taken see if there is a winner, update the storage variable if there is a winner, line 35-37
 --------------------------
     - `Video Tutorial <https://drive.google.com/open?id=1c7-UmionniBh9AV-VwOUgGn5xnk71I7K>`_
 
 ::
 
-    if (isWinner(identifier)) {
+    if (isWinner(msg.sender)) {
         winner_ = msg.sender;
     }
 
@@ -247,35 +239,35 @@ Tic Tac Toe
     
     - `Video Tutorial [19-24] <https://drive.google.com/open?id=1c7-UmionniBh9AV-VwOUgGn5xnk71I7K>`_
 
-19. Add a storage variable to signify the game has ended, line 10
+18. Add a storage variable to signify the game has ended, line 10
 --------------------------
 
 ::
 
     bool public gameOver_;
 
-20. If a winner was found update that the game has ended, line 43
+19. If a winner was found update that the game has ended, within the ``takeTurn`` function line 38
 --------------------------
 
 ::
 
-    gameOver_ = true;
+    gameOver_ = true;   
 
-21.  Add a storage variable to count how many turns have been taken, will use this variable to define if a draw has occured, line 11
+20.  Add a storage variable to count how many turns have been taken, will use this variable to define if a draw has occured, line 11
 --------------------------
 
 ::
 
     uint256 public turnsTaken_;
 
-22. After a turn is taken update the turns taken storage variable, line 41
+21. After a turn is taken update the turns taken storage variable, within the ``takeTurn`` function line 36
 --------------------------
 
 ::
 
     turnsTaken_++;
 
-23.  Add a conditional that if 9 turns have been taken the game has ended with no winner, line 46-48
+22.  Add a conditional that if 9 turns have been taken the game has ended with no winner, within the ``takeTurn`` function line 41-43
 --------------------------
 
 ::
@@ -284,7 +276,7 @@ Tic Tac Toe
         gameOver_ = true;
     }
 
-24. Add a last pre condition check that the game is still active, line 34
+23. Add a last pre condition check that the game is still active, within the ``takeTurn`` function line 30
 --------------------------
 
 ::
@@ -309,14 +301,14 @@ Tic Tac Toe
 
     - `Video Tutorial [25-26] <https://drive.google.com/open?id=1Q5qrZDZWV7wmMnkMQNe3F8x7_nSqmgBF>`_
 
-25. Add a storage variable to hold the placed wagers, line 12
+24. Add a storage variable to hold the placed wagers, line 12
 --------------------------
 
 ::
 
     mapping(address => uint256) public wagers_;
 
-26. Add a function to allow the players to place a wager, line 88-91
+25. Add a function to allow the players to place a wager, line 82-86
 --------------------------
 
 ::
@@ -330,14 +322,14 @@ Tic Tac Toe
 
     - `Video Tutorial [27-28] <https://drive.google.com/open?id=1zd744cAsc6UhLZ-I7po8hG4sUMlcbPao>`_
 
-27. Update the logic if a winner is found to transfer all the value to them, line 48
+26. Update the logic if a winner is found to transfer all the value to them, within the ``takeTurn`` function line 43
 --------------------------
 
 ::
 
     msg.sender.transfer(address(this).balance);
 
-28. Update the logic to refund the value if a draw has occured, line 51-52
+27. Update the logic to refund the value if a draw has occured, within the ``takeTurn`` function line 46-47
 --------------------------
 
 ::
