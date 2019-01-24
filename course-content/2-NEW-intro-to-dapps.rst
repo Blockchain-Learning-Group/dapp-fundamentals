@@ -50,8 +50,8 @@ Start the app
   - Chrome should automatically be opened and the application rendered!  Otherwise navigate to http://localhost:3000 in your browser.  
     You should see some basic text and your first task!
 
-  .. image:: 
-      :target: https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/course-content/images/product-registry-01-01-starter-image.png
+  .. image:: product-registry-01-01-starter-image.png
+      :target: https://github.com/Blockchain-Learning-Group/course-resources/blob/master/images/product-registry-01-01-starter-image.png
 
 ----
 
