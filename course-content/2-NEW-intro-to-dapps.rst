@@ -15,12 +15,12 @@ Stage 1: Starting the Application
 
 `Video Tutorial [1-2] <todo>`_
 
-* Open a new terminal window
+Open a new terminal window
 -----------------------------
 
   - Click on the terminal icon in the left dock
 
-* Start the app
+Start the app
 -----------------
 
   - Change directory into the ``blg/product-registry-01`` folder on the Desktop
