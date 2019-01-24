@@ -50,7 +50,7 @@ Start the app
   - Chrome should automatically be opened and the application rendered!  Otherwise navigate to http://localhost:3000 in your browser.  
     You should see some basic text and your first task!
 
-  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/images/product-registry-01-01-starter-image.png
+  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/01-starter-image.png
 
 ----
 
@@ -65,7 +65,7 @@ Open the application's code in the Sublime text editor
 - Click on ``File`` in the top left corner and select ``Open Folder...`` in the menu.  
 - Select ``Desktop/blg/product-registry-01`` to open, and we can get to coding!
 
-Open up the ``index.html`` file within the ``product-registry-01`` folder.
+Open up the ``index.html`` file within the ``product-registry-01`` folder
 ------------------------------------------------------
 
   - View the contents of the file
@@ -77,6 +77,13 @@ Open up the ``index.html`` file within the ``product-registry-01`` folder.
     .. code-block:: html
 
       <h1 class="ui dividing centered header">Adam's Product Registry</h1>
+
+  - Save the file!  This may be done by selecting the File menu in the top left corner and selecting save, or with the keyboard shortcut ``ctrl + s```
+  - View the updated title in the browser!  
+
+  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/02-renamed-header.png
+
+  - Complete solution may be found `here <https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-02.html>`_
 
 
 ------------------------------------------------------
