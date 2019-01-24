@@ -147,89 +147,17 @@ Your First Component!
   - The remainder of coding for this exercise will occur in the ``app.js`` file.  Go ahead and open that one up in the Sublime text editor.
   - It should contain the following *component*:
 
-html
+    .. code-block:: html
 
-  .. code-block:: html
-
-    class ProductList extends React.Component {
-      render() {
-        return (
-          <div className='ui unstackable items'>
-            Hello, I am your first React component!
-          </div>
-        );
+      class ProductList extends React.Component {
+        render() {
+          return (
+            <div className='ui unstackable items'>
+              Hello, I am your first React component!
+            </div>
+          );
+        }
       }
-    }
-
-py
-
-.. code-block:: python
-
-    class ProductList extends React.Component {
-      render() {
-        return (
-          <div className='ui unstackable items'>
-            Hello, I am your first React component!
-          </div>
-        );
-      }
-    }
-
-ruby
-
-.. code-block:: ruby
-
-    class ProductList extends React.Component {
-      render() {
-        return (
-          <div className='ui unstackable items'>
-            Hello, I am your first React component!
-          </div>
-        );
-      }
-    }
-
-    react
-
-.. code-block:: react
-
-    class ProductList extends React.Component {
-      render() {
-        return (
-          <div className='ui unstackable items'>
-            Hello, I am your first React component!
-          </div>
-        );
-      }
-    }
-
-    reactjs
-
-.. code-block:: reactjs
-
-    class ProductList extends React.Component {
-      render() {
-        return (
-          <div className='ui unstackable items'>
-            Hello, I am your first React component!
-          </div>
-        );
-      }
-    }
-
-javascript
-
-.. code-block:: javascript
-
-    class ProductList extends React.Component {
-      render() {
-        return (
-          <div className='ui unstackable items'>
-            Hello, I am your first React component!
-          </div>
-        );
-      }
-    }
 
 ------------------------------------------------------
 
