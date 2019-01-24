@@ -77,6 +77,8 @@ Open up the ``index.html`` file within the ``product-registry-01`` folder
 
   - View the contents of the file.  Don't worry too much about what is being *linked* within the ``<head>`` of the file, the core is between the ``<body></body>`` tags beneath
   
+.. note::
+
   - The core of the application may be simplified to the following:
 
   .. code:: html
@@ -85,8 +87,8 @@ Open up the ``index.html`` file within the ``product-registry-01`` folder
       <h1 class="ui dividing centered header">Adam's Product Registry</h1>
       <div id="content"></div>
     </div>
-  
-  - Simply a title ``<h1>`` and one ``<div>`` that contains the *content* of the application.  Remember this *content* ``<div>`` as we will see it again soon!
+    
+    - Simply a title ``<h1>`` and one ``<div>`` that contains the *content* of the application.  Remember this *content* ``<div>`` as we will see it again soon!
 
   - Update the title ``<h1></h1>`` where your first task is noted
   - Update the title to be **your** Product registry, for example ``Adam's Product Registry``
