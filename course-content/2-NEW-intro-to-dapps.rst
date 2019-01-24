@@ -91,14 +91,34 @@ Open up the ``index.html`` file within the ``product-registry-01`` folder
 
   .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/02-renamed-header.png
 
-  - |location_link|
+  - |solution_link|
 
-    .. |location_link| raw:: html
+    .. |solution_link| raw:: html
 
       <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-02.html" target="_blank">Complete solution may be found here</a>
 
+  - Reverting to a Blank ``app.js`` file to get started!
+  - Note within the open ``index.html`` file that ``app-complete.js`` is linked in a ``<script>`` tag within the ``<body>``
+  - Update this to link ``app.js`` instead of ``app-complete.js``, which is the blank template you will begin with
+  - Don't forget to save!
 
-------------------------------------------------------
+  - Example Code:
+
+    .. code-block:: html
+
+      <script
+        type="text/babel"
+        data-plugins="transform-class-properties"
+        src="app.js"
+      ></script>
+
+  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/03-blank-app.js.png
+
+    - |solution_link|
+
+    .. |solution_link| raw:: html
+
+      <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-03.html" target="_blank">Complete solution may be found here</a>
 
 
 ------------------------------------------------------
