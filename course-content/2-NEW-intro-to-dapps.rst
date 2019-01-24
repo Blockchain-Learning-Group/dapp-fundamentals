@@ -113,7 +113,7 @@ Reverting to a Blank ``app.js`` file to get started!
 ----------------------------------------------------
   
   - Note within the open ``index.html`` file that ``app-complete.js`` is linked in a ``<script>`` tag within the ``<body>``
-  - Update this to link ``app.js`` instead of ``app-complete.js``, which is the blank template you will begin with
+  - Update this to link ``app.js`` instead of ``app-complete.js``, which is the blank template you will begin with.
   - Don't forget to save!
 
   - Example Code:
@@ -126,15 +126,13 @@ Reverting to a Blank ``app.js`` file to get started!
         src="app.js"
       ></script>
 
-  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/03-blank-app.js.png
-
   - |solution_link|
 
   .. |solution_link| raw:: html
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-03.html" target="_blank">Complete solution may be found here</a>
 
-.. note ::
+.. note::
 
   **Components**
 
@@ -142,7 +140,7 @@ Reverting to a Blank ``app.js`` file to get started!
   - Components may be thought of as small self contained building blocks that may effectively be reused and combined within other to build up complete applications.
   - The layout, logic, and specific styles are all housed within the given self-contanied component.
 
-  ****
+
 
 ------------------------------------------------------
 
