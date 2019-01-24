@@ -51,7 +51,7 @@ Start the app
     You should see some basic text and your first task!
 
   .. image:: product-registry-01-01-starter-image.png
-      :target: https://github.com/Blockchain-Learning-Group/course-resources/blob/master/images/product-registry-01-01-starter-image.png
+      :target: https://github.com/Blockchain-Learning-Group/course-resources/raw/master/images/product-registry-01-01-starter-image.png
 
 ----
 
