@@ -81,8 +81,8 @@ Open up the ``index.html`` file within the ``product-registry-01`` folder
 
     .. code-block:: html
 
-      <div class="main ui text container">
-        <h1 class="ui dividing centered header">Adam's Product Registry</h1>
+      <div>
+        <h1>Welcome! Your first task, CHANGE ME :)</h1>
         <div id="content"></div>
       </div>
     
