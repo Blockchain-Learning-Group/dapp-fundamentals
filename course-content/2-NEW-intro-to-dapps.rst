@@ -15,20 +15,20 @@ Stage 1: Starting the Application
 
 `Video Tutorial [1-2] <todo>`_
 
-1. Open a new terminal window
+* Open a new terminal window
 -----------------------------
 
   - Click on the terminal icon in the left dock
 
-2. Start the app
+* Start the app
 -----------------
 
-  2.1 Change directory into the ``blg/product-registry-01`` folder on the Desktop
+  - Change directory into the ``blg/product-registry-01`` folder on the Desktop
     .. code-block:: bash
 
       cd Desktop/blg/product-registry-01
 
-  2.2 Start the server
+  - Start the server
     .. code-block:: bash
 
       npm start
@@ -47,13 +47,15 @@ Stage 1: Starting the Application
 
 **- Chrome should automatically be opened and the application rendered!**
 
-3. Open the application's code in the Sublime text editor
+* Open the application's code in the Sublime text editor
 ---------------------------------------------------------
 - Open the Sublime text editor by clicking on the Sublime icon in the left dock.
 
 - From within Sublime open the `product` folder. Click on ``File`` in the top left corner and select ``Open Folder...`` in the menu.  Select ``Desktop/blg/product-registry-01`` to open, and we can get to coding!
 
-**END Stage 1: Starting the Application!**
-
 ----
 
+Stage 1: Starting the Application
+=======================================================
+
+1. 
