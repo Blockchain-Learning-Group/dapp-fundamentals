@@ -24,26 +24,28 @@ Start the app
 -----------------
 
   - Change directory into the ``blg/product-registry-01`` folder on the Desktop
+    
     .. code-block:: bash
 
       cd Desktop/blg/product-registry-01
 
   - Start the server
+    
     .. code-block:: bash
 
       npm start
 
   - *Example output:*
 
-  .. code-block:: console
+    .. code-block:: console
 
-    ajl@x1c:~/Desktop/blg/product-registry-01$ npm start
+      ajl@x1c:~/Desktop/blg/product-registry-01$ npm start
 
-    > product-registry-01@1.0.0 start /home/ajl/Desktop/blg/product-registry-01
-    > live-server --host=localhost --port=3000 --middleware=./libraries/disable-browser-cache.js
+      > product-registry-01@1.0.0 start /home/ajl/Desktop/blg/product-registry-01
+      > live-server --host=localhost --port=3000 --middleware=./libraries/disable-browser-cache.js
 
-    Serving "/home/ajl/Desktop/blg/product-registry-01" at http://localhost:3000 (http://127.0.0.1:3000)
-    Ready for changes
+      Serving "/home/ajl/Desktop/blg/product-registry-01" at http://localhost:3000 (http://127.0.0.1:3000)
+      Ready for changes
 
   - Chrome should automatically be opened and the application rendered!  Otherwise navigate to http://localhost:3000 in your browser.
 
