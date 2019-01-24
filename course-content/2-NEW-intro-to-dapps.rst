@@ -189,6 +189,48 @@ ruby
       }
     }
 
+    react
+
+.. code-block:: react
+
+    class ProductList extends React.Component {
+      render() {
+        return (
+          <div className='ui unstackable items'>
+            Hello, I am your first React component!
+          </div>
+        );
+      }
+    }
+
+    reactjs
+
+.. code-block:: reactjs
+
+    class ProductList extends React.Component {
+      render() {
+        return (
+          <div className='ui unstackable items'>
+            Hello, I am your first React component!
+          </div>
+        );
+      }
+    }
+
+javascript
+
+.. code-block:: javascript
+
+    class ProductList extends React.Component {
+      render() {
+        return (
+          <div className='ui unstackable items'>
+            Hello, I am your first React component!
+          </div>
+        );
+      }
+    }
+
 ------------------------------------------------------
 
 
