@@ -75,9 +75,9 @@ Open the application's code in the Sublime text editor
 Open up the ``index.html`` file within the ``product-registry-01`` folder
 ------------------------------------------------------
 
-  - View the contents of the file
-  - Update the header ``<h1></h1>`` where your first task is noted
-  - Update the header to be **your** Product registry, for example ``Adam's Product Registry``
+  - View the contents of the file.  Don't worry too much about what is being *linked* within the ``<head>`` of the file, the core is between the ``<body></body>`` tags beneath
+  - Update the title ``<h1></h1>`` where your first task is noted
+  - Update the title to be **your** Product registry, for example ``Adam's Product Registry``
 
   - Example Code:
 
@@ -122,6 +122,12 @@ Reverting to a Blank ``app.js`` file to get started!
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-03.html" target="_blank">Complete solution may be found here</a>
 
+.. note ::
+
+  **Components**
+  React components are entirely comprised of components. A component can be thought of as a UI element within an application, generally within your browser.
+  Components may be thought of as small self contained building blocks that may effectively be reused and combined within other to build up complete applications.
+  The layout, logic, and specific styles are all housed within the given self-contanied component.
 
 ------------------------------------------------------
 
