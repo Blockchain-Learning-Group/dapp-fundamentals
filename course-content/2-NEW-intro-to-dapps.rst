@@ -47,17 +47,17 @@ Start the app
       Serving "/home/ajl/Desktop/blg/product-registry-01" at http://localhost:3000 (http://127.0.0.1:3000)
       Ready for changes
 
-  - Chrome should automatically be opened and the application rendered!  Otherwise navigate to http://localhost:3000 in your browser.
+  - Chrome should automatically be opened and the application rendered!  Otherwise navigate to http://localhost:3000 in your browser.  
+    You should see some basic text and your first task!
+
+----
+
+Stage 2: Understanding and Updating the Application
+=======================================================
 
 Open the application's code in the Sublime text editor
 ---------------------------------------------------------
 - Open the Sublime text editor by clicking on the Sublime icon in the left dock.
 
-- From within Sublime open the `product` folder. Click on ``File`` in the top left corner and select ``Open Folder...`` in the menu.  Select ``Desktop/blg/product-registry-01`` to open, and we can get to coding!
-
-----
-
-Stage 2: TODO
-=======================================================
-
-1. 
+- From within Sublime open the `product` folder. Click on ``File`` in the top left corner and select ``Open Folder...`` in the menu.  
+  Select ``Desktop/blg/product-registry-01`` to open, and we can get to coding!
