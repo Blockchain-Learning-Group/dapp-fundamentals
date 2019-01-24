@@ -132,6 +132,9 @@ Reverting to a Blank ``app.js`` file to get started!
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-03.html" target="_blank">Complete solution may be found here</a>
 
+Your First Component!
+=========================================
+
 .. note::
 
   **Components**
@@ -141,6 +144,51 @@ Reverting to a Blank ``app.js`` file to get started!
   - The layout, logic, and specific styles are all housed within the given self-contanied component.
 
 
+  - The remainder of coding for this exercise will occur in the ``app.js`` file.  Go ahead and open that one up in the Sublime text editor.
+  - It should contain the following *component*:
+
+JSX
+
+  .. code-block:: jsx
+
+    class ProductList extends React.Component {
+      render() {
+        return (
+          <div className='ui unstackable items'>
+            Hello, I am your first React component!
+          </div>
+        );
+      }
+    }
+
+
+Javascript
+
+  .. code-block:: Javascript
+
+    class ProductList extends React.Component {
+      render() {
+        return (
+          <div className='ui unstackable items'>
+            Hello, I am your first React component!
+          </div>
+        );
+      }
+    }
+
+react
+
+  .. code-block:: React
+
+    class ProductList extends React.Component {
+      render() {
+        return (
+          <div className='ui unstackable items'>
+            Hello, I am your first React component!
+          </div>
+        );
+      }
+    }
 
 ------------------------------------------------------
 
