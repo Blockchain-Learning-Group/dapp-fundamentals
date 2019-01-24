@@ -5,7 +5,7 @@ Introduction to React
 `View Completed PRODUCT REGISTRY Demo <TODO>`_
 
 
-.. important ::
+.. important::
 
   In this exercise, you’re going to get a crash course on the React library by building a simple product registry and voting application.
   
@@ -76,6 +76,18 @@ Open up the ``index.html`` file within the ``product-registry-01`` folder
 ------------------------------------------------------
 
   - View the contents of the file.  Don't worry too much about what is being *linked* within the ``<head>`` of the file, the core is between the ``<body></body>`` tags beneath
+  
+  - The core of the application may be simplified to the following:
+
+  .. code:: html
+
+    <div class="main ui text container">
+      <h1 class="ui dividing centered header">Adam's Product Registry</h1>
+      <div id="content"></div>
+    </div>
+  
+  - Simply a title ``<h1>`` and one ``<div>`` that contains the *content* of the application.  Remember this *content* ``<div>`` as we will see it again soon!
+
   - Update the title ``<h1></h1>`` where your first task is noted
   - Update the title to be **your** Product registry, for example ``Adam's Product Registry``
 
@@ -129,6 +141,8 @@ Reverting to a Blank ``app.js`` file to get started!
   - React components are entirely comprised of components. A component can be thought of as a UI element within an application, generally within your browser.
   - Components may be thought of as small self contained building blocks that may effectively be reused and combined within other to build up complete applications.
   - The layout, logic, and specific styles are all housed within the given self-contanied component.
+
+  ****
 
 ------------------------------------------------------
 
