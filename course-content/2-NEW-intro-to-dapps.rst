@@ -87,7 +87,7 @@ Open up the ``index.html`` file within the ``product-registry-01`` folder
 
     .. |location_link| raw:: html
 
-      <a href="<https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-02.html>" target="_blank">Complete solution may be found here</a>
+      <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-02.html" target="_blank">Complete solution may be found here</a>
 
 
 ------------------------------------------------------
