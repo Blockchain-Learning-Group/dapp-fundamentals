@@ -125,9 +125,10 @@ Reverting to a Blank ``app.js`` file to get started!
 .. note ::
 
   **Components**
-  React components are entirely comprised of components. A component can be thought of as a UI element within an application, generally within your browser.
-  Components may be thought of as small self contained building blocks that may effectively be reused and combined within other to build up complete applications.
-  The layout, logic, and specific styles are all housed within the given self-contanied component.
+
+  - React components are entirely comprised of components. A component can be thought of as a UI element within an application, generally within your browser.
+  - Components may be thought of as small self contained building blocks that may effectively be reused and combined within other to build up complete applications.
+  - The layout, logic, and specific styles are all housed within the given self-contanied component.
 
 ------------------------------------------------------
 
