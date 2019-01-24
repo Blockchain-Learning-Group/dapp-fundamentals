@@ -1,5 +1,5 @@
 =======================
-Introduction to DApp Development
+Introduction to React
 =======================
 
 `View Completed PRODUCT REGISTRY Demo <TODO>`_
@@ -96,8 +96,9 @@ Open up the ``index.html`` file within the ``product-registry-01`` folder
 
       <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-02.html" target="_blank">Complete solution may be found here</a>
 
-  Reverting to a Blank ``app.js`` file to get started!
-  ----------------------------------------------------
+
+Reverting to a Blank ``app.js`` file to get started!
+----------------------------------------------------
   
   - Note within the open ``index.html`` file that ``app-complete.js`` is linked in a ``<script>`` tag within the ``<body>``
   - Update this to link ``app.js`` instead of ``app-complete.js``, which is the blank template you will begin with
