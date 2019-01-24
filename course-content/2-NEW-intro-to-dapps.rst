@@ -147,53 +147,37 @@ Your First Component!
   - The remainder of coding for this exercise will occur in the ``app.js`` file.  Go ahead and open that one up in the Sublime text editor.
   - It should contain the following *component*:
 
-JSX
-
-  .. code-block:: jsx
-
-    class ProductList extends React.Component {
-      render() {
-        return (
-          <div className='ui unstackable items'>
-            Hello, I am your first React component!
-          </div>
-        );
-      }
-    }
-
-
-Javascript
-
-  .. code-block:: Javascript
-
-    class ProductList extends React.Component {
-      render() {
-        return (
-          <div className='ui unstackable items'>
-            Hello, I am your first React component!
-          </div>
-        );
-      }
-    }
-
-react
-
-  .. code-block:: React
-
-    class ProductList extends React.Component {
-      render() {
-        return (
-          <div className='ui unstackable items'>
-            Hello, I am your first React component!
-          </div>
-        );
-      }
-    }
-
-
 html
 
   .. code-block:: html
+
+    class ProductList extends React.Component {
+      render() {
+        return (
+          <div className='ui unstackable items'>
+            Hello, I am your first React component!
+          </div>
+        );
+      }
+    }
+
+py
+
+.. code-block:: python
+
+    class ProductList extends React.Component {
+      render() {
+        return (
+          <div className='ui unstackable items'>
+            Hello, I am your first React component!
+          </div>
+        );
+      }
+    }
+
+ruby
+
+.. code-block:: ruby
 
     class ProductList extends React.Component {
       render() {
