@@ -143,6 +143,8 @@ Your First Component!
   - Components may be thought of as small self contained building blocks that may effectively be reused and combined within other to build up complete applications.
   - The layout, logic, and specific styles are all housed within the given self-contanied component.
 
+Taking a look into ``app.js`` and a first component
+----------------------------
 
   - The remainder of coding for this exercise will occur in the ``app.js`` file.  Go ahead and open that one up in the Sublime text editor.
   - It should contain the following *component*:
@@ -158,6 +160,10 @@ Your First Component!
           );
         }
       }
+
+  - Note the familiar looking ``<div>`` section and also note that although this file is now linked it is not currently displayed in the browser.
+    The text "Hello, ..." is not present
+  
 
 ------------------------------------------------------
 
