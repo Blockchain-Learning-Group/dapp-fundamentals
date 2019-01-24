@@ -61,5 +61,29 @@ Open the application's code in the Sublime text editor
 ---------------------------------------------------------
 - Open the Sublime text editor by clicking on the Sublime icon in the left dock.
 
-- From within Sublime open the `product` folder. Click on ``File`` in the top left corner and select ``Open Folder...`` in the menu.  
-  Select ``Desktop/blg/product-registry-01`` to open, and we can get to coding!
+- From within Sublime open the `product-registry-01` folder. 
+- Click on ``File`` in the top left corner and select ``Open Folder...`` in the menu.  
+- Select ``Desktop/blg/product-registry-01`` to open, and we can get to coding!
+
+Open up the ``index.html`` file within the ``product-registry-01`` folder.
+------------------------------------------------------
+
+  - View the contents of the file
+  - Update the header ``<h1></h1>`` where your first task is noted
+  - Update the header to be **your** Product registry, for example ``Adam's Product Registry``
+
+  - Example Code:
+
+    .. code-block:: html
+
+      <h1 class="ui dividing centered header">Adam's Product Registry</h1>
+
+
+------------------------------------------------------
+
+
+------------------------------------------------------
+
+
+
+------------------------------------------------------
