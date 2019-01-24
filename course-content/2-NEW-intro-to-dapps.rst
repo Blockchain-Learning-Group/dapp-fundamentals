@@ -83,7 +83,11 @@ Open up the ``index.html`` file within the ``product-registry-01`` folder
 
   .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/02-renamed-header.png
 
-  - Complete solution may be found `here <https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-02.html>`_
+  - |location_link|.
+
+    .. |location_link| raw:: html
+
+      <a href="<https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-02.html>" target="_blank">Complete solution may be found here</a>
 
 
 ------------------------------------------------------
