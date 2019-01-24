@@ -50,8 +50,7 @@ Start the app
   - Chrome should automatically be opened and the application rendered!  Otherwise navigate to http://localhost:3000 in your browser.  
     You should see some basic text and your first task!
 
-  .. image:: product-registry-01-01-starter-image.png
-      :target: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/images/product-registry-01-01-starter-image.png
+  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/images/product-registry-01-01-starter-image.png
 
 ----
 
