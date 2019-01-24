@@ -151,7 +151,7 @@ Taking a look into ``app.js`` and a first component
 
     .. code-block:: html
 
-      class ProductList extends React.Component {
+      class ProductRegistry extends React.Component {
         render() {
           return (
             <div className='ui unstackable items'>
@@ -161,14 +161,14 @@ Taking a look into ``app.js`` and a first component
         }
       }
 
-  - A React component is simply a JavaScript class, one which extends, or inherits from, the base React component class
+  - A React component is simply a JavaScript class, one which extends, or inherits from, the base React Component class
   - The ``React`` object is availble globally as the ``React`` library was in fact linked in the ``<head>`` of the ``index.html`` file: 
 
     .. code-block:: html
 
       <script src="libraries/react.js"></script>
 
-  - The class, which we will refer to as a component moving forward, ``ProductList`` has only a single function, ``render()``.  This is a required function and is
+  - The class, which we will refer to as a component moving forward, ``ProductRegistry`` has only a single function, ``render()``.  This is a required function and is
     used to determine what the component will render within the browser.
   - Note the familiar looking ``<div>`` section within the return statement.  These are the elements that will be rendered in the browser.
   - Also note that although this file is now linked it is not currently displayed in the browser. The text "Hello, ..." is not present
