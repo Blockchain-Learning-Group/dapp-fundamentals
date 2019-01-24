@@ -116,11 +116,11 @@ Reverting to a Blank ``app.js`` file to get started!
 
   .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/03-blank-app.js.png
 
-    - |solution_link|
+  - |solution_link|
 
-    .. |solution_link| raw:: html
+  .. |solution_link| raw:: html
 
-      <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-03.html" target="_blank">Complete solution may be found here</a>
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-03.html" target="_blank">Complete solution may be found here</a>
 
 
 ------------------------------------------------------
