@@ -75,18 +75,16 @@ Open the application's code in the Sublime text editor
 Open up the ``index.html`` file within the ``product-registry-01`` folder
 ------------------------------------------------------
 
-  - View the contents of the file.  Don't worry too much about what is being *linked* within the ``<head>`` of the file, the core is between the ``<body></body>`` tags beneath
-  
-.. note::
-
+  - View the contents of the file. 
+  - Don't worry too much about what is being *linked* within the ``<head>`` of the file, the core to focus on is between the ``<body></body>`` tags beneath
   - The core of the application may be simplified to the following:
 
-  .. code:: html
+    .. code-block:: html
 
-    <div class="main ui text container">
-      <h1 class="ui dividing centered header">Adam's Product Registry</h1>
-      <div id="content"></div>
-    </div>
+      <div class="main ui text container">
+        <h1 class="ui dividing centered header">Adam's Product Registry</h1>
+        <div id="content"></div>
+      </div>
     
     - Simply a title ``<h1>`` and one ``<div>`` that contains the *content* of the application.  Remember this *content* ``<div>`` as we will see it again soon!
 
