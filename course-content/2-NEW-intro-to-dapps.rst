@@ -4,6 +4,14 @@ Introduction to DApp Development
 
 `View Completed PRODUCT REGISTRY Demo <TODO>`_
 
+
+..important ::
+
+  **Building Product Hunt**
+  In this exercise, you’re going to get a crash course on the React library by building a simple product registry and voting application.
+  
+  You will become familiar with the fundamentals of React front-end development and be able to build an interactive React app from scratch!
+
 ----
 
 Stage 1: Starting the Application
@@ -83,7 +91,7 @@ Open up the ``index.html`` file within the ``product-registry-01`` folder
 
   .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/02-renamed-header.png
 
-  - |location_link|.
+  - |location_link|
 
     .. |location_link| raw:: html
 
