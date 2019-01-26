@@ -63,7 +63,7 @@ Start the app
 
     The ``npm start`` command that you executed ran the ``start`` script in the included ``package.json`` file:
     
-    .. code-block: json
+    .. code-block:: json
 
       {
         [...],
