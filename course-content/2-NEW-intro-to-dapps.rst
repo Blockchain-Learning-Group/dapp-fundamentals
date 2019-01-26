@@ -199,7 +199,7 @@ Rendering your component
   
   - *ReactDOM* is a package that the React library provides to essentially allow direct interaction with the elements defined in your ``index.html``.
   - Above you told React to locate the element on the current page(document) with the id *content* and to render the ``<ProductRegistry />`` component within it.
-    And voila it appeared beneath your title as is defined in your ``index.html``.  
+    Telling React *what* you want to render and *where* you want to render it, and voila it appeared beneath your title as is defined in your ``index.html``.
     
     Effectively resulting in the following:
 
@@ -212,7 +212,7 @@ Rendering your component
         </div>
       </div>
 
-  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/03-hello-component.png
+  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/03-hello.png
 
   - |solution_link|
 
