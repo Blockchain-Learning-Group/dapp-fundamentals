@@ -214,11 +214,11 @@ Rendering your component
 
   .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/03-hello-component.png
 
-    - |solution_link|
+  - |solution_link|
 
-    .. |solution_link| raw:: html
+  .. |solution_link| raw:: html
 
-      <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-02.js" target="_blank">Complete solution may be found here</a>
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-02.js" target="_blank">Complete solution may be found here</a>
 
   .. important::
 
@@ -255,7 +255,7 @@ Rendering your component
 
     
 
-    
+
 TITLE
 =================================
 
