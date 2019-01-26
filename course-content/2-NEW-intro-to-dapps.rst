@@ -180,23 +180,29 @@ Rendering your component
 
   - You now have your first component defined and it is even linked in your ``index.html`` file... but it is not being rendered on the page... let's fix that.
 
-  .. code-clock::
+  .. code-block:: html
 
     <script src="app.js"></script>
 
-  - 
+  - Remember that *content* ``<div>``?  Yes, we want to render our JSX component with that ``<div>`` on our page.  
+  - Add the following lines at the bottom of your ``app.js`` file:
 
+    .. code-block:: html
 
+      ReactDOM.render(
+        <ProductRegistry />,
+        document.getElementById('content')
+      );
+
+  - Save the file and have a look at your browser. Is a warm hello from your component present?
 
   .. important::
 
-    - |babel_link|
+    Understanding **|babel_link|** and how our browser is able to understand your new JSX component.
 
     .. |babel_link| raw:: html
 
       <a href="https://babeljs.io/" target="_blank">Babel</a>
-
-    Understanding **Babel** and how our browser is able to understand your new JSX component.
 
     Modern browsers' execution engines do not natively understand the JSX language.  JSX is an extension to standard JavaScript, which browsers do understand. 
     We therefore need to *translate* this JSX code to standard JavaScript so our browser can understand it.  
@@ -213,7 +219,7 @@ Rendering your component
 
       <script src="libraries/babel-standalone.js"></script>
 
-    Finally the browser may be instructed to use Babel directly where the ``app.js`` file is linked in your ``index.html`` :
+    Finally the browser may be instructed to use Babel directly where the ``app.js`` file is linked in your ``index.html``:
 
       .. code-block:: html
 
