@@ -180,11 +180,11 @@ Rendering your component
 
   - You now have your first component defined and it is even linked in your ``index.html`` file... but it is not being rendered on the page... let's fix that.
 
-  .. code-block:: html
+    .. code-block:: html
 
-    <script src="app.js"></script>
+      <script src="app.js"></script>
 
-  - Remember that *content* ``<div>``?  Yes, we want to render our JSX component with that ``<div>`` on our page.  
+  - Remember that *content* ``<div>``?  Yes, we want to render our JSX component within that ``<div>`` on our page.  
   - Add the following lines at the bottom of your ``app.js`` file:
 
     .. code-block:: html
@@ -195,10 +195,26 @@ Rendering your component
       );
 
   - Save the file and have a look at your browser. Is a warm hello from your component present?
+  - Great, you have rendered your first React component!
+  
+  - *ReactDOM* is a package that the React library provides to essentially allow direct interaction with the elements defined in your ``index.html``.
+  - Above you told React to locate the element on the current page(document) with the id *content* and to render the ``<ProductRegistry />`` component within it.
+    And voila it appeared beneath your title as is defined in your ``index.html``.  
+    
+    Effectively resulting in the following:
+
+    .. code-block:: html
+
+      <div>
+        <h1>Product Registry</h1>
+        <div id="content">
+          <ProductRegistry />
+        </div>
+      </div>
 
   .. important::
 
-    Understanding **|babel_link|** and how our browser is able to understand your new JSX component.
+    Understanding |babel_link| and how our browser is able to understand your new JSX component.
 
     .. |babel_link| raw:: html
 
