@@ -13,7 +13,7 @@ Introduction to React
 
 ----
 
-Stage 1: Starting the Application
+1. Starting the Application
 =======================================================
 
 .. note::
@@ -61,7 +61,7 @@ Start the app
 
 ----
 
-Stage 2: Understanding and Updating the Application
+2. Understanding and Updating the Application
 =======================================================
 
 Open the application's code in the Sublime text editor
@@ -132,7 +132,7 @@ Reverting to a Blank ``app.js`` file to get started!
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-03.html" target="_blank">Complete solution may be found here</a>
 
-Your First Component!
+3. Your First Component!
 =========================================
 
 .. note::
