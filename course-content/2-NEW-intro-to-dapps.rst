@@ -212,6 +212,14 @@ Rendering your component
         </div>
       </div>
 
+  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/03-hello-component.png
+
+    - |solution_link|
+
+    .. |solution_link| raw:: html
+
+      <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-02.js" target="_blank">Complete solution may be found here</a>
+
   .. important::
 
     Understanding |babel_link| and how our browser is able to understand your new JSX component.
@@ -247,4 +255,15 @@ Rendering your component
 
     
 
-------------------------------------------------------
+    
+TITLE
+=================================
+
+
+.. image:: URL
+
+    - |solution_link|
+
+    .. |solution_link| raw:: html
+
+      <a href="url" target="_blank">Complete solution may be found here</a>
