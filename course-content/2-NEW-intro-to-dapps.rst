@@ -66,14 +66,14 @@ Start the app
     .. code-block: json
 
       {
-      [...],
-      "scripts": {
-        "start": "live-server --host=localhost --port=3000 --middleware=./libraries/disable-browser-cache.js"
-      },
-      "devDependencies": {
-        "live-server": "https://github.com/acco/live-server/tarball/master"
+        [...],
+        "scripts": {
+          "start": "live-server --host=localhost --port=3000 --middleware=./libraries/disable-browser-cache.js"
+        },
+        "devDependencies": {
+          "live-server": "https://github.com/acco/live-server/tarball/master"
+        }
       }
-    }
     
     This ran a very light-weight server that will host the code for your browser to access.
     The server will also detect changes in the code base and automatically re-render the browser.  
