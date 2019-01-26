@@ -170,14 +170,59 @@ Taking a look into ``app.js`` and a first component
 
   - The class, which we will refer to as a component moving forward, ``ProductRegistry`` has only a single function, ``render()``.  This is a required function and is
     used to determine what the component will render within the browser.
+  - However, the return value doesn’t look like traditional JavaScript, and you are right as we are actually using ``JSX (JavaScript eXtension syntax)``, an extension for JavaScript. 
+    JSX allows us to write the markup for our component views in a familiar, HTML-esq syntax.
   - Note the familiar looking ``<div>`` section within the return statement.  These are the elements that will be rendered in the browser.
-  - Also note that although this file is now linked it is not currently displayed in the browser. The text "Hello, ..." is not present
+  - Also note that although this file is now linked in your ``index.html`` it is not currently displayed in the browser. The text *"Hello, ..."* is not present
   
 Rendering your component
 --------------------------
 
+  - You now have your first component defined and it is even linked in your ``index.html`` file... but it is not being rendered on the page... let's fix that.
+
+  .. code-clock::
+
+    <script src="app.js"></script>
+
   - 
 
 
+
+  .. important::
+
+    - |babel_link|
+
+    .. |babel_link| raw:: html
+
+      <a href="https://babeljs.io/" target="_blank">Babel</a>
+
+    Understanding **Babel** and how our browser is able to understand your new JSX component.
+
+    Modern browsers' execution engines do not natively understand the JSX language.  JSX is an extension to standard JavaScript, which browsers do understand. 
+    We therefore need to *translate* this JSX code to standard JavaScript so our browser can understand it.  
+    Essentially your component is speaking Espanol while our browser only understands English.
+
+    Babel is here to solve this problem for us!
+
+    Babel is a JavaScript *transpiler*, or in more familiar English language a translator. Babel understands JSX and is capable of translating 
+    your JSX into standard JavaScript.  You simply need to instruct the browser to use Babel prior to attemtping to execute the JSX code.
+
+    The Babel library has been included in your ``index.html``:
+
+    .. code-block:: html
+
+      <script src="libraries/babel-standalone.js"></script>
+
+    Finally the browser may be instructed to use Babel directly where the ``app.js`` file is linked in your ``index.html`` :
+
+      .. code-block:: html
+
+        <script
+          type="text/babel"
+          data-plugins="transform-class-properties"
+          src="app.js"
+        ></script>
+
+    
 
 ------------------------------------------------------
