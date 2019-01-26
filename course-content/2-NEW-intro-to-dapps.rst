@@ -59,6 +59,27 @@ Start the app
 
   .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/01-completed-app.png
 
+  .. note::
+
+    The ``npm start`` command that you executed ran the ``start`` script in the included ``package.json`` file:
+    
+    .. code-block: json
+
+      {
+      [...],
+      "scripts": {
+        "start": "live-server --host=localhost --port=3000 --middleware=./libraries/disable-browser-cache.js"
+      },
+      "devDependencies": {
+        "live-server": "https://github.com/acco/live-server/tarball/master"
+      }
+    }
+    
+    This ran a very light-weight server that will host the code for your browser to access.
+    The server will also detect changes in the code base and automatically re-render the browser.  
+    Therefore you will not need to restart the server at all during development and every time that 
+    you change and save a file the browser will render the updated page for you.
+
 ----
 
 2. Understanding and Updating the Application
@@ -252,8 +273,20 @@ Rendering your component
           data-plugins="transform-class-properties"
           src="app.js"
         ></script>
-
     
+4. Defining the Layout and Components of Your Application
+=================================
+
+
+
+.. image:: URL
+
+    - |solution_link|
+
+    .. |solution_link| raw:: html
+
+      <a href="url" target="_blank">Complete solution may be found here</a>
+
 
 
 TITLE
