@@ -370,6 +370,25 @@ Rendering your component
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-03.js" target="_blank">Complete solution may be found here</a>
 
+5. Building out Your Products
+=================================
+
+- Great work so far!  However, the application is not looking overly interesting just yet.  In this section you will build out the ``<Product>`` component.
+
+- Begin by extending the content that is returned by the component in it's ``render()`` method. 
+  You will add an image, a title, a description, and an avatar of who submitted the product.
+
+  .. code-block:: html
+
+    
+
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/
+
+- |solution_link|
+
+  .. |solution_link| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-.js" target="_blank">Complete solution may be found here</a>
 
 
 
