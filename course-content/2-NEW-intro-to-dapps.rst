@@ -620,6 +620,27 @@ Making your ``<Product>`` dynamic
 Understanding ``seed.js`` and the ``window``
 --------------------------------------
 
+- Take a look back at the ``seed.js`` file that should be open at this time, if it is not do open it now.  This is where our data is going to come from!
+- Let's walk through this file one step at a time ...
+
+  .. note::
+
+    JavaScript exposes a top level object accessible with the ``window`` keyword which represents the browser window.  This object contains many functions
+    and properties about the given browser session and also allows you as a developer to bind data to the window that may be globally accessible.
+
+    Let's have a look at this ``window`` object directly in the browser to see what it is all about.
+
+    - Right-click in your browser and in the dropdown menu select *inspect*.
+    - Within the console type ``window`` and hit enter.
+    - You will see a reference to the global ``window`` object, expand this and have a look around.  This is the top level object that JavaScript natively 
+      exposes.
+
+    .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/07-dev-console-window.png
+
+
+  .. code-block:: JavaScript
+    
+    window.Seed = (function () {
 
 
 
