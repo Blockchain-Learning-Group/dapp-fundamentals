@@ -375,20 +375,55 @@ Rendering your component
 
 - Great work so far!  However, the application is not looking overly interesting just yet.  In this section you will build out the ``<Product>`` component.
 
-- Begin by extending the content that is returned by the component in it's ``render()`` method. 
-  You will add an image, a title, a description, and an avatar of who submitted the product.
+.. note::
+
+  |semantec_url|
+
+    .. |semantec_url| raw:: html
+    
+    <a href="https://react.semantic-ui.com/" target="_blank">Semantic UI</a> 
+  
+  is being used as a styling library which has been linked in your ``index.html`` file for you. Therefore, the ``className`` reference in several of the
+  elements below are in fact utilizing classes and styling that is provided by Semantic.
+
+- Begin by extending the content that is returned by the component in it's ``render()`` function. 
+  You will add an image, a title, a description, and an image of who submitted the product.
 
   .. code-block:: html
 
-    
+    class Product extends React.Component {
+      render() {
+        return (
+          <div className='item'>
+            <div className='image'>
+              <img src='images/products/image-aqua.png' />
+            </div>
+            <div className='middle aligned content'>
+              <div className='description'>
+                <a>YOUR NAME</a>
+                <p>NEW FANCY PRODUCT OF YOUR OWN</p>
+              </div>
+              <div className='extra'>
+                <span>Submitted by:</span>
+                <img className='ui avatar image' src='images/avatars/liz.png' />
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/
+- The image links in the component above map to the images that have been provided for you within the ``/images`` folder.
+- The product image: ``<img src='images/products/image-aqua.png' />`` and the submitted image: ``<img className='ui avatar image' src='images/avatars/liz.png' />``
+  both exist within their respective folders ``images/products/`` and ``images/avatars/``, feel free to add new images of your own and update these paths accordingly!
+
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/06-product-updated-images.png
 
 - |solution_link|
 
   .. |solution_link| raw:: html
 
-    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-.js" target="_blank">Complete solution may be found here</a>
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-04.js" target="_blank">Complete solution may be found here</a>
 
 
 
