@@ -496,7 +496,7 @@ Rendering your component
 - This file defines a list of components that are to populate, or seed, the application when it initially renders.  This will take a few steps, 
   first you will need to update your ``<Product>`` component to allow data for it's fields to be passed in.
 
-Making your ``<Product>`` dynamic
+Making your ``<Product>`` dynamic and data-driven
 ----------------------------
 
 .. note::
@@ -507,6 +507,9 @@ Making your ``<Product>`` dynamic
   is the ``<ProductRegistry>`` and it may have many child ``<Product>`` s.  Therefore the ``<Product>`` components may accept data passed to them
   by the ``<ProductRegistry>``, and it is this data, passed from parent to child, that is referred to as *props*.  Essentially the input parameters 
   that a component may accept are referred to as *props*.
+
+  Also ``this`` is a special keyword in JavaScript. For the time being we can assume his will be bound to the React component class.
+  Therefore ``this.props`` inside the component is accessing the ``props`` attribute on the component class.
 
 - Time to update your ``<Product>`` component to accept some props!
 
@@ -728,6 +731,8 @@ Loading a product from the Seed
         );
       }
     }
+
+- You should see the data from the first product in the ``seed.js`` file rendered!
 
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/08-seed-product-data.png
 
