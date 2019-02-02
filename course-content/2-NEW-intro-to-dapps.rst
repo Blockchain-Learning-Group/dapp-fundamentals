@@ -1074,8 +1074,61 @@ Time for some interaction!
 Introducing: **The State!**
 ---------------------------------
 
-- 
+.. note::
 
+  Props as we defined earlier are seen as immutable by a component and owned by a it’s parent.  
+  State is instead owned by the component itself private to that component.
+  The state of a component is in fact mutable and accessible via a function provided by the ``React.Component`` base class called ``this.setState()``.
+  And it is with the call of ``this.setState()`` that the component will also no to re-render itself with the new data!
+
+- Begin by defining the initial state of the ``<ProductRegistry>``:
+
+  .. code-block:: html
+
+    state = {
+      products: Seed.products
+    };
+
+- Update the ``render`` function to now read from the component's state instead of the seed file directly:
+
+  .. code-block::
+
+    this.state.products.map(product => ...
+
+- Resulting in the complete ``<ProductRegistry>``:
+
+  .. code-block:: html
+
+    class ProductRegistry extends React.Component {
+      state = {
+        products: Seed.products
+      };
+
+      handleProductUpVote(productId) {
+        console.log(productId);
+      }
+
+      render() {
+        return (
+          <div className='ui unstackable items'>
+            {
+              this.state.products.map(product => 
+                <Product
+                  key={'product-'+product.id}
+                  id={product.id}
+                  title={product.title}
+                  description={product.description}
+                  submitterAvatarUrl={product.submitterAvatarUrl}
+                  productImageUrl={product.productImageUrl}
+                  votes={product.votes}
+                  onVote={this.handleProductUpVote}
+                />
+              )
+            }
+          </div>
+        );
+      }
+    }
 
 
 TITLE
