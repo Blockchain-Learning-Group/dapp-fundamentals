@@ -983,8 +983,8 @@ Time for some interaction!
 
     .. code-block:: html
 
-      handleProductUpVote() {
-        console.log('click');
+      handleProductUpVote(productId) {
+        console.log(productId);
       }
 
 - Pass this function to each ``<Product>`` as a new prop called ``onVote``
@@ -998,8 +998,8 @@ Time for some interaction!
   .. code-block:: html
 
     class ProductRegistry extends React.Component {
-      handleProductUpVote() {
-        console.log('click');
+      handleProductUpVote(productId) {
+        console.log(productId);
       }
 
       render() {
@@ -1024,11 +1024,12 @@ Time for some interaction!
       }
     }
 
-- Update the ``<Product>`` to no longer raise the alert but instead call its ``onVote`` prop:
+- Update the ``<Product>`` to no longer raise the alert but instead call its ``onVote`` prop, pass the id of the clicked component in order 
+  to determine where the event occured to cast the vote correctly:
 
   .. code-block:: html
 
-    <a onClick={this.props.onVote}>
+    <a onClick={() => this.props.onVote(this.props.id)}>
 
 - Resulting in the complete ``<Product>``:
 
@@ -1043,7 +1044,7 @@ Time for some interaction!
               </div>
               <div className='middle aligned content'>
                 <div className='header'>
-                  <a onClick={this.props.onVote}>
+                  <a onClick={() => this.props.onVote(this.props.id)}>
                     <i className='large caret up icon' />
                   </a>
                   {this.props.votes}
@@ -1062,7 +1063,7 @@ Time for some interaction!
         }
       }
 
-- Try it out!  Noting the text "click" logged to the browser developer console and successfully the event has been propagated upward to the parent component!
+- Try it out!  Noting the id of the product logged to the browser developer console, 1,2,3 or 4, and successfully the event has been propagated upward to the parent component!
 
 - |app08|
 
@@ -1070,6 +1071,10 @@ Time for some interaction!
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-08.js" target="_blank">Complete solution may be found here</a>
 
+Introducing: **The State!**
+---------------------------------
+
+- 
 
 
 
