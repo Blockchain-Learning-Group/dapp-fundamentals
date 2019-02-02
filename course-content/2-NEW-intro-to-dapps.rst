@@ -770,22 +770,17 @@ Loading a product from the Seed
       3
       4
 
-- Instead of loading just the first product from the seed now load the entire array:
-
-  .. code-block:: JavaScript
-
-    const products = Seed.products;
-
-- Iterate over all products and define a ``<Product>`` component to be rendered for each:
+- Instead of loading just the first product from the seed now iterate over all the products and define a ``<Product>`` 
+  component to be rendered for each:
   
-  *remember anything between ``{}`` allows you to use native JavaScript*
+  *remember anything between* ``{}`` *allows you to use native JavaScript*
 
-  .. code-block:: JavaScript
+  .. code-block:: html
 
     return (
       <div className='ui unstackable items'>
         {
-          products.map(product => 
+          Seed.products.map(product => 
             <Product
               title={product.title}
               description={product.description}
@@ -798,11 +793,11 @@ Loading a product from the Seed
     );
 
 - Now you will notice an error in the browser console stating: ``Warning: Each child in an array or iterator should have a unique "key" prop.``
-- The use of the key prop is something that the React framework uses to identify each instance of the Product component so it is enough to note
-  that this property needs to be unique for each React component.
+- The use of the ``key`` prop is something that the React framework uses to identify each instance of the Product component. 
+- For the time being just remember that this attribute needs to be unique for each React component.
 - Add a ``key`` and ``id`` prop to the ``<Product>`` component:
 
-  .. code-block:: JavaScript
+  .. code-block:: html
 
     <Product
       key={'product-'+product.id}
@@ -819,12 +814,10 @@ Loading a product from the Seed
 
     class ProductRegistry extends React.Component {
       render() {
-        const products = Seed.products;
-
         return (
           <div className='ui unstackable items'>
             {
-              products.map(product => 
+              Seed.products.map(product => 
                 <Product
                   key={'product-'+product.id}
                   id={product.id}
