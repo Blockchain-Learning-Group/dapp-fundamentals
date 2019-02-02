@@ -742,6 +742,115 @@ Loading a product from the Seed
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-06.js" target="_blank">Complete solution may be found here</a>
 
+7. Loading the Entire Product Registry
+=================================
+
+- This section will aid to highlight the beauty and power of the portable and modular nature of React components!
+- You will now load all of the seeded products into the registry.
+
+- Within the ``<ProductRegistry>`` component now instead of just loading the first product in the array iterate over the entire list.  In order to do this
+  you will leverage the internal ``map`` function of the JavaScript language.
+
+.. note:: 
+
+  JavaScript's ``map`` function
+
+  ``array.map(function(currentValue, index, arr), func())``
+
+  ``map`` is a function that is accessible on every array object.  This function essentially allows efficient iteration over all of the array components.
+
+  For example:
+
+    .. code-block:: console
+
+      > const myArray = [1,2,3,4]
+      > myArray.map(arrayItem => console.log(arrayItem))
+      1
+      2
+      3
+      4
+
+- Instead of loading just the first product from the seed now load the entire array:
+
+  .. code-block:: JavaScript
+
+    const products = Seed.products;
+
+- Iterate over all products and define a ``<Product>`` component to be rendered for each:
+  
+  *remember anything between ``{}`` allows you to use native JavaScript*
+
+  .. code-block:: JavaScript
+
+    return (
+      <div className='ui unstackable items'>
+        {
+          products.map(product => 
+            <Product
+              title={product.title}
+              description={product.description}
+              submitterAvatarUrl={product.submitterAvatarUrl}
+              productImageUrl={product.productImageUrl}
+            />
+          )
+        }
+      </div>
+    );
+
+- Now you will notice an error in the browser console stating: ``Warning: Each child in an array or iterator should have a unique "key" prop.``
+- The use of the key prop is something that the React framework uses to identify each instance of the Product component so it is enough to note
+  that this property needs to be unique for each React component.
+- Add a ``key`` and ``id`` prop to the ``<Product>`` component:
+
+  .. code-block:: JavaScript
+
+    <Product
+      key={'product-'+product.id}
+      id={product.id}
+      title={product.title}
+      description={product.description}
+      submitterAvatarUrl={product.submitterAvatarUrl}
+      productImageUrl={product.productImageUrl}
+    />
+
+- Resulting with the final ``<ProductRegistry>`` component: 
+
+  .. code-block:: html
+
+    class ProductRegistry extends React.Component {
+      render() {
+        const products = Seed.products;
+
+        return (
+          <div className='ui unstackable items'>
+            {
+              products.map(product => 
+                <Product
+                  key={'product-'+product.id}
+                  id={product.id}
+                  title={product.title}
+                  description={product.description}
+                  submitterAvatarUrl={product.submitterAvatarUrl}
+                  productImageUrl={product.productImageUrl}
+                />
+              )
+            }
+          </div>
+        );
+      }
+    }
+
+- And all seeded products should be rendered!
+
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/09-all-prods-seeded.png
+
+- |app07|
+
+  .. |app07| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-07.js" target="_blank">Complete solution may be found here</a>
+
+
 
 
 TITLE
