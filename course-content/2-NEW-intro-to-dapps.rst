@@ -277,6 +277,20 @@ Rendering your component
 4. Defining the Layout and Components of Your Application
 =================================
 
+.. note::
+
+  A best practise in designing web application front ends, and especially when utilizing the ReactJS library, is to breakdown the final design into 
+  modular, portable and reusable components.
+  
+  .. image:: URL
+
+    - |final_image|
+
+    .. |final_image| raw:: html
+
+      <a href="url" target="_blank">Have a look back at the final interface.</a> 
+
+  Take a second and think about the components that you could break this up into.
 
 
 .. image:: URL
