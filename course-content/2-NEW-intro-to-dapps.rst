@@ -274,9 +274,8 @@ Rendering your component
           src="app.js"
         ></script>
     
-4. Defining the Layout and Components of Your Application
+4. Creating the ``<Product>`` Component
 =================================
-
 .. note::
 
   A best practise in designing web application front ends, and especially when utilizing the ReactJS library, is to breakdown the final design into 
@@ -292,9 +291,6 @@ Rendering your component
 
 - Can the interface be simplified to a ``<ProductList>`` of ``<Products>``?  We think so!
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/04-Product-Registry-UI-Component-Breakdown.png
-
-4. Creating the ``<Product>`` Component
-=================================
 
 - Navigate back to your open ``app.js`` file in your text editor.  It should currently look like this:
 
