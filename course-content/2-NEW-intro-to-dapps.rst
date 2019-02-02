@@ -895,7 +895,7 @@ Loading a product from the Seed
 - Notice that ``this.props.votes`` is being accessed but is not currently being passed in by the parent ``<ProductRegistry>``.
 - Update the ``<ProductRegistry>`` to also pass in votes as a prop:
 
-  .. code-block::
+  .. code-block:: html
 
     votes={product.votes}
 
@@ -930,19 +930,145 @@ Time for some interaction!
       {this.props.votes}
     </div>
 
+- Resulting in the following ``<Product>`` component:
+
+  .. code-block:: html
+
+    class Product extends React.Component {
+      render() {
+        return (
+          <div className='item'>
+            <div className='image'>
+              <img src={this.props.productImageUrl} />
+            </div>
+            <div className='middle aligned content'>
+              <div className='header'>
+                <a onClick={() => alert('click')}>
+                  <i className='large caret up icon' />
+                </a>
+                {this.props.votes}
+              </div>
+              <div className='description'>
+                <a>{this.props.title}</a>
+                <p>{this.props.description}</p>
+              </div>
+              <div className='extra'>
+                <span>Submitted by:</span>
+                <img className='ui avatar image' src={this.props.submitterAvatarUrl} />
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }
+
 - Try it out!
 
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/10-craet-click-alert.png
 
+- Now we need to update the number of votes that the clicked on product currently has every time that caret is clicked.
 
+.. note::
 
+  The props of a given component are not *owned* by the child component itself but instead are treated as immutable, or permanent, at the child component level
+  and owned by the parent.
 
+  So the way you currently have your components setup, parent ``<ProductRegistry>`` passing in the ``votes`` prop to child ``<Product>`` means that
+  the ``<ProductRegistry>`` must be the one to update the given value.
 
-- |solution_link|
+  Therefore, the first order of business is to have this click event on the ``<Product>`` propagated upwards to the ``<ProductRegistry>``.  React
+  allows you to not only pass data values as props but functions as well to solve this problem!
 
-  .. |solution_link| raw:: html
+- Add a function within your ``<ProductRegistry>`` component to handle the event when a vote is cast:
 
-    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-.js" target="_blank">Complete solution may be found here</a>
+    .. code-block:: html
+
+      handleProductUpVote() {
+        console.log('click');
+      }
+
+- Pass this function to each ``<Product>`` as a new prop called ``onVote``
+
+  .. code-block:: html
+
+    onVote={this.handleProductUpVote}
+
+- Resulting in the complete ``<ProductRegistry>``:
+
+  .. code-block:: html
+
+    class ProductRegistry extends React.Component {
+      handleProductUpVote() {
+        console.log('click');
+      }
+
+      render() {
+        return (
+          <div className='ui unstackable items'>
+            {
+              Seed.products.map(product => 
+                <Product
+                  key={'product-'+product.id}
+                  id={product.id}
+                  title={product.title}
+                  description={product.description}
+                  submitterAvatarUrl={product.submitterAvatarUrl}
+                  productImageUrl={product.productImageUrl}
+                  votes={product.votes}
+                  onVote={this.handleProductUpVote}
+                />
+              )
+            }
+          </div>
+        );
+      }
+    }
+
+- Update the ``<Product>`` to no longer raise the alert but instead call its ``onVote`` prop:
+
+  .. code-block:: html
+
+    <a onClick={this.props.onVote}>
+
+- Resulting in the complete ``<Product>``:
+
+    .. code-block:: html
+
+      class Product extends React.Component {
+        render() {
+          return (
+            <div className='item'>
+              <div className='image'>
+                <img src={this.props.productImageUrl} />
+              </div>
+              <div className='middle aligned content'>
+                <div className='header'>
+                  <a onClick={this.props.onVote}>
+                    <i className='large caret up icon' />
+                  </a>
+                  {this.props.votes}
+                </div>
+                <div className='description'>
+                  <a>{this.props.title}</a>
+                  <p>{this.props.description}</p>
+                </div>
+                <div className='extra'>
+                  <span>Submitted by:</span>
+                  <img className='ui avatar image' src={this.props.submitterAvatarUrl} />
+                </div>
+              </div>
+            </div>
+          );
+        }
+      }
+
+- Try it out!  Noting the text "click" logged to the browser developer console and successfully the event has been propagated upward to the parent component!
+
+- |app08|
+
+  .. |app08| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-08.js" target="_blank">Complete solution may be found here</a>
 
 
 
