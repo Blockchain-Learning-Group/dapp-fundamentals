@@ -843,6 +843,107 @@ Loading a product from the Seed
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-07.js" target="_blank">Complete solution may be found here</a>
 
+8. Voting for a Product - Dynamically Updating the UI
+=================================
+
+- This section will allow you to vote on your favourite products.  Interacting with the application and dynamically up it!
+- You will learn how to manage interaction with your components and how to dynamically update data that is stored in a component's *state*.
+
+- Begin by updating the product component to show its current number of votes as well as a button to click on to vote for that product.
+
+  .. code-block:: html
+
+    <div className='header'>
+      <a>
+        <i className='large caret up icon' />
+      </a>
+      {this.props.votes}
+    </div>
+
+- Resulting in the following ``<Product>`` component:
+
+  .. code-block:: html
+
+    class Product extends React.Component {
+      render() {
+        return (
+          <div className='item'>
+            <div className='image'>
+              <img src={this.props.productImageUrl} />
+            </div>
+            <div className='middle aligned content'>
+              <div className='header'>
+                <a>
+                  <i className='large caret up icon' />
+                </a>
+                {this.props.votes}
+              </div>
+              <div className='description'>
+                <a>{this.props.title}</a>
+                <p>{this.props.description}</p>
+              </div>
+              <div className='extra'>
+                <span>Submitted by:</span>
+                <img className='ui avatar image' src={this.props.submitterAvatarUrl} />
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }
+
+- Notice that ``this.props.votes`` is being accessed but is not currently being passed in by the parent ``<ProductRegistry>``.
+- Update the ``<ProductRegistry>`` to also pass in votes as a prop:
+
+  .. code-block::
+
+    votes={product.votes}
+
+- Resulting in the complete ``<Product>`` definition:
+
+  .. code-block:: html
+
+    <Product
+      key={'product-'+product.id}
+      id={product.id}
+      title={product.title}
+      description={product.description}
+      submitterAvatarUrl={product.submitterAvatarUrl}
+      productImageUrl={product.productImageUrl}
+      votes={product.votes}
+    />
+
+Time for some interaction!
+---------------------------------
+
+- When the voting caret is clicked we want to increment the product's total vote count.
+- In order to do this we need to register the event when the given product is clicked.
+- React features many built-in listeners for such events. In fact an ``onClick`` prop exists that we can access directly.
+- Within the definition of the caret in the ``<Product>`` component add the ``onClick`` prop and create an alert whenever a click occurs.
+
+  .. code-block:: html
+
+    <div className='header'>
+      <a onClick={() => alert('click')}>
+        <i className='large caret up icon' />
+      </a>
+      {this.props.votes}
+    </div>
+
+- Try it out!
+
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/10-craet-click-alert.png
+
+
+
+
+
+- |solution_link|
+
+  .. |solution_link| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-.js" target="_blank">Complete solution may be found here</a>
+
 
 
 
