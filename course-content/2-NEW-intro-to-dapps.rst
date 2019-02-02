@@ -575,10 +575,10 @@ Making your ``<Product>`` dynamic
 
     .. code-block:: html
 
-    <div className='extra'>
-      <span>Submitted by:</span>
-      <img className='ui avatar image' src={this.props.submitterAvatarUrl} />
-    </div>
+      <div className='extra'>
+        <span>Submitted by:</span>
+        <img className='ui avatar image' src={this.props.submitterAvatarUrl} />
+      </div>
 
 - The resulting component should look like the following:
 
