@@ -287,9 +287,9 @@ Rendering your component
 
       <a href="https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/01-completed-app.png" target="_blank">Have a look back at the final interface.</a> 
 
-  Take a second and think about the components that you could break this up into.  Remembering that thus far we have defined the ``<ProductList>``.
+  Take a second and think about the components that you could break this up into.  Remembering that thus far we have defined the ``<ProductRegistry>``.
 
-- Can the interface be simplified to a ``<ProductList>`` of ``<Products>``?  We think so!
+- Can the interface be simplified to a ``<ProductRegistry>`` of ``<Products>``?  We think so!
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/04-Product-Registry-UI-Component-Breakdown.png
 
 - Navigate back to your open ``app.js`` file in your text editor.  It should currently look like this:
@@ -311,7 +311,7 @@ Rendering your component
       document.getElementById('content')
     );
 
-- Begin by defining a brand new component, JavaScript class, beneath the existing ``<ProductList>`` component
+- Begin by defining a brand new component, JavaScript class, beneath the existing ``<ProductRegistry>`` component
 
   .. code-block:: html
 
@@ -343,7 +343,7 @@ Rendering your component
 
 - Therefore the ``<Product>`` component is not being rendered yet and will not be present in the browser
 
-- Add the ``<Product>`` component to the components that are returned by your ``<ProductList>`` within the ``app.js`` file
+- Add the ``<Product>`` component to the components that are returned by your ``<ProductRegistry>`` within the ``app.js`` file
 
   .. code-block:: html
 
@@ -496,8 +496,119 @@ Rendering your component
 - This file defines a list of components that are to populate, or seed, the application when it initially renders.  This will take a few steps, 
   first you will need to update your ``<Product>`` component to allow data for it's fields to be passed in.
 
-Making your ``<Product> dynamic``
+Making your ``<Product>`` dynamic
 ----------------------------
+
+.. note::
+
+  In order to do this we must introduce another ReactJS concept, that is **Props**.
+
+  Components are allowed to accpet data passed to them from their *parents* meaning the components that contain them.  In your case the parent
+  is the ``<ProductRegistry>`` and it may have many child ``<Product>``s.  Therefore the ``<Product>`` components may accept data passed to them
+  by the ``<ProductRegistry>``, and it is this data, passed from parent to child, that is referred to as *props*.  Essentially the input parameters 
+  that a component may accept are referred to as *props*.
+
+- Time to update your ``<Product>`` component to accept props.
+
+  1. Update Product Image URL:
+
+    .. code-block:: html
+    
+        <div className='image'>
+          <img src='images/products/image-aqua.png' />
+        </div>
+
+    to >>
+
+    .. code-block:: html
+
+        <div className='image'>
+          <img src={this.props.productImageUrl} />
+        </div>
+
+  2. Product Title:
+
+    .. code-block:: html
+
+      <div className='description'>
+        <a>YOUR PRODUCT NAME</a>
+        ...
+      </div>
+
+    to >>
+
+    .. code-block:: html
+
+      <div className='description'>
+        <a>{this.props.title}</a>
+        ...
+      </div>
+
+  3. Product Description:
+
+    .. code-block:: html
+
+      <div className='description'>
+        ...
+        <p>NEW FANCY PRODUCT OF YOUR OWN</p>
+      </div>
+
+    to >>
+
+    .. code-block:: html
+
+      <div className='description'>
+        ...
+        <p>{this.props.description}</p>
+      </div>
+
+  4. Submitted Image URL:
+
+    .. code-block:: html
+
+      <div className='extra'>
+        <span>Submitted by:</span>
+        <img className='ui avatar image' src='images/avatars/liz.png' />
+      </div>
+
+      to >>
+
+      .. code-block:: html
+
+      <div className='extra'>
+        <span>Submitted by:</span>
+        <img className='ui avatar image' src={this.props.submitterAvatarUrl} />
+      </div>
+
+- The resulting component should look like the following:
+
+  .. code-block:: html
+
+    class Product extends React.Component {
+      render() {
+        return (
+          <div className='item'>
+            <div className='image'>
+              <img src={this.props.productImageUrl} />
+            </div>
+            <div className='middle aligned content'>
+              <div className='description'>
+                <a>{this.props.title}</a>
+                <p>{this.props.description}</p>
+              </div>
+              <div className='extra'>
+                <span>Submitted by:</span>
+                <img className='ui avatar image' src={this.props.submitterAvatarUrl} />
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }
+
+
+- This may look odd at first, seeing JavaScript directly inline with html, and that is in fact the beauty of JSX! The ``{}`` braces identify
+  that what is within them is a JavaScript expression.  Therefore the props object of the ``<Product>`` component(remember just a JavaScript class).
 
 
 
