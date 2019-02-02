@@ -661,10 +661,11 @@ Understanding ``seed.js`` and the ``window``
       ...
     ]
 
-- Have a look at this attribute back in the browser.  In the browser console type ``window.Seed`` and you will see the result!  
-  Yes, all of your data has been loaded and is availble globally attached to the ``window`` object.  
-  In fact every ``window`` attribute is accessible without the ``window`` keyword as they are added
-  to the global scope of the application.  Therefore this object may simply be accessed globally via just ``Seed``.
+- Have a look at this attribute back in the browser.  
+  - In the browser console type ``window.Seed`` and you will see the result!  
+  - Yes, all of your data has been loaded and is availble globally attached to the ``window`` object.  
+  - In fact every ``window`` attribute is accessible without the ``window`` keyword as they are added
+    to the global scope of the application.  Therefore this object may simply be accessed globally via just ``Seed``.
 
   .. code-block:: JavaScript
 
@@ -677,9 +678,56 @@ Understanding ``seed.js`` and the ``window``
 Loading a product from the Seed
 --------------------------------
 
+- Now it is time to utilize this seed data to populate your ``<Product>``
+- Within the ``<ProductRegistry>`` component load the first product of the Seed data into a local variable. Remember it is the parent that must pass
+  the data to the child, ``<Product>``, as props.
 
+  .. code-block:: html
 
+    class ProductRegistry extends React.Component {
+      render() {
+        const product = Seed.products[0];
 
+        return (
+          <div className='ui unstackable items'>
+            Hello, I am your first React component!
+            <Product />
+          </div>
+        );
+      }
+    }
+
+- Pass the seed data to the ``<Product>`` component as props:
+
+  .. code-block:: html
+
+    <Product
+      title={product.title}
+      description={product.description}
+      submitterAvatarUrl={product.submitterAvatarUrl}
+      productImageUrl={product.productImageUrl}
+    />
+
+- You can also get rid of the "Hello..." line that is currently in the ``<ProductRegistry>`` resulting with the following component:
+
+  .. code-block:: html
+
+    class ProductRegistry extends React.Component {
+      render() {
+        const product = Seed.products[0];
+
+        return (
+          <div className='ui unstackable items'>
+            <Product
+              title={product.title}
+              description={product.description}
+              submitterAvatarUrl={product.submitterAvatarUrl}
+              productImageUrl={product.productImageUrl}
+            />
+          </div>
+        );
+      }
+    }
 
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/
 
@@ -688,7 +736,6 @@ Loading a product from the Seed
   .. |solution_link| raw:: html
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-.js" target="_blank">Complete solution may be found here</a>
-
 
 
 
