@@ -123,9 +123,9 @@ Open up the ``index.html`` file within the ``product-registry-01`` folder
 
   .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/02-renamed-header.png
 
-  - |solution_link|
+  - |index02|
 
-    .. |solution_link| raw:: html
+    .. |index02| raw:: html
 
       <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-02.html" target="_blank">Complete solution may be found here</a>
 
@@ -147,9 +147,9 @@ Reverting to a Blank ``app.js`` file to get started!
         src="app.js"
       ></script>
 
-  - |solution_link|
+  - |index03|
 
-  .. |solution_link| raw:: html
+  .. |index03| raw:: html
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/index-03.html" target="_blank">Complete solution may be found here</a>
 
@@ -235,9 +235,9 @@ Rendering your component
 
   .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/03-hello.png
 
-  - |solution_link|
+  - |app02|
 
-  .. |solution_link| raw:: html
+  .. |app02| raw:: html
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-02.js" target="_blank">Complete solution may be found here</a>
 
@@ -364,9 +364,9 @@ Rendering your component
 
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/05-product-added.png
 
-- |solution_link|
+- |app03|
 
-  .. |solution_link| raw:: html
+  .. |app03| raw:: html
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-03.js" target="_blank">Complete solution may be found here</a>
 
@@ -419,9 +419,9 @@ Rendering your component
 
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/06-product-updated-images.png
 
-- |solution_link|
+- |app04|
 
-  .. |solution_link| raw:: html
+  .. |app04| raw:: html
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-04.js" target="_blank">Complete solution may be found here</a>
 
