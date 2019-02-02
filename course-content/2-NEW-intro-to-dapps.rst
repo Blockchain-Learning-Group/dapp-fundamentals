@@ -282,24 +282,28 @@ Rendering your component
   A best practise in designing web application front ends, and especially when utilizing the ReactJS library, is to breakdown the final design into 
   modular, portable and reusable components.
   
-  .. image:: URL
-
-    - |final_image|
+  - |final_image|
 
     .. |final_image| raw:: html
 
-      <a href="url" target="_blank">Have a look back at the final interface.</a> 
+      <a href="https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/01-completed-app.png" target="_blank">Have a look back at the final interface.</a> 
 
-  Take a second and think about the components that you could break this up into.
+  Take a second and think about the components that you could break this up into.  Remembering that thus far we have defined the ``<ProductList>``.
+
+- Can the interface be simplified to a ``<ProductList>`` of ``<Products>``?  We think so!
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/04-Product-Registry-UI-Component-Breakdown.png
 
 
-.. image:: URL
 
-    - |solution_link|
 
-    .. |solution_link| raw:: html
 
-      <a href="url" target="_blank">Complete solution may be found here</a>
+
+
+- |solution_link|
+
+  .. |solution_link| raw:: html
+
+    <a href="url" target="_blank">Complete solution may be found here</a>
 
 
 
@@ -309,8 +313,8 @@ TITLE
 
 .. image:: URL
 
-    - |solution_link|
+- |solution_link|
 
-    .. |solution_link| raw:: html
+  .. |solution_link| raw:: html
 
-      <a href="url" target="_blank">Complete solution may be found here</a>
+    <a href="url" target="_blank">Complete solution may be found here</a>
