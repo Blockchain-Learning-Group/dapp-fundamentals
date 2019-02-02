@@ -662,10 +662,10 @@ Understanding ``seed.js`` and the ``window``
     ]
 
 - Have a look at this attribute back in the browser.  
-  - In the browser console type ``window.Seed`` and you will see the result!  
-  - Yes, all of your data has been loaded and is availble globally attached to the ``window`` object.  
-  - In fact every ``window`` attribute is accessible without the ``window`` keyword as they are added
-    to the global scope of the application.  Therefore this object may simply be accessed globally via just ``Seed``.
+- In the browser console type ``window.Seed`` and you will see the result!  
+- Yes, all of your data has been loaded and is availble globally attached to the ``window`` object.  
+- In fact every ``window`` attribute is accessible without the ``window`` keyword as they are added
+  to the global scope of the application.  Therefore this object may simply be accessed globally via just ``Seed``.
 
   .. code-block:: JavaScript
 
@@ -729,13 +729,13 @@ Loading a product from the Seed
       }
     }
 
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/08-seed-product-data.png
 
-- |solution_link|
+- |app06|
 
-  .. |solution_link| raw:: html
+  .. |app06| raw:: html
 
-    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-.js" target="_blank">Complete solution may be found here</a>
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-06.js" target="_blank">Complete solution may be found here</a>
 
 
 
