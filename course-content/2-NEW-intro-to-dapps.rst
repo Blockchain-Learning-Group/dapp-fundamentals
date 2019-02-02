@@ -571,14 +571,14 @@ Making your ``<Product>`` dynamic
         <img className='ui avatar image' src='images/avatars/liz.png' />
       </div>
 
-      to >>
+    to >>
 
-      .. code-block:: html
+    .. code-block:: html
 
-      <div className='extra'>
-        <span>Submitted by:</span>
-        <img className='ui avatar image' src={this.props.submitterAvatarUrl} />
-      </div>
+    <div className='extra'>
+      <span>Submitted by:</span>
+      <img className='ui avatar image' src={this.props.submitterAvatarUrl} />
+    </div>
 
 - The resulting component should look like the following:
 
@@ -606,14 +606,21 @@ Making your ``<Product>`` dynamic
       }
     }
 
-
 - This may look odd at first, seeing JavaScript directly inline with html, and that is in fact the beauty of JSX! The ``{}`` braces identify
   that what is within them is a JavaScript expression.  Therefore the props object of the ``<Product>`` component(remember just a JavaScript class).
+- You will notice immediately that the rendered ``<Product>`` is currently empty as there are no props being passed in to the component now to every
+  data field is in fact empty.  Let's fix that and get your hands on some data.
 
+- |app05|
 
+  .. |app05| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-05.js" target="_blank">Complete solution may be found here</a>
 
 Understanding ``seed.js`` and the ``window``
 --------------------------------------
+
+
 
 
 
