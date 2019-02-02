@@ -293,8 +293,6 @@ Rendering your component
 - Can the interface be simplified to a ``<ProductList>`` of ``<Products>``?  We think so!
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/04-Product-Registry-UI-Component-Breakdown.png
 
-- Time to build out the ``<Product>`` component!
-
 4. Creating the ``<Product>`` Component
 =================================
 
@@ -351,7 +349,7 @@ Rendering your component
 
 - Add the ``<Product>`` component to the components that are returned by your ``<ProductList>`` within the ``app.js`` file
 
-  .. code-block::
+  .. code-block:: html
 
     class ProductRegistry extends React.Component {
       render() {
