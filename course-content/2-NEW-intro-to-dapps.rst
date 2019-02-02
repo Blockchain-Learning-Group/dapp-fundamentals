@@ -428,8 +428,8 @@ Rendering your component
 6. Loading Your Product List
 =================================
 
-- Currently your ``<Product>`` is completely hardcoded and although it may seem quite portable where you can place it just about anywhere and many instances
-  of it that is where the functionality ends.  That ``<Product>`` currently will always have the exact same images and text.
+- Currently your ``<Product>`` is completely hardcoded and although it may seem quite portable where you can place it just about anywhere, and may create 
+  many instances of it, that is where the functionality ends.  That ``<Product>`` will currently always have the exact same images and text.
   This section will take you through the process of making the content of your components dynamic and allow them to be passed in as variables!
 
 - Review your existing ``<Product>`` and have a look at the data fields that are present:
@@ -442,7 +442,7 @@ Rendering your component
           <img src='images/products/image-aqua.png' />
         </div>
 
-  2. Product Name:
+  2. Product Title:
 
     .. code-block:: html
 
@@ -470,6 +470,16 @@ Rendering your component
       </div>
 
 
+- Therefore a minimal representation of the data fields that are required for a ``<Product>`` at this time are:
+
+  .. code-block:: json
+
+    product = {
+      title:              'YOUR PRODUCT NAME',
+      description:        'YOUR PRODUCT DESCRIPTINON.',
+      submitterAvatarUrl: 'images/avatars/adam.jpg',
+      productImageUrl:    'images/products/image-aqua.png',
+    }
 
 
 - Open up the file ``seed.js`` and have a look around 
