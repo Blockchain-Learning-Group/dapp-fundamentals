@@ -637,10 +637,46 @@ Understanding ``seed.js`` and the ``window``
 
     .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/07-dev-console-window.png
 
+- The first line of ``seed.js`` is in fact accessing this ``window`` object and adding an attribute to it: ``Seed``.
 
   .. code-block:: JavaScript
     
-    window.Seed = (function () {
+    window.Seed = (function () {...});
+
+- This attribute is set to a ``function()`` and this function returns an object: ``{ products: products }``.  
+  Resulting in: ``window.Seed = { products: products }``
+- Where ``products`` is your array of product data fields:
+
+  .. code-block:: JavaScript
+
+    const products = [
+      {
+        id: 1,
+        title: 'Digi-Collectibles',
+        description: 'The rarest digital collectibles.',
+        votes: generateVoteCount(),
+        submitterAvatarUrl: 'images/avatars/adam.jpg',
+        productImageUrl: 'images/products/image-aqua.png',
+      },
+      ...
+    ]
+
+- Have a look at this attribute back in the browser.  In the browser console type ``window.Seed`` and you will see the result!  
+  Yes, all of your data has been loaded and is availble globally attached to the ``window`` object.  
+  In fact every ``window`` attribute is accessible without the ``window`` keyword as they are added
+  to the global scope of the application.  Therefore this object may simply be accessed globally via just ``Seed``.
+
+  .. code-block:: JavaScript
+
+    > window.Seed
+      > {products: Array(4)}
+
+    > Seed
+      > {products: Array(4)}
+
+Loading a product from the Seed
+--------------------------------
+
 
 
 
