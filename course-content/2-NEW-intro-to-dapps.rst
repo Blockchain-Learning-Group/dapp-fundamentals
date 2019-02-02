@@ -469,10 +469,9 @@ Rendering your component
         <img className='ui avatar image' src='images/avatars/liz.png' />
       </div>
 
-
 - Therefore a minimal representation of the data fields that are required for a ``<Product>`` at this time are:
 
-  .. code-block:: json
+  .. code-block:: JavaScript
 
     product = {
       title:              'YOUR PRODUCT NAME',
@@ -481,8 +480,21 @@ Rendering your component
       productImageUrl:    'images/products/image-aqua.png',
     }
 
+- Open up the file ``seed.js`` and have a look around. Observe the definition of the array, or list, of products.
 
-- Open up the file ``seed.js`` and have a look around 
+  .. code-block:: JavaScript
+
+    const products = [
+      {
+        id: 1,
+        title: 'Digi-Collectibles',
+        description: 'The rarest digital collectibles.',
+        votes: generateVoteCount(),
+        submitterAvatarUrl: 'images/avatars/adam.jpg',
+        productImageUrl: 'images/products/image-aqua.png',
+      },
+      ...
+    ]
 
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/
 
