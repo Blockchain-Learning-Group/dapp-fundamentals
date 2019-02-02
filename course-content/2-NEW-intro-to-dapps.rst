@@ -504,11 +504,11 @@ Making your ``<Product>`` dynamic
   In order to do this we must introduce another ReactJS concept, that is **Props**.
 
   Components are allowed to accpet data passed to them from their *parents* meaning the components that contain them.  In your case the parent
-  is the ``<ProductRegistry>`` and it may have many child ``<Product>``s.  Therefore the ``<Product>`` components may accept data passed to them
+  is the ``<ProductRegistry>`` and it may have many child ``<Product>`` s.  Therefore the ``<Product>`` components may accept data passed to them
   by the ``<ProductRegistry>``, and it is this data, passed from parent to child, that is referred to as *props*.  Essentially the input parameters 
   that a component may accept are referred to as *props*.
 
-- Time to update your ``<Product>`` component to accept props.
+- Time to update your ``<Product>`` component to accept some props!
 
   1. Update Product Image URL:
 
