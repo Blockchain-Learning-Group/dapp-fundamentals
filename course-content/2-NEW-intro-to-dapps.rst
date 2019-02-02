@@ -477,6 +477,7 @@ Rendering your component
     }
 
 - Open up the file ``seed.js`` and have a look around. Observe the definition of the array, or list, of products.
+- Note there are 2 additional fields we did not previously define, ``id`` and ``votes``, which we will see in action shortly.
 
   .. code-block:: JavaScript
 
@@ -491,6 +492,19 @@ Rendering your component
       },
       ...
     ]
+
+- This file defines a list of components that are to populate, or seed, the application when it initially renders.  This will take a few steps, 
+  first you will need to update your ``<Product>`` component to allow data for it's fields to be passed in.
+
+Making your ``<Product> dynamic``
+----------------------------
+
+
+
+Understanding ``seed.js`` and the ``window``
+--------------------------------------
+
+
 
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/
 
