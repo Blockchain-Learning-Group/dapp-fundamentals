@@ -400,7 +400,7 @@ Rendering your component
             </div>
             <div className='middle aligned content'>
               <div className='description'>
-                <a>YOUR NAME</a>
+                <a>YOUR PRODUCT NAME</a>
                 <p>NEW FANCY PRODUCT OF YOUR OWN</p>
               </div>
               <div className='extra'>
@@ -424,6 +424,64 @@ Rendering your component
   .. |app04| raw:: html
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-04.js" target="_blank">Complete solution may be found here</a>
+
+6. Loading Your Product List
+=================================
+
+- Currently your ``<Product>`` is completely hardcoded and although it may seem quite portable where you can place it just about anywhere and many instances
+  of it that is where the functionality ends.  That ``<Product>`` currently will always have the exact same images and text.
+  This section will take you through the process of making the content of your components dynamic and allow them to be passed in as variables!
+
+- Review your existing ``<Product>`` and have a look at the data fields that are present:
+
+  1. Product Image URL:
+
+    .. code-block:: html
+    
+        <div className='image'>
+          <img src='images/products/image-aqua.png' />
+        </div>
+
+  2. Product Name:
+
+    .. code-block:: html
+
+      <div className='description'>
+        <a>YOUR PRODUCT NAME</a>
+        ...
+      </div>
+
+  3. Product Description:
+
+    .. code-block:: html
+
+      <div className='description'>
+        ...
+        <p>NEW FANCY PRODUCT OF YOUR OWN</p>
+      </div>
+
+  4. Submitted Image URL:
+
+    .. code-block:: html
+
+      <div className='extra'>
+        <span>Submitted by:</span>
+        <img className='ui avatar image' src='images/avatars/liz.png' />
+      </div>
+
+
+
+
+- Open up the file ``seed.js`` and have a look around 
+
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/
+
+- |solution_link|
+
+  .. |solution_link| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-.js" target="_blank">Complete solution may be found here</a>
+
 
 
 
