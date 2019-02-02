@@ -293,17 +293,85 @@ Rendering your component
 - Can the interface be simplified to a ``<ProductList>`` of ``<Products>``?  We think so!
 .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/04-Product-Registry-UI-Component-Breakdown.png
 
+- Time to build out the ``<Product>`` component!
 
+4. Creating the ``<Product>`` Component
+=================================
 
+- Navigate back to your open ``app.js`` file in your text editor.  It should currently look like this:
 
+  .. code-block:: html
 
+    class ProductRegistry extends React.Component {
+      render() {
+        return (
+          <div className='ui unstackable items'>
+            Hello, I am your first React component!
+          </div>
+        );
+      }
+    }
 
+    ReactDOM.render(
+      <ProductRegistry />,
+      document.getElementById('content')
+    );
+
+- Begin by defining a brand new component, JavaScript class, beneath the existing ``<ProductList>`` component
+
+  .. code-block:: html
+
+    class Product extends React.Component {}
+
+- This is a completely empty component that will not render anything and in fact will throw an error as a ``render()`` function is required for each component.
+  This is the function that defines what is to be rendered by the browser and by default empty components are not allowed.
+
+- Add a ``render()`` function to the ``<Product>`` component to return a simple ``<div>`` saying "hello"
+
+  .. code-block:: html
+
+    class Product extends React.Component {
+      render() {
+        return (
+          <div>Hello I am a product.</div>
+        );
+      }
+    }
+
+- Now remember what is currently being rendered to the page: 
+
+  .. code-block:: html
+
+    ReactDOM.render(
+      <ProductRegistry />,
+      document.getElementById('content')
+    );
+
+- Therefore the ``<Product>`` component is not being rendered yet and will not be present in the browser
+
+- Add the ``<Product>`` component to the components that are returned by your ``<ProductList>`` within the ``app.js`` file
+
+  .. code-block::
+
+    class ProductRegistry extends React.Component {
+      render() {
+        return (
+          <div className='ui unstackable items'>
+            Hello, I am your first React component!
+            <Product />
+          </div>
+        );
+      }
+    }
+
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/05-product-added.png
 
 - |solution_link|
 
   .. |solution_link| raw:: html
 
-    <a href="url" target="_blank">Complete solution may be found here</a>
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-03.js" target="_blank">Complete solution may be found here</a>
+
 
 
 
@@ -311,10 +379,10 @@ TITLE
 =================================
 
 
-.. image:: URL
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/
 
 - |solution_link|
 
   .. |solution_link| raw:: html
 
-    <a href="url" target="_blank">Complete solution may be found here</a>
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-.js" target="_blank">Complete solution may be found here</a>
