@@ -2,9 +2,6 @@
 Introduction to React
 =======================
 
-`View Completed PRODUCT REGISTRY Demo <TODO>`_
-
-
 .. important::
 
   In this exercise, you’re going to get a crash course on the React library by building a simple product registry and voting application.
@@ -19,8 +16,6 @@ Introduction to React
 .. note::
 
   Begin instructions from within the VM(via VirtualBox) that was configured and run in `step 6 of the prerequisites <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/prerequisites/general.html#start-the-vm>`_.
-
-`Video Tutorial [1-2] <todo>`_
 
 Open a new terminal window
 -----------------------------
@@ -1263,15 +1258,3 @@ Introducing: **The State!**
   .. |app09| raw:: html
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-09.js" target="_blank">Complete solution may be found here</a>
-
-TITLE
-=================================
-
-
-.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/
-
-- |solution_link|
-
-  .. |solution_link| raw:: html
-
-    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-.js" target="_blank">Complete solution may be found here</a>
