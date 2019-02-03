@@ -19,15 +19,7 @@ Contents
 
     course-content/1-blockchain-fundamentals
 
-    course-content/2-intro-to-react/1
-
-    course-content/2-intro-to-react/2
-    course-content/2-intro-to-react/3
-    course-content/2-intro-to-react/4
-    course-content/2-intro-to-react/5
-    course-content/2-intro-to-react/6
-    course-content/2-intro-to-react/7
-    course-content/2-intro-to-react/8
+    course-content/2-intro-to-react/0-index
 
     course-content/3-intro-to-dapps
     course-content/5-exercises

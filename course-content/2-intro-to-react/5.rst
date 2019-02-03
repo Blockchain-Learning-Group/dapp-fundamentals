@@ -3,7 +3,7 @@
 
 - Great work so far!  However, the application is not looking overly interesting just yet.  In this section you will build out the ``<Product>`` component.
 
-- |semantic_ui|
+|semantic_ui|
 
   .. |semantic_ui| raw:: html
 
