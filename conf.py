@@ -9,5 +9,5 @@ def setup(sphinx):
 source_suffix = '.rst'
 master_doc = 'index'
 project = 'Blockchain Learning Group DApp Fundamentals'
-copyright = '2017, Blockchain Learning Group Inc.'
+copyright = '2019 Blockchain Learning Group Inc.'
 highlight_language = 'Solidity'
