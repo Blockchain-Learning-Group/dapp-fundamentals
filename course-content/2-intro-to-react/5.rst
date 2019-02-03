@@ -7,10 +7,8 @@
 
   .. |semantic_ui| raw:: html
 
-    <a href="https://react.semantic-ui.com" target="_blank">Semantic UI</a>
-  
-  is being used as a styling library which has been linked in your ``index.html`` file for you. Therefore, the ``className`` reference in several of the
-  elements below are in fact utilizing classes and styling that is provided by Semantic.
+    <a href="https://react.semantic-ui.com" target="_blank">Semantic UI</a> is being used as a styling library which has been linked in your ``index.html`` file for you. Therefore, the ``className`` reference in several of the
+    elements below are in fact utilizing classes and styling that is provided by Semantic.
 
 - Begin by extending the content that is returned by the component in it's ``render()`` function. 
   You will add an image, a title, a description, and an image of who submitted the product.
