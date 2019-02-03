@@ -7,7 +7,7 @@ def setup(sphinx):
     sphinx.add_lexer('Solidity', SolidityLexer())
 
 source_suffix = '.rst'
-master_doc = 'course-content/index'
+master_doc = 'index'
 project = 'Blockchain Learning Group DApp Fundamentals'
 copyright = '2017, Blockchain Learning Group Inc.'
 highlight_language = 'Solidity'
