@@ -1,0 +1,78 @@
+=======================
+Introduction to React
+=======================
+
+.. important::
+
+  In this exercise, you’re going to get a crash course on the React library by building a simple product registry and voting application.
+  
+  You will become familiar with the fundamentals of React front-end development and be able to build an interactive React app from scratch!
+
+----
+
+1. Starting the Application
+=======================================================
+
+.. note::
+
+  Begin instructions from within the VM(via VirtualBox) that was configured and run in `step 6 of the prerequisites <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/prerequisites/general.html#start-the-vm>`_.
+
+Open a new terminal window
+-----------------------------
+
+  - Click on the terminal icon in the left dock
+
+Start the app
+-----------------
+
+  - Change directory into the ``blg/product-registry-01`` folder on the Desktop
+    
+    .. code-block:: bash
+
+      cd Desktop/blg/product-registry-01
+
+  - Start the server
+    
+    .. code-block:: bash
+
+      npm start
+
+  - *Example output:*
+
+    .. code-block:: console
+
+      ajl@x1c:~/Desktop/blg/product-registry-01$ npm start
+
+      > product-registry-01@1.0.0 start /home/ajl/Desktop/blg/product-registry-01
+      > live-server --host=localhost --port=3000 --middleware=./libraries/disable-browser-cache.js
+
+      Serving "/home/ajl/Desktop/blg/product-registry-01" at http://localhost:3000 (http://127.0.0.1:3000)
+      Ready for changes
+
+  - Chrome should automatically be opened and the application rendered!  Otherwise navigate to http://localhost:3000 in your browser.  
+    You should see some basic text and your first task!
+
+  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/01-completed-app.png
+
+  .. note::
+
+    The ``npm start`` command that you executed ran the ``start`` script in the included ``package.json`` file:
+    
+    .. code-block:: json
+
+      {
+        [...],
+        "scripts": {
+          "start": "live-server --host=localhost --port=3000 --middleware=./libraries/disable-browser-cache.js"
+        },
+        "devDependencies": {
+          "live-server": "https://github.com/acco/live-server/tarball/master"
+        }
+      }
+    
+    This ran a very light-weight server that will host the code for your browser to access.
+    The server will also detect changes in the code base and automatically re-render the browser.  
+    Therefore you will not need to restart the server at all during development and every time that 
+    you change and save a file the browser will render the updated page for you.
+
+----
