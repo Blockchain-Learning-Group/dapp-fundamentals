@@ -3,11 +3,15 @@
 
 - Great work so far!  However, the application is not looking overly interesting just yet.  In this section you will build out the ``<Product>`` component.
 
-|semantic_ui|
+.. note:: 
 
-  .. |semantic_ui| raw:: html
+  |semantic_ui|
 
-    <a href="https://react.semantic-ui.com" target="_blank">Semantic UI</a> is being used as a styling library which has been linked in your ``index.html`` file for you. Therefore, the ``className`` reference in several of the
+    .. |semantic_ui| raw:: html
+
+      <a href="https://react.semantic-ui.com" target="_blank">Semantic UI</a> 
+      
+    Semantic is being used as a styling library which has been linked in your ``index.html`` file for you. Therefore, the ``className`` reference in several of the
     elements below are in fact utilizing classes and styling that is provided by Semantic.
 
 - Begin by extending the content that is returned by the component in it's ``render()`` function. 
