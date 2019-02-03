@@ -5,9 +5,9 @@
 
 .. note::
 
-  |semantec_url|
+  |semantic_url|
 
-    .. |semantec_url| raw:: html
+    .. |semantic_url| raw:: html
     
     <a href="https://react.semantic-ui.com/" target="_blank">Semantic UI</a> 
   
