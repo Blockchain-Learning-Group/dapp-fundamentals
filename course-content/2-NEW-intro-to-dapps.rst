@@ -983,7 +983,7 @@ Time for some interaction!
 
     .. code-block:: html
 
-      handleProductUpVote(productId) {
+      handleProductUpVote = (productId) => {
         console.log(productId);
       }
 
@@ -998,7 +998,7 @@ Time for some interaction!
   .. code-block:: html
 
     class ProductRegistry extends React.Component {
-      handleProductUpVote(productId) {
+      handleProductUpVote = (productId) => {
         console.log(productId);
       }
 
@@ -1104,7 +1104,7 @@ Introducing: **The State!**
         products: Seed.products
       };
 
-      handleProductUpVote(productId) {
+      handleProductUpVote = (productId) => {
         console.log(productId);
       }
 
@@ -1130,6 +1130,139 @@ Introducing: **The State!**
       }
     }
 
+.. important::
+
+  **Never modify state outside of** ``this.setState()`` **!**  
+
+  State should NEVER be accessed directly, i.e. this.state = {}, outside of its initial definition.
+
+  ``this.setState()`` has very important functionality built around it that can cause odd and unexpected behaviour if avoided. Always use ``this.setState()``
+  when updating the state of a component.
+
+- Now although we noted earlier that props are seen as immutable from the given component and state mutable a slight variation to that definition must be explained
+- Yes, the state may be updated, but the current state object is said to be immutable, meaning that the state object should not be updated directly 
+  but instead replaced with a new state object
+
+- For example directly updating, mutating, the current state is bad practise!
+
+  .. code-block:: JavaScript
+
+    // INCORRECT!
+    this.state = { products: [] };
+    this.state.products.push("hello");
+
+- Instead a new state object is to be created and the state update to the new object.
+
+  .. code-block:: JavaScript
+
+    // CORRECT!
+    this.state = { products: [] };
+    const newProducts = this.state.products.concat("hello");
+    this.setState({ products: products });
+
+- Therefore when we want to update the state when a vote has been cast we need to:
+
+  1. Create a copy of the state
+
+    - Map will return a copy of each item in the array it will not reference the existing.
+
+  .. code-block:: JavaScript
+
+    const nextProducts = this.state.products.map((product) => {
+      return product;
+    });
+
+  2. Determine which product was voted for
+
+  .. code-block:: JavaScript
+
+    if (product.id === productId) {}
+
+  3. Mutate the copy of the state incrementing the product's vote count
+  
+    - Create a new product Object via ``Object.assign`` and update the ``votes`` attribute of that object to +1 of the existing product
+
+  .. code-block:: JavaScript
+
+        return Object.assign({}, product, {
+          votes: product.votes + 1,
+        });
+
+  4. Set the state to the new object
+
+  .. code-block:: JavaScript
+
+    this.setState({ products: nextProducts });
+
+- Resulting in the following segment added within the ``handleProductUpVote`` function of the ``<ProductRegistry>`` to update the vote count 
+  of a selected product identified by its ``id``:
+
+  .. code-block:: JavaScript
+    
+    const nextProducts = this.state.products.map((product) => {
+      if (product.id === productId) {
+        return Object.assign({}, product, {
+          votes: product.votes + 1,
+        });
+      } else {
+        return product;
+      }
+    });
+
+- Resulting in the following complete ``<ProductRegistry>``:
+
+  .. code-block:: html
+
+    class ProductRegistry extends React.Component {
+      state = {
+        products: Seed.products
+      };
+
+      handleProductUpVote = (productId) => {
+        const nextProducts = this.state.products.map((product) => {
+          if (product.id === productId) {
+            return Object.assign({}, product, {
+              votes: product.votes + 1,
+            });
+          } else {
+            return product;
+          }
+        });
+        
+        this.setState({ products: nextProducts });
+      }
+
+      render() {
+        return (
+          <div className='ui unstackable items'>
+            {
+              this.state.products.map(product => 
+                <Product
+                  key={'product-'+product.id}
+                  id={product.id}
+                  title={product.title}
+                  description={product.description}
+                  submitterAvatarUrl={product.submitterAvatarUrl}
+                  productImageUrl={product.productImageUrl}
+                  votes={product.votes}
+                  onVote={this.handleProductUpVote}
+                />
+              )
+            }
+          </div>
+        );
+      }
+    }
+
+- Give it a shot!
+
+.. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/11-voting-updating-state.png
+
+- |app09|
+
+  .. |app09| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-09.js" target="_blank">Complete solution may be found here</a>
 
 TITLE
 =================================
