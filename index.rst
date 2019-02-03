@@ -15,8 +15,8 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   prerequisites/general
+   course-content/0-prerequisites
    course-content/1-blockchain-fundamentals
-   2-intro-to-react
-   3-intro-to-dapps
-   5-exercises
+   course-content/2-intro-to-react
+   course-content/3-intro-to-dapps
+   course-content/5-exercises
