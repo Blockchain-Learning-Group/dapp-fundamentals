@@ -4,7 +4,7 @@
 - Great work so far!  However, the application is not looking overly interesting just yet.  In this section you will build out the ``<Product>`` component.
 
 
-|semantic_url|
+- |semantic_url|
 
   .. |semantic_url| raw:: html
   
