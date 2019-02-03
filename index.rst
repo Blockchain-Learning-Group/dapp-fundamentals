@@ -13,14 +13,14 @@ Contents
 ========
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   course-content/0-prerequisites
+    course-content/0-prerequisites
 
-   course-content/1-blockchain-fundamentals
+    course-content/1-blockchain-fundamentals
 
-   course-content/2-intro-to-react/1
-   
+    course-content/2-intro-to-react/1
+
     course-content/2-intro-to-react/2
     course-content/2-intro-to-react/3
     course-content/2-intro-to-react/4
@@ -29,5 +29,5 @@ Contents
     course-content/2-intro-to-react/7
     course-content/2-intro-to-react/8
 
-   course-content/3-intro-to-dapps
-   course-content/5-exercises
+    course-content/3-intro-to-dapps
+    course-content/5-exercises
