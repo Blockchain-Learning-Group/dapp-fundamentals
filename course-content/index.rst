@@ -16,7 +16,7 @@ Contents
    :maxdepth: 2
 
    prerequisites/general
-   1-blockchain-fundamentals
+   course-content/1-blockchain-fundamentals
    2-intro-to-react
    3-intro-to-dapps
    5-exercises
