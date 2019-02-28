@@ -101,6 +101,3 @@ A customized virtual machine has been provided for all students that is fully co
     - Prior to the beginning of the course you may wish to stop the vm
     - Within VirtualBox right-click on the vm that is running
     - In the dropdown menu click "Stop", this will stop your vm which you can easily start back up when the course begins by following step 6 above
-
-.. note::
-    Note if the keyring dialog pops up and the password is asked for simply click the cancel button, it may ask several times...
