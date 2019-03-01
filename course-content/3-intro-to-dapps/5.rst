@@ -9,7 +9,7 @@ Stage 5: Load Available On-chain Accounts
 
   this.web3.eth.getAccounts((err, accounts) => {  // Line 29
 
-  })                                              // Line 39
+  });                                             // Line 39
 
 2. Set the default account to use, line 30
 

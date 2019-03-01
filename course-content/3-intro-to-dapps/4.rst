@@ -8,13 +8,13 @@ Stage 4: Token Interface
 
 .. code-block:: javascript
 
-  import Web3 from 'web3'
+  import Web3 from 'web3';
 
 2. Import the token build artifacts into the application, app.js#line 14
 
 .. code-block:: javascript
 
-  import tokenArtifacts from './build/contracts/Token.json'
+  import tokenArtifacts from './build/contracts/Token.json';
 
 3. Create a web3 connection to the local Ethereum node(ganache-cli), app.js#line 26
 
@@ -44,16 +44,16 @@ Stage 4: Token Interface
 
   // Create a reference object to the deployed token contract
   if (netId in tokenArtifacts.networks) {
-    const tokenAddress = tokenArtifacts.networks[netId].address
+    const tokenAddress = tokenArtifacts.networks[netId].address;
   }
 
 7. Create a client side reference to the contract and save it in the application's state, app.js#line 33-35
 
 .. code-block:: javascript
 
-  const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress)
-  this.setState({ token })
-  console.log(token)
+  const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
+  this.setState({ token });
+  console.log(token);
 
 8. Refresh your chrome browser and open up the developer console
 

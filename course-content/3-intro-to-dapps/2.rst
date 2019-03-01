@@ -15,7 +15,7 @@ Stage 2: Testing Your Token
 
   .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/wallet-template/ganache-boot.png
 
-2. Create a new window or tab for our Truffle commands
+2. Create a new terminal window or tab for our Truffle commands
 
 .. note::
   While within the terminal window select File -> Open Terminal to create a new window.

@@ -22,14 +22,14 @@ Stage 3: Token Deployment
 
 .. code-block:: javascript
 
-  const owner = web3.eth.accounts[0]
+  const owner = web3.eth.accounts[0];
 
 - Utilize truffle's deployer object in order to deploy an instance of the token, line 4-6
 
 .. code-block:: javascript
 
   module.exports = deployer => {
-    deployer.deploy(Token, { from: owner })
+    deployer.deploy(Token, { from: owner });
   }
 
 2. Deploy your Token
