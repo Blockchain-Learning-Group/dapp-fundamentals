@@ -13,9 +13,9 @@ Blockchain Fundamentals
 
 4. Solidity Exercises
 =====================
-  - `SimpleStorage <http://edu.blockchainlearninggroup.com/blg/course-content/simpleStorageExercise.html>`_
-  - `SimpleStorage Payable <http://edu.blockchainlearninggroup.com/blg/course-content/simpleStoragePayableExercise.html>`_
-  - `Tic-Tac-Toe <http://edu.blockchainlearninggroup.com/blg/course-content/ticTacToeExercise.html>`_
+  - `SimpleStorage <http://edu.blockchainlearninggroup.com/en/blg/course-content/simpleStorageExercise.html>`_
+  - `SimpleStorage Payable <http://edu.blockchainlearninggroup.com/en/blg/course-content/simpleStoragePayableExercise.html>`_
+  - `Tic-Tac-Toe <http://edu.blockchainlearninggroup.com/en/blg/course-content/ticTacToeExercise.html>`_
 
 5. An Introduction to ReactJS
 ========
