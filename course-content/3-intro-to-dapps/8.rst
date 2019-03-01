@@ -9,16 +9,14 @@ Stage 8: Purchasing Tokens
 
   amount: 0,
 
-2. Complete the method to buy tokens, sending a transaction to the token contract, line 99-104.
+2. Complete the method to buy tokens, sending a transaction to the token contract, line 82-84.
+- From within the ``buy()`` method...
 
 .. code-block:: javascript
 
-  this.state.token.buy({
-    from: this.web3.eth.accounts[this.state.defaultAccount],
-    value: amount
-  }, (err, res) => {
-    err ? console.error(err) : console.log(res)
-  })
+  const sender = this.web3.eth.accounts[this.state.defaultAccount];
+  const transactionHash = await this.state.token.buy({ from: sender, value: amount });
+  console.log(transactionHash);
 
 3. In the GUI buy tokens with several available accounts.
 
@@ -28,3 +26,9 @@ Stage 8: Purchasing Tokens
   *Example transaction hash:* ``0x4b396191e87c31a02e80160cb6a2661da6086c073f6e91e9bd1f796e29b0c983``
 
 4. Refresh the browser or select a different account and come back, and view the account's balance of shiny new tokens!
+
+- |app05|
+
+  .. |app05| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.5.js" target="_blank">Complete App.js solution may be found here</a>
