@@ -7,19 +7,13 @@ Stage 5: Load Available On-chain Accounts
 
 .. code-block:: javascript
 
-  this.web3.eth.getAccounts((err, accounts) => {  // Line 29
+  this.web3.eth.getAccounts((err, accounts) => {  // Line 34
 
-  });                                             // Line 39
+  });                                             // Line 36
 
-2. Set the default account to use, line 30
+2. Load the available accounts into the user interface
 
-.. code-block:: javascript
-
-  const defaultAccount = this.web3.eth.accounts[0]
-
-3. Load the available accounts into the user interface
-
-- Import the Material UI MenuItem, line 8
+- Import the Material UI MenuItem, line 12
 
 .. code-block:: javascript
 
@@ -31,7 +25,7 @@ Stage 5: Load Available On-chain Accounts
 
   availableAccounts: [],
 
-- Append all accounts into the UI dropdown menu, line 34-41
+- Append all accounts into the UI dropdown menu, line 37-44
 
 .. code-block:: javascript
 
@@ -41,10 +35,10 @@ Stage 5: Load Available On-chain Accounts
       availableAccounts: this.state.availableAccounts.concat(
         <MenuItem value={i} key={accounts[i]} primaryText={accounts[i]} />
       )
-    })
+    });
   }
 
-4. Set the default account
+3. Set the default account
 
 - Add a defaultAccount variable to the state, line 22
 
@@ -52,8 +46,14 @@ Stage 5: Load Available On-chain Accounts
 
   defaultAccount: 0,
 
-- Set the defaultAccount in the state when the drowdown value changes, line 86
+- Set the defaultAccount in the state when the drowdown value changes, line 79
 
 .. code-block:: javascript
 
-  this.setState({ defaultAccount })
+  this.setState({ defaultAccount });
+
+- |app|
+
+  .. |app| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.2.js" target="_blank">Complete App.js solution may be found here</a>
