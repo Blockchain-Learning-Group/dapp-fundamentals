@@ -34,7 +34,6 @@ Tic Tac Toe
 
 2. Create a function to allow a game to be started, line 16-19
 --------------------------
-    - `Video Tutorial <https://drive.google.com/open?id=1lXBmwrriapOrYWvFqMUbFXN2upJdSXIO>`_
 
 ::
 
@@ -42,10 +41,6 @@ Tic Tac Toe
         player1_ = _player1;
         player2_ = _player2;
     }
-
-.. important::
-    
-    - `Video Tutorial [3-7] <https://drive.google.com/open?id=14PaxvZFIKm5EfscBF6OeMzsn3c5HwuFr>`_
 
 3. Now players need to be able to take a turn, specifying where they want to place their x or o, line 21-25
 --------------------------

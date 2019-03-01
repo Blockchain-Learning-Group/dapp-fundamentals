@@ -13,9 +13,9 @@ Blockchain Fundamentals
 
 4. Solidity Exercises
 =====================
-  - `SimpleStorage <https://blg-dapp-fundamentals.readthedocs.io/en/blg/course-content/simpleStorageExercise.html>`_
-  - `SimpleStorage Payable <https://blg-dapp-fundamentals.readthedocs.io/en/blg/course-content/simpleStoragePayableExercise.html>`_
-  - `Tic-Tac-Toe <https://blg-dapp-fundamentals.readthedocs.io/en/blg/course-content/ticTacToeExercise.html>`_
+  - `SimpleStorage <http://edu.blockchainlearninggroup.com/blg/course-content/simpleStorageExercise.html>`_
+  - `SimpleStorage Payable <http://edu.blockchainlearninggroup.com/blg/course-content/simpleStoragePayableExercise.html>`_
+  - `Tic-Tac-Toe <http://edu.blockchainlearninggroup.com/blg/course-content/ticTacToeExercise.html>`_
 
 5. An Introduction to ReactJS
 ========
