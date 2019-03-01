@@ -32,7 +32,7 @@ Stage 1: Starting the Application
 
 .. code-block:: console
 
-  $ yarn start
+  $ npm start
   Starting the development server...
 
   Compiled successfully!
