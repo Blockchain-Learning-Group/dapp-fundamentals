@@ -1,0 +1,42 @@
+**OK how about a friendly wager!**
+
+24. Add a storage variable to hold the placed wagers, line 12
+--------------------------
+
+::
+
+    mapping(address => uint256) public wagers_;
+
+25. Add a function to allow the players to place a wager, line 82-86
+--------------------------
+
+::
+
+    function placeWager() external payable {
+        require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
+        wagers_[msg.sender] = msg.value;
+    }
+
+26. Update the logic if a winner is found to transfer all the value to them, within the ``takeTurn`` function line 43
+--------------------------
+
+::
+
+    msg.sender.transfer(address(this).balance);
+
+27. Update the logic to refund the value if a draw has occured, within the ``takeTurn`` function line 46-47
+--------------------------
+
+::
+
+    player1_.transfer(wagers_[player1_]);
+    player2_.transfer(wagers_[player2_]);
+
+**Go play!  Earn some ETH.**
+
+- ``As above`` Final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/TicTacToe.sol>`_
+
+Homework!
+
+- What happens when a new game wants to be started in the same contract?
+- How to allow this?  When to allow this?  Reset storage variables?
