@@ -19,9 +19,9 @@ Blockchain Fundamentals
 .. toctree::
    :maxdepth: 1
 
-   ../solidityExercises/simpleStorageExercise
-   ../solidityExercises/simpleStoragePayableExercise
-   ../solidityExercises/ticTacToeExercise/0-index
+   ../x-solidityExercises/simpleStorageExercise
+   ../x-solidityExercises/simpleStoragePayableExercise
+   ../x-solidityExercises/ticTacToeExercise/0-index
 
 5. Bonus
 =====================
@@ -29,4 +29,4 @@ Blockchain Fundamentals
 .. toctree::
    :maxdepth: 1
 
-   ../7-bonus-exercises
+   bonus
