@@ -29,7 +29,7 @@ Stage 10: Transfer Tokens
     />
   </div>
 
-3. Complete the transfer method to send the transfer transaction, line 117-124.
+3. Complete the transfer method to send the transfer transaction, line 94-96.
 
 .. code-block:: javascript
 
@@ -37,7 +37,7 @@ Stage 10: Transfer Tokens
   const transactionHash = await this.state.token.transfer(user, amount, { from: sender });
   console.log(transactionHash);
 
-`Complete Wallet Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2>`_
+- `Complete Wallet Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2>`_
 
 - |app07|
 

@@ -137,3 +137,9 @@ Stage 2: Testing Your Token
     ✓ should buy new tokens. (133ms)
   1 passing (148ms)
   #
+
+  - |test_buy|
+
+  .. |test_buy| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/test_buy.js" target="_blank">Complete test_buy.js solution may be found here</a>
