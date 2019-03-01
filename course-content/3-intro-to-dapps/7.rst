@@ -5,28 +5,18 @@ Stage 7: Load Account Balances
 
 1. Load the default account's ETH and Token balances, completing the ``loadAccountBalances`` method
 
-- Confirm the token has been loaded, line 73-75
-
-.. code-block:: javascript
-
-  if (this.state.token) {
-
-  }
-
 - Add tokenBalance to the state, line 24
 
 .. code-block:: javascript
 
   tokenBalance: 0,
 
-- Set the token balance, line 75-78
+- Set the token balance, line 63-64
 
 .. code-block:: javascript
 
-  // Set token balance below
-  this.state.token.balanceOf(account, (err, balance) => {
-    this.setState({ tokenBalance: balance.toNumber() })
-  })
+  const balance = await this.state.token.balanceOf(account);
+  this.setState({ tokenBalance: balance.toNumber() });
 
 - Add ethBalance to the state, line 23
 
@@ -34,25 +24,29 @@ Stage 7: Load Account Balances
 
   ethBalance: 0,
 
-- Set the eth balance, line 81-84
+- Set the eth balance, line 67-68
 
 .. code-block:: javascript
 
-  // Set ETH balance below
-  this.web3.eth.getBalance(account, (err, ethBalance) => {
-    this.setState({ ethBalance })
-  })
+  const ethBalance = await this.web3.eth.getBalance(account);
+  this.setState({ ethBalance: ethBalance });
 
-- Call the ``loadAccountBalances`` method on load, line 67
+- Call the ``loadAccountBalances`` method on load, line 49
 
 .. code-block:: javascript
 
-  this.loadAccountBalances(defaultAccount)
+  this.loadAccountBalances(this.web3.eth.accounts[0]);
 
-- Also load the balances whenever a new account is selected in the dropdown, line 111
+- Also load the balances whenever a new account is selected in the dropdown, line 94
 
 .. code-block:: javascript
 
-  this.loadAccountBalances(this.state.availableAccounts[index].key)
+  this.loadAccountBalances(this.state.availableAccounts[index].key);
 
 2. View the default account balances and token information in your browser!
+
+- |app04|
+
+  .. |app04| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.4.js" target="_blank">Complete App.js solution may be found here</a>
