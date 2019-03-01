@@ -138,7 +138,7 @@ Stage 2: Testing Your Token
   1 passing (148ms)
   #
 
-  - |test_buy|
+- |test_buy|
 
   .. |test_buy| raw:: html
 
