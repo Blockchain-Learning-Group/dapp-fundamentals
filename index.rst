@@ -15,7 +15,7 @@ Contents
 .. toctree::
     :maxdepth: 2
 
-    course-content/0-prerequisites
+    course-content/0-prerequisites/0-index
 
     course-content/1-blockchain-fundamentals/0-index
 
