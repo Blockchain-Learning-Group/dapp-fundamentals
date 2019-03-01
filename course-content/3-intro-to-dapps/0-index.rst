@@ -6,7 +6,6 @@ Introduction to DApp Development
 
 .. important::
 
-
   |tut-pres|
 
     .. |tut-pres| raw:: html
@@ -15,7 +14,7 @@ Introduction to DApp Development
         href="https://docs.google.com/presentation/d/e/2PACX-1vQjWTev5WY8N0WpnUcJfrrY2kq-xgrpooQEMfuESB4ecfYhUjVSDEjv3QQBVeRJ8_pVn-pDPoPy-nIc/pub?start=true&loop=false&delayms=10000" 
         target="_blank"
       >
-        Please open the tutorial presentation here
+        Please open the tutorial presentation here.
       </a>
 
 ----

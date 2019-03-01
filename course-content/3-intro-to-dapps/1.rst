@@ -20,9 +20,9 @@ Stage 1: Starting the Application
 
   2.2 Start the server
 
-  .. note::
+    .. note::
 
-    If interested, not vital, an introduction to npm can be found `here. <https://youtu.be/x03fjb2VlGY>`_
+      If interested, not vital, an introduction to npm can be found `here. <https://youtu.be/x03fjb2VlGY>`_
 
     .. code-block:: bash
 
