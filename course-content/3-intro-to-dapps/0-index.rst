@@ -4,6 +4,8 @@ Introduction to DApp Development
 
 `View Completed Wallet Demo <https://drive.google.com/open?id=1edaSVgMd-PbRYhXiWQlZV_K2ICiIVobJ>`_
 
+`Please open tutorial presentation here <https://docs.google.com/presentation/d/e/2PACX-1vQjWTev5WY8N0WpnUcJfrrY2kq-xgrpooQEMfuESB4ecfYhUjVSDEjv3QQBVeRJ8_pVn-pDPoPy-nIc/pub?start=true&loop=false&delayms=10000>`_
+
 ----
 
 .. toctree::
