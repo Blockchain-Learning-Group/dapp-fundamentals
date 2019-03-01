@@ -1,0 +1,63 @@
+Stage 5: Load Available On-chain Accounts
+=========================================
+
+`Video Tutorial <https://drive.google.com/open?id=1hqqMw2Fv7wtqgRKl6TLoAb5go3BOqBkR>`_
+
+1. Get the available accounts from the web3 connection, this is to wrap the existing token interface code, line 29 & 39
+---------------------------------------
+
+.. code-block:: javascript
+
+  this.web3.eth.getAccounts((err, accounts) => {  // Line 29
+
+  })                                              // Line 39
+
+2. Set the default account to use, line 30
+---------------------------------------
+
+.. code-block:: javascript
+
+  const defaultAccount = this.web3.eth.accounts[0]
+
+3. Load the available accounts into the user interface
+---------------------------------------
+
+- Import the Material UI MenuItem, line 8
+
+.. code-block:: javascript
+
+  import MenuItem from 'material-ui/MenuItem';
+
+- Add an availableAccounts arrary into the app's state, line 21
+
+.. code-block:: javascript
+
+  availableAccounts: [],
+
+- Append all accounts into the UI dropdown menu, line 34-41
+
+.. code-block:: javascript
+
+  // Append all available accounts
+  for (let i = 0; i < accounts.length; i++) {
+    this.setState({
+      availableAccounts: this.state.availableAccounts.concat(
+        <MenuItem value={i} key={accounts[i]} primaryText={accounts[i]} />
+      )
+    })
+  }
+
+4. Set the default account
+---------------------------------------
+
+- Add a defaultAccount variable to the state, line 22
+
+.. code-block:: javascript
+
+  defaultAccount: 0,
+
+- Set the defaultAccount in the state when the drowdown value changes, line 86
+
+.. code-block:: javascript
+
+  this.setState({ defaultAccount })

@@ -1,0 +1,64 @@
+Stage 3: Token Deployment
+=========================
+
+`Video Tutorial <https://drive.google.com/open?id=1sdLtnunj3crUAMX6Q_qqYOITJ0Z94Ee0>`_
+
+.. note::
+  - A default, and required, initial migration script(src/migrations/1_initial_migration.js), has been included. Do *not* remove this script.
+
+1. Write the Deployment Script
+---------------------------------------
+
+- Create a new file in order to deploy the token, ``src/migrations/2_deploy_contracts.js``
+
+  - Simply right-click on the migrations directory and create the new file.
+
+- Import the token's artifacts, line 1
+
+.. code-block:: javascript
+
+  const Token = artifacts.require("./Token.sol");
+
+- Define the owner account, note ``truffle migrate`` exposes the web3 object, line 2
+
+.. code-block:: javascript
+
+  const owner = web3.eth.accounts[0]
+
+- Utilize truffle's deployer object in order to deploy an instance of the token, line 4-6
+
+.. code-block:: javascript
+
+  module.exports = deployer => {
+    deployer.deploy(Token, { from: owner })
+  }
+
+2. Deploy your Token
+---------------------------------------
+
+.. code-block:: bash
+
+  truffle migrate
+
+- *Example output:*
+
+.. code-block:: console
+
+  # truffle migrate
+  Using network 'development'.
+
+  Running migration: 1_initial_migration.js
+    Deploying Migrations...
+    ... 0x26ff3f480502a228f34363e938289c3164edf8bc49c75f5d6d9623a05da92dbf
+    Migrations: 0x3e47fad1423cbf6bd97fee18ae2de546b0e9188a
+  Saving successful migration to network...
+    ... 0x19a7a819df452847f34815e2573765be8c26bac43b1c10d3b7528e6d952ac02c
+  Saving artifacts...
+  Running migration: 2_deploy_contracts.js
+    Deploying Token...
+    ... 0x4a69e7840d0f96067964fb515ffea1a04a98fc5759849d3308584af4770c8f7b
+    Token: 0xd58c6b5e848d70fd94693a370045968c0bc762a7
+  Saving successful migration to network...
+    ... 0xd1e9bef5f19bb37daa200d7e563f4fa438da60dbc349f408d1982f8626b3c202
+  Saving artifacts...
+  #

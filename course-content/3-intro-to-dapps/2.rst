@@ -1,0 +1,168 @@
+Stage 2: Testing Your Token
+===========================
+
+.. important::
+
+  The following videos may make note of the use of something called "Docker" and "containers", but do note that Docker has since been omitted.
+  The same commands that are mentioned may be run directly on the machine without entering into the noted container.
+
+`Video Tutorial <https://drive.google.com/open?id=17TlqJ0571ElgB9yimc4WnAWCRNKFq6dz>`_
+
+1. Create a new tab in your terminal window or a new terminal window for our Ethereum node
+---------------------------------------
+
+.. note::
+  While within the terminal window select File -> Open Terminal to create a new window.
+
+  To create a new tab from within a terminal window:
+
+  .. code-block:: bash
+
+    ctrl+shft+t
+
+- *Example output: Result is a new empty terminal, in the same directory you were in.*
+
+.. code-block:: console
+
+  adam@adam:~/Desktop/blg$
+
+2. Start up your Ethereum node, ganache-cli
+---------------------------------------
+
+.. code-block:: bash
+
+  ganache-cli
+
+- *Example output:*
+.. code-block:: console
+
+  # ganache-cli
+  Ganache CLI v6.0.3 (ganache-core: 2.0.2)
+  [...]
+  Listening on localhost:8545
+
+3. Create a new window or tab for our Truffle commands
+---------------------------------------
+
+.. note::
+  While within the terminal window select File -> Open Terminal to create a new window.
+
+  To create a new tab from within a terminal window:
+
+  .. code-block:: bash
+
+    ctrl+shft+t
+
+- *Example output: Result is a new empty terminal, in the same directory you were in.*
+
+.. code-block:: console
+
+  adam@adam:~/Desktop/blg$
+
+4. Create the Test Case
+---------------------------------------
+
+.. note::
+  - contracts/Token.sol has been provided.
+  - Also one test file template has been provided in order to test the buy method was implemented correctly.
+
+- Open the test file within Sublime, ``src/test/test_buy.js``
+
+- Import the token's build artifacts, ``src/test/test_buy.js`` line 2
+
+.. code-block:: javascript
+
+  const Token = artifacts.require("./Token.sol")
+
+- Define the owner account, note ``truffle test`` exposes the accounts array for us, line 6
+
+.. code-block:: javascript
+
+  const owner = accounts[0]
+
+- Create a new instance of the token contract, line 10
+
+.. code-block:: javascript
+
+  const token = await Token.new({ from: owner })
+
+- Specify the wei value of tokens you wish to purchase, line 13
+
+.. code-block:: javascript
+
+  const value = 100
+
+- Send the transaction to the token's buy method, line 16
+
+.. code-block:: javascript
+
+  const txResponse = await token.buy({ from: owner, value })
+
+- Pull the rate from the token, line 19
+
+.. code-block:: javascript
+
+  const rate = await token.rate()
+
+- Compute the token amount to be minted to the buyer, line 22
+
+.. code-block:: javascript
+
+  const tokenAmount = value * rate
+
+- Access the event object from the transaction receipt, line 25
+
+.. code-block:: javascript
+
+  const event = txResponse.logs[0]
+
+- Assert the correct values were emitted, line 28-31
+
+.. code-block:: javascript
+
+  assert.equal(event.event, 'TokensMinted', 'TokensMinted event was not emitted.')
+  assert.equal(event.args.to, owner, 'Incorrect to was emitted.')
+  assert.equal(event.args.value, value, 'Incorrect value was emitted.')
+  assert.equal(event.args.totalSupply.toNumber(), tokenAmount, 'Incorrect totalSupply was emitted.')
+
+**Ensure the state of the contract is updated correctly**
+
+- Assert the buyer's balance is correct, line 34-35
+
+.. code-block:: javascript
+
+  const balance = await token.balanceOf(owner)
+  assert.equal(balance.toNumber(), tokenAmount, 'Incorrect token balance.')
+
+- Assert the total supply is correct, line 38-39
+
+.. code-block:: javascript
+
+  const supply = await token.totalSupply()
+  assert.equal(supply.toNumber(), tokenAmount, 'Incorrect total supply.')
+
+5. Execute the Test Case
+---------------------------------------
+
+  - Change into the ``src`` directory
+
+  .. code-block:: bash
+
+    cd src
+
+  - Execute the test
+
+  .. code-block:: bash
+
+    truffle test
+
+- *Example output:*
+
+.. code-block:: console
+
+  $ truffle test
+  Using network 'development'.
+  Contract: Token.buy()
+    ✓ should buy new tokens. (133ms)
+  1 passing (148ms)
+  #

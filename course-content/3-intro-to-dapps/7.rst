@@ -1,0 +1,60 @@
+Stage 7: Load Account Balances
+==============================
+
+`Video Tutorial <https://drive.google.com/open?id=1FH7__0b1pwuLT32Ay9efkKV81KPmHEeu>`_
+
+1. Load the default account's ETH and Token balances, completing the ``loadAccountBalances`` method
+---------------------------------------
+
+- Confirm the token has been loaded, line 73-75
+
+.. code-block:: javascript
+
+  if (this.state.token) {
+
+  }
+
+- Add tokenBalance to the state, line 24
+
+.. code-block:: javascript
+
+  tokenBalance: 0,
+
+- Set the token balance, line 75-78
+
+.. code-block:: javascript
+
+  // Set token balance below
+  this.state.token.balanceOf(account, (err, balance) => {
+    this.setState({ tokenBalance: balance.toNumber() })
+  })
+
+- Add ethBalance to the state, line 23
+
+.. code-block:: javascript
+
+  ethBalance: 0,
+
+- Set the eth balance, line 81-84
+
+.. code-block:: javascript
+
+  // Set ETH balance below
+  this.web3.eth.getBalance(account, (err, ethBalance) => {
+    this.setState({ ethBalance })
+  })
+
+- Call the ``loadAccountBalances`` method on load, line 67
+
+.. code-block:: javascript
+
+  this.loadAccountBalances(defaultAccount)
+
+- Also load the balances whenever a new account is selected in the dropdown, line 111
+
+.. code-block:: javascript
+
+  this.loadAccountBalances(this.state.availableAccounts[index].key)
+
+2. View the default account balances and token information in your browser!
+---------------------------------------

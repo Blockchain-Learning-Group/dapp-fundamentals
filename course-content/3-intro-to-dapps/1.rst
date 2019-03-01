@@ -1,0 +1,49 @@
+Stage 1: Starting the Application
+=======================================================
+
+.. note::
+
+  Begin instructions from within the VM(via VirtualBox) that was configured and run in `step 6 of the prerequisites <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/prerequisites/general.html#start-the-vm>`_.
+
+`Video Tutorial [1-2] <https://drive.google.com/open?id=1pXBs_GwPowDwa6EJ7U50XpANt6-Su3nJ>`_
+
+1. Open a new terminal window
+
+  - Click on the terminal icon in the left dock
+
+2. Start the app
+
+  2.1 Change directory into the ``blg/wallet-template`` folder
+    .. code-block:: bash
+
+      cd Desktop/blg/wallet-template
+
+  2.2 Start the server
+    .. code-block:: bash
+
+      yarn start
+
+- *Example output:*
+
+.. code-block:: console
+
+  $ yarn start
+  Starting the development server...
+
+  Compiled successfully!
+
+  You can now view my-app in the browser.
+
+    Local:            http://localhost:3000/
+    On Your Network:  http://172.17.0.2:3000/
+
+  Note that the development build is not optimized.
+  To create a production build, use yarn build.
+
+**- Chrome should automatically be opened and the application rendered!**
+
+3. Open the application's code in the Sublime text editor
+
+- Open the Sublime text editor by clicking on the Sublime icon in the left dock.
+
+- From within Sublime open the `wallet-template` folder. Click on ``File`` in the top left corner and select ``Open Folder...`` in the menu.  Select ``Desktop/blg/wallet-template`` to open, and we can get to coding!

@@ -1,0 +1,26 @@
+Stage 9: Events
+===============
+
+`Video Tutorial <https://drive.google.com/open?id=1gSHTciut91F17sU_E7DYhpZJE4LoH-Lu>`_
+
+1. Add an event to listen for when tokens are transferred and reload the account's balances, line 94-99
+---------------------------------------
+
+.. code-block:: javascript
+
+  // Watch tokens transfer event below
+  this.state.token.Transfer({ fromBlock: 'latest', toBlock: 'latest' })
+  .watch((err, res) => {
+    console.log(`Tokens Transferred! TxHash: ${res.transactionHash} \n ${JSON.stringify(res.args)}`)
+    this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount])
+  })
+
+2. Load the contract events, line 66
+---------------------------------------
+
+.. code-block:: javascript
+
+  this.loadEventListeners()
+
+3. Buy tokens and view the log confirmation in the developer console and token and ETH balance updated dynamically!
+---------------------------------------
