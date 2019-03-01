@@ -20,4 +20,3 @@ Introduction to DApp Development
   9
   10
   solutions
-  
