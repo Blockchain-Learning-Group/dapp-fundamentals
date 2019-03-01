@@ -4,7 +4,6 @@ Stage 7: Load Account Balances
 `Video Tutorial <https://drive.google.com/open?id=1FH7__0b1pwuLT32Ay9efkKV81KPmHEeu>`_
 
 1. Load the default account's ETH and Token balances, completing the ``loadAccountBalances`` method
----------------------------------------
 
 - Confirm the token has been loaded, line 73-75
 
@@ -57,4 +56,3 @@ Stage 7: Load Account Balances
   this.loadAccountBalances(this.state.availableAccounts[index].key)
 
 2. View the default account balances and token information in your browser!
----------------------------------------

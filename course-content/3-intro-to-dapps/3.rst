@@ -7,7 +7,6 @@ Stage 3: Token Deployment
   - A default, and required, initial migration script(src/migrations/1_initial_migration.js), has been included. Do *not* remove this script.
 
 1. Write the Deployment Script
----------------------------------------
 
 - Create a new file in order to deploy the token, ``src/migrations/2_deploy_contracts.js``
 
@@ -34,7 +33,6 @@ Stage 3: Token Deployment
   }
 
 2. Deploy your Token
----------------------------------------
 
 .. code-block:: bash
 

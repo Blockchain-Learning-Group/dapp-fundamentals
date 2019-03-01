@@ -4,14 +4,12 @@ Stage 8: Purchasing Tokens
 `Video Tutorial <https://drive.google.com/open?id=1qa87ghBevvIpNdYNohVfTiY8TXJjXLsV>`_
 
 1. Add token amount to the state, line 21.
----------------------------------------
 
 .. code-block:: javascript
 
   amount: 0,
 
 2. Complete the method to buy tokens, sending a transaction to the token contract, line 99-104.
----------------------------------------
 
 .. code-block:: javascript
 
@@ -23,7 +21,6 @@ Stage 8: Purchasing Tokens
   })
 
 3. In the GUI buy tokens with several available accounts.
----------------------------------------
 
 .. note::
   Note transaction hash in the developer console
@@ -31,4 +28,3 @@ Stage 8: Purchasing Tokens
   *Example transaction hash:* ``0x4b396191e87c31a02e80160cb6a2661da6086c073f6e91e9bd1f796e29b0c983``
 
 4. Refresh the browser or select a different account and come back, and view the account's balance of shiny new tokens!
----------------------------------------

@@ -4,7 +4,6 @@ Stage 5: Load Available On-chain Accounts
 `Video Tutorial <https://drive.google.com/open?id=1hqqMw2Fv7wtqgRKl6TLoAb5go3BOqBkR>`_
 
 1. Get the available accounts from the web3 connection, this is to wrap the existing token interface code, line 29 & 39
----------------------------------------
 
 .. code-block:: javascript
 
@@ -13,14 +12,12 @@ Stage 5: Load Available On-chain Accounts
   })                                              // Line 39
 
 2. Set the default account to use, line 30
----------------------------------------
 
 .. code-block:: javascript
 
   const defaultAccount = this.web3.eth.accounts[0]
 
 3. Load the available accounts into the user interface
----------------------------------------
 
 - Import the Material UI MenuItem, line 8
 
@@ -48,7 +45,6 @@ Stage 5: Load Available On-chain Accounts
   }
 
 4. Set the default account
----------------------------------------
 
 - Add a defaultAccount variable to the state, line 22
 

@@ -4,7 +4,6 @@ Stage 4: Token Interface
 `Video Tutorial <https://drive.google.com/open?id=18bU8mbWN1p6GrPnTLck7k14ByhngvBMg>`_
 
 1. Import the web3 library, ``src/app.js`` #line 5
----------------------------------------
 - Open ``src/app.js`` in the Sublime text editor
 
 .. code-block:: javascript
@@ -12,21 +11,18 @@ Stage 4: Token Interface
   import Web3 from 'web3'
 
 2. Import the token build artifacts into the application, app.js#line 14
----------------------------------------
 
 .. code-block:: javascript
 
   import tokenArtifacts from './build/contracts/Token.json'
 
 3. Create a web3 connection to the local Ethereum node(ganache-cli), app.js#line 26
----------------------------------------
 
 .. code-block:: javascript
 
   this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
 4. Check if the connection was successful, app.js#line 28-30
----------------------------------------
 
 .. code-block:: javascript
 
@@ -35,7 +31,6 @@ Stage 4: Token Interface
   }
 
 5. Detect the current network id that is connected, app.js#line 29-31
----------------------------------------
 
 .. code-block:: javascript
 
@@ -44,7 +39,6 @@ Stage 4: Token Interface
   })
 
 6. Extract the recently deploy token address from the build artifacts, app.js#line 30-33
----------------------------------------
 
 .. code-block:: javascript
 
@@ -54,7 +48,6 @@ Stage 4: Token Interface
   }
 
 7. Create a client side reference to the contract and save it in the application's state, app.js#line 33-35
----------------------------------------
 
 .. code-block:: javascript
 
@@ -63,7 +56,6 @@ Stage 4: Token Interface
   console.log(token)
 
 8. Refresh your chrome browser and open up the developer console
----------------------------------------
 
 This can be accomplished by right-clicking anywhere in the chrome browser and in the dropdown selecting ``inspect`` or ``inspect element`` or by utilizing the shortcut: ``ctrl+shift+i``.
 
