@@ -16,38 +16,27 @@ Stage 4: Token Interface
 
   import tokenArtifacts from './build/contracts/Token.json';
 
-3. Create a web3 connection to the local Ethereum node(ganache-cli), app.js#line 26
+3. Create a web3 connection to the local Ethereum node(ganache), app.js#line 26
 
 .. code-block:: javascript
 
   this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
-4. Check if the connection was successful, app.js#line 28-30
-
-.. code-block:: javascript
-
-  if (this.web3.isConnected()) {
-
-  }
-
-5. Detect the current network id that is connected, app.js#line 29-31
+4. Detect the current network id that is connected, app.js#line 28-30
 
 .. code-block:: javascript
 
   this.web3.version.getNetwork(async (err, netId) => {
 
-  })
+  });
 
-6. Extract the recently deploy token address from the build artifacts, app.js#line 30-33
+5. Extract the recently deploy token address from the build artifacts, app.js#line 29
 
 .. code-block:: javascript
 
-  // Create a reference object to the deployed token contract
-  if (netId in tokenArtifacts.networks) {
-    const tokenAddress = tokenArtifacts.networks[netId].address;
-  }
+  const tokenAddress = tokenArtifacts.networks[netId].address;
 
-7. Create a client side reference to the contract and save it in the application's state, app.js#line 33-35
+6. Create a client side reference to the contract and save it in the application's state, app.js#line 33-35
 
 .. code-block:: javascript
 
@@ -55,7 +44,7 @@ Stage 4: Token Interface
   this.setState({ token });
   console.log(token);
 
-8. Refresh your chrome browser and open up the developer console
+7. Refresh your chrome browser and open up the developer console
 
 This can be accomplished by right-clicking anywhere in the chrome browser and in the dropdown selecting ``inspect`` or ``inspect element`` or by utilizing the shortcut: ``ctrl+shift+i``.
 
@@ -66,3 +55,9 @@ This can be accomplished by right-clicking anywhere in the chrome browser and in
 .. code-block:: bash
 
   Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a370045968c0bc762a7", abi: Array[20]}
+
+  - |app01|
+
+  .. |app01| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.1.js" target="_blank">Complete App.js solution may be found here</a>

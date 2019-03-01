@@ -12,6 +12,7 @@ Stage 3: Token Deployment
 
   - Simply right-click on the migrations directory and create the new file.
 
+
 - Import the token's artifacts, line 1
 
 .. code-block:: javascript
@@ -33,6 +34,10 @@ Stage 3: Token Deployment
   }
 
 2. Deploy your Token
+
+.. important::
+
+  Ensure you are currently in the ``src`` directory!
 
 .. code-block:: bash
 
