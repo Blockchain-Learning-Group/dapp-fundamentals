@@ -2,7 +2,6 @@ Solutions
 =========
 
 Stage 10: Transfer Tokens
-------------------------
 
 `Video Tutorial <https://drive.google.com/open?id=1JPno5OLKUPTMdXO2O4YeXch1SZFyG297>`_
 
@@ -46,7 +45,7 @@ Stage 10: Transfer Tokens
 
 
 `Complete Wallet Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2>`_
-------------------------------
+
 - ``git clone https://github.com/Blockchain-Learning-Group/wallet-eod2.git``
 - ``cd wallet-eod2``
 - ``git checkout tags/2.0``
@@ -57,7 +56,6 @@ Bonus: Extend Your Wallet
 =========================
 
 1. Add basic routing to render navigate between a new exchange and the existing wallet component
------------------------------------------------
 
   1.1 Add the routing components
 
@@ -136,7 +134,6 @@ Bonus: Extend Your Wallet
       <Route exact={true} path="/exchange" render={() => exchange}></Route>
 
 2. Metamask Integration
------------------------
 
 - Ensure Metamask is installed, unlocked and connected to the local client(localhost:8545).
   - Metamask may be insalled `here <https://metamask.io/>`_
@@ -160,7 +157,6 @@ Bonus: Extend Your Wallet
 - Refresh the browser and connect to your Metamask account. View your Metamask account now available within the application.
 
 3. Sync an Ethereum node of your own
-------------------------------------
 
 .. note::
   Look to setup a node locally or via Azure.  Azure is a nice option to begin with as a node locally can be quite heavy and resource intensive.
@@ -176,7 +172,3 @@ Bonus: Extend Your Wallet
 
   - Instructions `here <https://gist.github.com/cryptogoth/10a98e8078cfd69f7ca892ddbdcf26bc>`_
   - `Geth Homepage <https://github.com/ethereum/go-ethereum>`_
-
-----
-
-
