@@ -5,8 +5,8 @@ Stage 10: Transfer Tokens
 
 The required components included:
 
-1. Add the transferAmount and transferUser to the app's state.
-2. Add the React transfer tokens form component.
-3. Complete the transfer method to send the transfer transaction.
+1. Add the ``transferAmount`` and ``transferUser`` to the app's state.
+2. Add the React form component in order to transfer tokens.
+3. Complete the ``transfer`` method to send the transfer transaction.
 
 **Finally transfer tokens between accounts and review balances.**
