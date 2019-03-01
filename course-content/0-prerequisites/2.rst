@@ -1,0 +1,10 @@
+2.0 Machine Specs
+=================
+
+.. attention::
+  Participants are required to bring their own laptops.
+
+1. 4GB of memory and some disk space(4GB+) recommended.
+2. Operating System: Mac preferred, Ubuntu 16.04-17.04 and Windows 7+ OK.
+
+----
