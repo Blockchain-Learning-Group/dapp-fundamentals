@@ -33,7 +33,7 @@ Stage 6: Token Interaction - GET
   const rate = await token.rate();
   this.setState({ rate: rate.toNumber() });
 
-  - |app03|
+- |app03|
 
   .. |app03| raw:: html
 
