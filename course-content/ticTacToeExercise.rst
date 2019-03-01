@@ -8,7 +8,6 @@ Tic Tac Toe
   Navigate to: `https://remix.ethereum.org <https://remix.ethereum.org/#optimize=true&version=soljson-v0.4.24+commit.e67f0147.js>`_
 
 - `Solidity Types Video Tutorial <https://drive.google.com/open?id=1iKsHIm_Kj6XNn0tYflK2XMgEJRZB5J91>`_
-- `Tic-Tac-Toe Part 1 of 2 Video Tutorial <https://drive.google.com/open?id=1zSDWtgXvQNvjNYWQiX3yimU6sxuSEEhF>`_
 
 1. Create the contract and initial storage variables, line 1-15
 --------------------------
@@ -95,8 +94,7 @@ Tic Tac Toe
 
 .. important::
     
-    - `Tic-Tac-Toe Part 2 of 2 Video Tutorial <https://drive.google.com/open?id=1tdJkcqsobL0_6-zJ5qEBHj9uscMTB9pJ>`_
-    - `Video Tutorial [8-12] <https://drive.google.com/open?id=14PaxvZFIKm5EfscBF6OeMzsn3c5HwuFr>`_
+    - `Tic-Tac-Toe Video Tutorial <https://drive.google.com/open?id=1tdJkcqsobL0_6-zJ5qEBHj9uscMTB9pJ>`_
 
 7. Require that only player 1 or player 2 may take turns, within the ``takeTurn`` function line 26
 --------------------------
@@ -150,8 +148,6 @@ Tic Tac Toe
 
 .. important::
     
-    - `Video Tutorial [13-17] <https://drive.google.com/open?id=1c7-UmionniBh9AV-VwOUgGn5xnk71I7K>`_
-
 12. First define which combinations within the game board, which indexes, define a "win", line 35-49
 --------------------------
 
@@ -217,7 +213,6 @@ Tic Tac Toe
 
 17. At the end of the ``takeTurn`` function, after each turn is taken see if there is a winner, update the storage variable if there is a winner, line 35-37
 --------------------------
-    - `Video Tutorial <https://drive.google.com/open?id=1c7-UmionniBh9AV-VwOUgGn5xnk71I7K>`_
 
 ::
 
@@ -236,9 +231,6 @@ Tic Tac Toe
     - Turns can still continue to be taken, no notification that the game has ended
     - What happens in the case of a draw?
 
-.. important::
-    
-    - `Video Tutorial [19-24] <https://drive.google.com/open?id=1c7-UmionniBh9AV-VwOUgGn5xnk71I7K>`_
 
 18. Add a storage variable to signify the game has ended, line 10
 --------------------------
@@ -298,10 +290,6 @@ Tic Tac Toe
 
 **OK how about a friendly wager!**
 
-.. important::
-
-    - `Video Tutorial [25-26] <https://drive.google.com/open?id=1Q5qrZDZWV7wmMnkMQNe3F8x7_nSqmgBF>`_
-
 24. Add a storage variable to hold the placed wagers, line 12
 --------------------------
 
@@ -318,10 +306,6 @@ Tic Tac Toe
         require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
         wagers_[msg.sender] = msg.value;
     }
-
-.. important::
-
-    - `Video Tutorial [27-28] <https://drive.google.com/open?id=1zd744cAsc6UhLZ-I7po8hG4sUMlcbPao>`_
 
 26. Update the logic if a winner is found to transfer all the value to them, within the ``takeTurn`` function line 43
 --------------------------
