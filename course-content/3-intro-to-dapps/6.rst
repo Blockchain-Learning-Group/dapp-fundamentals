@@ -11,14 +11,13 @@ Stage 6: Token Interaction - GET
 
   tokenSymbol: 0,
 
-- Load the token's symbol, line 52-55
+- Load the token's symbol, line 38-41
 
 .. code-block:: javascript
 
   // Set token symbol below
-  token.symbol((err, tokenSymbol) => {
-    this.setState({ tokenSymbol })
-  })
+  const tokenSymbol = await token.symbol();
+  this.setState({ tokenSymbol });
 
 - Add the token's rate to the state, line 23
 
@@ -26,11 +25,16 @@ Stage 6: Token Interaction - GET
 
   rate: 1,
 
-- Load the token's rate, line 58-61
+- Load the token's rate, line 43-46
 
 .. code-block:: javascript
 
   // Set wei / token rate below
-  token.rate((err, rate) => {
-    this.setState({ rate: rate.toNumber() })
-  })
+  const rate = await token.rate();
+  this.setState({ rate: rate.toNumber() });
+
+  - |app03|
+
+  .. |app03| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.3.js" target="_blank">Complete App.js solution may be found here</a>

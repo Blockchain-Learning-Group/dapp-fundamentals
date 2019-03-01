@@ -46,14 +46,14 @@ Stage 5: Load Available On-chain Accounts
 
   defaultAccount: 0,
 
-- Set the defaultAccount in the state when the drowdown value changes, line 79
+- Set the defaultAccount in the state when the drowdown value changes, line 76
 
 .. code-block:: javascript
 
   this.setState({ defaultAccount });
 
-- |app|
+- |app02|
 
-  .. |app| raw:: html
+  .. |app02| raw:: html
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.2.js" target="_blank">Complete App.js solution may be found here</a>
