@@ -3,7 +3,7 @@
 
 .. note::
 
-  Begin instructions from within the VM(via VirtualBox) that was configured and run in `step 6 of the prerequisites <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/prerequisites/general.html#start-the-vm>`_.
+  Begin instructions from within the VM(via VirtualBox) that was configured and run in `step 6 of the prerequisites <../0-prerequisites/0-index.rst>`_.
 
 Open a new terminal window
 -----------------------------
