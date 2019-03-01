@@ -3,7 +3,7 @@
 
 .. note::
 
-  Begin instructions from within the VM(via VirtualBox) that was configured and run in `step 6 of the prerequisites <../0-prerequisites/0-index>`_.
+  Begin instructions from within the VM(via VirtualBox) that was configured and run in `step 6 of the prerequisites <../0-prerequisites/0-index.html>`_.
 
 Open a new terminal window
 -----------------------------
