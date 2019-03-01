@@ -56,7 +56,7 @@ This can be accomplished by right-clicking anywhere in the chrome browser and in
 
   Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a370045968c0bc762a7", abi: Array[20]}
 
-  - |app01|
+- |app01|
 
   .. |app01| raw:: html
 
