@@ -25,19 +25,12 @@ Stage 2: Testing Your Token
 
   adam@adam:~/Desktop/blg$
 
-2. Start up your Ethereum node, ganache-cli
+2. Start up your Ethereum node, ganache
 
-.. code-block:: bash
+  - Click on the Ganache icon in the left dock
+  - Successful boot up should result in the following
 
-  ganache-cli
-
-- *Example output:*
-.. code-block:: console
-
-  # ganache-cli
-  Ganache CLI v6.0.3 (ganache-core: 2.0.2)
-  [...]
-  Listening on localhost:8545
+  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/wallet-template/ganache-boot.png
 
 3. Create a new window or tab for our Truffle commands
 
