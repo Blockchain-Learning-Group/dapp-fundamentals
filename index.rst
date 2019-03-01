@@ -17,7 +17,7 @@ Contents
 
     course-content/0-prerequisites
 
-    course-content/1-blockchain-fundamentals
+    course-content/1-blockchain-fundamentals/0-index
 
     course-content/2-intro-to-react/0-index
 

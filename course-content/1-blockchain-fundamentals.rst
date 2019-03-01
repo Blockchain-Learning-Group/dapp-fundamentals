@@ -11,16 +11,13 @@ Blockchain Fundamentals
 3. `ethernodes.org <https://www.ethernodes.org/network/1>`_
 =======================================================================
 
-4. Solidity Exercises
+4. Solidity Simple Storage Exercise
 =====================
   - `SimpleStorage <http://edu.blockchainlearninggroup.com/en/blg/course-content/simpleStorageExercise.html>`_
   - `SimpleStorage Payable <http://edu.blockchainlearninggroup.com/en/blg/course-content/simpleStoragePayableExercise.html>`_
   - `Tic-Tac-Toe <http://edu.blockchainlearninggroup.com/en/blg/course-content/ticTacToeExercise.html>`_
 
-5. An Introduction to ReactJS
-========
-
-- `ReactJS tutorial <https://reactjs.org/tutorial/tutorial.html>`_
+----
 
 Bonus
 =====
@@ -35,32 +32,7 @@ Bonus
   e. `Block Target <https://drive.google.com/open?id=1aWP9hkXtb3WbnjbPeKuMqPTqULvMsIAf>`_
   f. `Decentralized Consensus <https://drive.google.com/open?id=1lj8lJdRRsiljLOe2hrssfOC7pR3axMnf>`_
 
-2. Deploy your token to a public Test Net(Kovan, Rinkeby, Ropsten) via Metamask!
--------------------------------------
-- Ensure Metamask is installed, enabled and unlocked, you may install from `here <https://metamask.io/>`_
-- Ensure Metamask is connected to Kovan via the drop down in the top left corner
-- Within remix under the ``run`` tab switch from ``Javascript VM`` to ``injected web3``
-- Refresh the browser
-- Now re-deploy and the contract will be sent from your Metamask account.
+2. An Introduction to ReactJS
+-----------------------------
 
-  .. note::
-    - A Metamask window will pop-up for you to confirm the transaction
-    - Also **SAVE** the address the token was deployed at! You may need it later :)
-
-3. Sync an Ethereum node of your own
-------------------------------------
-
-.. note::
-  Look to setup a node locally or via Azure.  Azure is a nice option to begin with as a node locally can be quite heavy and resource intensive.
-
-- `Getting Started With Azure <https://azure.microsoft.com/en-us/get-started/?v=17.39>`_
-
-- Sync a Parity node to Kovan
-
-  - Instructions to deploy to Azure `here <https://medium.com/@attores/creating-a-free-kovan-testnet-node-on-azure-step-by-step-guide-8f10127985e4>`_
-  - `Parity Homepage <https://www.parity.io/>`_
-
-- Sync a Geth node to Rinkeby
-
-  - Instructions `here <https://gist.github.com/cryptogoth/10a98e8078cfd69f7ca892ddbdcf26bc>`_
-  - `Geth Homepage <https://github.com/ethereum/go-ethereum>`_
+- `ReactJS tutorial <https://reactjs.org/tutorial/tutorial.html>`_
