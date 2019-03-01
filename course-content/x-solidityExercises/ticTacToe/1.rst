@@ -26,7 +26,6 @@
 
 2. Create a function to allow a game to be started, line 16-19
 
-
 ::
 
     function startGame(address _player1, address _player2) external {
@@ -48,13 +47,11 @@
 
 4. Mark the board, within the ``takeTurn`` function update the ``gameBoard`` array, line 26 
 
-
 ::
 
     gameBoard_[_boardLocation] = msg.sender;
 
 5. Add a function to return the contents of the game board, line 29-31
---
 
 ::
 
@@ -63,7 +60,6 @@
     }
 
 6. Give it a shot!  Try starting a game and taking turns, watch as the game board's indexes are filled
-
 
 - Now take a look, what problems do you notice?
 - Did you have some time to play with the contract?
@@ -85,13 +81,11 @@
 
 7. Require that only player 1 or player 2 may take turns, within the ``takeTurn`` function line 26
 
-
 ::
 
     require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
 
 8. Add a pre condition check to confirm the spot on the board is not already taken, within the ``takeTurn`` function line 27
-
 
 ::
 
@@ -99,13 +93,11 @@
 
 9. Add a storage variable to track who just took a turn, line 8
 
-
 ::
 
     address public lastPlayed_;
 
 10. Following a turn being taken update the storage variable, within the ``takeTurn`` function line 31
-
 
 ::
 
@@ -113,14 +105,12 @@
 
 11. Check that the same player is not trying to take another turn, within the ``takeTurn`` function line 29
 
-
 ::
 
     require(msg.sender != lastPlayed_, "Not your turn.");
 
 
 **Try taking turns now!  More restricted / protected?**
-
 
 .. important::
 

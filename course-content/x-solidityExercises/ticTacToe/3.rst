@@ -1,14 +1,15 @@
+3.0 A High Stakes Game
+======================
+
 **OK how about a friendly wager!**
 
 24. Add a storage variable to hold the placed wagers, line 12
---------------------------
 
 ::
 
     mapping(address => uint256) public wagers_;
 
 25. Add a function to allow the players to place a wager, line 82-86
---------------------------
 
 ::
 
@@ -18,14 +19,12 @@
     }
 
 26. Update the logic if a winner is found to transfer all the value to them, within the ``takeTurn`` function line 43
---------------------------
 
 ::
 
     msg.sender.transfer(address(this).balance);
 
 27. Update the logic to refund the value if a draw has occured, within the ``takeTurn`` function line 46-47
---------------------------
 
 ::
 

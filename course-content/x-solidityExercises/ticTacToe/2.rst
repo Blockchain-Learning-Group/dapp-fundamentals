@@ -1,5 +1,7 @@
+2.0 Finding a Winner!
+=====================
+
 12. First define which combinations within the game board, which indexes, define a "win", line 35-49
---------------------------
 
 ::
 
@@ -20,7 +22,6 @@
      */
 
 13. Create a function to compute a winner and implement these combintations as filters to filter the board with, line 50-56
---------------------------
 
 ::
 
@@ -33,7 +34,6 @@
     }
         
 14. Create a for loop to iterate over each filter, within the ``isWinner`` function line 57-59
---------------------------
 
 ::
 
@@ -42,14 +42,12 @@
     }
 
 15. Add a storage variable to define the winner, line 9
---------------------------
 
 ::
     
     address public winner_;
 
 16. Within the above ``for loop`` compare each filter against the game board and see if the player has won with their latest turn, line 60-66 
---------------------------
 
 ::
 
@@ -62,7 +60,6 @@
     }
 
 17. At the end of the ``takeTurn`` function, after each turn is taken see if there is a winner, update the storage variable if there is a winner, line 35-37
---------------------------
 
 ::
 
@@ -83,35 +80,30 @@
 
 
 18. Add a storage variable to signify the game has ended, line 10
---------------------------
 
 ::
 
     bool public gameOver_;
 
 19. If a winner was found update that the game has ended, within the ``takeTurn`` function line 38
---------------------------
 
 ::
 
     gameOver_ = true;   
 
 20.  Add a storage variable to count how many turns have been taken, will use this variable to define if a draw has occured, line 11
---------------------------
 
 ::
 
     uint256 public turnsTaken_;
 
 21. After a turn is taken update the turns taken storage variable, within the ``takeTurn`` function line 36
---------------------------
 
 ::
 
     turnsTaken_++;
 
 22.  Add a conditional that if 9 turns have been taken the game has ended with no winner, within the ``takeTurn`` function line 41-43
---------------------------
 
 ::
 
@@ -120,7 +112,6 @@
     }
 
 23. Add a last pre condition check that the game is still active, within the ``takeTurn`` function line 30
---------------------------
 
 ::
 
