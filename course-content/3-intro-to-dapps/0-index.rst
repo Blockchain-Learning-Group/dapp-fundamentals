@@ -6,7 +6,17 @@ Introduction to DApp Development
 
 .. important::
 
-  `Please open the tutorial presentation here <https://docs.google.com/presentation/d/e/2PACX-1vQjWTev5WY8N0WpnUcJfrrY2kq-xgrpooQEMfuESB4ecfYhUjVSDEjv3QQBVeRJ8_pVn-pDPoPy-nIc/pub?start=true&loop=false&delayms=10000>`_
+
+  |tut-pres|
+
+    .. |tut-pres| raw:: html
+
+      <a 
+        href="https://docs.google.com/presentation/d/e/2PACX-1vQjWTev5WY8N0WpnUcJfrrY2kq-xgrpooQEMfuESB4ecfYhUjVSDEjv3QQBVeRJ8_pVn-pDPoPy-nIc/pub?start=true&loop=false&delayms=10000" 
+        target="_blank"
+      >
+        Please open the tutorial presentation here
+      </a>
 
 ----
 
