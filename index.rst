@@ -22,4 +22,3 @@ Contents
     course-content/2-intro-to-react/0-index
 
     course-content/3-intro-to-dapps
-    course-content/5-exercises

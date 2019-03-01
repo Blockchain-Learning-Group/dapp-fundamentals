@@ -20,3 +20,6 @@ Blockchain Fundamentals
    :maxdepth: 1
 
    ../simpleStorageExercise
+   ../simpleStoragePayableExercise
+   ../ticTacToeExercise
+
