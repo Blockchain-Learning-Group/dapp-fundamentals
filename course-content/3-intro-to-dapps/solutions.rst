@@ -12,7 +12,7 @@ Stage 10: Transfer Tokens
   transferAmount: '',
   transferUser: '',
 
-2. Add the React transfer tokens form component, line 150-161.
+2. Add the React transfer tokens form component, line 128-139.
 
 .. code-block:: javascript
 
@@ -29,23 +29,18 @@ Stage 10: Transfer Tokens
     />
   </div>
 
-
 3. Complete the transfer method to send the transfer transaction, line 117-124.
 
 .. code-block:: javascript
 
-  if (amount > 0) {
-    // Execute token transfer below
-    this.state.token.transfer(user, amount, {
-      from: this.web3.eth.accounts[this.state.defaultAccount]
-    }, (err, res) => {
-      err ? console.error(err) : console.log(res)
-    })
-  }
-
+  const sender  = this.web3.eth.accounts[this.state.defaultAccount];
+  const transactionHash = await this.state.token.transfer(user, amount, { from: sender });
+  console.log(transactionHash);
 
 `Complete Wallet Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2>`_
 
-- ``git clone https://github.com/Blockchain-Learning-Group/wallet-eod2.git``
-- ``cd wallet-eod2``
-- ``git checkout tags/2.0``
+- |app07|
+
+  .. |app07| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.7.js" target="_blank">Complete App.js solution may be found here</a>

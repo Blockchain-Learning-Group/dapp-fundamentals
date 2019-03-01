@@ -1,7 +1,7 @@
 Stage 10: Transfer Tokens
 ========================
 
-**Try this portion on your own! [Solution noted at the bottom]**
+**Try this portion on your own! [Solutions noted in the following solutions section...]**
 
 The required components included:
 
