@@ -37,10 +37,16 @@ Stage 10: Transfer Tokens
   const transactionHash = await this.state.token.transfer(user, amount, { from: sender });
   console.log(transactionHash);
 
-- `Complete Wallet Solution <https://github.com/Blockchain-Learning-Group/wallet-eod2>`_
-
 - |app07|
 
   .. |app07| raw:: html
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.7.js" target="_blank">Complete App.js solution may be found here</a>
+
+----
+
+- |wallet|
+
+  .. |wallet| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/wallet-eod2" target="_blank">Complete wallet solution may be found here</a>
