@@ -10,8 +10,10 @@ Stage 3: Token Deployment
 
 - Create a new file in order to deploy the token, ``src/migrations/2_deploy_contracts.js``
 
-  - Simply right-click on the migrations directory and create the new file.
+  - Simply right-click on the migrations directory and select ``New File`` from the drop down menu to create the new file.
+  - Select ``File`` => ``Save As`` and then enter the name of the file: ``2_deploy_contracts.js``, click the ``Save`` button in the bottom right corner.
 
+**Time to add some code to this new file!**
 
 - Import the token's artifacts, line 1
 
@@ -19,13 +21,17 @@ Stage 3: Token Deployment
 
   const Token = artifacts.require("./Token.sol");
 
-- Define the owner account, note ``truffle migrate`` exposes the web3 object, line 2
+- Define the owner account, line 2 
+  - Note that the ``truffle migrate`` command exposes the ``web3`` object globally which is connected to your ganache node
+    and therefore has access to all of the default 10 accounts.
 
 .. code-block:: javascript
 
   const owner = web3.eth.accounts[0];
 
 - Utilize truffle's deployer object in order to deploy an instance of the token, line 4-6
+  - This deployer is a utility that ``truffle`` provides within its framework to make sending ``contract creation`` transactions as easy as the one line below!
+  - This function will be exported so that it may be executed by the ``truffle migrate`` command
 
 .. code-block:: javascript
 
@@ -33,11 +39,19 @@ Stage 3: Token Deployment
     deployer.deploy(Token, { from: owner });
   }
 
+.. important::
+
+  Don't forget to save!
+
+  This may be done either by selecting ``File`` => ``Save`` or via ``ctrl+s`` on the keyboard.
+
 2. Deploy your Token
 
 .. important::
 
-  Ensure you are currently in the ``src`` directory!
+  Now back within your terminal window where the ``truffle test`` command was recently run...
+
+  Ensure you are still in the ``src`` directory!
 
 .. code-block:: bash
 
@@ -65,3 +79,18 @@ Stage 3: Token Deployment
     ... 0xd1e9bef5f19bb37daa200d7e563f4fa438da60dbc349f408d1982f8626b3c202
   Saving artifacts...
   #
+
+.. important::
+
+  You just sent your first *contract creation* transaction via the ``truffle`` framework, well done!
+
+  As above, the ``Token`` contract has been created at address: ``0xd58c6b5e848d70fd94693a370045968c0bc762a7``, note that yours will 
+  almost certainly be created at a different address!  
+
+  Also the ``Migrations`` contract was created which is nothing to worry about but just a utility the ``truffle`` framework uses to monitor
+  the status of your transactions.
+
+  If you have a look back at ganache and select on the ``Transactions`` tab you will see the ``Contract Creation`` transactions that were sent
+  and lots of other data too!
+
+  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/08-seed-product-data.png

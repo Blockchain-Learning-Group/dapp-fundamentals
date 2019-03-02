@@ -15,22 +15,11 @@ Stage 2: Testing Your Token
 
   .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/wallet-template/ganache-boot.png
 
-2. Create a new terminal window or tab for our Truffle commands
+2. Open the application's code in the Sublime text editor, time to get to some coding...
 
-.. note::
-  While within the terminal window select File -> Open Terminal to create a new window.
+  - Open the Sublime text editor by clicking on the Sublime icon in the left dock.
 
-  To create a new tab from within a terminal window:
-
-  .. code-block:: bash
-
-    ctrl+shft+t
-
-- *Example output: Result is a new empty terminal, in the same directory you were in.*
-
-.. code-block:: console
-
-  adam@adam:~/Desktop/blg$
+  - From within Sublime open the `wallet-template` folder. Click on ``File`` in the top left corner and select ``Open Folder...`` in the menu.  Select ``Desktop/blg/wallet-template`` to open, and we can get to coding!
 
 3. Create the Test Case
 
@@ -39,6 +28,8 @@ Stage 2: Testing Your Token
   - Also one test file template has been provided in order to test the buy method was implemented correctly.
 
 - Open the test file within Sublime, ``src/test/test_buy.js``
+
+**Now you may begin to implement the test case!**
 
 - Import the token's build artifacts, ``src/test/test_buy.js`` line 2
 
@@ -113,8 +104,26 @@ Stage 2: Testing Your Token
   const supply = await token.totalSupply();
   assert.equal(supply.toNumber(), tokenAmount, 'Incorrect total supply.');
 
-4. Execute the Test Case
+4. Back within your terminal window where the ``npm start`` command was run, create a new terminal window or tab for our Truffle commands
 
+.. note::
+  While within the terminal window select File -> Open Terminal to create a new window.
+
+  To create a new tab from within a terminal window:
+
+  .. code-block:: bash
+
+    ctrl+shft+t
+
+- *Example output: Result is a new empty terminal, in the same directory you were in.*
+
+  .. code-block:: console
+
+    adam@adam:~/Desktop/blg/wallet-template$
+
+5. Execute the Test Case
+
+  - Within your new terminal window
   - Change into the ``src`` directory
 
   .. code-block:: bash
@@ -132,6 +141,11 @@ Stage 2: Testing Your Token
 .. code-block:: console
 
   $ truffle test
+  Compiling ./contracts/Migrations.sol...
+  Compiling ./contracts/Token.sol...
+
+  [...]
+
   Using network 'development'.
   Contract: Token.buy()
     ✓ should buy new tokens. (133ms)
