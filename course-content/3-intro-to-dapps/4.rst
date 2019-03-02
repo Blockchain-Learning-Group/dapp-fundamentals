@@ -51,7 +51,7 @@ Now you will *connect* your web application to your newly created ``Token`` cont
 
     i.e.
 
-    .. code-block:: 
+    .. code-block:: javascript
 
         this.web3.version.getNetwork(async (err, netId) => {
           const tokenAddress = tokenArtifacts.networks[netId].address;
