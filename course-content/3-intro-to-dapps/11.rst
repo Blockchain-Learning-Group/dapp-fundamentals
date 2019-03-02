@@ -21,21 +21,21 @@ Stage 11: Basic Routing
 
   - *Example output:*
 
-  .. code-block:: console
+    .. code-block:: console
 
-    wallet-template$ npm install --save react-router-dom@4.3.1
-    [..]
-    + react-router-dom@4.3.1
-    updated 1 package and audited 13712 packages in 9.686s
-    found 40 vulnerabilities (31 low, 6 moderate, 3 high)
-    run `npm audit fix` to fix them, or `npm audit` for details
-    wallet-template$
+      wallet-template$ npm install --save react-router-dom@4.3.1
+      [..]
+      + react-router-dom@4.3.1
+      updated 1 package and audited 13712 packages in 9.686s
+      found 40 vulnerabilities (31 low, 6 moderate, 3 high)
+      run `npm audit fix` to fix them, or `npm audit` for details
+      wallet-template$
 
   - Import the router components into the app, within ``App.js`` at line 2
 
-  .. code-block:: javascript
+    .. code-block:: javascript
 
-    import { BrowserRouter, Route, Link } from 'react-router-dom';
+      import { BrowserRouter, Route, Link } from 'react-router-dom';
 
   - Wrap the existing ``{component}`` in ``App.js`` at like 150 with the router, ~line 150 & line 152
 
@@ -47,15 +47,15 @@ Stage 11: Basic Routing
 
   - Add a *route* for the default page, replace the existing ``{component}`` line 151 with the route below on line 151 
 
-  .. code-block:: html
+    .. code-block:: html
 
-    <Route exact={true} path="/" render={() => component}/>
+      <Route exact={true} path="/" render={() => component}/>
 
   - Add a secondary route for the new page you are going to create, line 152
 
-  .. code-block:: html
+    .. code-block:: html
 
-    <Route exact={true} path="/newPage" render={() => <h1>New Page!</h1>} />
+      <Route exact={true} path="/newPage" render={() => <h1>New Page!</h1>} />
 
   .. note::
 
@@ -99,12 +99,12 @@ Stage 11: Basic Routing
 
   - Update your ``newPage`` route to now render this component, line 162
 
-  .. code-block:: html
+    .. code-block:: html
 
-    <Route exact={true} path="/newPage" render={() => newPage} />
+      <Route exact={true} path="/newPage" render={() => newPage} />
 
   - |app08|
 
-  .. |app08| raw:: html
+    .. |app08| raw:: html
 
-    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.8.js" target="_blank">Complete App.js solution may be found here</a>
+      <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.8.js" target="_blank">Complete App.js solution may be found here</a>
