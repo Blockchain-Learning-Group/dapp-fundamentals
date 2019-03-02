@@ -3,7 +3,7 @@ Stage 7: Load Account Balances
 
 `Video Tutorial <https://drive.google.com/open?id=1FH7__0b1pwuLT32Ay9efkKV81KPmHEeu>`_
 
-1. Load the default account's ETH and Token balances, completing the ``loadAccountBalances`` method
+1. Load the default account's ETH and Token balances, completing the ``loadAccountBalances`` function
 
 - Add tokenBalance to the state, line 24
 
@@ -43,22 +43,62 @@ Stage 7: Load Account Balances
 
 - Set the eth balance, line 67-68
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const ethBalance = await this.web3.eth.getBalance(account);
-  this.setState({ ethBalance: ethBalance });
+    const ethBalance = await this.web3.eth.getBalance(account);
+    this.setState({ ethBalance: ethBalance });
 
-- Call the ``loadAccountBalances`` method on load, line 49
+- Call the ``loadAccountBalances`` function when the page initially renders within the ``componentDidMount`` function, line 49
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  this.loadAccountBalances(this.web3.eth.accounts[0]);
+    this.loadAccountBalances(this.web3.eth.accounts[0]);
 
-- Also load the balances whenever a new account is selected in the dropdown, line 94
+  .. important::
 
-.. code-block:: javascript
+    This code must be placed in the ``componentDidMount`` function after the ``token`` object has been created.
 
-  this.loadAccountBalances(this.state.availableAccounts[index].key);
+    i.e.
+
+      .. code-block:: javascript
+
+        async componentDidMount() {
+          // Create a web3 connection
+          this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+
+          this.web3.version.getNetwork(async (err, netId) => {
+            const tokenAddress = tokenArtifacts.networks[netId].address;
+            const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
+            this.setState({ token });
+            console.log(token);
+
+            // Set token symbol below
+            const tokenSymbol = await token.symbol();
+            this.setState({ tokenSymbol });
+
+            // Set wei / token rate below
+            const rate = await token.rate();
+            this.setState({ rate: rate.toNumber() });
+
+            this.loadAccountBalances(this.web3.eth.accounts[0]);
+
+            [...]
+          }
+
+- Also load the balances whenever a new account is selected in the dropdown, place this line within the ``handleDropDownChange`` function, line 94
+
+  - i.e.
+
+  .. code-block:: javascript
+  
+      handleDropDownChange = (event, index, defaultAccount) => {
+        this.setState({ defaultAccount });
+        this.loadAccountBalances(this.state.availableAccounts[index].key);
+      }
+
+  .. code-block:: javascript
+
+    this.loadAccountBalances(this.state.availableAccounts[index].key);
 
 2. View the default account balances and token information in your browser!
 
