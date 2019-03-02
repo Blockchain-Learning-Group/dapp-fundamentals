@@ -93,4 +93,4 @@ Stage 3: Token Deployment
   If you have a look back at ganache and select on the ``Transactions`` tab you will see the ``Contract Creation`` transactions that were sent
   and lots of other data too!
 
-  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/product-registry-01/images/08-seed-product-data.png
+  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/wallet-template/ganache-after-migration.png
