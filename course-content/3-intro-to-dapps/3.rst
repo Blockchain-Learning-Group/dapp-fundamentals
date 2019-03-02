@@ -55,13 +55,13 @@ Stage 3: Token Deployment
 
 .. code-block:: bash
 
-  truffle migrate
+  truffle migrate --reset
 
 - *Example output:*
 
 .. code-block:: console
 
-  # truffle migrate
+  # truffle migrate --reset
   Using network 'development'.
 
   Running migration: 1_initial_migration.js

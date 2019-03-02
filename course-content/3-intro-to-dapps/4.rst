@@ -36,12 +36,13 @@ Now you will *connect* your web application to your newly created ``Token`` cont
   this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
 4. Detect the current network id that is connected, app.js#line 28-30
+  - Note this needs to be after the ``this.web3 = ...`` line above and within the ``componentDidMount(){}`` function
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  this.web3.version.getNetwork(async (err, netId) => {
+    this.web3.version.getNetwork(async (err, netId) => {
 
-  });
+    });
 
 5. Extract the recently deploy token address from the build artifacts, app.js#line 29
 
