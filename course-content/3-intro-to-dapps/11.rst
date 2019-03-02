@@ -56,7 +56,7 @@ Stage 11: Basic Routing
         <BrowserRouter>
           <div>
             <Route exact={true} path="/" render={() => component}/>
-            <Route exact={true} path="/newPage" render={() => newPage} />
+            <Route exact={true} path="/newPage" render={() => <h1>New Page!</h1>} />
           </div>
         </BrowserRouter>
 
