@@ -40,8 +40,25 @@ Stage 11: Basic Routing
     .. code-block:: html
 
       <BrowserRouter>
-        {component}
+        <div> 
+          {component}
+        </div> 
       </BrowserRouter>
+
+  .. important::
+
+    The two routes below must go within the ``<div>`` with the ``<BrowserRouter>``.
+
+    i.e.
+
+      .. code-block:: html
+
+        <BrowserRouter>
+          <div>
+            <Route exact={true} path="/" render={() => component}/>
+            <Route exact={true} path="/newPage" render={() => newPage} />
+          </div>
+        </BrowserRouter>
 
   - Add a *route* for the default page, replace the existing ``{component}`` line 151 with the route below on line 151 
 
