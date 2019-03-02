@@ -3,8 +3,8 @@ Stage 9: Events
 
 `Video Tutorial <https://drive.google.com/open?id=1gSHTciut91F17sU_E7DYhpZJE4LoH-Lu>`_
 
-1. Add an event listener for when tokens are transferred and reload the account's balances when this event is caught, line 77-80
-- Add this code within the ``loadEventListeners()`` method
+1. Add an event listener for when tokens are transferred and reload the account's balances when this event is caught, line 76-79
+- Add this code within the ``loadEventListeners()`` function
 
 .. code-block:: javascript
 
@@ -14,11 +14,44 @@ Stage 9: Events
   });
 
 2. Load the contract events, line 51
-- Within the ``componentDidMount()`` method
+- The ``loadEventListeners`` function must be called initially to create these listeners
+- Do so from within the ``componentDidMount()`` function
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  this.loadEventListeners();
+    this.loadEventListeners();
+
+  .. important::
+
+    This call must come after the ``token`` object is created!
+
+    i.e
+
+      .. code-block:: javascript
+
+          async componentDidMount() {
+            // Create a web3 connection
+            this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+
+            this.web3.version.getNetwork(async (err, netId) => {
+              const tokenAddress = tokenArtifacts.networks[netId].address;
+              const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
+              this.setState({ token });
+              console.log(token);
+
+              // Set token symbol below
+              const tokenSymbol = await token.symbol();
+              this.setState({ tokenSymbol });
+
+              // Set wei / token rate below
+              const rate = await token.rate();
+              this.setState({ rate: rate.toNumber() });
+
+              this.loadAccountBalances(this.web3.eth.accounts[0]);
+              this.loadEventListeners();
+
+              [...]
+            }
 
 3. Buy tokens and view the log confirmation in the developer console and token and ETH balance updated dynamically!
 
