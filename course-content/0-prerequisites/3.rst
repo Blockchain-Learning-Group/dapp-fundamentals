@@ -54,7 +54,7 @@ A customized virtual machine has been provided for all students that is fully co
 
     - You will be prompted with the dialog below, simply ensure ``*Ubuntu`` is highlighted and hit the ``enter`` key 
 
-    .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/raw/master/vm-boot-window.png
+    .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/vm-boot-window.png
 
 
 7. Finally you will have a brand new Ubuntu 16.04 virtual machine up and running with all the required dependecies
