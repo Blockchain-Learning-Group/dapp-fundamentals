@@ -3,8 +3,6 @@ Stage 11: Basic Routing
 
 1. Add basic routing to render navigate between a new component and the existing wallet component
 
-  - Add the routing components
-
   `Video Tutorial <https://drive.google.com/open?id=1hcdKMRLm6w4Pyewqse3uaIFQeg-s4VcU>`_
 
   - Change into the ``wallet-template`` directory
@@ -37,7 +35,7 @@ Stage 11: Basic Routing
 
       import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-  - Wrap the existing ``{component}`` in ``App.js`` at like 150 with the router, ~line 150 & line 152
+  - Wrap the existing ``{component}`` in ``App.js`` at line 150 with the router, ~line 150 & line 152
 
     .. code-block:: html
 
@@ -95,7 +93,7 @@ Stage 11: Basic Routing
         <Link to={'/'}>
           <RaisedButton label="Wallet <<<" primary={true} fullWidth={true}/>
         </Link>
-    </div>
+      </div>
 
   - Update your ``newPage`` route to now render this component, line 162
 
