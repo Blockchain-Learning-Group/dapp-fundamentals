@@ -1,10 +1,21 @@
 Stage 4: Token Interface
 ========================
 
+Now you will *connect* your web application to your newly created ``Token`` contract!
+
 `Video Tutorial <https://drive.google.com/open?id=18bU8mbWN1p6GrPnTLck7k14ByhngvBMg>`_
 
+.. important::
+
+  Now you should transition back to your Sublime text editor to begin editing your application code.
+
+  All of the application development will take place within the ``src/App.js`` file.
+
+  Please begin by opening this file which may be done so simply by double-clicking on it in the left file tree under the ``src`` folder.
+
+**Time to start wiring it up!**
+
 1. Import the web3 library, ``src/app.js`` #line 5
-- Open ``src/app.js`` in the Sublime text editor
 
 .. code-block:: javascript
 
