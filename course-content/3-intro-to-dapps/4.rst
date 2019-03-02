@@ -57,17 +57,32 @@ Now you will *connect* your web application to your newly created ``Token`` cont
           const tokenAddress = tokenArtifacts.networks[netId].address;
         });
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const tokenAddress = tokenArtifacts.networks[netId].address;
+    const tokenAddress = tokenArtifacts.networks[netId].address;
 
-6. Create a client side reference to the contract and save it in the application's state, app.js#line 33-35
+6. Create a client side reference to the contract and save it in the application's state, app.js#line 30-32
 
-.. code-block:: javascript
+  .. important::
 
-  const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
-  this.setState({ token });
-  console.log(token);
+    This must be placed within the callback of the above ``getNetwork`` function call where ``netId`` is available!
+
+    i.e.
+
+    .. code-block:: javascript
+
+        this.web3.version.getNetwork(async (err, netId) => {
+          const tokenAddress = tokenArtifacts.networks[netId].address;
+          const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
+          this.setState({ token });
+          console.log(token);
+        });
+
+  .. code-block:: javascript
+
+    const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
+    this.setState({ token });
+    console.log(token);
 
 7. Refresh your chrome browser and open up the developer console
 
