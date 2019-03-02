@@ -1,6 +1,13 @@
 Stage 8: Purchasing Tokens
 ========================================
 
+.. note::
+
+  Time to start sending some transactions!  
+  
+  You have already sent a ``contract creation`` transaction via ``truffle migrate`` now it is time to send some ``calls``, or transactions
+  that *call* functions of the contract. 
+
 `Video Tutorial <https://drive.google.com/open?id=1qa87ghBevvIpNdYNohVfTiY8TXJjXLsV>`_
 
 1. Add token amount to the state, line 21.
@@ -9,14 +16,28 @@ Stage 8: Purchasing Tokens
 
   amount: 0,
 
-2. Complete the method to buy tokens, sending a transaction to the token contract, line 82-84.
-- From within the ``buy()`` method...
+2. Complete the function to buy tokens, sending a transaction to the token contract, line 82-84.
+- From within the ``buy()`` function...
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const sender = this.web3.eth.accounts[this.state.defaultAccount];
-  const transactionHash = await this.state.token.buy({ from: sender, value: amount });
-  console.log(transactionHash);
+    const sender = this.web3.eth.accounts[this.state.defaultAccount];
+    const transactionHash = await this.state.token.buy({ from: sender, value: amount });
+    console.log(transactionHash);
+
+  .. important:: 
+
+    This must be added within the ``buy()`` function.
+    
+    i.e.
+
+      .. code-block:: javascript
+
+          async buy(amount) {
+            const sender = this.web3.eth.accounts[this.state.defaultAccount];
+            const transactionHash = await this.state.token.buy({ from: sender, value: amount });
+            console.log(transactionHash);
+          }
 
 3. In the GUI buy tokens with several available accounts.
 
