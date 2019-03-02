@@ -36,18 +36,22 @@ Now you will *connect* your web application to your newly created ``Token`` cont
   this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
 4. Detect the current network id that is connected, app.js#line 28-30
-  - Note this needs to be after the ``this.web3 = ...`` line above and within the ``componentDidMount(){}`` function
-  - i.e.
+  
+  .. note::
+  
+    This needs to be after the ``this.web3 = ...`` line above and within the ``componentDidMount(){}`` function
+    
+    - i.e.
 
-    .. code-block:: javascript
+      .. code-block:: javascript
 
-      async componentDidMount() {
-        this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+        async componentDidMount() {
+          this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
-        this.web3.version.getNetwork(async (err, netId) => {
+          this.web3.version.getNetwork(async (err, netId) => {
 
-        });
-      }
+          });
+        }
 
   .. code-block:: javascript
 
