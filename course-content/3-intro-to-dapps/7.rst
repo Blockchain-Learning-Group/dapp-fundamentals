@@ -19,7 +19,7 @@ Stage 7: Load Account Balances
 
 .. important::
 
-    This code must be placed within the ``loadAccountBalances`` function
+    This code below **must** be placed within the ``loadAccountBalances`` function
 
     i.e.
 
@@ -87,6 +87,10 @@ Stage 7: Load Account Balances
 
 - Also load the balances whenever a new account is selected in the dropdown, place this line within the ``handleDropDownChange`` function, line 94
 
+  .. code-block:: javascript
+
+    this.loadAccountBalances(this.state.availableAccounts[index].key);
+
   - i.e.
 
   .. code-block:: javascript
@@ -95,10 +99,6 @@ Stage 7: Load Account Balances
         this.setState({ defaultAccount });
         this.loadAccountBalances(this.state.availableAccounts[index].key);
       }
-
-  .. code-block:: javascript
-
-    this.loadAccountBalances(this.state.availableAccounts[index].key);
 
 2. View the default account balances and token information in your browser!
 
