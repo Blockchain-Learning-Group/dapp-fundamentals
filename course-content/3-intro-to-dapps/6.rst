@@ -11,7 +11,28 @@ Stage 6: Token Interaction - GET
 
   tokenSymbol: 0,
 
-- Load the token's symbol, line 38-41
+.. important::
+
+  The calls to the ``token`` object beneath must be nested within the callback of the ``getNetwork`` call where the ``token`` reference was created.
+
+  i.e.
+
+    this.web3.version.getNetwork(async (err, netId) => {
+      const tokenAddress = tokenArtifacts.networks[netId].address;
+      const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
+      this.setState({ token });
+      console.log(token);
+
+      // Set token symbol below
+      const tokenSymbol = await token.symbol();
+      this.setState({ tokenSymbol });
+
+      // Set wei / token rate below
+      const rate = await token.rate();
+      this.setState({ rate: rate.toNumber() });
+    }); 
+
+- Load the token's symbol, line 39-41
 
 .. code-block:: javascript
 
@@ -25,7 +46,7 @@ Stage 6: Token Interaction - GET
 
   rate: 1,
 
-- Load the token's rate, line 43-46
+- Load the token's rate, line 43-45
 
 .. code-block:: javascript
 

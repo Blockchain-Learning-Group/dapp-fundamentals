@@ -11,18 +11,35 @@ Stage 7: Load Account Balances
 
   tokenBalance: 0,
 
-- Set the token balance, line 63-64
-
-.. code-block:: javascript
-
-  const balance = await this.state.token.balanceOf(account);
-  this.setState({ tokenBalance: balance.toNumber() });
-
 - Add ethBalance to the state, line 23
 
 .. code-block:: javascript
 
   ethBalance: 0,
+
+.. important::
+
+    This code must be placed within the ``loadAccountBalances`` function
+
+    i.e.
+
+      .. code-block:: javascript
+
+        // Load the accounts token and ether balances.
+        async loadAccountBalances(account) {
+          const balance = await this.state.token.balanceOf(account);
+          this.setState({ tokenBalance: balance.toNumber() });
+
+          const ethBalance = await this.web3.eth.getBalance(account);
+          this.setState({ ethBalance: ethBalance });
+        }
+
+- Set the token balance, line 64-65
+
+  .. code-block:: javascript
+
+    const balance = await this.state.token.balanceOf(account);
+    this.setState({ tokenBalance: balance.toNumber() });
 
 - Set the eth balance, line 67-68
 

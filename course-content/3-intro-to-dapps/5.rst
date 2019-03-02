@@ -25,7 +25,7 @@ Stage 5: Load Available On-chain Accounts
 
   availableAccounts: [],
 
-- Append all accounts into the UI dropdown menu, line 37-44
+- Append all accounts into the UI dropdown menu, line 38-45
 
   .. important:: 
 
@@ -61,11 +61,26 @@ Stage 5: Load Available On-chain Accounts
 
 - Add a defaultAccount variable to the state, line 22
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  defaultAccount: 0,
+    defaultAccount: 0,
 
-- Set the defaultAccount in the state when the drowdown value changes, line 76
+  .. note:: 
+
+    The constructor and state should now look like this:
+
+    .. code-block:: javascript
+
+      constructor(props) {
+        super(props)
+        this.state = {
+          availableAccounts: [],
+          defaultAccount: 0,
+          token: null, // token contract
+        };
+      }  
+
+- Set the defaultAccount in the state when the drowdown value changes, this is to be placed within the ``handleDropDownChange`` function, line 76
 
 .. code-block:: javascript
 
