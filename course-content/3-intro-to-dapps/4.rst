@@ -13,6 +13,8 @@ Now you will *connect* your web application to your newly created ``Token`` cont
 
   Please begin by opening this file which may be done so simply by double-clicking on it in the left file tree under the ``src`` folder.
 
+  Note you may also close the other files you may still have open ``test_buy.js`` or ``2_deploy_contracts.js``.
+
 **Time to start wiring it up!**
 
 1. Import the web3 library, ``src/app.js`` #line 5
@@ -42,6 +44,18 @@ Now you will *connect* your web application to your newly created ``Token`` cont
   });
 
 5. Extract the recently deploy token address from the build artifacts, app.js#line 29
+
+  .. important::
+
+    This must be placed within the callback of the above ``getNetwork`` function call where ``netId`` is available!
+
+    i.e.
+
+    .. code-block:: 
+
+        this.web3.version.getNetwork(async (err, netId) => {
+          const tokenAddress = tokenArtifacts.networks[netId].address;
+        });
 
 .. code-block:: javascript
 
