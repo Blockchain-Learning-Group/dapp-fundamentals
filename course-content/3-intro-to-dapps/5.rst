@@ -3,13 +3,13 @@ Stage 5: Load Available On-chain Accounts
 
 `Video Tutorial <https://drive.google.com/open?id=1hqqMw2Fv7wtqgRKl6TLoAb5go3BOqBkR>`_
 
-1. Get the available accounts from the web3 connection, this is to go beneath the ``getNetwork`` block where the token reference was created, line 34 & 36
+1. Get the available accounts from the web3 connection, this is to go beneath the ``getNetwork`` block where the token reference was created, line 35 & 37
 
 .. code-block:: javascript
 
-  this.web3.eth.getAccounts((err, accounts) => {  // Line 34
+  this.web3.eth.getAccounts((err, accounts) => {
 
-  });                                             // Line 36
+  });                                             
 
 2. Load the available accounts into the user interface
 
@@ -27,16 +27,35 @@ Stage 5: Load Available On-chain Accounts
 
 - Append all accounts into the UI dropdown menu, line 37-44
 
-.. code-block:: javascript
+  .. important:: 
 
-  // Append all available accounts
-  for (let i = 0; i < accounts.length; i++) {
-    this.setState({
-      availableAccounts: this.state.availableAccounts.concat(
-        <MenuItem value={i} key={accounts[i]} primaryText={accounts[i]} />
-      )
-    });
-  }
+    The code block below is to go within the callback of the ``getAccounts`` call above.
+
+    i.e.
+
+      .. code-block:: javascript
+
+        this.web3.eth.getAccounts((err, accounts) => {
+          // Append all available accounts
+          for (let i = 0; i < accounts.length; i++) {
+            this.setState({
+              availableAccounts: this.state.availableAccounts.concat(
+                <MenuItem value={i} key={accounts[i]} primaryText={accounts[i]} />
+              )
+            });
+          }
+        });
+
+  .. code-block:: javascript
+
+    // Append all available accounts
+    for (let i = 0; i < accounts.length; i++) {
+      this.setState({
+        availableAccounts: this.state.availableAccounts.concat(
+          <MenuItem value={i} key={accounts[i]} primaryText={accounts[i]} />
+        )
+      });
+    }
 
 3. Set the default account
 
