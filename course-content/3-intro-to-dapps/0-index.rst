@@ -1,5 +1,5 @@
 =======================
-Introduction to DApp Development
+Decentralized Application Development
 =======================
 
 `View Completed Wallet Demo <https://drive.google.com/open?id=1edaSVgMd-PbRYhXiWQlZV_K2ICiIVobJ>`_

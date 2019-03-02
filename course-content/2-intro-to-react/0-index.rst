@@ -1,5 +1,5 @@
 =======================
-Introduction to React
+ReactJS
 =======================
 
 .. important::
