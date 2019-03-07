@@ -17,9 +17,15 @@ DApp Development
 1. Introduction to ReactJS
 ==========================
 
+.. toctree::
+   :maxdepth: 1
+
    ./1-intro-to-react/0-index
 
 2. Introduction to DApps
 ==========================
+
+.. toctree::
+   :maxdepth: 1
 
    ./2-intro-to-dapps/0-index
