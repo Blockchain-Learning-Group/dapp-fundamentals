@@ -13,8 +13,13 @@ DApp Development
         target="_blank"
     >Day 2 presentation</a>
 
-.. toctree::
-   :maxdepth: 1
+
+1. Introduction to ReactJS
+==========================
 
    ./1-intro-to-react/0-index
-   ./2-intro-to-dapp/0-index
+
+2. Introduction to DApps
+==========================
+
+   ./2-intro-to-dapps/0-index
