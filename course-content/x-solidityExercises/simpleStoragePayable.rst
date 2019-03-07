@@ -68,4 +68,4 @@ The final solution may be found `here <https://github.com/Blockchain-Learning-Gr
 
 .. important::
 
-  All done?  We recommend reviewing the complementary video series found `here <https://blg-dapp-fundamentals.readthedocs.io/en/blg-school-hack-4-change/course-content/1-blockchain-fundamentals.html#blockchain-fundamentals-video-series>`_.
+  All done?  We recommend reviewing the complementary video series found `here <../1-blockchain-fundamentals/bonus.html#blockchain-fundamentals-video-series>`_.

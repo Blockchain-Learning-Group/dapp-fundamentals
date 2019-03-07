@@ -39,3 +39,7 @@ Homework!
 
 - What happens when a new game wants to be started in the same contract?
 - How to allow this?  When to allow this?  Reset storage variables?
+
+.. important::
+
+    All done?  We recommend reviewing the complementary video series found `here <../../1-blockchain-fundamentals/bonus.html#blockchain-fundamentals-video-series>`_.
