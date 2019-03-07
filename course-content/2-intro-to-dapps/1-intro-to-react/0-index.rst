@@ -1,7 +1,3 @@
-=======================
-ReactJS
-=======================
-
 .. important::
 
   In this exercise, you’re going to get a crash course on the React library by building a simple product registry and voting application.
