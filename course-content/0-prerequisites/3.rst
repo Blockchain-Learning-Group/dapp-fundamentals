@@ -9,7 +9,7 @@ A customized virtual machine has been provided for all students that is fully co
 .. note::
     `View tutorial video [1-2] <https://drive.google.com/open?id=1vtPL7J3hlZxzuBm5pb6q3efNo2QO7vFX>`_
 
-1. Please download the virtual machine(vm) by clicking `here <https://doc-10-2c-docs.googleusercontent.com/docs/securesc/igkeiahnam4lja33180ajmi08i69pr3n/jjei0dv20858bdulvog0msq6iaq3f8dl/1551549600000/04776086860009277756/04776086860009277756/1R5N7nEwPcAuGogMDVFdqtxeoJcpIcgdy?e=download>`_ 
+1. Please download the virtual machine(vm) by clicking `here <https://doc-10-2c-docs.googleusercontent.com/docs/securesc/igkeiahnam4lja33180ajmi08i69pr3n/i5fqte6sj3deafn2sq7j283j1g204htc/1551981600000/04776086860009277756/04776086860009277756/1R5N7nEwPcAuGogMDVFdqtxeoJcpIcgdy?e=download>`_ 
 ------------------------------------------
     - The download will begin immediately or you may need to simply confirm to ``Download Anyway`` depending on your browser. Note the file is quite large ~2GB so it will take a few minutes to complete.
     - By default the file will be named ``blg-starter-vm.ova`` and will be saved within your ``Downloads`` folder.
