@@ -29,4 +29,4 @@ Blockchain Fundamentals
 .. toctree::
    :maxdepth: 1
 
-   bonus
+   ./bonus
