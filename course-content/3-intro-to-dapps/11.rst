@@ -124,3 +124,9 @@ Stage 11: Basic Routing
     .. |app08| raw:: html
 
       <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.8.js" target="_blank">Complete App.js solution may be found here</a>
+
+----
+
+.. important::
+
+  All done?  We recommend reviewing the complementary video series found `here <../1-blockchain-fundamentals/bonus.html#blockchain-fundamentals-video-series>`_.

@@ -418,3 +418,9 @@ Introducing: **The State!**
   .. |app09| raw:: html
 
     <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/product-registry-01/dev-stages/app-09.js" target="_blank">Complete solution may be found here</a>
+
+----
+
+.. important::
+
+  All done?  We recommend reviewing the complementary video series found `here <../1-blockchain-fundamentals/bonus.html#blockchain-fundamentals-video-series>`_.
