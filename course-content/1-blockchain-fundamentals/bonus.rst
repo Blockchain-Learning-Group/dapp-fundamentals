@@ -1,4 +1,4 @@
-1. Blockchain Fundamentals Video Series
+Blockchain Fundamentals Video Series
 ----------------------------------------
 
   a. `How it works: Hashes <https://drive.google.com/open?id=1LhZSWbeecr77KdcIuB75pVihs1-fR0Dv>`_
@@ -8,7 +8,7 @@
   e. `Block Target <https://drive.google.com/open?id=1aWP9hkXtb3WbnjbPeKuMqPTqULvMsIAf>`_
   f. `Decentralized Consensus <https://drive.google.com/open?id=1lj8lJdRRsiljLOe2hrssfOC7pR3axMnf>`_
 
-2. An Introduction to ReactJS
+An Introduction to ReactJS
 -----------------------------
 
 - `ReactJS tutorial <https://reactjs.org/tutorial/tutorial.html>`_
