@@ -19,6 +19,4 @@ Contents
 
     course-content/1-blockchain-fundamentals/0-index
 
-    course-content/2-intro-to-react/0-index
-
-    course-content/3-intro-to-dapps/0-index
+    course-content/2-intro-to-dapp/0-index
