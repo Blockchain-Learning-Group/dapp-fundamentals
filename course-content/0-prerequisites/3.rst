@@ -49,8 +49,8 @@ A customized virtual machine has been provided for all students that is fully co
     - This will take a few minutes, your vm is starting!
     - **Note ONLY if the VM fails to start** 
     
-        .. note::
-            It is most likely due to virtualization not being enabled on your machine, this will need to be accomplished in the BIOS of your machine.  The process to boot into BIOS is highly dependent on your specific computer and instructions will need to be sourced online.  In many cases restarting the computer and holding the esc button may do so.
+    .. note::
+        It is most likely due to virtualization not being enabled on your machine, this will need to be accomplished in the BIOS of your machine.  The process to boot into BIOS is highly dependent on your specific computer and instructions will need to be sourced online.  In many cases restarting the computer and holding the esc button may do so.
 
     - You will be prompted with the dialog below, simply ensure ``*Ubuntu`` is highlighted and hit the ``enter`` key 
 
