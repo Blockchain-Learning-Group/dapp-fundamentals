@@ -1,26 +1,31 @@
 pragma solidity 0.4.24;
 
-
 contract TicTacToe {
 
     address public player1_;
     address public player2_;
+    mapping(address => uint256) public playerNumbers_;  // Map ugly address to number for simpler inspection of game board
+    
     address public lastPlayed_;
     address public winner_;
     bool public gameOver_;
     uint256 public turnsTaken_;
     mapping(address => uint256) public wagers_;
-
-    /** The game board itself
+    
+    /** 
+     * The game board itself
      * 0, 1, 2
      * 3, 4, 5
      * 6, 7, 8
      */
-    address[9] private gameBoard_;
+    uint256[9] private gameBoard_;
     
     function startGame(address _player1, address _player2) external {
         player1_ = _player1;
+        playerNumbers_[_player1] = 1;
+        
         player2_ = _player2;
+        playerNumbers_[_player2] = 2;
     }
     
     /**
@@ -33,7 +38,7 @@ contract TicTacToe {
         require(gameBoard_[_boardLocation] == 0, "Spot taken!");
         require(msg.sender != lastPlayed_, "Not your turn.");
         
-        gameBoard_[_boardLocation] = msg.sender;
+        gameBoard_[_boardLocation] = playerNumbers_[msg.sender];
         lastPlayed_ = msg.sender;
         turnsTaken_++;
         
@@ -73,9 +78,9 @@ contract TicTacToe {
         for (uint8 i = 0; i < winningFilters.length; i++) {
             uint8[3] memory filter = winningFilters[i];
             if (
-                gameBoard_[filter[0]]==player &&
-                gameBoard_[filter[1]]==player &&
-                gameBoard_[filter[2]]==player
+                gameBoard_[filter[0]]==playerNumbers_[player] &&
+                gameBoard_[filter[1]]==playerNumbers_[player] &&
+                gameBoard_[filter[2]]==playerNumbers_[player]
             ) {
                 return true;
             }
@@ -87,7 +92,7 @@ contract TicTacToe {
         wagers_[msg.sender] = msg.value;
     }
     
-    function getBoard() external view returns(address[9]) {
+    function getBoard() external view returns(uint256[9]) {
         return gameBoard_;
     }
 }
