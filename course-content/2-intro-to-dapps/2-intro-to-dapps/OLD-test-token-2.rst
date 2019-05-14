@@ -50,86 +50,86 @@ Stage 2: Testing Your Token
 
 3. Create the Test Case
 
-.. note::
-  - contracts/Token.sol has been provided.
-  - Also one test file template has been provided in order to test the buy method was implemented correctly.
+  .. note::
+    - contracts/Token.sol has been provided.
+    - Also one test file template has been provided in order to test the buy method was implemented correctly.
 
-- Open the test file within Sublime, ``src/test/test_buy.js``
+  - Open the test file within Sublime, ``src/test/test_buy.js``
 
-**Now you may begin to implement the test case!**
+  **Now you may begin to implement the test case!**
 
-- Import the token's build artifacts, ``src/test/test_buy.js`` line 2
+  - Import the token's build artifacts, ``src/test/test_buy.js`` line 2
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const Token = artifacts.require("./Token.sol");
+    const Token = artifacts.require("./Token.sol");
 
-- Define the owner account, note ``truffle test`` exposes the accounts array for us, line 6
+  - Define the owner account, note ``truffle test`` exposes the accounts array for us, line 6
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const owner = accounts[0];
+    const owner = accounts[0];
 
-- Create a new instance of the token contract, line 10
+  - Create a new instance of the token contract, line 10
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const token = await Token.new({ from: owner });
+    const token = await Token.new({ from: owner });
 
-- Specify the wei value of tokens you wish to purchase, line 13
+  - Specify the wei value of tokens you wish to purchase, line 13
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const value = 100;
+    const value = 100;
 
-- Send the transaction to the token's buy method, line 16
+  - Send the transaction to the token's buy method, line 16
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const txResponse = await token.buy({ from: owner, value });
+    const txResponse = await token.buy({ from: owner, value });
 
-- Pull the rate from the token, line 19
+  - Pull the rate from the token, line 19
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const rate = await token.rate();
+    const rate = await token.rate();
 
-- Compute the token amount to be minted to the buyer, line 22
+  - Compute the token amount to be minted to the buyer, line 22
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const tokenAmount = value * rate;
+    const tokenAmount = value * rate;
 
-- Access the event object from the transaction receipt, line 25
+  - Access the event object from the transaction receipt, line 25
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const event = txResponse.logs[0];
+    const event = txResponse.logs[0];
 
-- Assert the correct values were emitted, line 28-31
+  - Assert the correct values were emitted, line 28-31
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  assert.equal(event.event, 'TokensMinted', 'TokensMinted event was not emitted.');
-  assert.equal(event.args.to, owner, 'Incorrect to was emitted.');
-  assert.equal(event.args.value, value, 'Incorrect value was emitted.');
-  assert.equal(event.args.totalSupply.toNumber(), tokenAmount, 'Incorrect totalSupply was emitted.');
+    assert.equal(event.event, 'TokensMinted', 'TokensMinted event was not emitted.');
+    assert.equal(event.args.to, owner, 'Incorrect to was emitted.');
+    assert.equal(event.args.value, value, 'Incorrect value was emitted.');
+    assert.equal(event.args.totalSupply.toNumber(), tokenAmount, 'Incorrect totalSupply was emitted.');
 
-**Ensure the state of the contract is updated correctly**
+  **Ensure the state of the contract is updated correctly**
 
-- Assert the buyer's balance is correct, line 34-35
+  - Assert the buyer's balance is correct, line 34-35
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const balance = await token.balanceOf(owner);
-  assert.equal(balance.toNumber(), tokenAmount, 'Incorrect token balance.');
+    const balance = await token.balanceOf(owner);
+    assert.equal(balance.toNumber(), tokenAmount, 'Incorrect token balance.');
 
-- Assert the total supply is correct, line 38-39
+  - Assert the total supply is correct, line 38-39
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const supply = await token.totalSupply();
-  assert.equal(supply.toNumber(), tokenAmount, 'Incorrect total supply.');
+    const supply = await token.totalSupply();
+    assert.equal(supply.toNumber(), tokenAmount, 'Incorrect total supply.');
 
 4. Back within your terminal window where the ``npm start`` command was run, create a new terminal window or tab for our Truffle commands
 

@@ -1,84 +1,133 @@
 Stage 3: Token Deployment
 =========================
 
+.. important::
+
+  The following videos may make note of the use of something called "Docker" and "containers", but do note that Docker has since been omitted.
+  The same commands that are mentioned may be run directly on the machine without entering into the noted container.
+
+`Video Tutorial <https://drive.google.com/open?id=1j95myJ3MCRRCWJwUr_9v0BDwyWm1quow>`_
+
+1. Start up your Ethereum node, ganache
+
+  - Back within your terminal window where the ``npm start`` command was run, create a new terminal window, or tab, to run your blockchain
+
+  .. note::
+    While within the terminal window select File -> Open Terminal to create a new window.
+
+    To create a new tab from within a terminal window:
+
+    .. code-block:: bash
+
+      ctrl+shft+t
+
+  - *Example output: Result is a new empty terminal, in the same directory you were in.*
+
+    .. code-block:: console
+
+      adam@adam:~/Desktop/blg/wallet-template$
+
+  - Then run the blockchain emulation with the below command:
+
+    .. code-block:: console
+
+      ganache-cli
+
+  - Example output:
+
+    .. code-block:: console
+    
+      # ganache-cli
+      Ganache CLI v6.0.3 (ganache-core: 2.0.2)
+      [...]
+      Listening on localhost:8545
+
+2. Open the application's code in the Sublime text editor, time to get to some coding...
+
+  - Open the Sublime text editor by clicking on the Sublime icon in the left dock.
+
+  - From within Sublime open the `wallet-template` folder. Click on ``File`` in the top left corner and select ``Open Folder...`` in the menu.  Select ``Desktop/blg/wallet-template`` to open, and we can get to coding!
+
+---
+
 `Video Tutorial <https://drive.google.com/open?id=1sdLtnunj3crUAMX6Q_qqYOITJ0Z94Ee0>`_
 
 .. note::
   - A default, and required, initial migration script(src/migrations/1_initial_migration.js), has been included. Do *not* remove this script.
 
-1. Write the Deployment Script
+3. Write the Deployment Script
 
-- Create a new file in order to deploy the token, ``src/migrations/2_deploy_contracts.js``
+  - Create a new file in order to deploy the token, ``src/migrations/2_deploy_contracts.js``
 
-  - Simply right-click on the migrations directory and select ``New File`` from the drop down menu to create the new file.
-  - Select ``File`` => ``Save As`` and then enter the name of the file: ``2_deploy_contracts.js``, click the ``Save`` button in the bottom right corner.
+    - Simply right-click on the migrations directory and select ``New File`` from the drop down menu to create the new file.
+    - Select ``File`` => ``Save As`` and then enter the name of the file: ``2_deploy_contracts.js``, click the ``Save`` button in the bottom right corner.
 
-**Time to add some code to this new file!**
+  **Time to add some code to this new file!**
 
-- Import the token's artifacts, line 1
+  - Import the token's artifacts, line 1
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const Token = artifacts.require("./Token.sol");
+    const Token = artifacts.require("./Token.sol");
 
-- Define the owner account, line 2 
-  - Note that the ``truffle migrate`` command exposes the ``web3`` object globally which is connected to your ganache node
-    and therefore has access to all of the default 10 accounts.
+  - Define the owner account, line 2 
+    - Note that the ``truffle migrate`` command exposes the ``web3`` object globally which is connected to your ganache node
+      and therefore has access to all of the default 10 accounts.
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  const owner = web3.eth.accounts[0];
+    const owner = web3.eth.accounts[0];
 
-- Utilize truffle's deployer object in order to deploy an instance of the token, line 4-6
-  - This deployer is a utility that ``truffle`` provides within its framework to make sending ``contract creation`` transactions as easy as the one line below!
-  - This function will be exported so that it may be executed by the ``truffle migrate`` command
+  - Utilize truffle's deployer object in order to deploy an instance of the token, line 4-6
+    - This deployer is a utility that ``truffle`` provides within its framework to make sending ``contract creation`` transactions as easy as the one line below!
+    - This function will be exported so that it may be executed by the ``truffle migrate`` command
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  module.exports = deployer => {
-    deployer.deploy(Token, { from: owner });
-  }
+    module.exports = deployer => {
+      deployer.deploy(Token, { from: owner });
+    }
 
-.. important::
+  .. important::
 
-  Don't forget to save!
+    Don't forget to save!
 
-  This may be done either by selecting ``File`` => ``Save`` or via ``ctrl+s`` on the keyboard.
+    This may be done either by selecting ``File`` => ``Save`` or via ``ctrl+s`` on the keyboard.
 
-2. Deploy your Token
+4. Deploy your Token
 
-.. important::
+  .. important::
 
-  Now back within your terminal window where the ``truffle test`` command was recently run...
+    Now back within your terminal window where the ``truffle test`` command was recently run...
 
-  Ensure you are still in the ``src`` directory!
+    Ensure you are still in the ``src`` directory!
 
-.. code-block:: bash
+  .. code-block:: bash
 
-  truffle migrate --reset
+    truffle migrate --reset
 
-- *Example output:*
+  - *Example output:*
 
-.. code-block:: console
+  .. code-block:: console
 
-  # truffle migrate --reset
-  Using network 'development'.
+    # truffle migrate --reset
+    Using network 'development'.
 
-  Running migration: 1_initial_migration.js
-    Deploying Migrations...
-    ... 0x26ff3f480502a228f34363e938289c3164edf8bc49c75f5d6d9623a05da92dbf
-    Migrations: 0x3e47fad1423cbf6bd97fee18ae2de546b0e9188a
-  Saving successful migration to network...
-    ... 0x19a7a819df452847f34815e2573765be8c26bac43b1c10d3b7528e6d952ac02c
-  Saving artifacts...
-  Running migration: 2_deploy_contracts.js
-    Deploying Token...
-    ... 0x4a69e7840d0f96067964fb515ffea1a04a98fc5759849d3308584af4770c8f7b
-    Token: 0xd58c6b5e848d70fd94693a370045968c0bc762a7
-  Saving successful migration to network...
-    ... 0xd1e9bef5f19bb37daa200d7e563f4fa438da60dbc349f408d1982f8626b3c202
-  Saving artifacts...
-  #
+    Running migration: 1_initial_migration.js
+      Deploying Migrations...
+      ... 0x26ff3f480502a228f34363e938289c3164edf8bc49c75f5d6d9623a05da92dbf
+      Migrations: 0x3e47fad1423cbf6bd97fee18ae2de546b0e9188a
+    Saving successful migration to network...
+      ... 0x19a7a819df452847f34815e2573765be8c26bac43b1c10d3b7528e6d952ac02c
+    Saving artifacts...
+    Running migration: 2_deploy_contracts.js
+      Deploying Token...
+      ... 0x4a69e7840d0f96067964fb515ffea1a04a98fc5759849d3308584af4770c8f7b
+      Token: 0xd58c6b5e848d70fd94693a370045968c0bc762a7
+    Saving successful migration to network...
+      ... 0xd1e9bef5f19bb37daa200d7e563f4fa438da60dbc349f408d1982f8626b3c202
+    Saving artifacts...
+    #
 
 .. important::
 
