@@ -17,20 +17,22 @@ Stage 5: Token Interaction - GET
 
   i.e.
 
-    this.web3.version.getNetwork(async (err, netId) => {
-      const tokenAddress = tokenArtifacts.networks[netId].address;
-      const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
-      this.setState({ token });
-      console.log(token);
+    ::
 
-      // Set token symbol below
-      const tokenSymbol = await token.symbol();
-      this.setState({ tokenSymbol });
+      this.web3.version.getNetwork(async (err, netId) => {
+        const tokenAddress = tokenArtifacts.networks[netId].address;
+        const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
+        this.setState({ token });
+        console.log(token);
 
-      // Set wei / token rate below
-      const rate = await token.rate();
-      this.setState({ rate: rate.toNumber() });
-    }); 
+        // Set token symbol below
+        const tokenSymbol = await token.symbol();
+        this.setState({ tokenSymbol });
+
+        // Set wei / token rate below
+        const rate = await token.rate();
+        this.setState({ rate: rate.toNumber() });
+      }); 
 
 - Load the token's symbol, line 39-41
 
