@@ -58,20 +58,63 @@
     - Result:
 
         :: 
-        
+
             function takeTurn(uint256 _boardLocation) external {
                 gameBoard_[_boardLocation] = playerNumbers_[msg.sender];
             }
 
 5. Add a function to return the contents of the game board
 
-::
+    ::
 
-    function getBoard() external view returns(uint256[9]) {
-        return gameBoard_;
-    }
+        function getBoard() external view returns(uint256[9]) {
+            return gameBoard_;
+        }
 
 6. Give it a shot!  Try starting a game and taking turns, watch as the game board's indexes are filled
+
+    - Completed code:
+
+        ::
+
+            pragma solidity 0.4.24;
+
+
+            contract TicTacToe {
+                
+                address public player1_;
+                address public player2_;
+                mapping(address => uint256) public playerNumbers_;  // Map ugly address to number for simpler inspection of game board
+                
+                /** The game board itself 
+                * 0, 1, 2
+                * 3, 4, 5
+                * 6, 7, 8
+                */
+                uint256[9] private gameBoard_;
+                
+                function startGame(address _player1, address _player2) external {
+                        player1_ = _player1;
+                        playerNumbers_[_player1] = 1;
+                        
+                        player2_ = _player2;
+                        playerNumbers_[_player2] = 2;
+                }
+                
+                /**
+                * @notice Take your turn, selecting a board location
+                * @param _boardLocation Location of the board to take
+                */
+                function takeTurn(uint256 _boardLocation) external {
+                    gameBoard_[_boardLocation] = playerNumbers_[msg.sender];
+                }
+                
+                function getBoard() external view returns(uint256[9]) {
+                    return gameBoard_;
+                }
+            }
+
+----
 
 - Now take a look, what problems do you notice?
 - Did you have some time to play with the contract?
@@ -91,36 +134,72 @@
     
     - `Tic-Tac-Toe Video Tutorial <https://drive.google.com/open?id=1tdJkcqsobL0_6-zJ5qEBHj9uscMTB9pJ>`_
 
-7. Require that only player 1 or player 2 may take turns, within the ``takeTurn`` function line 26
+----
 
-::
+7. Require that only player 1 or player 2 may take turns, within the ``takeTurn`` function
 
-    require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
+    ::
 
-8. Add a pre condition check to confirm the spot on the board is not already taken, within the ``takeTurn`` function line 27
+        require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
 
-::
+8. Add a pre condition check to confirm the spot on the board is not already taken, within the ``takeTurn`` function
 
-    require(gameBoard_[_boardLocation] == 0, "Spot taken!");
+    ::
 
-9. Add a storage variable to track who just took a turn
+        require(gameBoard_[_boardLocation] == 0, "Spot taken!");
 
-::
+    - Result:
 
-    address public lastPlayed_;
+        ::
 
-10. Following a turn being taken update the storage variable, within the ``takeTurn`` function line 31
+            function takeTurn(uint256 _boardLocation) external {
+                require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
+                require(gameBoard_[_boardLocation] == 0, "Spot taken!");
 
-::
+                gameBoard_[_boardLocation] = playerNumbers_[msg.sender];
+            }
 
-    lastPlayed_ = msg.sender;
+9. Add a storage variable, at the top of the contract beneath ``mapping(address => uint256) public playerNumbers_;`` to track who just took a turn
 
-11. Check that the same player is not trying to take another turn, within the ``takeTurn`` function line 29
+    ::
 
-::
+        address public lastPlayed_;
 
-    require(msg.sender != lastPlayed_, "Not your turn.");
+    - Result:
 
+        ::
+
+            address public player1_;
+            address public player2_;
+            mapping(address => uint256) public playerNumbers_;  // Map ugly address to number for simpler inspection of game board
+            address public lastPlayed_;
+
+10. Following a turn being taken update the storage variable, within the ``takeTurn`` function
+
+    ::
+
+        lastPlayed_ = msg.sender;
+
+11. Check that the same player is not trying to take another turn, within the ``takeTurn`` function
+
+    ::
+
+        require(msg.sender != lastPlayed_, "Not your turn.");
+
+    - Result:
+
+        ::
+
+            function takeTurn(uint256 _boardLocation) external {
+                require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
+                require(gameBoard_[_boardLocation] == 0, "Spot taken!");
+                require(msg.sender != lastPlayed_, "Not your turn.");
+
+                gameBoard_[_boardLocation] = playerNumbers_[msg.sender];
+                lastPlayed_ = msg.sender;
+            }
+
+----
 
 **Try taking turns now!  More restricted / protected?**
 
@@ -133,3 +212,52 @@
     How about a conclusion to the game?
 
     Let's look into how we can compute a winner
+
+----
+
+- Completed code:
+
+    ::
+
+        pragma solidity 0.4.24;
+
+
+        contract TicTacToe {
+            
+            address public player1_;
+            address public player2_;
+            mapping(address => uint256) public playerNumbers_;  // Map ugly address to number for simpler inspection of game board
+            address public lastPlayed_;
+            
+            /** The game board itself 
+            * 0, 1, 2
+            * 3, 4, 5
+            * 6, 7, 8
+            */
+            uint256[9] private gameBoard_;
+            
+            function startGame(address _player1, address _player2) external {
+                    player1_ = _player1;
+                    playerNumbers_[_player1] = 1;
+                    
+                    player2_ = _player2;
+                    playerNumbers_[_player2] = 2;
+            }
+            
+            /**
+            * @notice Take your turn, selecting a board location
+            * @param _boardLocation Location of the board to take
+            */
+            function takeTurn(uint256 _boardLocation) external {
+                require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
+                require(gameBoard_[_boardLocation] == 0, "Spot taken!");
+                require(msg.sender != lastPlayed_, "Not your turn.");
+
+                gameBoard_[_boardLocation] = playerNumbers_[msg.sender];
+                lastPlayed_ = msg.sender;
+            }
+            
+            function getBoard() external view returns(uint256[9]) {
+                return gameBoard_;
+            }
+        }
