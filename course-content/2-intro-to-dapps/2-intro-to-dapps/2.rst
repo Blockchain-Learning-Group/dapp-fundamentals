@@ -10,10 +10,37 @@ Stage 2: Testing Your Token
 
 1. Start up your Ethereum node, ganache
 
-  - Click on the Ganache icon in the left dock
-  - Successful boot up should result in the following
+  - Back within your terminal window where the ``npm start`` command was run, create a new terminal window, or tab, to run your blockchain
 
-  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/wallet-template/ganache-boot.png
+  .. note::
+    While within the terminal window select File -> Open Terminal to create a new window.
+
+    To create a new tab from within a terminal window:
+
+    .. code-block:: bash
+
+      ctrl+shft+t
+
+  - *Example output: Result is a new empty terminal, in the same directory you were in.*
+
+    .. code-block:: console
+
+      adam@adam:~/Desktop/blg/wallet-template$
+
+  - Then run the blockchain emulation with the below command:
+
+    .. code-block:: console
+
+      ganache-cli
+
+  - Example output:
+
+    .. code-block:: console
+    
+      # ganache-cli
+      Ganache CLI v6.0.3 (ganache-core: 2.0.2)
+      [...]
+      Listening on localhost:8545
 
 2. Open the application's code in the Sublime text editor, time to get to some coding...
 
