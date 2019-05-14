@@ -33,7 +33,7 @@
 
 **Go play!  Earn some ETH.**
 
-- ``As above`` Final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg-school-hack-4-change/solutions/TicTacToe.sol>`_
+- ``As above`` Final solution may be found `here <https://github.com/Blockchain-Learning-Group/dapp-fundamentals/blob/blg/solutions/TicTacToe.sol>`_
 
 Homework!
 
