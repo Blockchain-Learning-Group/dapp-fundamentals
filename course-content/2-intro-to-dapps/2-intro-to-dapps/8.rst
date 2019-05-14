@@ -1,55 +1,62 @@
-Stage 8: Purchasing Tokens
-========================================
+Stage 8: Events
+===============
 
-.. note::
+`Video Tutorial <https://drive.google.com/open?id=1gSHTciut91F17sU_E7DYhpZJE4LoH-Lu>`_
 
-  Time to start sending some transactions!  
-  
-  You have already sent a ``contract creation`` transaction via ``truffle migrate`` now it is time to send some ``calls``, or transactions
-  that *call* functions of the contract. 
-
-`Video Tutorial <https://drive.google.com/open?id=1qa87ghBevvIpNdYNohVfTiY8TXJjXLsV>`_
-
-1. Add token amount to the state, line 21.
+1. Add an event listener for when tokens are transferred and reload the account's balances when this event is caught, line 76-79
+- Add this code within the ``loadEventListeners()`` function
 
 .. code-block:: javascript
 
-  amount: 0,
+  this.state.token.Transfer().watch((err, res) => {
+    console.log(`Tokens Transferred! TxHash: ${res.transactionHash} \n ${JSON.stringify(res.args)}`);
+    this.loadAccountBalances(this.web3.eth.accounts[this.state.defaultAccount]);
+  });
 
-2. Complete the function to buy tokens, sending a transaction to the token contract, line 82-84.
-- From within the ``buy()`` function...
+2. Load the contract events, line 51
+- The ``loadEventListeners`` function must be called initially to create these listeners
+- Do so from within the ``componentDidMount()`` function
 
   .. code-block:: javascript
 
-    const sender = this.web3.eth.accounts[this.state.defaultAccount];
-    const transactionHash = await this.state.token.buy({ from: sender, value: amount });
-    console.log(transactionHash);
+    this.loadEventListeners();
 
-  .. important:: 
+  .. important::
 
-    This must be added within the ``buy()`` function.
-    
-    i.e.
+    This call must come after the ``token`` object is created!
+
+    i.e
 
       .. code-block:: javascript
 
-          async buy(amount) {
-            const sender = this.web3.eth.accounts[this.state.defaultAccount];
-            const transactionHash = await this.state.token.buy({ from: sender, value: amount });
-            console.log(transactionHash);
-          }
+          async componentDidMount() {
+            // Create a web3 connection
+            this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
-3. In the GUI buy tokens with several available accounts.
+            this.web3.version.getNetwork(async (err, netId) => {
+              const tokenAddress = tokenArtifacts.networks[netId].address;
+              const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
+              this.setState({ token });
+              console.log(token);
 
-.. note::
-  Note transaction hash in the developer console
+              // Set token symbol below
+              const tokenSymbol = await token.symbol();
+              this.setState({ tokenSymbol });
 
-  *Example transaction hash:* ``0x4b396191e87c31a02e80160cb6a2661da6086c073f6e91e9bd1f796e29b0c983``
+              // Set wei / token rate below
+              const rate = await token.rate();
+              this.setState({ rate: rate.toNumber() });
 
-4. Refresh the browser or select a different account and come back, and view the account's balance of shiny new tokens!
+              this.loadAccountBalances(this.web3.eth.accounts[0]);
+              this.loadEventListeners();
 
-- |app05|
+              [...]
+            }
 
-  .. |app05| raw:: html
+3. Buy tokens and view the log confirmation in the developer console and token and ETH balance updated dynamically!
 
-    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.5.js" target="_blank">Complete App.js solution may be found here</a>
+- |app06|
+
+  .. |app06| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.6.js" target="_blank">Complete App.js solution may be found here</a>

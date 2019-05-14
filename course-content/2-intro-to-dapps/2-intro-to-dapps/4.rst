@@ -1,119 +1,93 @@
-Stage 4: Token Interface
-========================
+Stage 4: Load Available On-chain Accounts
+=========================================
 
-Now you will *connect* your web application to your newly created ``Token`` contract!
+`Video Tutorial <https://drive.google.com/open?id=1hqqMw2Fv7wtqgRKl6TLoAb5go3BOqBkR>`_
 
-`Video Tutorial <https://drive.google.com/open?id=18bU8mbWN1p6GrPnTLck7k14ByhngvBMg>`_
-
-.. important::
-
-  Now you should transition back to your Sublime text editor to begin editing your application code.
-
-  All of the application development will take place within the ``src/App.js`` file.
-
-  Please begin by opening this file which may be done so simply by double-clicking on it in the left file tree under the ``src`` folder.
-
-  Note you may also close the other files you may still have open ``test_buy.js`` or ``2_deploy_contracts.js``.
-
-**Time to start wiring it up!**
-
-1. Import the web3 library, ``src/app.js`` #line 5
+1. Get the available accounts from the web3 connection, this is to go beneath the ``getNetwork`` block where the token reference was created, line 35 & 37
 
 .. code-block:: javascript
 
-  import Web3 from 'web3';
+  this.web3.eth.getAccounts((err, accounts) => {
 
-2. Import the token build artifacts into the application, app.js#line 14
+  });                                             
 
-.. code-block:: javascript
+2. Load the available accounts into the user interface
 
-  import tokenArtifacts from './build/contracts/Token.json';
-
-3. Create a web3 connection to the local Ethereum node(ganache), app.js#line 26
+- Import the Material UI MenuItem, line 12
 
 .. code-block:: javascript
 
-  this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+  import MenuItem from 'material-ui/MenuItem';
 
-4. Detect the current network id that is connected, app.js#line 28-30
-  
-  .. note::
-  
-    This needs to be after the ``this.web3 = ...`` line above and within the ``componentDidMount(){}`` function
-    
-    - i.e.
+- Add an availableAccounts arrary into the app's state, line 21
+
+.. code-block:: javascript
+
+  availableAccounts: [],
+
+- Append all accounts into the UI dropdown menu, line 38-45
+
+  .. important:: 
+
+    The code block below is to go within the callback of the ``getAccounts`` call above.
+
+    i.e.
 
       .. code-block:: javascript
 
-        async componentDidMount() {
-          this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-
-          this.web3.version.getNetwork(async (err, netId) => {
-
-          });
-        }
-
-  .. code-block:: javascript
-
-    this.web3.version.getNetwork(async (err, netId) => {
-
-    });
-
-5. Extract the recently deploy token address from the build artifacts, app.js#line 29
-
-  .. important::
-
-    This must be placed within the callback of the above ``getNetwork`` function call where ``netId`` is available!
-
-    i.e.
-
-    .. code-block:: javascript
-
-        this.web3.version.getNetwork(async (err, netId) => {
-          const tokenAddress = tokenArtifacts.networks[netId].address;
+        this.web3.eth.getAccounts((err, accounts) => {
+          // Append all available accounts
+          for (let i = 0; i < accounts.length; i++) {
+            this.setState({
+              availableAccounts: this.state.availableAccounts.concat(
+                <MenuItem value={i} key={accounts[i]} primaryText={accounts[i]} />
+              )
+            });
+          }
         });
 
   .. code-block:: javascript
 
-    const tokenAddress = tokenArtifacts.networks[netId].address;
+    // Append all available accounts
+    for (let i = 0; i < accounts.length; i++) {
+      this.setState({
+        availableAccounts: this.state.availableAccounts.concat(
+          <MenuItem value={i} key={accounts[i]} primaryText={accounts[i]} />
+        )
+      });
+    }
 
-6. Create a client side reference to the contract and save it in the application's state, app.js#line 30-32
+3. Set the default account
 
-  .. important::
-
-    This must be placed within the callback of the above ``getNetwork`` function call where ``netId`` is available!
-
-    i.e.
-
-    .. code-block:: javascript
-
-        this.web3.version.getNetwork(async (err, netId) => {
-          const tokenAddress = tokenArtifacts.networks[netId].address;
-          const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
-          this.setState({ token });
-          console.log(token);
-        });
+- Add a defaultAccount variable to the state, line 22
 
   .. code-block:: javascript
 
-    const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
-    this.setState({ token });
-    console.log(token);
+    defaultAccount: 0,
 
-7. Refresh your chrome browser and open up the developer console
+  .. note:: 
 
-This can be accomplished by right-clicking anywhere in the chrome browser and in the dropdown selecting ``inspect`` or ``inspect element`` or by utilizing the shortcut: ``ctrl+shift+i``.
+    The constructor and state should now look like this:
 
-*View in the developer console the token instance is now present*
+    .. code-block:: javascript
 
-- *Example output:*
+      constructor(props) {
+        super(props)
+        this.state = {
+          availableAccounts: [],
+          defaultAccount: 0,
+          token: null, // token contract
+        };
+      }  
 
-.. code-block:: bash
+- Set the defaultAccount in the state when the drowdown value changes, this is to be placed within the ``handleDropDownChange`` function, line 76
 
-  Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a370045968c0bc762a7", abi: Array[20]}
+.. code-block:: javascript
 
-- |app01|
+  this.setState({ defaultAccount });
 
-  .. |app01| raw:: html
+- |app02|
 
-    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.1.js" target="_blank">Complete App.js solution may be found here</a>
+  .. |app02| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.2.js" target="_blank">Complete App.js solution may be found here</a>

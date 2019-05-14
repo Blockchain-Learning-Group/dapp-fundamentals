@@ -1,12 +1,132 @@
-Stage 10: Transfer Tokens
-========================
+Stage 10: Basic Routing
+=========================
 
-**Try this portion on your own! [Solutions noted in the following solutions section...]**
+1. Add basic routing to render navigate between a new component and the existing wallet component
 
-The required components included:
+  `Video Tutorial <https://drive.google.com/open?id=1hcdKMRLm6w4Pyewqse3uaIFQeg-s4VcU>`_
 
-1. Add the ``transferAmount`` and ``transferUser`` to the app's state.
-2. Add the React form component in order to transfer tokens.
-3. Complete the ``transfer`` method to send the transfer transaction.
+  - Change into the ``wallet-template`` directory
 
-**Finally transfer tokens between accounts and review balances.**
+    .. code-block::
+
+      cd ~/Desktop/blg/wallet-template
+
+  - Add the ``react-router-dom`` package to the project
+
+    .. code-block:: console
+
+      npm install --save react-router-dom@4.3.1
+
+  - *Example output:*
+
+    .. code-block:: console
+
+      wallet-template$ npm install --save react-router-dom@4.3.1
+      [..]
+      + react-router-dom@4.3.1
+      updated 1 package and audited 13712 packages in 9.686s
+      found 40 vulnerabilities (31 low, 6 moderate, 3 high)
+      run `npm audit fix` to fix them, or `npm audit` for details
+      wallet-template$
+
+  - Import the router components into the app, within ``App.js`` at line 2
+
+    .. code-block:: javascript
+
+      import { BrowserRouter, Route, Link } from 'react-router-dom';
+
+  - Wrap the existing ``{component}`` in ``App.js`` at line 150 with the router, ~line 150 & line 152
+
+    .. code-block:: html
+
+      <BrowserRouter>
+        <div> 
+          {component}
+        </div> 
+      </BrowserRouter>
+
+  .. important::
+
+    The two routes below must go within the ``<div>`` with the ``<BrowserRouter>``.
+
+    i.e.
+
+      .. code-block:: html
+
+        <BrowserRouter>
+          <div>
+            <Route exact={true} path="/" render={() => component}/>
+            <Route exact={true} path="/newPage" render={() => <h1>New Page!</h1>} />
+          </div>
+        </BrowserRouter>
+
+  - Add a *route* for the default page, replace the existing ``{component}`` line 151 with the route below on line 151 
+
+    .. code-block:: html
+
+      <Route exact={true} path="/" render={() => component}/>
+
+  - Add a secondary route for the new page you are going to create, line 152
+
+    .. code-block:: html
+
+      <Route exact={true} path="/newPage" render={() => <h1>New Page!</h1>} />
+
+  .. note::
+
+    Give the new route a try!  
+    Directly in the browser in the search bar add the path ``newPage`` to the url resulting in: ``http://localhost:3000/newPage`` 
+
+  - Add a button to navigate to the new page from the wallet, add this link at the top of your ``component``, ~line 110-112
+
+    .. code-block:: html
+
+      <Link to={'newPage'}>
+        <RaisedButton label=">>> New Page" secondary={true} fullWidth={true}/>
+      </Link>
+
+    - It should result in the following:
+
+      .. code-block:: html
+
+        component = <div>
+          <Link to={'newPage'}>
+            <RaisedButton label=">>> New Page" secondary={true} fullWidth={true}/>
+          </Link>
+          <h3>Active Account</h3>
+          [...]
+
+  - Confirm selection of the new button will change the route in the url to ``/newPage``
+
+----
+
+2. Create your new page!
+
+  - Add a basic component with a link back to the wallet to begin with, add this component beneath the existing ``component`` 
+    just before the return state, line 147-151
+
+    .. code-block:: html
+
+      const newPage = <div>
+        <Link to={'/'}>
+          <RaisedButton label="Wallet <<<" primary={true} fullWidth={true}/>
+        </Link>
+      </div>
+
+  - Update your ``newPage`` route to now render this component, line 162
+
+    .. code-block:: html
+
+      <Route exact={true} path="/newPage" render={() => newPage} />
+
+  - |app08|
+
+    .. |app08| raw:: html
+
+      <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.8.js" target="_blank">Complete App.js solution may be found here</a>
+
+----
+
+.. important::
+
+  All done?  We recommend reviewing the complementary video series found `here <../1-blockchain-fundamentals/bonus.html#blockchain-fundamentals-video-series>`_.

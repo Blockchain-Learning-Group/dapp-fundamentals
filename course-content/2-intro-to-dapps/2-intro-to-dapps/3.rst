@@ -1,145 +1,119 @@
-Stage 3: Token Deployment
-=========================
+Stage 3: Token Interface
+========================
+
+Now you will *connect* your web application to your newly created ``Token`` contract!
+
+`Video Tutorial <https://drive.google.com/open?id=18bU8mbWN1p6GrPnTLck7k14ByhngvBMg>`_
 
 .. important::
 
-  The following videos may make note of the use of something called "Docker" and "containers", but do note that Docker has since been omitted.
-  The same commands that are mentioned may be run directly on the machine without entering into the noted container.
+  Now you should transition back to your Sublime text editor to begin editing your application code.
 
-`Video Tutorial <https://drive.google.com/open?id=1j95myJ3MCRRCWJwUr_9v0BDwyWm1quow>`_
+  All of the application development will take place within the ``src/App.js`` file.
 
-1. Start up your Ethereum node, ganache
+  Please begin by opening this file which may be done so simply by double-clicking on it in the left file tree under the ``src`` folder.
 
-  - Back within your terminal window where the ``npm start`` command was run, create a new terminal window, or tab, to run your blockchain
+  Note you may also close the other files you may still have open ``test_buy.js`` or ``2_deploy_contracts.js``.
 
+**Time to start wiring it up!**
+
+1. Import the web3 library, ``src/app.js`` #line 5
+
+.. code-block:: javascript
+
+  import Web3 from 'web3';
+
+2. Import the token build artifacts into the application, app.js#line 14
+
+.. code-block:: javascript
+
+  import tokenArtifacts from './build/contracts/Token.json';
+
+3. Create a web3 connection to the local Ethereum node(ganache), app.js#line 26
+
+.. code-block:: javascript
+
+  this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+
+4. Detect the current network id that is connected, app.js#line 28-30
+  
   .. note::
-    While within the terminal window select File -> Open Terminal to create a new window.
-
-    To create a new tab from within a terminal window:
-
-    .. code-block:: bash
-
-      ctrl+shft+t
-
-  - *Example output: Result is a new empty terminal, in the same directory you were in.*
-
-    .. code-block:: console
-
-      adam@adam:~/Desktop/blg/wallet-template$
-
-  - Then run the blockchain emulation with the below command:
-
-    .. code-block:: console
-
-      ganache-cli
-
-  - Example output:
-
-    .. code-block:: console
+  
+    This needs to be after the ``this.web3 = ...`` line above and within the ``componentDidMount(){}`` function
     
-      # ganache-cli
-      Ganache CLI v6.0.3 (ganache-core: 2.0.2)
-      [...]
-      Listening on localhost:8545
+    - i.e.
 
-2. Open the application's code in the Sublime text editor, time to get to some coding...
+      .. code-block:: javascript
 
-  - Open the Sublime text editor by clicking on the Sublime icon in the left dock.
+        async componentDidMount() {
+          this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
-  - From within Sublime open the `wallet-template` folder. Click on ``File`` in the top left corner and select ``Open Folder...`` in the menu.  Select ``Desktop/blg/wallet-template`` to open, and we can get to coding!
+          this.web3.version.getNetwork(async (err, netId) => {
 
----
-
-`Video Tutorial <https://drive.google.com/open?id=1sdLtnunj3crUAMX6Q_qqYOITJ0Z94Ee0>`_
-
-.. note::
-  - A default, and required, initial migration script(src/migrations/1_initial_migration.js), has been included. Do *not* remove this script.
-
-3. Write the Deployment Script
-
-  - Create a new file in order to deploy the token, ``src/migrations/2_deploy_contracts.js``
-
-    - Simply right-click on the migrations directory and select ``New File`` from the drop down menu to create the new file.
-    - Select ``File`` => ``Save As`` and then enter the name of the file: ``2_deploy_contracts.js``, click the ``Save`` button in the bottom right corner.
-
-  **Time to add some code to this new file!**
-
-  - Import the token's artifacts, line 1
+          });
+        }
 
   .. code-block:: javascript
 
-    const Token = artifacts.require("./Token.sol");
+    this.web3.version.getNetwork(async (err, netId) => {
 
-  - Define the owner account, line 2 
-    - Note that the ``truffle migrate`` command exposes the ``web3`` object globally which is connected to your ganache node
-      and therefore has access to all of the default 10 accounts.
+    });
 
-  .. code-block:: javascript
-
-    const owner = web3.eth.accounts[0];
-
-  - Utilize truffle's deployer object in order to deploy an instance of the token, line 4-6
-    - This deployer is a utility that ``truffle`` provides within its framework to make sending ``contract creation`` transactions as easy as the one line below!
-    - This function will be exported so that it may be executed by the ``truffle migrate`` command
-
-  .. code-block:: javascript
-
-    module.exports = deployer => {
-      deployer.deploy(Token, { from: owner });
-    }
+5. Extract the recently deploy token address from the build artifacts, app.js#line 29
 
   .. important::
 
-    Don't forget to save!
+    This must be placed within the callback of the above ``getNetwork`` function call where ``netId`` is available!
 
-    This may be done either by selecting ``File`` => ``Save`` or via ``ctrl+s`` on the keyboard.
+    i.e.
 
-4. Deploy your Token
+    .. code-block:: javascript
+
+        this.web3.version.getNetwork(async (err, netId) => {
+          const tokenAddress = tokenArtifacts.networks[netId].address;
+        });
+
+  .. code-block:: javascript
+
+    const tokenAddress = tokenArtifacts.networks[netId].address;
+
+6. Create a client side reference to the contract and save it in the application's state, app.js#line 30-32
 
   .. important::
 
-    Now back within your terminal window where the ``truffle test`` command was recently run...
+    This must be placed within the callback of the above ``getNetwork`` function call where ``netId`` is available!
 
-    Ensure you are still in the ``src`` directory!
+    i.e.
 
-  .. code-block:: bash
+    .. code-block:: javascript
 
-    truffle migrate --reset
+        this.web3.version.getNetwork(async (err, netId) => {
+          const tokenAddress = tokenArtifacts.networks[netId].address;
+          const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
+          this.setState({ token });
+          console.log(token);
+        });
 
-  - *Example output:*
+  .. code-block:: javascript
 
-  .. code-block:: console
+    const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
+    this.setState({ token });
+    console.log(token);
 
-    # truffle migrate --reset
-    Using network 'development'.
+7. Refresh your chrome browser and open up the developer console
 
-    Running migration: 1_initial_migration.js
-      Deploying Migrations...
-      ... 0x26ff3f480502a228f34363e938289c3164edf8bc49c75f5d6d9623a05da92dbf
-      Migrations: 0x3e47fad1423cbf6bd97fee18ae2de546b0e9188a
-    Saving successful migration to network...
-      ... 0x19a7a819df452847f34815e2573765be8c26bac43b1c10d3b7528e6d952ac02c
-    Saving artifacts...
-    Running migration: 2_deploy_contracts.js
-      Deploying Token...
-      ... 0x4a69e7840d0f96067964fb515ffea1a04a98fc5759849d3308584af4770c8f7b
-      Token: 0xd58c6b5e848d70fd94693a370045968c0bc762a7
-    Saving successful migration to network...
-      ... 0xd1e9bef5f19bb37daa200d7e563f4fa438da60dbc349f408d1982f8626b3c202
-    Saving artifacts...
-    #
+This can be accomplished by right-clicking anywhere in the chrome browser and in the dropdown selecting ``inspect`` or ``inspect element`` or by utilizing the shortcut: ``ctrl+shift+i``.
 
-.. important::
+*View in the developer console the token instance is now present*
 
-  You just sent your first *contract creation* transaction via the ``truffle`` framework, well done!
+- *Example output:*
 
-  As above, the ``Token`` contract has been created at address: ``0xd58c6b5e848d70fd94693a370045968c0bc762a7``, note that yours will 
-  almost certainly be created at a different address!  
+.. code-block:: bash
 
-  Also the ``Migrations`` contract was created which is nothing to worry about but just a utility the ``truffle`` framework uses to monitor
-  the status of your transactions.
+  Contract {_eth: Eth, transactionHash: null, address: "0xd58c6b5e848d70fd94693a370045968c0bc762a7", abi: Array[20]}
 
-  If you have a look back at ganache and select on the ``Transactions`` tab you will see the ``Contract Creation`` transactions that were sent
-  and lots of other data too!
+- |app01|
 
-  .. image:: https://raw.githubusercontent.com/Blockchain-Learning-Group/course-resources/master/wallet-template/ganache-after-migration.png
+  .. |app01| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.1.js" target="_blank">Complete App.js solution may be found here</a>

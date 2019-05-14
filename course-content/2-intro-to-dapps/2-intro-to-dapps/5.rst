@@ -1,93 +1,61 @@
-Stage 5: Load Available On-chain Accounts
-=========================================
+Stage 5: Token Interaction - GET
+================================
 
-`Video Tutorial <https://drive.google.com/open?id=1hqqMw2Fv7wtqgRKl6TLoAb5go3BOqBkR>`_
+`Video Tutorial <https://drive.google.com/open?id=11WaCAk_sc2S4W-az-zV-TD6Le3tGqx5q>`_
 
-1. Get the available accounts from the web3 connection, this is to go beneath the ``getNetwork`` block where the token reference was created, line 35 & 37
+1. Load the token metadata from the contract
 
-.. code-block:: javascript
-
-  this.web3.eth.getAccounts((err, accounts) => {
-
-  });                                             
-
-2. Load the available accounts into the user interface
-
-- Import the Material UI MenuItem, line 12
+- Add the token's symbol to the state, line 23
 
 .. code-block:: javascript
 
-  import MenuItem from 'material-ui/MenuItem';
+  tokenSymbol: 0,
 
-- Add an availableAccounts arrary into the app's state, line 21
+.. important::
 
-.. code-block:: javascript
+  The calls to the ``token`` object beneath must be nested within the callback of the ``getNetwork`` call where the ``token`` reference was created.
 
-  availableAccounts: [],
+  i.e.
 
-- Append all accounts into the UI dropdown menu, line 38-45
+    this.web3.version.getNetwork(async (err, netId) => {
+      const tokenAddress = tokenArtifacts.networks[netId].address;
+      const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
+      this.setState({ token });
+      console.log(token);
 
-  .. important:: 
+      // Set token symbol below
+      const tokenSymbol = await token.symbol();
+      this.setState({ tokenSymbol });
 
-    The code block below is to go within the callback of the ``getAccounts`` call above.
+      // Set wei / token rate below
+      const rate = await token.rate();
+      this.setState({ rate: rate.toNumber() });
+    }); 
 
-    i.e.
-
-      .. code-block:: javascript
-
-        this.web3.eth.getAccounts((err, accounts) => {
-          // Append all available accounts
-          for (let i = 0; i < accounts.length; i++) {
-            this.setState({
-              availableAccounts: this.state.availableAccounts.concat(
-                <MenuItem value={i} key={accounts[i]} primaryText={accounts[i]} />
-              )
-            });
-          }
-        });
-
-  .. code-block:: javascript
-
-    // Append all available accounts
-    for (let i = 0; i < accounts.length; i++) {
-      this.setState({
-        availableAccounts: this.state.availableAccounts.concat(
-          <MenuItem value={i} key={accounts[i]} primaryText={accounts[i]} />
-        )
-      });
-    }
-
-3. Set the default account
-
-- Add a defaultAccount variable to the state, line 22
-
-  .. code-block:: javascript
-
-    defaultAccount: 0,
-
-  .. note:: 
-
-    The constructor and state should now look like this:
-
-    .. code-block:: javascript
-
-      constructor(props) {
-        super(props)
-        this.state = {
-          availableAccounts: [],
-          defaultAccount: 0,
-          token: null, // token contract
-        };
-      }  
-
-- Set the defaultAccount in the state when the drowdown value changes, this is to be placed within the ``handleDropDownChange`` function, line 76
+- Load the token's symbol, line 39-41
 
 .. code-block:: javascript
 
-  this.setState({ defaultAccount });
+  // Set token symbol below
+  const tokenSymbol = await token.symbol();
+  this.setState({ tokenSymbol });
 
-- |app02|
+- Add the token's rate to the state, line 23
 
-  .. |app02| raw:: html
+.. code-block:: javascript
 
-    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.2.js" target="_blank">Complete App.js solution may be found here</a>
+  rate: 1,
+
+- Load the token's rate, line 43-45
+
+.. code-block:: javascript
+
+  // Set wei / token rate below
+  const rate = await token.rate();
+  this.setState({ rate: rate.toNumber() });
+
+- |app03|
+
+  .. |app03| raw:: html
+
+    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.3.js" target="_blank">Complete App.js solution may be found here</a>
