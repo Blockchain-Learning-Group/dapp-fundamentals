@@ -30,19 +30,19 @@ Stage 1: Starting the Application
 
 - *Example output:*
 
-.. code-block:: console
+  .. code-block:: console
 
-  $ npm start
-  Starting the development server...
+    $ npm start
+    Starting the development server...
 
-  Compiled successfully!
+    Compiled successfully!
 
-  You can now view my-app in the browser.
+    You can now view my-app in the browser.
 
-    Local:            http://localhost:3000/
-    On Your Network:  http://172.17.0.2:3000/
+      Local:            http://localhost:3000/
+      On Your Network:  http://172.17.0.2:3000/
 
-  Note that the development build is not optimized.
-  To create a production build, use yarn build.
+    Note that the development build is not optimized.
+    To create a production build, use yarn build.
 
 **- Chrome should automatically be opened and the application rendered!**

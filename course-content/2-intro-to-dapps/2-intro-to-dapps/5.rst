@@ -5,59 +5,59 @@ Stage 5: Token Interaction - GET
 
 1. Load the token metadata from the contract
 
-- Add the token's symbol to the state, line 23
+  - Add the token's symbol to the state, line 23
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  tokenSymbol: 0,
+    tokenSymbol: 0,
 
-.. important::
+  .. important::
 
-  The calls to the ``token`` object beneath must be nested within the callback of the ``getNetwork`` call where the ``token`` reference was created.
+    The calls to the ``token`` object beneath must be nested within the callback of the ``getNetwork`` call where the ``token`` reference was created.
 
-  i.e.
+    i.e.
 
-    ::
+      ::
 
-      this.web3.version.getNetwork(async (err, netId) => {
-        const tokenAddress = tokenArtifacts.networks[netId].address;
-        const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
-        this.setState({ token });
-        console.log(token);
+        this.web3.version.getNetwork(async (err, netId) => {
+          const tokenAddress = tokenArtifacts.networks[netId].address;
+          const token = this.web3.eth.contract(tokenArtifacts.abi).at(tokenAddress);
+          this.setState({ token });
+          console.log(token);
 
-        // Set token symbol below
-        const tokenSymbol = await token.symbol();
-        this.setState({ tokenSymbol });
+          // Set token symbol below
+          const tokenSymbol = await token.symbol();
+          this.setState({ tokenSymbol });
 
-        // Set wei / token rate below
-        const rate = await token.rate();
-        this.setState({ rate: rate.toNumber() });
-      }); 
+          // Set wei / token rate below
+          const rate = await token.rate();
+          this.setState({ rate: rate.toNumber() });
+        }); 
 
-- Load the token's symbol, line 39-41
+  - Load the token's symbol, line 39-41
 
-.. code-block:: javascript
+    .. code-block:: javascript
 
-  // Set token symbol below
-  const tokenSymbol = await token.symbol();
-  this.setState({ tokenSymbol });
+      // Set token symbol below
+      const tokenSymbol = await token.symbol();
+      this.setState({ tokenSymbol });
 
-- Add the token's rate to the state, line 23
+  - Add the token's rate to the state, line 23
 
-.. code-block:: javascript
+    .. code-block:: javascript
 
-  rate: 1,
+      rate: 1,
 
-- Load the token's rate, line 43-45
+  - Load the token's rate, line 43-45
 
-.. code-block:: javascript
+    .. code-block:: javascript
 
-  // Set wei / token rate below
-  const rate = await token.rate();
-  this.setState({ rate: rate.toNumber() });
+      // Set wei / token rate below
+      const rate = await token.rate();
+      this.setState({ rate: rate.toNumber() });
 
-- |app03|
+  - |app03|
 
-  .. |app03| raw:: html
+    .. |app03| raw:: html
 
-    <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.3.js" target="_blank">Complete App.js solution may be found here</a>
+      <a href="https://github.com/Blockchain-Learning-Group/course-resources/blob/master/wallet-template/dev-stages/App.3.js" target="_blank">Complete App.js solution may be found here</a>
