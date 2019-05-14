@@ -39,15 +39,15 @@
 
 3. Now players need to be able to take a turn, specifying where they want to place their x or o
 
-- create a function to allow this
+    - create a function to allow this
 
-::
+    ::
 
-    /**
-     * @notice Take your turn, selecting a board location
-     * @param _boardLocation Location of the board to take
-     */
-    function takeTurn(uint256 _boardLocation) external {}
+        /**
+        * @notice Take your turn, selecting a board location
+        * @param _boardLocation Location of the board to take
+        */
+        function takeTurn(uint256 _boardLocation) external {}
 
 4. Mark the board, within the ``takeTurn`` function update the ``gameBoard`` array
 
@@ -73,46 +73,48 @@
 
 6. Give it a shot!  Try starting a game and taking turns, watch as the game board's indexes are filled
 
-    - Completed code:
+---- 
 
-        ::
+- Completed code:
 
-            pragma solidity 0.4.24;
+    ::
+
+        pragma solidity 0.4.24;
 
 
-            contract TicTacToe {
-                
-                address public player1_;
-                address public player2_;
-                mapping(address => uint256) public playerNumbers_;  // Map ugly address to number for simpler inspection of game board
-                
-                /** The game board itself 
-                * 0, 1, 2
-                * 3, 4, 5
-                * 6, 7, 8
-                */
-                uint256[9] private gameBoard_;
-                
-                function startGame(address _player1, address _player2) external {
-                        player1_ = _player1;
-                        playerNumbers_[_player1] = 1;
-                        
-                        player2_ = _player2;
-                        playerNumbers_[_player2] = 2;
-                }
-                
-                /**
-                * @notice Take your turn, selecting a board location
-                * @param _boardLocation Location of the board to take
-                */
-                function takeTurn(uint256 _boardLocation) external {
-                    gameBoard_[_boardLocation] = playerNumbers_[msg.sender];
-                }
-                
-                function getBoard() external view returns(uint256[9]) {
-                    return gameBoard_;
-                }
+        contract TicTacToe {
+            
+            address public player1_;
+            address public player2_;
+            mapping(address => uint256) public playerNumbers_;  // Map ugly address to number for simpler inspection of game board
+            
+            /** The game board itself 
+            * 0, 1, 2
+            * 3, 4, 5
+            * 6, 7, 8
+            */
+            uint256[9] private gameBoard_;
+            
+            function startGame(address _player1, address _player2) external {
+                    player1_ = _player1;
+                    playerNumbers_[_player1] = 1;
+                    
+                    player2_ = _player2;
+                    playerNumbers_[_player2] = 2;
             }
+            
+            /**
+            * @notice Take your turn, selecting a board location
+            * @param _boardLocation Location of the board to take
+            */
+            function takeTurn(uint256 _boardLocation) external {
+                gameBoard_[_boardLocation] = playerNumbers_[msg.sender];
+            }
+            
+            function getBoard() external view returns(uint256[9]) {
+                return gameBoard_;
+            }
+        }
 
 ----
 
