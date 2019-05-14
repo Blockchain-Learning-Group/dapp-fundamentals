@@ -3,69 +3,129 @@
 
 12. First define which combinations within the game board, which indexes, define a "win"
 
-::
+    ::
 
-    /**
-     * Winning filters:
-     * 0, 1, 2
-     * 3, 4, 5
-     * 6, 7, 8
-     * 
-     * 3 in a row:
-     * [0,1,2] || [3,4,5] || [6,7,8] 
-     * 
-     * 3 in a column:
-     * [0,3,6] || [1,4,7] || [2,5,8] 
-     * 
-     * Diagonals:
-     * [0,4,8] || [6,4,2]
-     */
+        /**
+         * Winning filters:
+         * 0, 1, 2
+         * 3, 4, 5
+         * 6, 7, 8
+         * 
+         * 3 in a row:
+         * [0,1,2] || [3,4,5] || [6,7,8] 
+         * 
+         * 3 in a column:
+         * [0,3,6] || [1,4,7] || [2,5,8] 
+         * 
+         * Diagonals:
+         * [0,4,8] || [6,4,2]
+         */
 
 13. Create a function to compute a winner and implement these combintations as filters to filter the board with
 
-::
+    ::
 
-    function isWinner(address player) private view returns(bool) {
-        uint8[3][8] memory winningFilters = [
-            [0,1,2],[3,4,5],[6,7,8],  // rows
-            [0,3,6],[1,4,7],[2,5,8],  // columns
-            [0,4,8],[6,4,2]           // diagonals
-        ];
-    }
+        function isWinner(address player) private view returns(bool) {
+            uint8[3][8] memory winningFilters = [
+                [0,1,2],[3,4,5],[6,7,8],  // rows
+                [0,3,6],[1,4,7],[2,5,8],  // columns
+                [0,4,8],[6,4,2]           // diagonals
+            ];
+        }
         
 14. Create a for loop to iterate over each filter, within the ``isWinner`` function
 
-::
+    ::
 
-    for (uint8 i = 0; i < winningFilters.length; i++) {
-        uint8[3] memory filter = winningFilters[i];
-    }
+        for (uint8 i = 0; i < winningFilters.length; i++) {
+            uint8[3] memory filter = winningFilters[i];
+        }
 
-15. Add a storage variable to define the winner
+    - Result:
 
-::
-    
-    address public winner_;
+        ::
+
+            function isWinner(address player) private view returns(bool) {
+                uint8[3][8] memory winningFilters = [
+                    [0,1,2],[3,4,5],[6,7,8],  // rows
+                    [0,3,6],[1,4,7],[2,5,8],  // columns
+                    [0,4,8],[6,4,2]           // diagonals
+                ];
+                
+                for (uint8 i = 0; i < winningFilters.length; i++) {
+                    uint8[3] memory filter = winningFilters[i];
+                }
+            }
+
+15. Add a storage variable at the top of the contract beneath ``address public lastPlayed_;`` to define the winner
+
+    ::
+        
+        address public winner_;
 
 16. Within the above ``for loop`` compare each filter against the game board and see if the player has won with their latest turn
 
-::
+    ::
 
-    if (
-        gameBoard_[filter[0]]==playerNumbers_[player] && 
-        gameBoard_[filter[1]]==playerNumbers_[player] && 
-        gameBoard_[filter[2]]==playerNumbers_[player]
-    ) {
-        return true;
-    }
+        if (
+            gameBoard_[filter[0]]==playerNumbers_[player] && 
+            gameBoard_[filter[1]]==playerNumbers_[player] && 
+            gameBoard_[filter[2]]==playerNumbers_[player]
+        ) {
+            return true;
+        }
+
+    - Result:
+
+        ::
+
+            function isWinner(address player) private view returns(bool) {
+                uint8[3][8] memory winningFilters = [
+                    [0,1,2],[3,4,5],[6,7,8],  // rows
+                    [0,3,6],[1,4,7],[2,5,8],  // columns
+                    [0,4,8],[6,4,2]           // diagonals
+                ];
+                
+                for (uint8 i = 0; i < winningFilters.length; i++) {
+                    uint8[3] memory filter = winningFilters[i];
+                    
+                    if (
+                        gameBoard_[filter[0]]==playerNumbers_[player] && 
+                        gameBoard_[filter[1]]==playerNumbers_[player] && 
+                        gameBoard_[filter[2]]==playerNumbers_[player]
+                    ) {
+                        return true;
+                    }
+                }
+            }
+
 
 17. At the end of the ``takeTurn`` function, after each turn is taken see if there is a winner, update the storage variable if there is a winner
 
-::
+    ::
 
-    if (isWinner(msg.sender)) {
-        winner_ = msg.sender;
-    }
+        if (isWinner(msg.sender)) {
+            winner_ = msg.sender;
+        }
+
+    - Result:
+
+        ::
+
+            function takeTurn(uint256 _boardLocation) external {
+                require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
+                require(gameBoard_[_boardLocation] == 0, "Spot taken!");
+                require(msg.sender != lastPlayed_, "Not your turn.");
+
+                gameBoard_[_boardLocation] = playerNumbers_[msg.sender];
+                lastPlayed_ = msg.sender;
+                
+                if (isWinner(msg.sender)) {
+                    winner_ = msg.sender;
+                }
+            }
+
+----
 
 **Try it out! See if the winner is set if 3 in a row is found**
 
@@ -78,45 +138,153 @@
     - Turns can still continue to be taken, no notification that the game has ended
     - What happens in the case of a draw?
 
+----
 
-18. Add a storage variable to signify the game has ended
+- Completed code:
 
-::
+    ::
 
-    bool public gameOver_;
+        pragma solidity 0.4.24;
+
+
+        contract TicTacToe {
+            
+            address public player1_;
+            address public player2_;
+            mapping(address => uint256) public playerNumbers_;  // Map ugly address to number for simpler inspection of game board
+            address public lastPlayed_;
+            address public winner_;
+            
+            /** The game board itself 
+            * 0, 1, 2
+            * 3, 4, 5
+            * 6, 7, 8
+            */
+            uint256[9] private gameBoard_;
+            
+            function startGame(address _player1, address _player2) external {
+                    player1_ = _player1;
+                    playerNumbers_[_player1] = 1;
+                    
+                    player2_ = _player2;
+                    playerNumbers_[_player2] = 2;
+            }
+            
+            /**
+            * @notice Take your turn, selecting a board location
+            * @param _boardLocation Location of the board to take
+            */
+            function takeTurn(uint256 _boardLocation) external {
+                require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
+                require(gameBoard_[_boardLocation] == 0, "Spot taken!");
+                require(msg.sender != lastPlayed_, "Not your turn.");
+
+                gameBoard_[_boardLocation] = playerNumbers_[msg.sender];
+                lastPlayed_ = msg.sender;
+                
+                if (isWinner(msg.sender)) {
+                    winner_ = msg.sender;
+                }
+            }
+            
+            function getBoard() external view returns(uint256[9]) {
+                return gameBoard_;
+            }
+            
+            function isWinner(address player) private view returns(bool) {
+                uint8[3][8] memory winningFilters = [
+                    [0,1,2],[3,4,5],[6,7,8],  // rows
+                    [0,3,6],[1,4,7],[2,5,8],  // columns
+                    [0,4,8],[6,4,2]           // diagonals
+                ];
+                
+                for (uint8 i = 0; i < winningFilters.length; i++) {
+                    uint8[3] memory filter = winningFilters[i];
+                    
+                    if (
+                        gameBoard_[filter[0]]==playerNumbers_[player] && 
+                        gameBoard_[filter[1]]==playerNumbers_[player] && 
+                        gameBoard_[filter[2]]==playerNumbers_[player]
+                    ) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+----
+
+
+18. Add a storage variable to signify the game has ended, beneath ``address public winner_;``
+
+    ::
+
+        bool public gameOver_;
 
 19. If a winner was found update that the game has ended, within the ``takeTurn`` function
 
-::
+    ::
 
-    gameOver_ = true;   
+        gameOver_ = true;   
 
-20.  Add a storage variable to count how many turns have been taken, will use this variable to define if a draw has occured
+    - Result:
 
-::
+        ::
 
-    uint256 public turnsTaken_;
+            if (isWinner(msg.sender)) {
+                winner_ = msg.sender;
+                gameOver_ = true;   
+            }
+
+20.  Add a storage variable to count how many turns have been taken, beneath ``bool public gameOver_;``, will use this variable to define if a draw has occured
+
+    ::
+
+        uint256 public turnsTaken_;
 
 21. After a turn is taken update the turns taken storage variable, within the ``takeTurn`` function
 
-::
+    ::
 
-    turnsTaken_++;
+        turnsTaken_++;
 
 22.  Add a conditional that if 9 turns have been taken the game has ended with no winner, within the ``takeTurn`` function
 
-::
+    ::
 
-    else if (turnsTaken_ == 9) {
-        gameOver_ = true;
-    }
+        else if (turnsTaken_ == 9) {
+            gameOver_ = true;
+        }
+
+    - Result:
+
+        ::
+
+            function takeTurn(uint256 _boardLocation) external {
+                require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
+                require(gameBoard_[_boardLocation] == 0, "Spot taken!");
+                require(msg.sender != lastPlayed_, "Not your turn.");
+
+                gameBoard_[_boardLocation] = playerNumbers_[msg.sender];
+                lastPlayed_ = msg.sender;
+                
+                if (isWinner(msg.sender)) {
+                    winner_ = msg.sender;
+                    gameOver_ = true;   
+                } else if (turnsTaken_ == 9) {
+                    gameOver_ = true;
+                }
+                
+                turnsTaken_++;
+            }
 
 23. Add a last pre condition check that the game is still active, within the ``takeTurn`` function
 
-::
+    ::
 
-    require(!gameOver_, "Sorry game has concluded.");
+        require(!gameOver_, "Sorry game has concluded.");
     
+----
 
 **Try it out!!**
 
@@ -128,3 +296,85 @@
 3. View that the winner has been set
 4. View that the game has ended
 5. Try and take another turn and view the output in Remix's console
+
+----
+
+- Completed code:
+
+    ::
+
+        pragma solidity 0.4.24;
+
+
+        contract TicTacToe {
+            
+            address public player1_;
+            address public player2_;
+            mapping(address => uint256) public playerNumbers_;  // Map ugly address to number for simpler inspection of game board
+            address public lastPlayed_;
+            address public winner_;
+            bool public gameOver_;
+            uint256 public turnsTaken_;
+            
+            /** The game board itself 
+            * 0, 1, 2
+            * 3, 4, 5
+            * 6, 7, 8
+            */
+            uint256[9] private gameBoard_;
+            
+            function startGame(address _player1, address _player2) external {
+                    player1_ = _player1;
+                    playerNumbers_[_player1] = 1;
+                    
+                    player2_ = _player2;
+                    playerNumbers_[_player2] = 2;
+            }
+            
+            /**
+            * @notice Take your turn, selecting a board location
+            * @param _boardLocation Location of the board to take
+            */
+            function takeTurn(uint256 _boardLocation) external {
+                require(msg.sender == player1_ || msg.sender == player2_, "Not a valid player.");
+                require(gameBoard_[_boardLocation] == 0, "Spot taken!");
+                require(msg.sender != lastPlayed_, "Not your turn.");
+                require(!gameOver_, "Sorry game has concluded.");
+
+                gameBoard_[_boardLocation] = playerNumbers_[msg.sender];
+                lastPlayed_ = msg.sender;
+                
+                if (isWinner(msg.sender)) {
+                    winner_ = msg.sender;
+                    gameOver_ = true;   
+                } else if (turnsTaken_ == 9) {
+                    gameOver_ = true;
+                }
+                
+                turnsTaken_++;
+            }
+            
+            function getBoard() external view returns(uint256[9]) {
+                return gameBoard_;
+            }
+            
+            function isWinner(address player) private view returns(bool) {
+                uint8[3][8] memory winningFilters = [
+                    [0,1,2],[3,4,5],[6,7,8],  // rows
+                    [0,3,6],[1,4,7],[2,5,8],  // columns
+                    [0,4,8],[6,4,2]           // diagonals
+                ];
+                
+                for (uint8 i = 0; i < winningFilters.length; i++) {
+                    uint8[3] memory filter = winningFilters[i];
+                    
+                    if (
+                        gameBoard_[filter[0]]==playerNumbers_[player] && 
+                        gameBoard_[filter[1]]==playerNumbers_[player] && 
+                        gameBoard_[filter[2]]==playerNumbers_[player]
+                    ) {
+                        return true;
+                    }
+                }
+            }
+        }
