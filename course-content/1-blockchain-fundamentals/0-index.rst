@@ -2,16 +2,16 @@
 Blockchain Fundamentals
 =======================
 
-.. important::
+.. .. important::
 
-    |day1|
+..     |day1|
 
-  .. |day1| raw:: html
+..   .. |day1| raw:: html
 
-    <a 
-        href="https://docs.google.com/presentation/d/e/2PACX-1vSCz8LTZtKXPEaBr_ciyt6mCrCutjBtCk8ewhuI6KCgCHcfRRr9CIdEMBVBJXHTecIXPdPh5KMZ-Y2U/pub?start=false&loop=false&delayms=3000" 
-        target="_blank"
-    >Day 1 presentation</a>
+..     <a 
+..         href="https://docs.google.com/presentation/d/e/2PACX-1vSCz8LTZtKXPEaBr_ciyt6mCrCutjBtCk8ewhuI6KCgCHcfRRr9CIdEMBVBJXHTecIXPdPh5KMZ-Y2U/pub?start=false&loop=false&delayms=3000" 
+..         target="_blank"
+..     >Day 1 presentation</a>
 
 1. `ethstats.net <https://ethstats.net/>`_
 ==================================================
